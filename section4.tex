@@ -183,7 +183,7 @@ $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積�
 \end{equation}
 \end{thm}
 
-\begin{proof}$A$全体ではなく，各$x \in A$に対して$x$を含む開集合$U_x \subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_x$上で証明できたとして，$\varphi(A)$の開被覆$\Opensets \coloneqq \set{\varphi(U_x) | x \in A}$に従属した$\varphi(A)$上の1の分割$\Psi$を取る．1の分割の定義より$\psi \in \Psi$はある$\varphi(U) \subset \varphi(A)$の外で0なので，
+\begin{proof}$A$全体ではなく，各$a \in A$に対して$a$を含む開集合$U_a \subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_a$上で証明できたとして，$\varphi(A)$の開被覆$\Opensets \coloneqq \set{\varphi(U_a) | x \in A}$に従属した$\varphi(A)$上の1の分割$\Psi$を取る．1の分割の定義より$\psi \in \Psi$はある$\varphi(U) \subset \varphi(A)$の外で0なので，
 \begin{align}
 \int_{\varphi(A)} (\psi \cdot f)(y) \dif\lambda^n(y) &= \int_{\varphi(U)} (\psi \cdot f)(y) \dif\lambda^n(y)\\
 &= \int_U (\psi \cdot f) \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) \\
@@ -203,7 +203,7 @@ $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積�
 \end{equation}
 であるから，定理の主張は$\int_{\varphi(U)} f(y) \dif\lambda^n(y) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)$と同値である．
 
-結局，各$x \in A$に対して$x$を含む開集合$U \subset A$が存在し，$\int_{\varphi^{-1}(U)} |\det J_\varphi(x)| \dif \lambda^n(x) = \int_U \dif \lambda^n$が成り立つことをいえばよいとわかった．$\varphi$の複雑さに応じた場合分けをする．
+結局，各$x \in A$に対して$x$を含む開集合$U \subset A$が存在し，$\int_U |\det J_\varphi(x)| \dif \lambda^n(x) = \int_{\varphi(U)} \dif \lambda^n$が成り立つことをいえばよいとわかった．証明をいくつかのステップに分割する．
 \begin{itemize}
 \item 主張が合成に関して閉じていることを言う．即ち，ふたつの微分同相$\varphi_1 \colon A_1 \to \varphi_1(A_1)$，$\varphi_2\colon A_2 \to \varphi_2(A_2)$が$\varphi_1(A_1) \subset A_2$を充たしており，更に$(\varphi_1)_* \mu_{\varphi_1} = \lambda^n$かつ$(\varphi_2)_* \mu_{\varphi_2} = \lambda^n$であるならば，$(\varphi_2 \circ \varphi_1)_* \mu_{\varphi_2 \circ \varphi_1} = \lambda^n$が成り立つことを示す．
 \begin{align}
@@ -214,7 +214,24 @@ $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積�
 &=\int_{{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} (y)| \dif (\varphi_1)_*\mu_{\varphi_1}(y)\\
 &=\int_{{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} (y)| \dif \lambda^n(y) = \lambda^n(U)
 \end{align}なのでよい．
-\item $\varphi$が線型変換である場合を示す．$\varphi$の行列表示を$M$とすると，$J_\varphi = M$であり，更に$M$は対称行列なので，直交行列$P$と対角行列$D$があり$M = P^{-1}DP$と書ける．
+\item $\varphi$が正則な線型変換の場合．
+\begin{itemize}
+\item 実数$m$と，ある$i$に対して$\varphi(e_i) = me_i$，$\varphi(e_j) = e_j$（$j \neq i$）の場合．Fubini の定理と1変数関数に対する置換積分よりよい．
+\item ある$i,j$に対して$\varphi(e_i) = e_i + e_j$，$\varphi(e_k) = e_k$（$k \neq i,j$）の場合．Fubini の定理と1次元 Lebesgue 測度の並進不変性から従う．
+\item ある$i,j$に対して$\varphi(e_i) = e_j$，$\varphi(e_j) = e_i$，$\varphi(e_k) = e_k$（$k \neq i,j$）の場合．Fubini の定理で示せる．
+\item 一般の線型変換は上3つの線型変換の合成で書けるので，並びに前段で示した「主張が合成に関して閉じていること」と併せて結果を得る．
+\end{itemize}
+\item 一般の$\varphi$の場合．${J_{\varphi}(a)}^{-1} \circ \varphi$に対して主張を示せば$\varphi$に対しても結果が従うので，最初から$J_\varphi(a) = I_n$（単位行列）だと仮定して証明してよい．次元$n$に関する帰納法に依る．$\varphi_1(x) \coloneqq (\varphi^1(x), \varphi^2(x), \dots, \varphi^{n-1}(x), x^n)$と定めれば$J_{\varphi_1}(a) = I_n$なので，逆関数定理より$\varphi_1$は$a$の近傍$V'$で定義された微分同相である．したがって$\varphi_2(x) \coloneqq (x^1, x^2, \dots,x^{n-1}, \varphi^n({\varphi_1}^{-1}(x)))$が定義でき，$\varphi = \varphi_2 \circ \varphi_1$が成り立つ．したがって$\varphi_2$は$\varphi_1(a)$の近傍で定義された微分同相である．主張が合成に関して閉じていることから，$\varphi_1$および$\varphi_2$の双方に対して主張を示せばよい．議論は同様なので$\varphi_1$に対してのみ示す．$a$を含む開方体$V \subset V'$を取る．$V$は$W \subset \Real^{n-1}$並びに$a^n, b^n \in \Real$を用いて$V = W \times (a^n, b^n)$と書ける．Fubini の定理より
+\begin{equation}
+\int_V  |\det J_{\varphi_1}(x)| \dif \lambda^n(x) = \int_{(a^n,b^n)} \int_W  |\det J_{\varphi_1}(x)| \dif \lambda^{n-1}(x^1, \dots, x^{n-1}) \dif x^n
+\end{equation}である．関数$\xi_{x^n} \colon W \to \Real^{n-1}$を$\xi_{x^n}(x^1, \dots, x^{n-1}) \coloneqq ((\varphi_1)^1(x), (\varphi_1)^2(x), \dots, (\varphi_1)^{n-1}(x))$で定めれば，$\det J_{\varphi_1}(x) = \det J_{\xi_{x^n}}(x^1, \dots, x^{n-1})$が成り立つ．したがって
+\begin{equation}
+\int_{(a^n,b^n)} \int_W  |\det J_{\varphi_1}(x)| \dif \lambda^{n-1}(x^1, \dots, x^{n-1}) \dif x^n = \int_{(a^n,b^n)} \int_W  |\det J_{\xi_{x^n}}(x^1,\dots,x^{n-1})| \dif \lambda^{n-1}(x^1, \dots, x^{n-1}) \dif x^n
+\end{equation}である．$\xi_{x^n}(W) = \varphi_1(W \times \set{x^n})$および帰納法の仮定と併せて
+\begin{align}
+\int_{(a^n,b^n)} \int_W  |\det J_{\xi_{x^n}}(x^1,\dots,x^{n-1})| \dif \lambda^{n-1}(x^1, \dots, x^{n-1}) \dif x^n &= \int_{(a^n,b^n)} \int_{\varphi_1(W\times \set{x^n})} \dif \lambda^{n-1}(x^1, \dots, x^{n-1}) \dif x^n \\
+&= \int_V \dif \lambda^n(x)
+\end{align}を得る．
 \end{itemize}
 \end{proof}
 

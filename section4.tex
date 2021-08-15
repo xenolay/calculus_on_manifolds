@@ -1,0 +1,227 @@
+\section{多変数関数の積分}
+
+前節に引き続き，積分の議論を続ける．第一の話題である Fubini の定理は，いわゆる多変数関数の重積分を各変数に関する逐次積分で置き換えてよい充分条件を与える．この定理を Riemann 積分の範囲内で厳密に記述するとやや複雑となる．この複雑さを排し，よりシンプルな形で述べたい，というのが測度論を導入した所以のひとつである．
+
+この章の目標のもう一つは重積分の変数変換公式である．その証明の過程で「1の分割」と呼ばれる概念を導入する．1の分割は，局所的な考察を張り合わせて大域的な結果を得るために使う．後の章でも，例えば Riemann 計量の存在証明に用いられる．
+
+\subsection{直積測度と Fubini の定理}
+
+重積分を定義するために Lebesgue 測度を$\Real^n$に拡張する．より一般に，2つ以上の測度空間が与えられているときに，その可測空間の直積に直積測度と呼ばれる測度をつくることができる．$\Real^n$上の Lebesgue 測度は直積測度の一例として捉えられる．
+
+以下暫く，$(X_1, \mathcal{A}_1, \mu_1)$および$(X_2, \mathcal{A}_2, \mu_2)$を$\sigma$-有限な測度空間とする．$\mathcal{A} \coloneqq \set{A_1 \times A_2 | A_1 \in \mathcal{A}_1, A_2 \in \mathcal{A}_2}$と置く．すでに定義したように，$\mathcal{A}_1 \otimes \mathcal{A}_2 = \sigma(\mathcal{A})$である．
+
+\begin{thm}
+$\mu \colon \mathcal{A} \to [0,\infty]$を$\mu(A_1 \times A_2) \coloneqq \mu_1(A_1) \mu_2(A_2)$で定める．このとき，$\mu$は$\mathcal{A}_1 \otimes \mathcal{A}_2$上の測度に一意的に拡張できる．
+\end{thm}
+\begin{proof}
+$\mu$が$\mathcal{A}$上で可算加法的であることが示せたとすると，あとの議論は Lebesgue 測度の構成と同様にして進められる．すなわち$\mathcal{A}$を
+\begin{equation}
+\overline{\mathcal{A}} \coloneqq \left\{ \bigcup_{i=1}^N A_i \ \middle| \ A_i \in \mathcal{A}, A_i \text{は排反} \right\}
+\end{equation}と有限加法族に拡張する．排反な$A_1, A_2, \cdots, A_n \in \mathcal{A}$に対して$\mu\left(\bigcup_{i=1}^n A_i\right) \coloneqq \sum_{i=1}^n \mu(A_i)$と定めることで$\mu$を$\overline{\mathcal{A}}$上の有限加法的測度に拡張すると，これは well-defined であって$\overline{\mathcal{A}}$上可算加法的であることが Lebesgue 測度の構成のときと同様にして示せるから，$\sigma(\mathcal{A}) = \sigma\left(\overline{\mathcal{A}}\right)$と併せて Carath\'eodory の拡張定理によって主張が従う．
+
+以下，$\mu$が$\mathcal{A}$上で可算加法的であることを示す．すなわち排反な$\mathcal{A}$の元の族$\set{A_i}_{i=1}^\infty$に対して$\bigcup_{i=1}^\infty A_i \eqqcolon A \in \mathcal{A}$であったと仮定して$\mu(A) = \sum_{i=1}^\infty \mu(A_i)$を示す．$A_i \in \mathcal{A}$なので，$B_i \in \mathcal{A}_1$ならびに$C_i \in \mathcal{A}_2$を用いて$A_i = B_i \times C_i$と書ける．$A \in \mathcal{A}$についても同様に$A = B \times C$を充たす$B \in \mathcal{A}_1$ならびに$C \in \mathcal{A}_2$がある．$A_i$たちの排反性から，$1_B1_C=1_{B \times C} = \sum_{i=1}^\infty 1_{B_i \times C_i} = \sum_{i=1}^\infty 1_{B_i} 1_{C_i}$である．両辺を$\mu_1$に関して積分すると$\mu_1(B)1_C = \sum_{i=1}^\infty \mu_1(B_i) 1_{C_i}$である（ここで級数と積分が交換できることを使った）．同様に$\mu_2$に関しても積分することで$\mu_1(B)\mu_2(C) = \sum_{i=1}^\infty \mu_1(B_i) \mu_2(C_i)$すなわち$\mu(A) =  \sum_{i=1}^\infty \mu(A_i)$を得る．
+\end{proof}
+
+\begin{defi}
+上記で得られた$\mathcal{A}_1 \otimes \mathcal{A}_2$上の測度を$\mu_1$と$\mu_2$の直積測度といい，$\mu_1 \times \mu_2$と書く．また，上記の構成を帰納的に繰り返すことで，$n$個の$\sigma$-有限測度空間$(X_1, \mathcal{A}_1, \mu_1), (X_2, \mathcal{A}_2, \mu_2), \cdots, (X_n, \mathcal{A}_n, \mu_n)$に対して$\mu_i$たちの直積測度$\mu_1 \times \cdots \times \mu_n \colon \mathcal{A}_1 \otimes \cdots \otimes \mathcal{A}_n \to [0, \infty]$を，$\mu_1 \times \cdots \times \mu_n (A_1 \times \cdots \times A_n) = \prod_{i=1}^\infty \mu_i(A_i)$を充たすように一意に定めることができる．特に$(X_1, \mathcal{A}_1, \mu_1) = (X_2, \mathcal{A}_2, \mu_2) = (X_n, \mathcal{A}_n, \mu_n) = (\Real, \mathcal{B}, \lambda)$のとき，$(\Real^n, \mathcal{B}^n)$上の直積測度$\lambda^n \coloneqq \lambda \times \cdots \times \lambda$のことを$n$次元 Lebesgue 測度という．
+\end{defi}
+
+Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるには「a.e. に定義された関数」の概念を定式化した上で，積分の定義を拡張する必要があるので，まずその話からはじめる．いつものように$(X,\mathcal{A},\mu)$を測度空間とする．
+
+\begin{defi}
+$\mu(N)=0$を充たすような$N \in \mathcal{A}$のことを$\mu$-零集合という．$\mu$が文脈から明らかな場合は単に零集合とか測度零集合という場合もある．
+
+$x\in X$に関する命題が（$\mu$-）a.e. に成り立つとは，$\mu$-零集合$N$が存在して，その命題がすべての$x \in X \setminus N$に対して成り立つことをいう．
+\end{defi}
+
+\begin{dig}
+「零集合」のことを「0集合」と綴る例は見たことがないが，「測度零集合」は「測度0集合」と綴ってもそんなに違和感を感じない．
+\end{dig}
+
+\begin{defi}
+$N$を$\mu$-零集合とし，$f \colon X \setminus N \to \overline{\Real}$を写像とする．任意の$B \in \mathcal{B}^*$に対して$f^{-1}(B) \in \mathcal{A}$となるとき，$f$は$\mu$-a.e. に定義された可測関数であると言われる．
+
+$\mu$-a.e. に定義された可測関数$f \colon X \setminus N \to \overline{\Real}$に対して，関数$\tilde f \colon X \to \overline{\Real}$を
+\begin{equation}
+\tilde f(x) \coloneqq \begin{dcases*}
+    f(x) & if $x \in X \setminus N$ \\
+    0 & if $x \in N$
+  \end{dcases*}
+\end{equation}と定めれば，$\tilde f \colon X \to \Real$は可測である．このもとで，$\int f \dif\mu \coloneqq \int \tilde f \dif \mu$と定める．
+\end{defi}
+
+
+\begin{thm}[Fubini]
+\leavevmode
+\begin{enumerate}
+\item[(i)] 非負可測関数$f \colon X_1 \times X_2 \to [0,\infty]$に対して，以下が成り立つ．
+\begin{enumerate}
+\item[(i-a)] 任意の$x^2 \in X_2$に対し$x^1 \mapsto f(x^1,x^2)$は$\mathcal{A}_1/\mathcal{B}$可測であり，
+\item[(i-b)] $x^2 \mapsto \int f(x^1, x^2) \dif\mu_1(x^1)$は$\mathcal{A}_2/\mathcal{B}$可測である．従って$\iint f(x^1,x^2) \dif\mu_1(x^1) \dif \mu_2(x^2)$が定義でき，
+\item[(i-c)] $\int f \dif(\mu_1 \times \mu_2) = \iint f(x^1,x^2) \dif \mu_1(x^1) \dif \mu_2(x^2)$．
+\end{enumerate}
+\item[(ii)] $f \in L^1(X_1 \times X_2, \mathcal{A}_1 \otimes \mathcal{A}_2, \mu_1 \times \mu_2)$に対して，以下が成り立つ．
+\begin{enumerate}
+\item[(ii-a)] 任意の$x^2 \in X_2$に対し$x^1 \mapsto f(x^1,x^2)$は$\mathcal{A}_1/\mathcal{B}$可測であり，
+\item[(ii-b)] $x^2 \mapsto \int f(x^1, x^2) \dif\mu_1(x^1)$は$\mu_2$-a.e. に定義された$\mathcal{A}_2/\mathcal{B}$可測関数である．従って$\iint f(x^1,x^2) \dif\mu_1(x^1) \dif \mu_2(x^2)$が定義でき，
+\item[(ii-c)] $\int f \dif(\mu_1 \times \mu_2) = \iint f(x^1,x^2) \dif \mu_1(x^1) \dif \mu_2(x^2)$．
+\end{enumerate}
+\end{enumerate}
+\end{thm}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item[(i)] $\mathcal{A}_1 \otimes \mathcal{A}_2$の元の指示関数に対して示せたならば，単調収束定理と補題 \ref{非負単関数の列} を用いることで一般の非負可測関数に対しても結論が従うので，以下では$f$が指示関数の場合を示す．
+\begin{equation}
+\mathcal{C} \coloneqq \set{ A \in \mathcal{A}_1 \otimes \mathcal{A}_2 | 1_A \text{に対して (i-a), (i-b), (i-c) が成り立つ} }
+\end{equation}と置いて，$\mathcal{C} \supset \mathcal{A}_1 \otimes \mathcal{A}_2$を示す．$\pi$-$\lambda$定理を踏まえれば，次の3点を示せば充分である．
+($\alpha$) $\mathcal{A} \subset \mathcal{C}$．($\beta$) $\mathcal{A}$は$\pi$-システムである．($\gamma$) $\mathcal{C}$は$\lambda$-システムである．このうち ($\alpha$), ($\beta$) はすぐわかるので ($\gamma$) を確認する．
+\begin{itemize}
+\item まず$X_1 \times X_2 \in \mathcal{A}$なので$X_1 \times X_2 \in \mathcal{C}$である．
+\item $E,F \in \mathcal{C}$かつ$E \subset F$ならば$F \setminus E \in \mathcal{C}$となることを確認する．まず$\mu(X), \mu(Y) < \infty$となる場合を見よう．$1_{F \setminus E} = 1_F - 1_E$なので (i-a) はよい．任意の$x^2 \in X_2$に対して$\int 1_{F \setminus E} (x^1, x^2) \dif\mu_1(x^1) = \int 1_F(x^1, x^2) \dif\mu_1(x^1) -  \int 1_E(x^1, x^2) \dif\mu_1(x^1)$なので (ii-b) もよい（ここで$\mu(X) < \infty$なので右辺は必ず定義される）．最後に$\int 1_{F \setminus E} \dif(\mu_1 \times \mu_2) = \int 1_{F} \dif(\mu_1 \times \mu_2) - \int 1_E \dif(\mu_1 \times \mu_2) = \int 1_F \dif\mu_1 \dif\mu_2 - \int 1_E \dif\mu_1 \dif\mu_2 = \int 1_{F \setminus E} \dif\mu_1 \dif\mu_2$なので (i-c) も従う（ここで$\mu(Y) < \infty$なのでやはりこの過程で未定義な値は現れない）．$\mu(X) = \infty$ないしは$\mu(Y)=\infty$の場合は，$X$と$Y$の$\sigma$-有限性より$A_i \uparrow X$および$B_i \uparrow Y$となる測度有限な集合の可算列$\set{A_i}$および$\set{B_i}$がとれる．$E$，$F$をそれぞれ$E \cap A_i \times B_i$，$F \cap A_i \times B_i$に置き換えれば上記の考察がそのまま適用できるので，適用した上で単調収束定理を用いればよい．
+\item $E_n \in \mathcal{C}$かつ$E_n \uparrow E$のときに$E \in \mathcal{C}$を示す．$\lim_{n \to \infty} 1_{E_n} = 1_E$なので (i-a) はよい．また単調収束定理より任意の$x^2 \in X_2$に対して$\int 1_{E_n} (x^1, x^2) \dif\mu_1(x^1) \uparrow \int 1_E (x^1, x^2) \dif\mu_1(x^1)$なので (i-b) もよい．$\int 1_{E_n} \dif\mu_1 \dif\mu_2 = \int 1_{E_n} \dif(\mu_1 \times \mu_2)$の両辺に単調収束定理を適用することで$\int 1_E \dif\mu_1 \dif\mu_2 = \int 1_E \dif(\mu_1 \times \mu_2)$すなわち (i-c) を得る．
+\end{itemize}
+\item[(ii)] $f=f^+ - f^-$と分解すれば，$f^+$および$f^-$は非負可測なので (i-a), (i-b), (i-c) が成り立つ．従って (ii-a) はよい．続いて，$x^2 \mapsto \int f^+ \dif\mu_1(x^1)$は$\mu_2$-a.e. に有限な関数である（そうでないとすると，$f \in L^1$，とくに$f^+ \in L^1$であることに矛盾する）．同様に$x^2 \mapsto \int f^- \dif\mu_1(x^1)$も$\mu_2$-a.e. に有限である．従って$x^2 \mapsto \int f \dif\mu_1 = \int f^+ - f^- \dif\mu_1$は$\mu_2$-a.e. に定義された$\mathcal{A}_2/\mathcal{B}$-可測関数である\footnote{主に私自身の備忘のため，この部分についてもう少し述べておこう．$x^2 \mapsto \int f^+ \dif\mu_1(x^1)$が有限値を取らない$x^2$の集合を$N_+$，$x^2 \mapsto \int f^- \dif\mu_1(x^1)$が有限値を取らない$x^2$の集合を$N_-$と置く．$x^2 \in N_+ \cap N_-$である場合$x^2 \mapsto \int f(x^1, x^2) \dif\mu(x^1)$は定義できないが，$\mu_1(N_+)= \mu_1(N_-)=0$であるので，特に$\mu(N_+ \cap N_-)=0$である．従って$x \mapsto \int f(x^1, x^2) \dif\mu(x^1)$は$\mu_2$-a.e. に定義されている．}．なので (ii-c) もよい．
+\end{enumerate}
+\end{proof}
+
+\begin{dig}
+$\sigma$-有限性を用いて有限測度の場合に考察を帰着する部分について，より簡潔に「$\mu_1, \mu_2$の$\sigma$-有限性より，$\mu_1(X_1)< \infty, \mu_2(X_2)<\infty$の場合を証明すれば充分である」とだけ書いてある文献もある．手の内を一通り見たあとであれば，このように書いてしまうほうが簡潔でよいだろう．
+\end{dig}
+
+\begin{dig}Spivak を見てもらうとわかるが，被積分関数の連続性まで課してしまえば Riemann 積分の場合でも主張はすっきりするけれども，そうでない場合までカバーしようとすると途端に主張がごたついて見える．積分の順序を入れ替えてよい充分条件をシンプルに記述するというのは実用上の重要性を持つと思う．一方，可測関数というものがずいぶんいろいろな関数を含んでいて，そこに難しさを押し付けているだけでは？といわれると返す言葉もないですが…
+\end{dig}
+
+Fubini の定理の応用は数多いと思われる．ここではそのごく一部を紹介する．手始めに，以前証明を保留した Clairaut の定理（\cref{clairaut}）に証明をつけることにする．
+
+\clairaut*
+
+\begin{proof}
+必要ならば変数を並べ替え，更に他の変数をすべて止めて考えることで，最初から$f\colon \Real^2 \to \Real$，$i=1$，$j=2$であるとして証明して構わないのでそうする．対称性より，ある点$a \in \Real^2$において$\partial_{1,2} f (a) - \partial_{2,1} f (a) > 0$であると仮定して矛盾を導けばよい．$f$が$C^2$級なので，$\partial_{1,2}f$ならびに$\partial_{2,1}f$はいずれも連続関数である．従って$a$を含む適当な閉方体$A = [a,b] \times [c,d]$が存在して，$x \in A$ならば$\partial_{1,2} f (x) - \partial_{2,1} f(x) > 0$である．このことより$\int_A (\partial_{1,2} f - \partial_{2,1} f) \dif\lambda^2 > 0$を得る．$\partial_{1,2} f - \partial_{2,1} f$は連続関数なので，コンパクト集合$A$上で最大値と最小値を持つから特に絶対可積分である．従って Fubini の定理より$\int_A (\partial_{1,2} f - \partial_{2,1} f) \dif\lambda^2 = \int_{[c,d]} \int_{[a,b]}(\partial_{1,2} f(x,y) - \partial_{2,1} f(x,y)) \dif\lambda(x) \dif\lambda(y) = \int_{[c,d]} \int_{[a,b]}\partial_{1,2} f(x,y) \dif\lambda(x) \dif\lambda(y) - \int_{[a,b]} \int_{[c,d]}\partial_{2,1} f(x,y) \dif\lambda(y) \dif\lambda(x)$である．微積分学の基本定理を2回使うと$\int_{[c,d]} \int_{[a,b]}\partial_{1,2} f(x,y) \dif\lambda(x) \dif\lambda(y) = \int_{[a,b]} \int_{[c,d]}\partial_{2,1} f(x,y) \dif\lambda(y) \dif\lambda(x)$を得るが，これは$\int_A (\partial_{1,2} f - \partial_{2,1} f) \dif\lambda^2 = 0$を含意するので矛盾である．
+\end{proof}
+
+\begin{prop}[Cavalieri の原理]
+$A, B \in \mathcal{B}^3$とする．$c \in \Real$に対して$A_c \coloneqq \set{(x,y) \in \Real^2 | (x,y,c) \in A }$，$B_c \coloneqq \set{(x,y) \in \Real^2 | (x,y,c) \in B }$と定める．任意の$c \in \Real$に対して$\lambda^2(A_c) = \lambda^2(B_c)$であるならば，$\lambda^3(A) = \lambda^3(B)$である．
+\end{prop}
+
+\begin{proof}指示関数の非負性と Fubini より
+$\int 1_A \dif\lambda^3 = \int \left(\int 1_{A_c}  \dif\lambda^2\right) \dif\lambda(c) = \int \left(\int 1_{B_c}  \dif\lambda^2\right) \dif\lambda(c) = \int 1_B \dif\lambda^3$．
+\end{proof}
+
+\subsection{1の分割}
+
+この項の目標は次の定理の証明である．
+
+\begin{thm}[1の分割]
+$A \subset \Real^n$を部分集合，$\mathscr{O}$を$A$の開被覆とする．このとき，次の4条件を充たすような$C^\infty$級関数の可算族$\Phi$が存在する．
+\begin{enumerate}
+\item[(i)] 任意の$\varphi \in \Phi$と$x \in A$に対して$0 \leq \varphi(x) \leq 1$．
+\item[(ii)] 任意の$x \in A$に対し，次の条件を充たすような開集合$V$が存在する：$x \in V$であり，「$V$上で恒等的に0」でないような$\varphi \in \Phi$は有限個．
+\item[(iii)] 任意の$x \in A$に対して$\sum_{\varphi \in \Phi} \varphi(x) =1$．ここで，条件 (ii) より，$x$で非零の値を持つような$\varphi  \in \Phi$は有限個しかないから，左辺が意味を持つことに注意する．
+\item[(iv)] 任意の$\varphi \in \Phi$に対し，次の条件を充たす$U_{\varphi} \in \mathscr{O}$が存在する：$U_{\varphi}$に含まれるコンパクト集合$K_{\varphi}$があり，$\varphi$は$K_{\varphi}$の外で0である．特に，$\supp \varphi \coloneqq \overline{\set{ x | \varphi(x) \neq 0 }} \subset U_{\varphi}$が成り立っている．
+\end{enumerate}
+条件 (i)-(iii) を充たすような$\Phi$を，$A$上の1の（$C^\infty$級）分割という．$A$上の1の分割が更に (iv) を充たすとき，$\Phi$は$\mathscr{O}$に従属している，といわれる．
+\end{thm}
+
+証明には隆起関数の存在を含めたいくつかの命題を使う．この証明で使う命題たちを再掲する．
+
+\nonadjustedbump*
+
+\adjustedbump*
+
+\begin{proof}
+証明を4段階に分割する．
+\begin{enumerate}
+\item $A$がコンパクトの場合．$\mathscr{O}$から有限個を選んだ$\set{U_1, \dots, U_m}$が$A$の被覆になっている．$\set{U_1 ,\dots, U_m}$に従属する$A$上の1の分割を構成すればよい．以下，$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち$\set{{K_1}^\circ,\dots, {K_m}^\circ}$が$A$の被覆になっているようなものが取れたとする．このとき\cref{未調整な隆起関数}によって，$K_i \subset L_i \subset U_i$を充たすコンパクト集合$L_i$ならびに$C^\infty$級関数$\psi_i \colon \Real^n \to \Real$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U \supset \bigcup_i {K_i}^\circ$が存在して，$U$上で$\sum_{j=1}^m \psi_j > 0$である．
+\begin{equation}\varphi_i(x) \coloneqq 
+ \begin{dcases*}
+    \frac{\psi_i(x)}{\sum_{j=1}^m \psi_j(x)} & if $x \in U$, \\
+    0 & otherwise,
+  \end{dcases*}
+\end{equation}によって関数$\varphi_i$を定める．また，\cref{隆起関数の存在}より，$C^\infty$級関数$f \colon \Real^n \to \Real$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$\Phi \coloneqq \set{f \cdot \varphi_i}_{i=1}^m$とすればよい\footnote{「$f \cdot \varphi_i \colon \Real^n \to \Real$が$C^\infty$級である」ことは非自明だと思うので，この点について補っておく；$f \cdot \varphi_i$が$U$において$C^\infty$級であることはよい．$f \cdot \varphi_i$は$U$に含まれるコンパクト集合の外で0なので，$\partial U$の近傍および$U$の外部において$f \cdot \varphi_i$は恒等的に0である．}．
+
+あとは$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，$\set{{K_1}^\circ,\dots, {K_i}^\circ, U_{i+1}, \dots, {U_m}}$が$A$の被覆になっていたとする．$M_{i+1} \coloneqq A \setminus ({K_1}^\circ \cup {K_2}^\circ \cup \dots \cup {K_i}^\circ \cup U_{i+2} \cup \dots U_m)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_{i+1} \subset U_{i+1}$を充たす．したがって\cref{未調整な隆起関数}によって$M_{i+1} \subset K_{i+1} \subset U_{i+1}$を充たすコンパクト集合$K_{i+1}$があり，$M_{i+1} \subset {K_{i+1}}^\circ$を充たす．従って$\set{{K_1}^\circ,\dots, {K_{i+1}}^\circ, U_{i+2}, \dots, {U_m}}$が$A$の被覆になるから帰納法が進む．
+\item $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 \subset K_2 \subset \dots $であって，$K_i \subset {K_{i+1}}^\circ$ならびに$K_i \uparrow A$を充たすようなものがある場合．$L_i \coloneqq K_{i} \setminus {K_{i-1}}^\circ$と置くと，$L_i$はコンパクトで，$\Opensets_i \coloneqq \set{ O \cap (K_{i+1}^\circ \setminus K_{i-2} ) |  O \in \Opensets }$は$L_i$の開被覆である．従って$\Opensets_i$に従属した（すなわち$\Opensets$にも従属した）$L_i$上の1の分割$\Phi_i$が取れる．$\sigma(x) \coloneqq \sum_{i=1}^\infty \sum_{\varphi \in \Phi_i} \varphi(x)$と定めると，$\sigma$は各点で有限和なので実数値$C^\infty$級関数になり，$\overline{A}$を含む開集合$U$上で正である．\cref{隆起関数の存在}を用いて$f \colon \Real^n \to \Real$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，$\Phi \coloneqq \set{ f \cdot  (\varphi / \sigma) | \varphi \in \bigcup_i \Phi_i }$と置けば，これが求める1の分割である．
+\item $A$が開集合の場合．$K_i \coloneqq \set{ x \in A | \|x\| \leq i, d(x, \partial A) \leq 1/i }$とすれば$\set{K_i}$が$A$のコンパクト集合による充填になるので，前段に帰着する．
+\item $A$が一般の集合の場合．$\Opensets$に属する開集合すべての和集合を$U$とすると，$U$は開集合なので，前段により$U$上の1の分割$\Phi$であって$\Opensets$に従属するものが取れる．$\Phi$は$A$上の1の分割でもある．
+\end{enumerate}
+\end{proof}
+
+\begin{dig}
+このノートでは1の分割を変数変換公式の証明で使いたいので，このタイミングで証明した．Spivak でも変数変換公式の証明は1の分割に拠っているが，それ以外にも Darboux 積分を非有界関数に拡張するのに1の分割を用いている．このノートでは測度論に基づいて積分を定義したので，積分の定義には1の分割は特に必要なくなっている．
+\end{dig}
+
+\begin{que}[**]
+1の分割の（このノートの主目標からは外れる）応用としては Riesz-Markov-Kakutani の表現定理がある．$S$を局所コンパクト Hausdorff 空間とし，$C(S)$を$S$上の実数値連続関数からなる線型空間とする．線型形式$L \colon C(S) \to \Real$が次の意味で非負であったとする；$f \geq 0$ならば$L(f) \geq 0$．このとき，$S$上の有限 Borel 測度$\mu$が一意的に存在して$L(f) = \int f \dif \mu$が成り立つ．この表現定理は Prohorov の定理の証明に用いる；完備可分距離空間$S$上の確率測度の集合を$P(S)$とするとき，$\Pi \subset P(S)$が一様緊密であることと（弱位相，即ち分布収束を距離化する位相に関して）相対コンパクトであることは同値である．
+\end{que}
+
+\subsection{変数変換公式}
+
+いわゆる Riemann 積分における重積分の変数変換公式を証明する．証明の本質的な流れは Spivak にあるそれとほぼ変わらないが，測度論の議論で片付けられる部分は（折角なので）最大限そのようにして進めることにする．
+
+手始めに，測度に関する積分の変数変換公式から始める．$(X_1, \mathcal{A}_1)$ならびに$(X_2, \mathcal{A}_2)$をそれぞれ可測空間とする．
+
+\begin{defi}
+$\mu$を$\mathcal{A}_1$上の測度，$\varphi \colon X_1 \to X_2$を可測写像とする．このとき，$\varphi_* \mu \colon \mathcal{A}_2 \to [0,\infty]$を$\varphi_* \mu (A) \coloneqq \mu(\varphi^{-1}(A))$によって定めれば，$\varphi_* \mu$は$\mathcal{A}_2$上の測度になる．$\varphi_* \mu$を$\mu$の$\varphi$による像測度，ないしは押し出しという．
+\end{defi}
+
+\begin{thm}[変数変換公式]$\varphi \colon X_1 \to X_2$ならびに$f \colon X_2 \to \Real$を可測関数とする．$\int f \dif\left(\varphi_* \mu \right)$と$\int f \circ \varphi \ \dif \mu$のどちらかが定義されるならば，もう片方も定義され，両者は同じ値を取る．
+\end{thm}
+
+\begin{proof}
+まず$A \in \mathcal{A}_2$に対して$f = 1_A$である場合を考える．このときは$\int f \dif (\varphi_* \mu) = \varphi_* \mu(A) = \mu(\varphi^{-1}(A)) = \int 1_{\varphi^{-1}(A)} \dif\mu = \int 1_A \circ \varphi \dif\mu$なのでよい．積分の線型性より任意の単関数に対しても主張が成り立つから，非負可測関数についても正しい．一般の可積分関数に対しては正部分と負部分に分けてここまでの議論を適用すればよい．
+\end{proof}
+
+\begin{dig}
+$A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積分の構成をなぞれば成り立つことが示せた．このことを以て，「積分の構成の仕方より，$A \in \mathcal{A}_2$に対して$f = 1_A$である場合を示せば充分である」と初手で言ってしまっても証明としては正しいとわかる．とはいえ，いきなりそう言われると「ほんとか？」と思ってしまうので，やや冗長に感じられるのを承知の上で書き下してみることにした．
+\end{dig}
+
+\begin{thm}[$\Real^n$における変数変換公式]$A \subset \Real^n$を開集合，$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を$C^1$級微分同相とする．このとき，
+\begin{equation}
+\int_{\varphi(A)} f(y) \dif\lambda^n(y) = \int_A f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x).
+\end{equation}
+\end{thm}
+
+\begin{proof}$A$全体ではなく，各$x \in A$に対して$x$を含む開集合$U_x \subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_x$上で証明できたとして，$\varphi(A)$の開被覆$\Opensets \coloneqq \set{\varphi(U_x) | x \in A}$に従属した$\varphi(A)$上の1の分割$\Psi$を取る．1の分割の定義より$\psi \in \Psi$はある$\varphi(U) \subset \varphi(A)$の外で0なので，
+\begin{align}
+\int_{\varphi(A)} (\psi \cdot f)(y) \dif\lambda^n(y) &= \int_{\varphi(U)} (\psi \cdot f)(y) \dif\lambda^n(y)\\
+&= \int_U (\psi \cdot f) \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) \\
+&= \int_A (\psi \cdot f) \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{align}が成り立つ．双方を$\psi$に関して和をとれば
+\begin{align}
+\sum_{\psi \in \Psi}\int_{\varphi(A)} (\psi \cdot f)(y) \dif\lambda^n(y) &= \sum_{\psi \in \Psi} \int_A (\psi \cdot f) \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{align}となり，優収束定理より総和と極限を入れ替えて定理の結論を得る．
+
+また，写像$x \mapsto |\det J_\varphi(x)|$は可測なので，$\mu_{\varphi}(U) \coloneqq \int_U |\det J_\varphi(x)| \dif \lambda^n(x)$は$A$上の測度を定め，更に
+\begin{equation}
+\int_U f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) = \int_U f \circ \varphi(x) \dif \mu_\varphi(x)
+\end{equation}
+が成り立つ．測度の変数変換公式より
+\begin{equation}
+\int_U f \circ \varphi(x) \dif \mu_\varphi(x) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)
+\end{equation}
+であるから，定理の主張は$\int_{\varphi(U)} f(y) \dif\lambda^n(y) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)$と同値である．
+
+結局，各$x \in A$に対して$x$を含む開集合$U \subset A$が存在し，$\int_{\varphi^{-1}(U)} |\det J_\varphi(x)| \dif \lambda^n(x) = \int_U \dif \lambda^n$が成り立つことをいえばよいとわかった．$\varphi$の複雑さに応じた場合分けをする．
+\begin{itemize}
+\item 主張が合成に関して閉じていることを言う．即ち，ふたつの微分同相$\varphi_1 \colon A_1 \to \varphi_1(A_1)$，$\varphi_2\colon A_2 \to \varphi_2(A_2)$が$\varphi_1(A_1) \subset A_2$を充たしており，更に$(\varphi_1)_* \mu_{\varphi_1} = \lambda^n$かつ$(\varphi_2)_* \mu_{\varphi_2} = \lambda^n$であるならば，$(\varphi_2 \circ \varphi_1)_* \mu_{\varphi_2 \circ \varphi_1} = \lambda^n$が成り立つことを示す．
+\begin{align}
+(\varphi_2 \circ \varphi_1)_* \mu_{\varphi_2 \circ \varphi_1} (U) &= \mu_{\varphi_2 \circ \varphi_1} ({\varphi_1}^{-1} ({\varphi_2}^{-1}(U))) \\
+&= \int_{{\varphi_1}^{-1}{\varphi_2}^{-1}(U)} |\det J_{\varphi_2 \circ \varphi_1} (x)| \dif \lambda^n(x)\\
+&= \int_{{\varphi_1}^{-1}{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} ( \varphi_1 (x))| \cdot |\det J_{\varphi_1}(x)| \dif \lambda^n(x)\\
+&=\int_{{\varphi_1}^{-1}{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} ( \varphi_1 (x))| \dif \mu_{\varphi_1}(x)\\
+&=\int_{{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} (y)| \dif (\varphi_1)_*\mu_{\varphi_1}(y)\\
+&=\int_{{\varphi_2}^{-1}(U)} |\det J_{\varphi_2} (y)| \dif \lambda^n(y) = \lambda^n(U)
+\end{align}なのでよい．
+\item $\varphi$が線型変換である場合を示す．$\varphi$の行列表示を$M$とすると，$J_\varphi = M$であり，更に$M$は対称行列なので，直交行列$P$と対角行列$D$があり$M = P^{-1}DP$と書ける．
+\end{itemize}
+\end{proof}
+
+\begin{que}
+$(X,\mathcal{A},\mu)$を測度空間，$f \colon X \to \Real$を可測写像とするとき，$\nu(A) \coloneqq \int_A f \dif\mu$は$X$上の測度を定める．更に可測写像$g \colon X \to \Real$に対して，$\int gf \dif \mu$または$\int g \dif \nu$の片方が定義されるならば，もう片方も定義され，両者は同じ値を取る．
+\end{que}
+
+\begin{que}[**]
+このノートでは Spivak にならって1の分割を使い，局所的に変数変換公式を証明してそれを大域的につなぎ合わせるということをした．それ以外に，被積分関数をよりかんたんな関数で近似して結論を得る，という証明の戦略もある．この方針に基づく証明は Jost ``Postmodern Analysis'' にある．
+\end{que}

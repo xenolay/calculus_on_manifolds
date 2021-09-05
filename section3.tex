@@ -452,11 +452,12 @@ $(X,\mathcal{A},\mu)$上の$p$乗可積分関数全体の集合を$L^p(X,\mathca
 \end{itemize}
 \end{exm}
 
-\begin{que}[*] $(X,\mathcal{A})$を可測空間とする．
+\begin{que}$(X,\mathcal{A})$を可測空間とする．
 \begin{enumerate}
 \item 測度$\mu \colon \mathcal{A} \to [0,\infty]$が完備であるとは，$\mu(N)=0$かつ$M \subset N$ならば$M \in \mathcal{A}$が成り立つことをいう．言葉で述べれば，測度が0となるような可測集合の部分集合が必ず可測となるとき，その測度は完備であると言われる． このノートにおける Lebesgue 測度は完備ではない．
 \item 一般に，完備とは限らない測度$\mu \colon \mathcal{A} \to [0,\infty]$が与えられたとき，$\mathcal{A} \subset \mathcal{A}^*$を充たす$\sigma$-加法族ならびにその上の完備な測度$\mu^* \colon \mathcal{A}^* \to [0,\infty]$であって，$\mathcal{A}$上で$\mu$に一致するものが存在する．このような$\mu^*$の作り方の一つに「完備化」というものがある．$\lambda$の完備化によって得られる$\sigma$-加法族を$\mathcal{L}$と書き，$\mathcal{L}$の元を Lebesgue 可測集合という．また，文献によってはこのノートにおける Lebesgue 測度の完備化を単に Lebesgue 測度と呼ぶものもある．
 \item Riemann 積分可能な関数$f \colon [a,b] \to \Real$は，一般には$\mathcal{B}/\mathcal{B}^*$-可測であるとは限らない．が，$\mathcal{L}/\mathcal{B}^*$-可測にはなる．更に$\int_{[a,b]} f d \lambda = \int_a^b f(x) dx$が成り立つ（左辺は Lebesgue 測度の完備化に関する積分，右辺は Riemann 積分）．完備化まで考えれば，Lebesgue 測度に関する積分は Riemann 積分を包括していると言える．
+\item 他方，広義 Riemann 積分まで含めて考えると事情はやや複雑である．$f \colon [0,\infty) \to \overline{\Real}$が非負であるか$f \in L^1$であるならば，$\int_{(0,\infty)} f \dif \lambda = \int_{0}^\infty f \dif x$が成り立つ（右辺は広義 Riemann 積分として$\int_0^\infty f \dif x \coloneqq \lim_{R \to \infty} \int_0^R f \dif x$を考えているが，他の形の極限であったとしても本質的には同様に議論できると思う）．一方，$f(x) = \frac{\sin x}{x}$は広義 Riemann 積分としては有限確定値$\int_0^\infty f \dif x = \frac{\pi}{2}$を持つが，$f$は絶対可積分ではないので$\int_{(0,\infty)} f \dif \lambda = \infty$である．この例は優収束定理が使えない例としても捉えることができると思う．
 \end{enumerate}
 \end{que}
 

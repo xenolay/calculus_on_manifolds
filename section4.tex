@@ -158,7 +158,7 @@ $A \subset \Real^n$を部分集合，$\mathscr{O}$を$A$の開被覆とする．
 
 \subsection{変数変換公式}
 
-いわゆる Riemann 積分における重積分の変数変換公式を証明する．証明の本質的な流れは Spivak にあるそれとほぼ変わらないが，測度論の議論で片付けられる部分は（折角なので）最大限そのようにして進めることにする．
+いわゆる重積分の変数変換公式を証明する．証明の本質的な流れは Spivak にあるそれとほぼ変わらないが，測度論の議論で片付けられる部分は（折角なので）最大限そのようにして進めることにする．
 
 手始めに，測度に関する積分の変数変換公式から始める．$(X_1, \mathcal{A}_1)$ならびに$(X_2, \mathcal{A}_2)$をそれぞれ可測空間とする．
 
@@ -177,7 +177,7 @@ $\mu$を$\mathcal{A}_1$上の測度，$\varphi \colon X_1 \to X_2$を可測写�
 $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積分の構成をなぞれば成り立つことが示せた．このことを以て，「積分の構成の仕方より，$A \in \mathcal{A}_2$に対して$f = 1_A$である場合を示せば充分である」と初手で言ってしまっても証明としては正しいとわかる．とはいえ，いきなりそう言われると「ほんとか？」と思ってしまうので，やや冗長に感じられるのを承知の上で書き下してみることにした．
 \end{dig}
 
-\begin{thm}[$\Real^n$における変数変換公式]$A \subset \Real^n$を開集合，$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を$C^1$級微分同相とする．このとき，
+\begin{thm}[$\Real^n$における変数変換公式]\label{変数変換公式の弱い形}$A \subset \Real^n$を開集合，$f \colon \Real^n \to \overline{\Real}$を非負可測または$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を$C^1$級微分同相とする．このとき，
 \begin{equation}
 \int_{\varphi(A)} f(y) \dif\lambda^n(y) = \int_A f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x).
 \end{equation}
@@ -191,7 +191,7 @@ $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積�
 \end{align}が成り立つ．双方を$\psi$に関して和をとれば
 \begin{align}
 \sum_{\psi \in \Psi}\int_{\varphi(A)} (\psi \cdot f)(y) \dif\lambda^n(y) &= \sum_{\psi \in \Psi} \int_A (\psi \cdot f) \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
-\end{align}となり，優収束定理より総和と極限を入れ替えて定理の結論を得る．
+\end{align}となり，単調収束定理より総和と極限を入れ替えて定理の結論を得る．
 
 また，写像$x \mapsto |\det J_\varphi(x)|$は可測なので，$\mu_{\varphi}(U) \coloneqq \int_U |\det J_\varphi(x)| \dif \lambda^n(x)$は$A$上の測度を定め，更に
 \begin{equation}
@@ -201,7 +201,7 @@ $A \in \mathcal{A}_2$に対して$f = 1_A$である場合を除いては，積�
 \begin{equation}
 \int_U f \circ \varphi(x) \dif \mu_\varphi(x) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)
 \end{equation}
-であるから，定理の主張は$\int_{\varphi(U)} f(y) \dif\lambda^n(y) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)$と同値である．
+であるから，定理の主張は$\int_{\varphi(U)} f(y) \dif\lambda^n(y) = \int_{\varphi(U)} f(y) \dif(\varphi_* \mu_\varphi)(y)$と同値である（すなわち，この等式を示せばよい）．積分の構成より，$f = 1$の場合を証明すればよく，更に$\int_{\varphi(U)} \dif(\varphi_* \mu_\varphi) = \mu_\varphi(\varphi^{-1}(\varphi(U))) =\mu_\varphi(U)=\int_U |\det J_\varphi(x) |\dif \lambda^n(x)$である．
 
 結局，各$x \in A$に対して$x$を含む開集合$U \subset A$が存在し，$\int_U |\det J_\varphi(x)| \dif \lambda^n(x) = \int_{\varphi(U)} \dif \lambda^n$が成り立つことをいえばよいとわかった．証明をいくつかのステップに分割する．
 \begin{itemize}
@@ -242,3 +242,62 @@ $(X,\mathcal{A},\mu)$を測度空間，$f \colon X \to \Real$を可測写像と�
 \begin{que}[**]
 このノートでは Spivak にならって1の分割を使い，局所的に変数変換公式を証明してそれを大域的につなぎ合わせるということをした．それ以外に，被積分関数をよりかんたんな関数で近似して結論を得る，という証明の戦略もある．この方針に基づく証明は Jost ``Postmodern Analysis'' にある．
 \end{que}
+
+ところで，変数変換公式の「$\varphi$が$C^1$級微分同相」という仮定は弱めることができる．その正当化に一役買うのが Sard の定理である．
+
+\begin{thm}[Sard]
+$A \subset \Real^n$を開集合，$g \colon A \to \Real^n$を単射な$C^1$級写像とする．このとき，$B \coloneqq \set{x \in A | \det J_g(x) = 0}$と置くと，$\lambda(g(B))=0$が成り立つ．
+\end{thm}
+
+Sard の定理の証明は後回しにして，先に変数変換公式の仮定を弱めてしまうことにしよう．
+
+\begin{thm}[$\Real^n$における変数変換公式の強い形]$A \subset \Real^n$を開集合，$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を単射な$C^1$級写像とする．このとき，
+\begin{equation}
+\int_{\varphi(A)} f(y) \dif\lambda^n(y) = \int_A f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x).
+\end{equation}
+\end{thm}
+
+\begin{proof}
+$B \coloneqq \set{x \in A | \det J_\varphi(x) = 0}$と置き，連続写像$x \mapsto \det J_\varphi(x)$を$h$と書くことにすると，$h^{-1}(\set{0}) = B$なので$B$は閉集合である．したがって$A \setminus B$は開集合であるから，$\Real^n$における変数変換公式より
+\begin{equation}
+\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{equation}を得る．Sard の定理より$\varphi(B)$は零集合であるから，$\int_{\varphi(B)} f(y) \dif\lambda^n(y) = 0$である．また仮定より$\int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) = 0$である．以上より
+\begin{equation}
+\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) + \int_{\varphi(B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) + \int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{equation}となって定理が得られる．
+\end{proof}
+
+\begin{que}[**]
+ここで扱った Sard の定理は，実際には微分可能多様体に対して拡張できる．また，Sard の定理の応用として挙がるのが写像度の概念である．写像度の応用先として有名なものは私の知る限り2つある；代数学の基本定理と，つむじ頭定理である．
+\end{que}
+
+\begin{que}[*]
+実際には変数変換公式の仮定は更に弱めることができるらしい．例えば単射性を落とすといった拡張の仕方があり得るらしい．ところで極座標変換くらいだったら微分同相という仮定のついたバージョンからでも出せる（ことを後で見る）．仮定を弱めたくなる実用的な例はいくらでもあると思うのだが，とりあえず思いついていない．
+\end{que}
+
+最後に，極座標変換を用いた Gauss 積分を例として扱おう．仮定を弱めておいて何なのだが，極座標変換の公式を出す上では弱い形の\cref{変数変換公式の弱い形}で充分である．
+
+\begin{exm}[極座標変換]$P \coloneqq (0, \infty) \times (0,2\pi)$と置いて，関数$\varphi \colon P \to \Real^2$を$\varphi(r,\theta) = (r \cos \theta, r \sin \theta)$によって定める．$\varphi$は単射であり，Jacobi 行列は$
+J_{\varphi}(r,\theta) =
+    \begin{pmatrix}
+    \cos \theta & -r \sin \theta \\
+    \sin \theta & r \cos \theta
+    \end{pmatrix}
+$なので，特に$\det J_\varphi(r,\theta) = r$がわかるから，逆関数定理より$\varphi$を$\varphi(P)$への写像とみなすと$C^1$級微分同相である．ところで$A \coloneqq \set{(x,0) \in \Real^2 | x \geq 0}$と置くとこれは閉集合で，$\varphi(P) = \Real^2 \setminus A$なので，\cref{変数変換公式の弱い形}より，$f \colon \Real^2 \to \overline{\Real}$が非負可測であるか$f \in L^1(\Real^2)$であるならば
+\begin{equation}
+\int_{\varphi(P)} f(x,y) \dif \lambda^2(x,y) = \int_P (f \circ \varphi) (r, \theta) \cdot |\det J_\varphi (r,\theta)| \dif\lambda^2(r,\theta)
+\end{equation}すなわち
+\begin{equation}
+\int_{\Real^2 \setminus A} f(x,y) \dif \lambda^2(x,y) = \int_P (f \circ \varphi) (r, \theta) \ r \dif\lambda^2(r,\theta)
+\end{equation}を得る．$A$が測度0なので，左辺は$\Real^2$全域での積分に置き換えることができる．また右辺に対して Fubini の定理を適用することで，
+\begin{equation}
+\int f(x,y) \dif x \dif y = \int_0^\infty \int_0^{2\pi} (f \circ \varphi) (r, \theta) \ r\dif\theta \dif r
+\end{equation}を得る．
+\end{exm}
+
+\begin{exm}[Gauss 積分]$\int_\Real e^{-x^2} \dif x = \sqrt{\pi}$を証明してみよう．そのためには，$\int_{\Real^2} e^{-x^2-y^2} \dif x \dif y = \pi$を示せばよい．これが示せれば Fubini の定理より$\left(\int e^{-x^2} \dif x \right) \left(\int e^{-y^2} \dif y \right) = \pi$となって結論が得られるからである．極座標変換をすると，求める積分は
+\begin{equation}
+\int_0^\infty \int_0^{2\pi} e^{-r^2} \ r\dif\theta \dif r = 2\pi \int_0^\infty re^{-r^2} \dif r
+\end{equation}となる．$re^{-r^2}$は$(0,\infty)$上非負なので，広義 Riemann 積分として計算してよいから，値は$\pi$である．
+\end{exm}
+

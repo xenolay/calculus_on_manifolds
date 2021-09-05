@@ -60,6 +60,7 @@
 ]{myproof}
 \declaretheorem[title=証明, style=myproof]{myproof}
 \renewenvironment{proof}{\begin{myproof}}{\end{myproof}}
+\renewcommand{\labelenumi}{(\roman{enumi})}
 
 \newcommand{\Opensets}{\mathscr{O}}
 \newcommand{\Closedsets}{\mathscr{A}}
@@ -67,6 +68,8 @@
 \newcommand{\Real}{\mathbb{R}}
 \newcommand{\Cpx}{\mathbb{C}}
 \newcommand{\Quad}{\mathbb{Q}}
+\newcommand{\Tensor}{\mathcal{T}}
+\newcommand{\Sphere}{\mathbb{S}}
 \DeclareMathOperator{\diver}{div}
 \DeclareMathOperator{\rot}{rot}
 \DeclareMathOperator{\grad}{grad}

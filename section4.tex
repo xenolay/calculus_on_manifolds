@@ -243,39 +243,7 @@ $(X,\mathcal{A},\mu)$を測度空間，$f \colon X \to \Real$を可測写像と�
 このノートでは Spivak にならって1の分割を使い，局所的に変数変換公式を証明してそれを大域的につなぎ合わせるということをした．それ以外に，被積分関数をよりかんたんな関数で近似して結論を得る，という証明の戦略もある．この方針に基づく証明は Jost ``Postmodern Analysis'' にある．
 \end{que}
 
-ところで，変数変換公式の「$\varphi$が$C^1$級微分同相」という仮定は弱めることができる．その正当化に一役買うのが Sard の定理である．
-
-\begin{thm}[Sard]
-$A \subset \Real^n$を開集合，$g \colon A \to \Real^n$を単射な$C^1$級写像とする．このとき，$B \coloneqq \set{x \in A | \det J_g(x) = 0}$と置くと，$\lambda(g(B))=0$が成り立つ．
-\end{thm}
-
-Sard の定理の証明は後回しにして，先に変数変換公式の仮定を弱めてしまうことにしよう．
-
-\begin{thm}[$\Real^n$における変数変換公式の強い形]$A \subset \Real^n$を開集合，$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を単射な$C^1$級写像とする．このとき，
-\begin{equation}
-\int_{\varphi(A)} f(y) \dif\lambda^n(y) = \int_A f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x).
-\end{equation}
-\end{thm}
-
-\begin{proof}
-$B \coloneqq \set{x \in A | \det J_\varphi(x) = 0}$と置き，連続写像$x \mapsto \det J_\varphi(x)$を$h$と書くことにすると，$h^{-1}(\set{0}) = B$なので$B$は閉集合である．したがって$A \setminus B$は開集合であるから，$\Real^n$における変数変換公式より
-\begin{equation}
-\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
-\end{equation}を得る．Sard の定理より$\varphi(B)$は零集合であるから，$\int_{\varphi(B)} f(y) \dif\lambda^n(y) = 0$である．また仮定より$\int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) = 0$である．以上より
-\begin{equation}
-\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) + \int_{\varphi(B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) + \int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
-\end{equation}となって定理が得られる．
-\end{proof}
-
-\begin{que}[**]
-ここで扱った Sard の定理は，実際には微分可能多様体に対して拡張できる．また，Sard の定理の応用として挙がるのが写像度の概念である．写像度の応用先として有名なものは私の知る限り2つある；代数学の基本定理と，つむじ頭定理である．
-\end{que}
-
-\begin{que}[*]
-実際には変数変換公式の仮定は更に弱めることができるらしい．例えば単射性を落とすといった拡張の仕方があり得るらしい．ところで極座標変換くらいだったら微分同相という仮定のついたバージョンからでも出せる（ことを後で見る）．仮定を弱めたくなる実用的な例はいくらでもあると思うのだが，とりあえず思いついていない．
-\end{que}
-
-最後に，極座標変換を用いた Gauss 積分を例として扱おう．仮定を弱めておいて何なのだが，極座標変換の公式を出す上では弱い形の\cref{変数変換公式の弱い形}で充分である．
+極座標変換を用いた Gauss 積分を例として扱おう．
 
 \begin{exm}[極座標変換]$P \coloneqq (0, \infty) \times (0,2\pi)$と置いて，関数$\varphi \colon P \to \Real^2$を$\varphi(r,\theta) = (r \cos \theta, r \sin \theta)$によって定める．$\varphi$は単射であり，Jacobi 行列は$
 J_{\varphi}(r,\theta) =
@@ -300,4 +268,48 @@ $なので，特に$\det J_\varphi(r,\theta) = r$がわかるから，逆関数�
 \int_0^\infty \int_0^{2\pi} e^{-r^2} \ r\dif\theta \dif r = 2\pi \int_0^\infty re^{-r^2} \dif r
 \end{equation}となる．$re^{-r^2}$は$(0,\infty)$上非負なので，広義 Riemann 積分として計算してよいから，値は$\pi$である．
 \end{exm}
+
+ところで，変数変換公式の「$\varphi$が$C^1$級微分同相」という仮定は弱めることができる．その正当化に一役買うのが Sard の定理である．
+
+\begin{thm}[Sard]
+$A \subset \Real^n$を開集合，$\varphi \colon A \to \Real^n$を$C^1$級写像とする．このとき，$B \coloneqq \set{x \in A | \det J_\varphi(x) = 0}$と置くと，$\lambda^n(\varphi(B))=0$が成り立つ．
+\end{thm}
+
+\begin{proof}
+有理点$q \in A$を任意に取ると，各辺の長さがすべて等しい有界閉方体$U_q$であって，$q \in U_q \subset A$を充たすものがある．$\set{U_q}_{q \in A}$は$A$の可算被覆であるから，各$U_q$に対して$\lambda^n(\varphi(U_q \cap B))=0$を示せば，$\bigcup_{q \in A} \varphi(U_q \cap B) = \varphi(\bigcup_{q \in A} U_q \cap B) = \varphi(B)$と併せて結論を得るのでそうする．以降，$U_q$の添字を省いて単に$U$と書く．
+
+$U$の各辺の長さを$\ell$と置く．$\varepsilon > 0$を任意に一つ取って固定する．$\varphi$は$C^1$級なので，$\partial_i \varphi^j$はすべて$U$上で一様連続である．したがって「$\|x-y\| < \delta$ならば任意の$i,j$に対して$\|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\|< \varepsilon / n^2$」となるような$\delta > 0$がある．$U$の各辺を$N$等分することで，各辺の長さが$\ell / N$の閉方体が$N^n$個できるが，その中で$B$と共通部分を持つものを任意にとって$S$とする．$N$を充分大きく取っておくことで，「$x,y \in S$ならば$\|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\|< \varepsilon / n^2$」が成り立つようにできるので，そのように$N$は取っておく．
+
+$x \in S \cap B$を取ると，$\det J_\varphi (x) = 0$なので，$d\varphi_x$は正則ではない．したがって$\set{ d\varphi_x (y-x) | y \in S }$はある$n-1$次元部分空間$V \subsetneq \Real^n$に含まれる．更に$y \in S$に対して$f(y) \coloneqq d\varphi_x(y) - \varphi(y)$と定めると，$\|\varphi_i f^j(y)\| = \|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\| < \varepsilon / n^2$なので，\cref{微分の定量評価}より$\|d\varphi_x(y-x) - \varphi(y) + \varphi(x)\| = \|f(y)-f(x)\| < \varepsilon \|y-x\| \leq \varepsilon \ell \sqrt{n} / N$である．言い換えると，$d(V+\varphi(x), \varphi(y)) < \varepsilon \ell \sqrt{n} / N$である．また$\varphi$の$S$上での一様連続性より$\|\varphi(y)-\varphi(x)\| < M \|y-x\| \leq M \ell \sqrt{n} / N$となるような$M > 0$がある．したがって（$\varepsilon, N$の何れにも依存しない）定数$A > 0$があって$\lambda^n( \set{\varphi(y) | y \in S}) < A (M \ell \sqrt{n} / N)^{n-1} \cdot \varepsilon \ell \sqrt{n} / N = AM^{n-1} \varepsilon (\ell \sqrt{n}/N)^n $が成り立つ．$S$は$S \cap B = \emptyset$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局$\lambda^n( \set{\varphi(y) | y \in U \cap S}) < AM^{n-1} \varepsilon (\ell \sqrt{n})^n$が成り立つ．$\varepsilon$は任意だったので，$\lambda^n(U \cap B) = 0$である．
+\end{proof}
+
+\begin{dig}
+上記の Sard の定理の証明は（自分で書いておいて何なのだが）あまりわかりやすいとは思わない．アイデアとしては$U \cap B$の測度を$O(\varepsilon)$で抑えるために$\varepsilon$に依存する項を出すところ，言い換えると「$\varphi(S \cap B)$は$V$の法線方向には$O(\varepsilon)$程度しか伸びないこと」が本質的である．定理の仮定が効くのはこの部分であり，それ以外の議論はこの部分を見越して逆算している部分も多い．
+
+個人的には「一通り論理は追えるがどうしてこんな証明をしないといけないのかよくわからない」という感想が強かった．上記のポイントが見えて少し証明が読みやすくなったという経験があったので，それを上手く証明に取り込めないかと思ったのだが，あまりにインフォーマルな書きぶりになってしまいそうだったので，このように余談として述べるに留めることとなった．
+\end{dig}
+
+\begin{thm}[$\Real^n$における変数変換公式の強い形]$A \subset \Real^n$を開集合，$f \in L^1(\Real^n, \mathcal{B}^n ,\lambda^n)$とし，$\varphi \colon A \to \varphi(A)$を単射な$C^1$級写像とする．このとき，
+\begin{equation}
+\int_{\varphi(A)} f(y) \dif\lambda^n(y) = \int_A f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x).
+\end{equation}
+\end{thm}
+
+\begin{proof}
+$B \coloneqq \set{x \in A | \det J_\varphi(x) = 0}$と置き，連続写像$x \mapsto \det J_\varphi(x)$を$h$と書くことにすると，$h^{-1}(\set{0}) = B$なので$B$は閉集合である．したがって$A \setminus B$は開集合であるから，$\Real^n$における変数変換公式より
+\begin{equation}
+\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{equation}を得る．Sard の定理より$\varphi(B)$は零集合であるから，$\int_{\varphi(B)} f(y) \dif\lambda^n(y) = 0$である．また仮定より$\int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) = 0$である．以上より
+\begin{equation}
+\int_{\varphi(A \setminus B)} f(y) \dif\lambda^n(y) + \int_{\varphi(B)} f(y) \dif\lambda^n(y) = \int_{A \setminus B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x) + \int_{B} f \circ \varphi(x) \cdot | \det J_\varphi(x) | \dif \lambda^n(x)
+\end{equation}となって定理が得られる．
+\end{proof}
+
+\begin{que}[**]
+ここで扱った Sard の定理は，実際には微分可能多様体に対して拡張できる．また，Sard の定理の応用として挙がるのが写像度の概念である．写像度の応用先として有名なものは私の知る限り2つある；代数学の基本定理と，つむじ頭定理である．
+\end{que}
+
+\begin{que}[*]
+実際には変数変換公式の仮定は更に弱めることができるらしい．例えば単射性を落とすといった拡張の仕方があり得るらしい．ところで極座標変換くらいだったら微分同相という仮定のついたバージョンからでも出せた．仮定を弱めたくなる実用的な例はいくらでもあると思うのだが，とりあえず思いついていない．
+\end{que}
 

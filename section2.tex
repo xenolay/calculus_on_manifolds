@@ -170,7 +170,7 @@ $f \colon \Real^m \to \Real^n$が$a$で微分可能であるならば$a$で連�
 \item $f \colon \Real^m \to \Real^n$が線型写像であるならば，$f$は微分可能であり，任意の$a \in \Real^m$に対して$df_a = f$．
 \item $f \colon \Real^m \to \Real^n$が微分可能であることと，各成分$f^i \colon \Real^m \to \Real$が微分可能であることは同値．このとき，
 \begin{equation}
-df_a(h) = (d{f^1}_a(h), \cdots, d{f^n}_a(h))^\top
+df_a(h) = (d{f^1}_a(h), \dots, d{f^n}_a(h))^\top
 \end{equation}が成り立つ．したがって$J_f(x)$の第$i$行は$J_{f^i}(x)$に等しい．
 \item 関数$s \colon \Real^2 \to \Real$を$s(a^1,a^2) \coloneqq a^1+a^2$で定めると$s$は微分可能であり，任意の$a \in \Real^2$に対して$ds_a = s$．
 \item 関数$p \colon \Real^2 \to \Real$を$p(a^1,a^2) \coloneqq a^1a^2$で定めると$p$は微分可能であり，$dp_{(a^1,a^2)}(h^1,h^2) = h^1a^2+h^2a^1$．
@@ -182,13 +182,13 @@ df_a(h) = (d{f^1}_a(h), \cdots, d{f^n}_a(h))^\top
 \begin{enumerate}
 \item $\displaystyle \lim_{h \to 0} \frac{\left\| f(x+h) - f(x) - 0 \right\|}{\|h\|} = \lim_{h \to 0} \frac{\left\| 0 \right\|}{\|h\|} = 0.$
 \item $\displaystyle \lim_{h \to 0} \frac{\left\| f(x+h) - f(x) - f(h) \right\|}{\|h\|} = \lim_{h \to 0} \frac{\left\| f(x) + f(h) - f(x) - f(h) \right\|}{\|h\|} = \lim_{h \to 0} \frac{\left\| 0 \right\|}{\|h\|} = 0$．
-\item 各$f^i$が微分可能であると仮定する．$\lambda_a(h) \coloneqq (d{f^1}_a(h), \cdots, d{f^n}_a(h))^\top$によって線型写像$\lambda_a \colon \Real^m \to \Real^n$を定めると，
+\item 各$f^i$が微分可能であると仮定する．$\lambda_a(h) \coloneqq (d{f^1}_a(h), \dots, d{f^n}_a(h))^\top$によって線型写像$\lambda_a \colon \Real^m \to \Real^n$を定めると，
 \begin{equation}
-f(a+h) - f(a) - \lambda_a(h) = (f^1(a+h) - f^1(a) - d{f^1}_a(h), \cdots, f^n(a+h) - f^n(a) - d{f^n}_a(h))
+f(a+h) - f(a) - \lambda_a(h) = (f^1(a+h) - f^1(a) - d{f^1}_a(h), \dots, f^n(a+h) - f^n(a) - d{f^n}_a(h))
 \end{equation}となるので，
 \begin{equation}
 \lim_{h \to 0} \frac{\left\|f(a+h) - f(a) - \lambda_a(h)\right\|}{\|h\|} \leq \sum_{i=1}^n \lim_{h\to 0} \frac{\left\| f^i(a+h) - f^i(a) - d{f^i}_a(h) \right\|}{\|h\|} = 0
-\end{equation}より$\lambda_a$は$f$の$a$における微分である．逆に$f$が微分可能であると仮定すると，各$f^i$は$f$と座標関数$\pi_i \colon \Real^n \ni x \mapsto x^i \in \Real$の合成$f^i = \pi^i \circ f$であり，$\pi^i$が線型写像であることから$df^i = d\pi_i \circ df = \pi_i \circ df$である．したがって$df_a(h) = (d{f^1}_a(h), \cdots, d{f^n}_a(h))^\top$を得る．
+\end{equation}より$\lambda_a$は$f$の$a$における微分である．逆に$f$が微分可能であると仮定すると，各$f^i$は$f$と座標関数$\pi_i \colon \Real^n \ni x \mapsto x^i \in \Real$の合成$f^i = \pi^i \circ f$であり，$\pi^i$が線型写像であることから$df^i = d\pi_i \circ df = \pi_i \circ df$である．したがって$df_a(h) = (d{f^1}_a(h), \dots, d{f^n}_a(h))^\top$を得る．
 \item $s$は線型写像であるからよい．
 \item $(h^1,h^2) \mapsto h^1a^2+h^2a^1$が$p$の微分の定義を充たすことをしめせばよい\footnote{上付き添字と冪乗の記号の相性が最悪なことがよくわかる証明だと思う．Spivak では$h^1, h^2$ではなく$h,k$を使っていた．}．
 \begin{equation}
@@ -239,7 +239,7 @@ $f \colon \Real^2 \to \Real$を，$f(x,y) = x^y$で定める．$f$の微分を�
 \begin{defi}
 $f \colon \Real^n \to \Real$と$a \in \Real^n$に対し，
 \begin{equation}
-\lim_{h \to 0} \frac{f(a^1, \cdots, a^i+h, \cdots, a^n) - f(a^1 , \cdots, a^i, \cdots, a^n)}{h}
+\lim_{h \to 0} \frac{f(a^1, \dots, a^i+h, \dots, a^n) - f(a^1 , \dots, a^i, \dots, a^n)}{h}
 \end{equation}が存在する時，$f$は第$i$変数に関して（偏）微分可能であるという．このとき，上記の極限の値を$\partial_i f (a)$と書いて$f$の$a$における第$i$偏微分係数と呼ぶ．任意の$a \in \Real^n$に対して$\partial_i f(a)$が定まる時，関数$a \mapsto \partial_i f(a)$が定まるが，これを$\partial_i f$と書いて$f$の第$i$偏導関数という．
 \end{defi}
 
@@ -274,11 +274,11 @@ $f \colon \Real^m \to \Real^n$が$a$において微分可能であるとする�
 \end{thm}
 
 \begin{proof}
-\cref{微分の基本性質}より，結局は各成分関数ごとの考察に帰着するため，$n=1$の場合を証明すればよい．$h \colon \Real \to \Real^m$を，$h(x) = (a^1 , \cdots, a^{j-1}, x, a^{j+1}, \cdots, a^m)$で定めると$f \circ h \colon \Real \to \Real$は微分可能であるが，導関数$d(f \circ h)$とは$\partial_j f$のことである．更に$J_h(x) = e_j$であるから，$J_{f \circ h} \left(a^j\right)= J_f \left(h\left(a^j\right)\right) \cdot J_h\left(a^j\right) =  J_f \left(a\right) \cdot e_j$である．つまり$1 \times m$行列$J_f \left(a\right)$の$j$列目は$\partial_j f(a)$に等しい．
+\cref{微分の基本性質}より，結局は各成分関数ごとの考察に帰着するため，$n=1$の場合を証明すればよい．$h \colon \Real \to \Real^m$を，$h(x) = (a^1 , \dots, a^{j-1}, x, a^{j+1}, \dots, a^m)$で定めると$f \circ h \colon \Real \to \Real$は微分可能であるが，導関数$d(f \circ h)$とは$\partial_j f$のことである．更に$J_h(x) = e_j$であるから，$J_{f \circ h} \left(a^j\right)= J_f \left(h\left(a^j\right)\right) \cdot J_h\left(a^j\right) =  J_f \left(a\right) \cdot e_j$である．つまり$1 \times m$行列$J_f \left(a\right)$の$j$列目は$\partial_j f(a)$に等しい．
 \end{proof}
 
 \begin{que}
-上記の証明では合成則を用いて証明したが，合成則なしでも証明できる．$n=1$としてよいのは同様で，$f$の微分の存在を仮定してよいので，$h = (0, \cdots,0, h^i, 0, \cdots, 0)$として
+上記の証明では合成則を用いて証明したが，合成則なしでも証明できる．$n=1$としてよいのは同様で，$f$の微分の存在を仮定してよいので，$h = (0, \dots,0, h^i, 0, \dots, 0)$として
 \begin{equation}
 \lim_{h^i \to 0} \frac{\left| f(a+h) - f(a) -df_a(h) \right|}{\left|h^i\right|} = 0
 \end{equation}が成り立つから，ということは
@@ -299,26 +299,26 @@ $f \colon \Real^m \to \Real^n$が$C^1$級であるならば$f$は微分可能で
 \begin{proof}
 \cref{微分の基本性質} より，各成分関数の微分可能性を示せば充分であるから，やはり$n=1$の場合を証明すれば良い．$f(a+h) - f(a)$を，
 \begin{align}
-f(a+h) - f(a) &= f(a^1+h^1, a^2, \cdots, a^n) - f(a^1 , a^2, \cdots, a^n) \\
-&+ f(a^1+h^1, a^2+h^2, \cdots, a^n) - f(a^1+h^1 , a^2, \cdots, a^n) \\
+f(a+h) - f(a) &= f(a^1+h^1, a^2, \dots, a^n) - f(a^1 , a^2, \dots, a^n) \\
+&+ f(a^1+h^1, a^2+h^2, \dots, a^n) - f(a^1+h^1 , a^2, \dots, a^n) \\
 &+ \cdots \\
-&+ f(a^1+h^1, a^2+h^2, \cdots, a^{n-1}+h^{n-1} ,a^n+h^n) - f(a^1+h^1 , a^2+h^2, \cdots, a^{n-1} +h^{n-1}, a^n)
+&+ f(a^1+h^1, a^2+h^2, \dots, a^{n-1}+h^{n-1} ,a^n+h^n) - f(a^1+h^1 , a^2+h^2, \dots, a^{n-1} +h^{n-1}, a^n)
 \end{align}のように表示しておく．$f$は各変数に関して偏微分可能なので，平均値の定理により
 \begin{equation}
-f(a^1+h^1, a^2, \cdots, a^n) - f(a^1 , a^2, \cdots, a^n) = h^1 \partial_1 f(b^1, a^2, \cdots, a^n)
+f(a^1+h^1, a^2, \dots, a^n) - f(a^1 , a^2, \dots, a^n) = h^1 \partial_1 f(b^1, a^2, \dots, a^n)
 \end{equation}を充たすような$b^1 \in [a^1, a^1 + h^1]$がある．同様の仕方で$b^i \in [a^i, a^i+h^i]$が取れるので取っておくことで，
 \begin{align}
-f(a+h) - f(a) &= h^1 \partial_1 f(b^1, a^2, \cdots, a^n) \\
-&+ h^2 \partial_2 f(a^1+h^1, b^2, \cdots, a^n) \\
+f(a+h) - f(a) &= h^1 \partial_1 f(b^1, a^2, \dots, a^n) \\
+&+ h^2 \partial_2 f(a^1+h^1, b^2, \dots, a^n) \\
 &+ \cdots \\
-&+ h^n \partial_n f(a^1+h^1, a^2+h^2, \cdots, a^{n-1}+h^{n-1} ,b^n)
+&+ h^n \partial_n f(a^1+h^1, a^2+h^2, \dots, a^{n-1}+h^{n-1} ,b^n)
 \end{align}のように表示できる．さて，線型写像$\lambda_a \colon \Real^m \to \Real$を，
 \begin{equation}
-\lambda_a(h^1, \cdots, h^n) = \sum_{i=1}^n h^i \partial_i f(a)
+\lambda_a(h^1, \dots, h^n) = \sum_{i=1}^n h^i \partial_i f(a)
 \end{equation}で定める．$\lambda_a$が$f$の微分になっていることを示す\footnote{突然天から降ってきた式に見えるかもしれないが，「仮に微分可能だったとすると前定理より微分はこの形になるしかない」というのがわかるので，そこから逆算している．}．
 \begin{align}
-\frac{\|f(a+h)- f(a) - \lambda(h)\|}{\|h\|} &= \frac{\left\| \sum h^i \partial_i f(a^1+h^1, \cdots, b^i, a^{i+1}, \cdots, a^n)  - \sum h^i \partial_i f(a) \right\|}{\|h\|} \\
-&\leq \sum_{i=1}^n \frac{ \left|h^i\right|}{\|h\|} \left\|  \partial_i f(a^1+h^1, \cdots, a^{i-1} +h^{i-1}, b^i, a^{i+1}, \cdots, a^n)  -  \partial_i f(a) \right\| \\
+\frac{\|f(a+h)- f(a) - \lambda(h)\|}{\|h\|} &= \frac{\left\| \sum h^i \partial_i f(a^1+h^1, \dots, b^i, a^{i+1}, \dots, a^n)  - \sum h^i \partial_i f(a) \right\|}{\|h\|} \\
+&\leq \sum_{i=1}^n \frac{ \left|h^i\right|}{\|h\|} \left\|  \partial_i f(a^1+h^1, \dots, a^{i-1} +h^{i-1}, b^i, a^{i+1}, \dots, a^n)  -  \partial_i f(a) \right\| \\
 \end{align}
 なので，$\partial_i f$の連続性より右辺は$h\to 0$で0に収束する．
 \end{proof}
@@ -333,20 +333,20 @@ f(a+h) - f(a) &= h^1 \partial_1 f(b^1, a^2, \cdots, a^n) \\
 さて，微分可能性から偏微分係数の存在が合成則なしで示せて，かつ偏微分係数の連続性から微分可能性を言うのに合成則を使っていないので，ここまでの議論で合成則はなくてもよかった．しかしながら合成則は次の形の（特に実用上の計算において）重要な帰結を持つ；
 
 \begin{prop}\label{実用的な方の合成則}
-各$1 \leq i \leq n$に対して$g^i \colon \Real^m \to \Real$が$a \in \Real^m$において$C^1$級であり，$f \colon \Real^n \to \Real$が$(g^1(a), g^2(a), \cdots, g^n(a))$において微分可能であったと仮定する．このとき
+各$1 \leq i \leq n$に対して$g^i \colon \Real^m \to \Real$が$a \in \Real^m$において$C^1$級であり，$f \colon \Real^n \to \Real$が$(g^1(a), g^2(a), \dots, g^n(a))$において微分可能であったと仮定する．このとき
 \begin{equation}
-F \colon \Real^m \ni x \mapsto f(g^1(x), g^2(x), \cdots, g^m(x)) \in \Real
+F \colon \Real^m \ni x \mapsto f(g^1(x), g^2(x), \dots, g^m(x)) \in \Real
 \end{equation}
 は$a \in \Real^m$において微分可能であって，
 \begin{equation}
-\partial_i F (a) = \sum_{j=1}^m \partial_j f(g^1(a), g^2(a), \cdots, g^n(a)) \cdot \partial_i g^j (a)
+\partial_i F (a) = \sum_{j=1}^m \partial_j f(g^1(a), g^2(a), \dots, g^n(a)) \cdot \partial_i g^j (a)
 \end{equation}が成り立つ．
 \end{prop}
 
 \begin{proof}
-$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \cdots, g^n(x))$で定めると，\cref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\cref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i f (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
+$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \dots, g^n(x))$で定めると，\cref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\cref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i f (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
 \begin{equation}
-\left( \partial_1 f(g(a)),\ \partial_2 f(g(a)),\ \cdots,\ \partial_n f(g(a))  \right)
+\left( \partial_1 f(g(a)),\ \partial_2 f(g(a)),\ \dots,\ \partial_n f(g(a))  \right)
 \end{equation}という$1 \times n$行列，$J_g(a)$は$(j,i)$成分が$\partial_i g^j(a)$であるような$n \times m$行列であるから，あとは行列の掛け算をすることで結論を得る．
 \end{proof}
 
@@ -423,7 +423,7 @@ f^{(i+1)}(0) \coloneqq \lim_{h\to 0 } \frac{f^{(i)}(h) - f^{(i)}(0)}{h} = \lim_{
 \lim_{h\to 0}\frac{f^{(i)}(h)}{h} = \lim_{h\to 0}\frac{f^{(i+1)}(h)}{1}
 \end{equation}を得るので，この時点で$f^{(i+1)}$が原点で定義されていればそれは連続であるとわかる．更に帰納的に議論を繰り返すことで，
 \begin{equation}
-f^{(i+1)}(0) \coloneqq \lim_{h\to 0}\frac{f^{(i)}(h)}{h}  = \lim_{h\to 0}\frac{f^{(i-1)}(h)}{h^2} = \cdots = \lim_{h\to 0}\frac{f^{(1)}(h)}{h^i}
+f^{(i+1)}(0) \coloneqq \lim_{h\to 0}\frac{f^{(i)}(h)}{h}  = \lim_{h\to 0}\frac{f^{(i-1)}(h)}{h^2} = \dots = \lim_{h\to 0}\frac{f^{(1)}(h)}{h^i}
 \end{equation}がわかるが，ふたたび\cref{指数関数は多項式に優越する}によってこれは0である．
 \end{proof}
 
@@ -438,10 +438,8 @@ f^{(i+1)}(0) \coloneqq \lim_{h\to 0}\frac{f^{(i)}(h)}{h}  = \lim_{h\to 0}\frac{f
 \end{equation}
 で定めると，$\psi$は$C^\infty$級であり，$(-1,1)$においては正であってそれ以外では0である．$a \in \Real^n$および$\varepsilon > 0$に対して関数$g_{a,\varepsilon} \colon \Real^n \to \Real$を，
 \begin{equation}
-g_{a,\varepsilon}(x) \coloneqq \psi\left( \frac{x^1 - a^1}{\varepsilon} \right) \cdot 
-\psi\left( \frac{x^2 - a^2}{\varepsilon} \right) \cdot \cdots \cdot
-\psi\left( \frac{x^n - a^n}{\varepsilon} \right)
-\end{equation}で定めると，$g_{a,\varepsilon}$は開方体$(a^1- \varepsilon, a^1 + \varepsilon) \times(a^2- \varepsilon, a^2 + \varepsilon) \times \cdots \times (a^n- \varepsilon, a^n + \varepsilon)$においては正であってそれ以外では0である．
+g_{a,\varepsilon}(x) \coloneqq \prod_{i=1}^n \psi\left( \frac{x^i - a^i}{\varepsilon} \right)
+\end{equation}で定めると，$g_{a,\varepsilon}$は開方体$(a^1- \varepsilon, a^1 + \varepsilon) \times(a^2- \varepsilon, a^2 + \varepsilon) \times \dots \times (a^n- \varepsilon, a^n + \varepsilon)$においては正であってそれ以外では0である．
 \end{prop}
 
 \begin{proof}
@@ -567,8 +565,8 @@ $f$は縮小的なので，ある$0 \leq \mu < 1$が存在して，任意の$x, 
 
 $y_0 \in D$を任意に取り，点列$\set{y_i}_{i=1}^\infty$を$y_i \coloneqq f^{i}(y_0)$によって定める．すると任意の$k \in \Natu$に対して$\|y_{k+1} - y_k\| \leq \mu^k\|y_1 - y_0\|$が成り立つから，$m>n$を充たすような$m,n \in \Natu$に対して
 \begin{align}
-\|y_m - y_n\| &\leq \|y_m - y_{m-1}\| + \|y_{m-1} - y_{m-2}\| + \cdots + \|y_{n+1} - y_{n}\| \\
-& \leq (\mu^{m-1} + \mu^{m-2} + \cdots \mu^{n})  \|y_1 - y_0\| = \mu^{n} \frac{1 - \mu^{m-n}}{1 - \mu}\|y_1 - y_0\|.
+\|y_m - y_n\| &\leq \|y_m - y_{m-1}\| + \|y_{m-1} - y_{m-2}\| + \dots + \|y_{n+1} - y_{n}\| \\
+& \leq (\mu^{m-1} + \mu^{m-2} + \dots \mu^{n})  \|y_1 - y_0\| = \mu^{n} \frac{1 - \mu^{m-n}}{1 - \mu}\|y_1 - y_0\|.
 \end{align}最右辺は$m,n \to \infty$で0に収束するので，$\set{y_i}$は$\Real^n$の Cauchy 列である．したがって収束先$y \coloneqq \lim_{i \to \infty} y_i$が$\Real^n$に存在するが，$D$は閉であって$\set{y_i}$は$D$の点列なので，$y \in D$である．更に$f$の連続性より$y = \lim_{i \to \infty} y_i = \lim_{i \to \infty} f(y_{i-1}) = f(\lim_{i \to \infty} y_i) = f(y)$であるから$y$は$f$の不動点になっている．更に$z$も$f$の不動点であったとすると，$\|y - z\| = \|f(y) - f(z)\| \leq \mu \|y-z\|$を得るが，$\mu < 1$なので$\|y-z\|=0$すなわち$y=z$である．
 \end{proof}
 
@@ -589,16 +587,16 @@ $D \subset \Real^n$を開集合とし，$f \colon \Real^n \to \Real^n$が$D$で�
 \begin{proof}
 各成分関数$f^i$に対して，$f^i(a+h) - f^i(a)$を，
 \begin{align}
-f^i(a+h) - f^i(a) &= f^i(a^1+h^1, a^2, \cdots, a^n) - f^i(a^1 , a^2, \cdots, a^n) \\
-&+ f^i(a^1+h^1, a^2+h^2, \cdots, a^n) - f^i(a^1+h^1 , a^2, \cdots, a^n) \\
+f^i(a+h) - f^i(a) &= f^i(a^1+h^1, a^2, \dots, a^n) - f^i(a^1 , a^2, \dots, a^n) \\
+&+ f^i(a^1+h^1, a^2+h^2, \dots, a^n) - f^i(a^1+h^1 , a^2, \dots, a^n) \\
 &+ \cdots \\
-&+ f^i(a^1+h^1, a^2+h^2, \cdots, a^{n-1}+h^{n-1} ,a^n+h^n) - f^i(a^1+h^1 , a^2+h^2, \cdots, a^{n-1} +h^{n-1}, a^n)
+&+ f^i(a^1+h^1, a^2+h^2, \dots, a^{n-1}+h^{n-1} ,a^n+h^n) - f^i(a^1+h^1 , a^2+h^2, \dots, a^{n-1} +h^{n-1}, a^n)
 \end{align}のように表示しておく．$f^i$は各変数に関して偏微分可能なので，平均値の定理により
 \begin{equation}
-|f^i(a^1+h^1, a^2, \cdots, a^n) - f^i(a^1 , a^2, \cdots, a^n)| \leq h^1 M
+|f^i(a^1+h^1, a^2, \dots, a^n) - f^i(a^1 , a^2, \dots, a^n)| \leq h^1 M
 \end{equation}が成り立つ．したがって
 \begin{align}
-|f^i(a+h) - f^i(a)| \leq (h^1 + h^2 + \cdots + h^n)M \leq n\|h\|M
+|f^i(a+h) - f^i(a)| \leq (h^1 + h^2 + \dots + h^n)M \leq n\|h\|M
 \end{align}である．ふたたびノルムの三角不等式より$\|f(a+h) - f(a)\| \leq \sum |f^i(a + h) - f^i(a)|$が得られるから結論が従う．
 \end{proof}
 
@@ -680,26 +678,26 @@ $h \colon A \to B$が任意の$x \in A$に対して$f(x,h(x))=0$を充たすと�
 陰関数定理は次のように述べ直すこともできる．
 
 \begin{thm}
-$n,p$を$p \leq n$を充たすような自然数とし，$a \in \Real^n$とする．$f \colon \Real^n \to \Real^p$が$C^1$級であって，更に$f(a) = 0$かつ$f$の$a \in \Real^n$における Jacobi 行列の階数は$p$であったと仮定する．このとき，$a$を含む開集合$U$上の$C^1$級微分同相$F \colon U \to \Real^n$であって，$f \circ F^{-1} (x^1, \cdots, x^n) = (x^{n-p +1}, \cdots, x^n)$を充たすものがある．
+$n,p$を$p \leq n$を充たすような自然数とし，$a \in \Real^n$とする．$f \colon \Real^n \to \Real^p$が$C^1$級であって，更に$f(a) = 0$かつ$f$の$a \in \Real^n$における Jacobi 行列の階数は$p$であったと仮定する．このとき，$a$を含む開集合$U$上の$C^1$級微分同相$F \colon U \to \Real^n$であって，$f \circ F^{-1} (x^1, \dots, x^n) = (x^{n-p +1}, \dots, x^n)$を充たすものがある．
 \end{thm}
 
 \begin{proof}
-$f \colon \Real^n \to \Real^p$を$f \colon \Real^{n-p} \times \Real^p \to \Real^p$と考える．$p \times p$行列$(\partial_{n-p+j}f^i (a))$の階数が$p$ならば，逆関数定理より$F \colon \Real^{n-p} \times \Real^p \ni (x,y) \mapsto (x,f(x,y)) \in \Real^n$は$a$を含む開集合$U$上で$C^1$級微分同相である．更に$F$の逆写像を$G \colon F(U) \to U$と書けば，$f\circ G(x^1,x^2, \cdots, x^{n-p}, x^{n-p+1}, \cdots, x^n) = (x^{n-p+1}, \cdots, x^n)$である．
+$f \colon \Real^n \to \Real^p$を$f \colon \Real^{n-p} \times \Real^p \to \Real^p$と考える．$p \times p$行列$(\partial_{n-p+j}f^i (a))$の階数が$p$ならば，逆関数定理より$F \colon \Real^{n-p} \times \Real^p \ni (x,y) \mapsto (x,f(x,y)) \in \Real^n$は$a$を含む開集合$U$上で$C^1$級微分同相である．更に$F$の逆写像を$G \colon F(U) \to U$と書けば，$f\circ G(x^1,x^2, \dots, x^{n-p}, x^{n-p+1}, \dots, x^n) = (x^{n-p+1}, \dots, x^n)$である．
 
-$p \times p$行列$(\partial_{n-p+j}f^i (a))$の階数が$p$未満であるときも，$1 \leq j_1 < j_2 < \cdots < j_p \leq n$を適切に選べば$(\partial_{j_i} f^i(a))$の階数は$p$になる．$g \colon \Real^n \to \Real^n$を，「$x^{j_i}$たちが右側にまとまるように並べ替える」写像とすると，$f \circ g$に対しては前段の議論が使えて，$a$を含む開集合$U$上の$C^1$級微分同相$k \colon U \to \Real^n$があって$f \circ g \circ k^{-1}(x^1,x^2, \cdots, x^{n-p}, x^{n-p+1}, \cdots, x^n) = (x^{n-p+1}, \cdots, x^n)$となる．$F \coloneqq k \circ g^{-1}$とすればよい．
+$p \times p$行列$(\partial_{n-p+j}f^i (a))$の階数が$p$未満であるときも，$1 \leq j_1 < j_2 < \dots < j_p \leq n$を適切に選べば$(\partial_{j_i} f^i(a))$の階数は$p$になる．$g \colon \Real^n \to \Real^n$を，「$x^{j_i}$たちが右側にまとまるように並べ替える」写像とすると，$f \circ g$に対しては前段の議論が使えて，$a$を含む開集合$U$上の$C^1$級微分同相$k \colon U \to \Real^n$があって$f \circ g \circ k^{-1}(x^1,x^2, \dots, x^{n-p}, x^{n-p+1}, \dots, x^n) = (x^{n-p+1}, \dots, x^n)$となる．$F \coloneqq k \circ g^{-1}$とすればよい．
 \end{proof}
 
 この述べかえは，のちのち微分可能多様体の判定法として使えることが明らかになるが，直ちに分かる応用をひとつ紹介しておこう；制限付き極値問題である．
 
 \begin{prop}[Lagrange の未定乗数法]
-$n,p$を$p \leq n$を充たすような自然数，$A \subset \Real^n$を開集合，$g \colon A \to \Real^p$を$C^1$級関数とし，任意の$a \in A$に対して$J_g(a)$の階数は$p$であったとする．更に$f \colon g^{-1}(0) \to \Real$を微分可能な関数とし，$a \in \Real^n$において$f$は極値を取ると仮定する．このとき，$p$個の実数$\lambda_1, \cdots, \lambda_p$が存在して，$1 \leq j \leq n$に対して
+$n,p$を$p \leq n$を充たすような自然数，$A \subset \Real^n$を開集合，$g \colon A \to \Real^p$を$C^1$級関数とし，任意の$a \in A$に対して$J_g(a)$の階数は$p$であったとする．更に$f \colon g^{-1}(0) \to \Real$を微分可能な関数とし，$a \in \Real^n$において$f$は極値を取ると仮定する．このとき，$p$個の実数$\lambda_1, \dots, \lambda_p$が存在して，$1 \leq j \leq n$に対して
 \begin{equation}
 \partial_j f(a) = \sum_{i=1}^p \lambda_i \partial_j g^i(a)
 \end{equation}を充たす．
 \end{prop}
 
 \begin{proof}
-証明を2段階に分割する．まず$g(x)= (x^{n-p+1}, \cdots, x^n)$のときを考える．このとき，$i, = 1,2, \cdots, p$および$j = 1,2, \cdots, n$に対して
+証明を2段階に分割する．まず$g(x)= (x^{n-p+1}, \dots, x^n)$のときを考える．このとき，$i, = 1,2, \dots, p$および$j = 1,2, \dots, n$に対して
 \begin{equation}
 \partial_j g^i(a) = \begin{dcases*}
     1 & if $j = n-p+i$ \\
@@ -707,7 +705,7 @@ $n,p$を$p \leq n$を充たすような自然数，$A \subset \Real^n$を開集�
   \end{dcases*}
 \end{equation}
 である．
-$f$を$g^{-1}(0)$に制限するというのは$x^{n-p+1} = x^{n-p+2} = x^n=0$に固定して$n-p$変数の関数だと見なすことと同値である．したがって$f$が$a \in \Real^n$において極値を取るならば，$\partial_1 f(a) = \partial_2 f(a) = \cdots \partial_{n-p}f(a) =0$である．したがって$\lambda_i = \partial_{n-p+i} f(a)$とすれば命題の主張が成り立つ．一般の$g$に対しては，陰関数定理によって$a$を含む開集合$U$で定義された$C^1$級微分同相$F$があって$g \circ F^{-1} =  (x^{n-p+1}, \cdots, x^n)$となるから，$F$の逆写像を$G$と書けば，前段の議論により実数$\lambda_1, \cdots, \lambda_p$があって
+$f$を$g^{-1}(0)$に制限するというのは$x^{n-p+1} = x^{n-p+2} = x^n=0$に固定して$n-p$変数の関数だと見なすことと同値である．したがって$f$が$a \in \Real^n$において極値を取るならば，$\partial_1 f(a) = \partial_2 f(a) = \dots \partial_{n-p}f(a) =0$である．したがって$\lambda_i = \partial_{n-p+i} f(a)$とすれば命題の主張が成り立つ．一般の$g$に対しては，陰関数定理によって$a$を含む開集合$U$で定義された$C^1$級微分同相$F$があって$g \circ F^{-1} =  (x^{n-p+1}, \dots, x^n)$となるから，$F$の逆写像を$G$と書けば，前段の議論により実数$\lambda_1, \dots, \lambda_p$があって
 \begin{equation}
 \partial_j (f \circ G)(F(a)) = \sum_{i=1}^p \lambda_i \partial_j (g \circ G)^i(F(a)) = \sum_{i=1}^p \lambda_i \partial_j (g^i \circ G)(F(a))
 \end{equation}となる．\cref{実用的な方の合成則}より
@@ -722,15 +720,19 @@ $f$を$g^{-1}(0)$に制限するというのは$x^{n-p+1} = x^{n-p+2} = x^n=0$�
 \end{equation}が従う．この式を行列演算の形で書いた上で$\partial_j G^k(F(a))$の逆行列を掛ければ結論を得る（$G$が微分同相なので，$\partial_j G^k(F(a))$は正則行列である）．
 \end{proof}
 
-以下しばらく$p=1$とし，$\nabla f \coloneqq (\partial_1 f, \cdots, \partial_n f)$と置く．Lagrange の未定乗数法の主張は，$f$を$g=0$に制限した関数の臨界点は$\nabla(f-\lambda g)=0$を充たす，ということを主張している．したがって$\partial_i (f - \lambda g)=0$および$g=0$という$n+1$本の連立方程式が立つので，$x^1,x^2\cdots, x^n , \lambda$に関して解くことができるから，実際にやればよい．ということでいくつか例を見てみることにしよう．
+以下しばらく$p=1$とし，$\nabla f \coloneqq (\partial_1 f, \dots, \partial_n f)$と置く．Lagrange の未定乗数法の主張は，$f$を$g=0$に制限した関数の臨界点は$\nabla(f-\lambda g)=0$を充たす，ということを主張している．したがって$\partial_i (f - \lambda g)=0$および$g=0$という$n+1$本の連立方程式が立つので，$x^1,x^2\dots, x^n , \lambda$に関して解くことができるから，実際にやればよい．ということでいくつか例を見てみることにしよう．
 
 \begin{exm}
-ここでは$\Real^n$の座標として$p^1, p^2, \cdots, p^n$を使うことにする．$\Delta_n \coloneqq \set{ p \in \Real^n | \sum_{i=1}^n p^i = 1, p^1, p^2, \cdots, p^n \geq 0 }$を標準$n$-単体という．$p \in \Delta_n$に対して$H(p) \coloneqq -\sum_{i=1}^n p^i \log p^i$を$p$のエントロピーと呼ぶ．ただし$0 \log 0=0$と定める．いくつかの状況について，エントロピーを最大化する$p \in \Real^n$を求めてみよう．エントロピーは凹関数なので，極値を達成する点があればその点で最大値を達成することに注意しておく．
-\begin{itemize}
-\item $p \in \Delta_n$以外に特に制約のない場合．$L(p,\lambda) \coloneqq H(p) - \lambda (\sum_{i=1}^n p^i - 1)$を$p^i$で微分して0と置いた式$\partial_i L(p,\lambda)=0$を考えることで，$p^i = \exp(-\lambda+1)$を得る．すなわち$p^1 = p^2 = \cdots =p^n = 1/n$である．
-\item $k=1,2,\cdots,m$に対し，$f_k \colon \set{1,\cdots,n} \to \Real$を関数とする．$\sum_{i=1}^n f_k(i) p^i$を，$f_k$の$p \in \Delta_n$における期待値という．ここでは，$f_k$たちの期待値に制約がついている状況を考える．すなわち，$U_1, U_2, \cdots, U_m$を実数として，$\sum_{i=1}^n f_k(i) p^i = U_k$という制約のもとでエントロピーを最大化する$p \in \Delta_n$を求めることを考える．もちろん$f_k$たちの具体的な形がわからないので，解析解の計算はできないが，$f_k$たちの具体形に依らないところまでは計算を進めてみることにしよう．
+ここでは$\Real^n$の座標として$p^1, p^2, \dots, p^n$を使うことにする．
 \begin{equation}
-L(p, \lambda^0, \lambda^1, \cdots, \lambda^m) \coloneqq H(p) - (\lambda^0-1) \left(\sum_{i=1}^n p^i - 1\right) - \sum_{k=1}^m \lambda^k \left(\sum_{i=1}^n f_k(i) p^i - U_k\right)
+\Delta_n \coloneqq \set{ p \in \Real^n | \sum_{i=1}^n p^i = 1, p^1, p^2, \dots, p^n \geq 0 }
+\end{equation}
+を標準$n$-単体という．$p \in \Delta_n$に対して$H(p) \coloneqq -\sum_{i=1}^n p^i \log p^i$を$p$のエントロピーと呼ぶ．ただし$0 \log 0=0$と定める．いくつかの状況について，エントロピーを最大化する$p \in \Real^n$を求めてみよう．エントロピーは凹関数なので，極値を達成する点があればその点で最大値を達成することに注意しておく．
+\begin{itemize}
+\item $p \in \Delta_n$以外に特に制約のない場合．$L(p,\lambda) \coloneqq H(p) - \lambda (\sum_{i=1}^n p^i - 1)$を$p^i$で微分して0と置いた式$\partial_i L(p,\lambda)=0$を考えることで，$p^i = \exp(-\lambda+1)$を得る．すなわち$p^1 = p^2 = \dots =p^n = 1/n$である．
+\item $k=1,2,\dots,m$に対し，$f_k \colon \set{1,\dots,n} \to \Real$を関数とする．$\sum_{i=1}^n f_k(i) p^i$を，$f_k$の$p \in \Delta_n$における期待値という．ここでは，$f_k$たちの期待値に制約がついている状況を考える．すなわち，$U_1, U_2, \dots, U_m$を実数として，$\sum_{i=1}^n f_k(i) p^i = U_k$という制約のもとでエントロピーを最大化する$p \in \Delta_n$を求めることを考える．もちろん$f_k$たちの具体的な形がわからないので，解析解の計算はできないが，$f_k$たちの具体形に依らないところまでは計算を進めてみることにしよう．
+\begin{equation}
+L(p, \lambda^0, \lambda^1, \dots, \lambda^m) \coloneqq H(p) - (\lambda^0-1) \left(\sum_{i=1}^n p^i - 1\right) - \sum_{k=1}^m \lambda^k \left(\sum_{i=1}^n f_k(i) p^i - U_k\right)
 \end{equation}と置く（$\lambda^0$を定数シフトして定義しているのは，後のノーテーションをきれいにするためだけの便宜である）．これを$p^i$で微分して0と置いた式は
 \begin{equation}
 \partial_i L(p,\lambda) = -\log p_i - 1 - (\lambda^0 - 1) - \sum_{k=1}^m \lambda^k f_k(i) =0
@@ -742,7 +744,7 @@ p_i = \exp\left(- \lambda^0 - \sum_{k=1}^m \lambda^k f_k(i) \right)
 1 = \sum_{i=1}^n p^i = e^{- \lambda^0} \sum_{i=1}^n \exp\left(-\sum_{k=1}^m \lambda^k f_k(i)\right)
 \end{equation}を得る．ここに現れた
 \begin{equation}
-Z(\lambda) = Z(\lambda^1, \lambda^2, \cdots, \cdots, \lambda^m) \coloneqq \sum_{i=1}^n \exp\left(-\sum_{k=1}^m \lambda^k f_k(i)\right)
+Z(\lambda) = Z(\lambda^1, \lambda^2, \dots, \dots, \lambda^m) \coloneqq \sum_{i=1}^n \exp\left(-\sum_{k=1}^m \lambda^k f_k(i)\right)
 \end{equation}を分配関数と呼ぶ．$\lambda^0 = \log Z(\lambda)$なので，$\lambda^0$の計算は分配計算の計算に帰着する．分配関数を計算するために期待値に対する制約式を検討すると，
 \begin{equation}
 U_k = \sum_{i=1}^n f_k(i)p^i = \sum_{i=1}^n f_k(i)p^i = \sum_{i=1}^n f_k(i) \frac{e^{-\sum_{k} \lambda^k f_k(i)}}{Z(\lambda)} = - \frac{\partial_i Z(\lambda)}{Z(\lambda)} = -\partial_i \log Z(\lambda)
@@ -755,9 +757,9 @@ $p \in \Delta_n$は，実際には有限標本空間上の確率分布という�
 \end{dig}
 
 \begin{exm}
-やや脱線となるが，前例で現れたエントロピーに対する考察を続けよう．前例の議論を反芻すると，関数$f_k$たちの期待値が取る値を$U_1, \cdots, U_m$に制約すれば，Lagrange の未定乗数法によって制約下でのエントロピーの最大値が求められた．これは，
+やや脱線となるが，前例で現れたエントロピーに対する考察を続けよう．前例の議論を反芻すると，関数$f_k$たちの期待値が取る値を$U_1, \dots, U_m$に制約すれば，Lagrange の未定乗数法によって制約下でのエントロピーの最大値が求められた．これは，
 \begin{equation}
-S(U) = S(U_1, U_2, \cdots, U_n) \coloneqq \max_{p} H(p) = \max_{p, \lambda^0, \lambda} \left[H(p) - (\lambda^0-1) \left(\sum_{i=1}^n p^i - 1\right) - \sum_{k=1}^m \lambda^k \left(\sum_{i=1}^n f_k(i) p^i - U_k\right) \right]
+S(U) = S(U_1, U_2, \dots, U_n) \coloneqq \max_{p} H(p) = \max_{p, \lambda^0, \lambda} \left[H(p) - (\lambda^0-1) \left(\sum_{i=1}^n p^i - 1\right) - \sum_{k=1}^m \lambda^k \left(\sum_{i=1}^n f_k(i) p^i - U_k\right) \right]
 \end{equation}なる関数$S$がある，と言い換えることができる．ただし$\max$は$p\in \Delta_n$ならびに期待値に関する制約を満たすような範囲で取る．最大値を達成する点では$p_i = \exp\left(- \lambda^0 - \sum_{k=1}^m \lambda^k f_k(i) \right)$であることがわかっているので，これを代入して計算を続けると
 \begin{align}
 S(U) &= \max_{p,\lambda^0,\lambda} H(p) \\
@@ -766,7 +768,7 @@ S(U) &= \max_{p,\lambda^0,\lambda} H(p) \\
 &= \max_{\lambda} \left[ \log Z(\lambda) + \sum_{k=1}^m \lambda^k  U_k  \right]
 \end{align}を得る．一般に，凸関数$f \colon \Real^n \to \Real$に対して$f^*(p) \coloneqq \max_x \left[ \langle x,p \rangle - f(x) \right]$を$f$の Legendre 変換という．この言葉を用いれば，「$S$は分配関数$-\log Z(\lambda)$の Legendre 変換である」と言い換えることができる．この$S$は熱力学的エントロピーと呼ばれる．
 
-さて，$S$の表式には$\lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H(p)$の制約付き極値における$\lambda^k$は$U_k$の関数として書ける\footnote{本当は記号を分けて$\lambda^k_*(U_1,\cdots,U_n)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．}．ここでは更に$\lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると\cref{実用的な方の合成則}によって
+さて，$S$の表式には$\lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H(p)$の制約付き極値における$\lambda^k$は$U_k$の関数として書ける\footnote{本当は記号を分けて$\lambda^k_*(U_1,\dots,U_n)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．}．ここでは更に$\lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると\cref{実用的な方の合成則}によって
 \begin{equation}
 \partial_i S(U) = \sum_{k=1}^m \left[ \partial_k \log Z(\lambda(U)) \cdot \partial_i \lambda^k (U) \right] + \sum_{k=1}^m \left[U_k \partial_i \lambda^k(U) \right] + \lambda^k(U) = \lambda^k(U)
 \end{equation}を得る．したがって未定乗数は熱力学的エントロピーの導関数として現れることがわかった．いくつかの物理学的設定のもとでは，$\lambda^k$は「示量変数$U_k$に共役な示強変数」と呼ばれる．また物理学においては熱力学的エントロピー$S$の引数に「エネルギー」と呼ばれる引数$U$を含むように要請することが多い．この$U$に共役な示強変数には「逆温度」という名前がついている；もちろん，適切な設定ならびに考察のもとで，この量と我々が見知っている温度との間に深い関わりを見いだせるだろうが，このノートで書くのはここまでにしておく．

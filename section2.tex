@@ -209,17 +209,17 @@ f(a+h) - f(a) - \lambda_a(h) = (f^1(a+h) - f^1(a) - d{f^1}_a(h), \dots, f^n(a+h)
 $f, g \colon \Real^n \to \Real$が$x$で微分可能であるならば，$f+g, fg$もまた微分可能であって，
 \begin{align}
 d(f+g)_x = df_x+dg_x \\
-d(fg)_x = g(x) df_x  + f(x) dg_x
+d(fg)_x = g(x) \cdot df_x  + f(x) \cdot dg_x
 \end{align}が成り立つ．特に$g (x) \neq 0$であるならば，
 \begin{equation}
-d(f/g)_x = \frac{g(x)df_x - f(x)dg_x}{(g(x))^2}.
+d(f/g)_x = \frac{g(x) \cdot df_x - f(x) \cdot dg_x}{(g(x))^2}.
 \end{equation}
 \end{cor}
 
 \begin{proof}
 $f+g = s \circ (f,g)$なので$f+g$は微分可能であり，$d(f+g)_x = d(s \circ (f,g))_x = ds_{(f(x), g(x))} \circ d(f,g)_x = s \circ (df,dg)_x = df_x + dg_x$となる．
 
-$fg = p \circ(f,g)$なので$fg$は微分可能であり，$d(fg)_x = d(p \circ (f,g))_x = dp_{(f(x), g(x))} \circ d(f,g)_x = dp_{(f(x), g(x))} \circ (df_x,dg_x) = g(x)df_x  + f(x) dg_x$となる．最後の式は多項式の微分を知っていればできると思います．
+$fg = p \circ(f,g)$なので$fg$は微分可能であり，$d(fg)_x = d(p \circ (f,g))_x = dp_{(f(x), g(x))} \circ d(f,g)_x = dp_{(f(x), g(x))} \circ (df_x,dg_x) = g(x) \cdot df_x  + f(x) \cdot dg_x$となる．最後の式は多項式の微分を知っていればできると思います．
 \end{proof}
 
 まとめると，各成分が微分可能な関数の加減乗除ないし合成で書ける関数は微分可能であるということがわかった．しかしながらここまでの知識だけで微分を計算するのは煩雑である．煩雑であることを見るためだけに例をひとつだけ扱っておくことにする．

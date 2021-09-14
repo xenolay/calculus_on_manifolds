@@ -9,11 +9,11 @@
 \end{dig}
 
 \begin{que}
-ところで，可算無限と非可算無限の違いだけは把握していないとこの節は読めないかもしれない．
+ところで，可算無限と非可算無限の違いだけは把握していないとこの節は読めないかもしれない．知らない場合は調べておいてください．それ以外の順序数に関する知識は一切必要としない（はず）．
 \end{que}
 
 \begin{defi}
-単調増加な集合の族$A_1 \subset A_2 \subset \cdots$が$A = \bigcup_{i=1}^\infty A_i$を充たすことを$A_i \uparrow A$と書く．単調減少な集合の族$B_1 \supset B_2 \supset \cdots$が$B = \bigcap_{i=1}^\infty B_i$を充たすことを$B_i \downarrow B$と書く．
+単調増加な集合の族$A_1 \subset A_2 \subset \dotsb$が$A = \bigcup_{i=1}^\infty A_i$を充たすことを$A_i \uparrow A$と書く．単調減少な集合の族$B_1 \supset B_2 \supset \dotsb$が$B = \bigcap_{i=1}^\infty B_i$を充たすことを$B_i \downarrow B$と書く．
 \end{defi}
 
 \subsection{測度空間と Lebesgue 測度}
@@ -115,7 +115,7 @@ $\mathcal{A} \subset 2^X$が（$X$上の）有限加法族であるとは，次�
 \begin{itemize}
 \item $\emptyset \in \mathcal{A}$．
 \item $A \in \mathcal{A}$ならば，$X \setminus A \in \mathcal{A}$．
-\item $A_1, A_2, \cdots, A_n \in \mathcal{A}$ならば，$\bigcup_{i=1}^n A_i \in \mathcal{A}$．
+\item $A_1, A_2, \dots, A_n \in \mathcal{A}$ならば，$\bigcup_{i=1}^n A_i \in \mathcal{A}$．
 \end{itemize}
 \end{defi}
 
@@ -188,9 +188,9 @@ $\Real$の左半開区間をすべて集めた集合$\mathcal{H} \coloneqq \set{
 \end{prop}
 
 \begin{proof}
-$\mu \colon \mathcal{H} \to [0,\infty]$を，$(a,b] \in \mathcal{H}$に対して$\mu((a,b]) \coloneqq b-a$，$(a,\infty) \in \mathcal{H}$に対して$\mu((a,\infty)) \coloneqq \infty$，$\mu(\emptyset) \coloneqq 0$と定める．更に，排反な$A_1, A_2, \cdots, A_n \in \mathcal{H}$に対して$\mu\left(\bigcup_{i=1}^n A_i\right) \coloneqq \sum_{i=1}^n \mu(A_i)$と定めることで$\mu$を$\overline{\mathcal{H}}$上の有限加法的測度に拡張できたとする．その上で$\overline{\mathcal{H}}$上で可算加法的であることが示せれば，$\mu$は$\overline{\mathcal{H}}$上$\sigma$-有限なので Carath\'eodory の拡張定理によって結論を得る．以下，これらのことを示していく．
+$\mu \colon \mathcal{H} \to [0,\infty]$を，$(a,b] \in \mathcal{H}$に対して$\mu((a,b]) \coloneqq b-a$，$(a,\infty) \in \mathcal{H}$に対して$\mu((a,\infty)) \coloneqq \infty$，$\mu(\emptyset) \coloneqq 0$と定める．更に，排反な$A_1, A_2, \dots, A_n \in \mathcal{H}$に対して$\mu\left(\bigcup_{i=1}^n A_i\right) \coloneqq \sum_{i=1}^n \mu(A_i)$と定めることで$\mu$を$\overline{\mathcal{H}}$上の有限加法的測度に拡張できたとする．その上で$\overline{\mathcal{H}}$上で可算加法的であることが示せれば，$\mu$は$\overline{\mathcal{H}}$上$\sigma$-有限なので Carath\'eodory の拡張定理によって結論を得る．以下，これらのことを示していく．
 
-まず$\mu$が$\overline{\mathcal{H}}$上の有限加法的測度に拡張できること，すなわち上記の拡張が well-defined であることを示す．$A \in \overline{\mathcal{H}}$をとると，$A$は排反な集合族$A_1, A_2, \cdots, A_m \in \mathcal{H}$を用いて$A = \bigcup_{i=1}^m A_i$と表されている．ここで，別の排反な集合族$B_1, B_2, \cdots, B_n \in \mathcal{H}$を用いて$A = \bigcup_{j=1}^n B_j$とも表されていたとする．このとき$1 \leq i \leq m$ならびに$1 \leq j \leq n$に対して$C_{ij} \coloneqq A_i \cap B_j$と置くと，$\set{C_{ij}}$は排反な$\overline{\mathcal{H}}$の集合族であって，$\bigcup_{i=1}^m C_{ij} = B_j$および$\bigcup_{j=1}^n C_{ij} = A_i$を充たす．したがって$\mu\left( \bigcup_{i=1}^n A_i \right) = \mu\left( \bigcup_{i=1}^n \bigcup_{j=1}^m C_{ij} \right) = \mu\left( \bigcup_{j=1}^m B_j \right)$を得るから$\mu$は well-defined である．
+まず$\mu$が$\overline{\mathcal{H}}$上の有限加法的測度に拡張できること，すなわち上記の拡張が well-defined であることを示す．$A \in \overline{\mathcal{H}}$をとると，$A$は排反な集合族$A_1, A_2, \dots, A_m \in \mathcal{H}$を用いて$A = \bigcup_{i=1}^m A_i$と表されている．ここで，別の排反な集合族$B_1, B_2, \dots, B_n \in \mathcal{H}$を用いて$A = \bigcup_{j=1}^n B_j$とも表されていたとする．このとき$1 \leq i \leq m$ならびに$1 \leq j \leq n$に対して$C_{ij} \coloneqq A_i \cap B_j$と置くと，$\set{C_{ij}}$は排反な$\overline{\mathcal{H}}$の集合族であって，$\bigcup_{i=1}^m C_{ij} = B_j$および$\bigcup_{j=1}^n C_{ij} = A_i$を充たす．したがって$\mu\left( \bigcup_{i=1}^n A_i \right) = \mu\left( \bigcup_{i=1}^n \bigcup_{j=1}^m C_{ij} \right) = \mu\left( \bigcup_{j=1}^m B_j \right)$を得るから$\mu$は well-defined である．
 
 続いて$\mu$の$\mathcal{H}$上での可算加法性，すなわち$A \in \mathcal{H}$が排反な区間の族$\set{(a_i,b_i]}_{i=1}^\infty$を用いて$A = \bigcup_{i=1}^\infty (a_i,b_i]$と表されていたときに$\mu(A) = \sum_{i=1}^\infty \mu((a_i,b_i])$となることを示す．
 \begin{itemize}
@@ -205,7 +205,7 @@ $\mu \colon \mathcal{H} \to [0,\infty]$を，$(a,b] \in \mathcal{H}$に対して
 \item $b \in \Real$を用いて$A = (-\infty, b]$と書ける場合．$\mu(A) = \infty$なので$\mu(A) \geq \sum_{i=1}^\infty \mu((a_i,b_i])$はよい．$c \in \Real$に対して$(c,b] = \bigcup_{i=1}^\infty ((c,b] \cap (a_i,b_i])$なので，前段の結果と併せて$\mu((c,b]) = \bigcup_{i=1}^\infty \mu((c,b] \cap (a_i,b_i]) \leq \bigcup_{i=1}^\infty \mu((a_i,b_i])$を得るから$c \to \infty$として$\mu(A) \leq \sum_{i=1}^\infty \mu((a_i,b_i])$を得る．$A=(a,\infty)$ならびに$A = \Real$の場合も同様である．
 \end{itemize}
 
-最後に，$\mu$が$\overline{\mathcal{H}}$上で可算加法的であることを示す．排反な$\overline{\mathcal{H}}$の元の族$\set{A_i}_{i=1}^\infty$に対して$A \coloneqq \bigcup_{i=1}^\infty A_i \in \overline{\mathcal{H}}$であったと仮定する．$A \in \overline{\mathcal{H}}$なので，$A = \bigcup_{j=1}^m B_j$を充たす排反な$B_1, B_2, \cdots, B_m \in \mathcal{H}$がある．同様に$A_i \in \overline{\mathcal{H}}$なので，$A_i = \bigcup_{k=1}^{n_i} C_{ik}$を充たす排反な$C_{i1},C_{i2},\cdots,C_{in_i} \in \mathcal{H}$がある．$B_j \cap C_{ik}$が互いに排反であることに気をつけて，
+最後に，$\mu$が$\overline{\mathcal{H}}$上で可算加法的であることを示す．排反な$\overline{\mathcal{H}}$の元の族$\set{A_i}_{i=1}^\infty$に対して$A \coloneqq \bigcup_{i=1}^\infty A_i \in \overline{\mathcal{H}}$であったと仮定する．$A \in \overline{\mathcal{H}}$なので，$A = \bigcup_{j=1}^m B_j$を充たす排反な$B_1, B_2, \dots, B_m \in \mathcal{H}$がある．同様に$A_i \in \overline{\mathcal{H}}$なので，$A_i = \bigcup_{k=1}^{n_i} C_{ik}$を充たす排反な$C_{i1},C_{i2},\dots,C_{in_i} \in \mathcal{H}$がある．$B_j \cap C_{ik}$が互いに排反であることに気をつけて，
 \begin{align}
 \mu(A) &= \sum_{j=1}^m \mu(B_j) \\
 &= \sum_{j=1}^m \mu\left(\bigcup_{i=1}^\infty \bigcup_{k=1}^{n_i} B_j \cap C_{ik} \right) \\
@@ -246,7 +246,7 @@ $(a,b] \in \mathcal{H}$を任意に取ると，$(a,b] = \bigcap_{n=1}^\infty (a,
 
 1変数関数の Riemann 積分がどのような関数に対して定義できたわけではないのと同様に，測度に関する積分もまた，任意の関数に定義できるわけではない．測度に関する積分が定義できる関数のクラスが可測写像と呼ばれるものである．本節では可測写像の定義ならびに基本的な性質を見ていく．それと並行して，拡張実数や$\Real^n$の Borel $\sigma$-加法族の構造についても調べる．とりあえず抑えておくべきことがあるとするならば，（Euclid 空間における）可測写像は連続写像よりもより広いクラスになるということ，可測性は（連続性や微分可能性とは異なって）極限操作に関して保存されるということの2点であろう．
 
-以下しばらく，$(X,\mathcal{A})$ならびに$(X_i,\mathcal{A}_i)$（$i=1,2,3,\cdots$）を可測空間とする．
+以下しばらく，$(X,\mathcal{A})$ならびに$(X_i,\mathcal{A}_i)$（$i=1,2,3,\dots$）を可測空間とする．
 
 \begin{defi}
 写像$f \colon X_1 \to X_2$が（$\mathcal{A}_1/\mathcal{A}_2$-）可測であるとは，任意の$A \in \mathcal{A}_2$に対して$f^{-1}(A)  \in \mathcal{A}_1$となることをいう．
@@ -281,7 +281,7 @@ $f \colon X \to \Real$に対して以下はすべて同値である．
 議論はほぼ同様なので，(i) と (ii) の同値性のみ示す．$\mathcal{B} = \sigma(\set{(-\infty,a) | a \in \Real})$を示せばよい．任意の$a \in \Real$に対して$(-\infty,a) \in \mathcal{B}$なので$\mathcal{B} \supset \sigma(\set{(-\infty,a) | a \in \Real})$はよい．任意の$n \in \Natu$ならびに開区間$(a,b)$に対して$(a,b) = \bigcap_{n=1}^\infty \left( (-\infty,b) \cap (-\infty, a+1/n)^c \right)$なので$(a,b) \in \sigma(\set{(-\infty,a) | a \in \Real})$となるから$\mathcal{B} \subset \sigma(\set{(-\infty,a) | a \in \Real})$である．
 \end{proof}
 
-実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族$\set{f_n}_{n=1}^\infty$があるときに$\sup_n f_n(x)$が有限であるとは限らないし，$f \colon \Real^2 \to \Real$に対して$y \mapsto \int f(x,y)\ dx$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
+実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族$\set{f_n}_{n=1}^\infty$があるときに$\sup_n f_n(x)$が有限であるとは限らないし，$f \colon \Real^2 \to \Real$に対して$y \mapsto \int f(x,y)\ \dif x$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
 
 \begin{dig}
 このノートの範囲に限れば，前者が問題になることはないと思う．なので拡張実数値関数のことを（測度の定義を除いて）陽に取り扱う必要はなさそうに見えていた．のだが，後者の問題を捨て置くわけにはいかないことに後で気づいた．というのも，この形の関数が Fubini の定理の主張に直接的に現れるのである．
@@ -328,7 +328,7 @@ $f \colon X \to \overline{\Real}$に対して以下はすべて同値である�
 $(X_1, \mathcal{A}_1)$ならびに$(X_2, \mathcal{A}_2)$を可測空間とする．$X_1 \times X_2$上の$\sigma$-加法族
 \begin{equation}
 \mathcal{A}_1 \otimes \mathcal{A}_2 \coloneqq \sigma\left( \set{A_1 \times A_2 | A_1 \in \mathcal{A}_1, A_2 \in \mathcal{A}_2} \right)
-\end{equation}を$\mathcal{A}_1$と$\mathcal{A}_2$の直積$\sigma$-加法族という．$n$個の可測空間に対する直積$\sigma$-加法族$\mathcal{A}_1 \otimes \cdots \otimes \mathcal{A}_n$も同様に定める．特に$\mathcal{A}_1 = \mathcal{A}_2 = \cdots = \mathcal{A}_n \eqqcolon \mathcal{A}$のとき，$\mathcal{A}_1 \otimes \cdots \otimes \mathcal{A}_n$を$\mathcal{A}^{n}$と書く．
+\end{equation}を$\mathcal{A}_1$と$\mathcal{A}_2$の直積$\sigma$-加法族という．$n$個の可測空間に対する直積$\sigma$-加法族$\mathcal{A}_1 \otimes \dots \otimes \mathcal{A}_n$も同様に定める．特に$\mathcal{A}_1 = \mathcal{A}_2 = \dots = \mathcal{A}_n \eqqcolon \mathcal{A}$のとき，$\mathcal{A}_1 \otimes \dots \otimes \mathcal{A}_n$を$\mathcal{A}^{n}$と書く．
 \end{defi}
 
 \begin{dig}
@@ -359,10 +359,10 @@ $\Real^2$の開集合は開方体の可算和で書ける．これは位相の�
 \leavevmode
 \begin{enumerate}
 \item[(i)] $f \colon \Real^m \to \Real^n$が連続であるならば，それは$\mathcal{B}^m/\mathcal{B}^n$-可測である．
-\item[(ii)] $f^1, f^2, \cdots, f^n \colon X_1 \to \Real$が可測であることと，$f = (f^1, f^2, \cdots, f^n) \colon X_1 \to \Real^n$が可測であることは同値である．
+\item[(ii)] $f^1, f^2, \dots, f^n \colon X_1 \to \Real$が可測であることと，$f = (f^1, f^2, \dots, f^n) \colon X_1 \to \Real^n$が可測であることは同値である．
 \item[(iii)] $f \colon X_1 \to X_2$ならびに$g \colon X_2 \to X_3$がそれぞれ可測であるならば，合成写像$g \circ f \colon X_1 \to X_3$も可測である．
-\item[(iv)] $g \colon \Real^n \to \Real$ならびに$f^1, f^2, \cdots, f^n \colon X \to \Real$がすべて可測であるならば，$X_1 \ni x \mapsto g(f^1(x), f^2(x), \cdots, f^n(x)) \in \Real$は可測である．従って$f,g \colon X \to \Real$が可測であれば，$f+g$，$fg$などは全て可測である．
-\item[(v)] $f_1, f_2, \cdots \colon X \to \overline{\Real}$が可測であるとする．$\sup_n f_n$，$\inf_n f_n$，$\limsup_n f_n$，$\liminf_n f_n$は可測である．したがって任意の$x \in X$に対して$\lim_n f_n(x)$が$\pm \infty$を含めて存在するならば，$f \colon X \ni x \mapsto \lim_n f_n(x) \in \Real$は可測である．
+\item[(iv)] $g \colon \Real^n \to \Real$ならびに$f^1, f^2, \dots, f^n \colon X \to \Real$がすべて可測であるならば，$X_1 \ni x \mapsto g(f^1(x), f^2(x), \dots, f^n(x)) \in \Real$は可測である．従って$f,g \colon X \to \Real$が可測であれば，$f+g$，$fg$などは全て可測である．
+\item[(v)] $f_1, f_2, \dots \colon X \to \overline{\Real}$が可測であるとする．$\sup_n f_n$，$\inf_n f_n$，$\limsup_n f_n$，$\liminf_n f_n$は可測である．したがって任意の$x \in X$に対して$\lim_n f_n(x)$が$\pm \infty$を含めて存在するならば，$f \colon X \ni x \mapsto \lim_n f_n(x) \in \Real$は可測である．
 \end{enumerate}
 \end{prop}
 
@@ -394,7 +394,7 @@ $(X_1,\mathcal{A}_1)$と$(X_2, \mathcal{A}_2)$が（可測空間として）同�
 \begin{que}[Kuratowski,**]
 $(X,\mathcal{A})$を標準 Borel 空間とする．
 \begin{itemize}
-\item[(i)] $|X| = n$であれば$(X,\mathcal{A})$は$(\set{1, 2, \cdots, n}, 2^{\set{1, 2, \cdots, n}})$と同型である．
+\item[(i)] $|X| = n$であれば$(X,\mathcal{A})$は$(\set{1, 2, \dots, n}, 2^{\set{1, 2, \dots, n}})$と同型である．
 \item[(ii)] $X$が可算無限であれば$(X,\mathcal{A})$は$(\Natu, 2^\Natu)$と同型である．
 \item[(iii)] (i), (ii) のいずれも当てはまらないならば，$(X,\mathcal{A})$は$(\Real, \mathcal{B})$と同型である．
 \end{itemize}
@@ -413,42 +413,42 @@ $A \in \mathcal{A}$に対して，
     1 & if $x \in A$ \\
     0 & if $x \notin A$
   \end{dcases*}
-\end{equation}で定まる関数$1_A \colon X \to \Real$を$A$の指示関数という．$f \colon X \to \Real$が単関数であるとは，$a_1, a_2, \cdots, a_n \in \Real$ならびに$A_1, A_2 \cdots, A_n \in \mathcal{A}$を用いて$f = \sum_{i=1}^n a_i 1_{A_i}$と表せることをいう．
+\end{equation}で定まる関数$1_A \colon X \to \Real$を$A$の指示関数という．$f \colon X \to \Real$が単関数であるとは，$a_1, a_2, \dots, a_n \in \Real$ならびに$A_1, A_2 \dots, A_n \in \mathcal{A}$を用いて$f = \sum_{i=1}^n a_i 1_{A_i}$と表せることをいう．
 \end{defi}
 
 \begin{defi}[積分の定義]
 \leavevmode
 \begin{itemize}
-\item （非負単関数の場合）非負単関数$f = \sum_{i=1}^n a_i 1_{A_i}$に対して$\int f d\mu \coloneqq \sum_{i=1}^n a_i \mu(A_i)$と定める．well-defined であることは非自明だが，後で証明する．
+\item （非負単関数の場合）非負単関数$f = \sum_{i=1}^n a_i 1_{A_i}$に対して$\int f \dif\mu \coloneqq \sum_{i=1}^n a_i \mu(A_i)$と定める．well-defined であることは非自明だが，後で証明する．
 
 \item （非負可測関数の場合）可測関数$f \colon X \to [0,\infty]$に対して，
 \begin{equation}
-\int f d \mu \coloneqq \sup \left\{ \int g d \mu \ \middle|  \ 0 \leq g \leq f, g {は単関数} \right\}
+\int f \dif \mu \coloneqq \sup \left\{ \int g \dif \mu \ \middle|  \ 0 \leq g \leq f, g {は単関数} \right\}
 \end{equation}で定める．
 
-\item （一般の場合）可測関数$f \colon X \to \overline{\Real}$に対して，$f^+ \coloneqq \max\set{f,0}$，$f^- \coloneqq - \min\set{f,0}$と定めると，この2つは非負可測関数であって，$f = f^+ - f^-$である．$\int f^+ d \mu$ならびに$\int f^- d \mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
+\item （一般の場合）可測関数$f \colon X \to \overline{\Real}$に対して，$f^+ \coloneqq \max\set{f,0}$，$f^- \coloneqq - \min\set{f,0}$と定めると，この2つは非負可測関数であって，$f = f^+ - f^-$である．$\int f^+ \dif \mu$ならびに$\int f^- \dif \mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
 \begin{equation}
-\int f d \mu \coloneqq \int f^+ d \mu - \int f^- d \mu
+\int f \dif \mu \coloneqq \int f^+ \dif \mu - \int f^- \dif \mu
 \end{equation}で定める．両方が無限大になった場合の積分は定義しない．
 \item 積分が定義できる関数$f \colon X \to \Real$ならびに$A \in \mathcal{A}$に対して，$f$の$A$上での積分を
 \begin{equation}
-\int_A f d \mu \coloneqq \int f1_A d\mu
-\end{equation}で定める．$f$の積分が定義できるならば$\int_A f d\mu$も定まるが，このことは後で示す．
+\int_A f \dif \mu \coloneqq \int f1_A \dif\mu
+\end{equation}で定める．$f$の積分が定義できるならば$\int_A f \dif\mu$も定まるが，このことは後で示す．
 \end{itemize}
-関数$f \colon X \ni x \mapsto f(x) \in \overline{\Real}$の積分について取り扱う際，$f$の引数の記号として$x$を用いていることを明示したい場合は，$\int f d \mu$のことを$\int f(x) d\mu(x)$や$\int f(x) \mu(dx)$のように書く．
+関数$f \colon X \ni x \mapsto f(x) \in \overline{\Real}$の積分について取り扱う際，$f$の引数の記号として$x$を用いていることを明示したい場合は，$\int f \dif \mu$のことを$\int f(x) \dif\mu(x)$や$\int f(x)\, \mu(dx)$のように書く．
 \end{defi}
 
 \begin{defi}
-可測関数$f\colon X \to \Real$は，$|f|$の積分が有限の値を取るとき，すなわち$\int f^+ d\mu + \int f^- d\mu < \infty$のとき，（絶対）可積分であるという．絶対可積分ならば$f$の積分が定義でき，それは有限の値になる．自然数$p$に対し$|f|^p$の積分が有限の値を取るような関数は$p$乗可積分であると言われる．
+可測関数$f\colon X \to \Real$は，$|f|$の積分が有限の値を取るとき，すなわち$\int f^+ \dif\mu + \int f^- \dif\mu < \infty$のとき，（絶対）可積分であるという．絶対可積分ならば$f$の積分が定義でき，それは有限の値になる．自然数$p$に対し$|f|^p$の積分が有限の値を取るような関数は$p$乗可積分であると言われる．
 
 $(X,\mathcal{A},\mu)$上の$p$乗可積分関数全体の集合を$L^p(X,\mathcal{A},\mu)$と書く．前後の文脈から明らかな場合や誤解の恐れがない場合は$L^p(\mu)$あるいは$L^p$と書く場合もある．
 \end{defi}
 
 \begin{exm}具体的な測度に関する積分をいくつか述べる．
 \begin{itemize}
-\item $\mu = \delta_x$（$x \in X$上の Dirac 測度）の場合，$\int f d \mu = f(x)$．
-\item $\mu = \sum_{n=1}^\infty \delta_{x_n}$（計数測度）の場合，$\int d \mu = \sum_{n=1}^\infty f(x_n)$．特に無限級数$\sum_{n=1}^\infty a_n$とは，数列$a \colon \Natu \to \Real$を自然数上の数え上げ測度$\sum_{n \in \Natu} \delta_n$に関して積分したものにほかならない．
-\item $\mathcal{B}/\mathcal{B}^*$-可測関数$f \colon \Real \to \overline{\Real}$が閉区間$[a,b]$上で Riemann 積分可能であるならば，$\int_{[a,b]} f d \lambda = \int_a^b f(x) dx$が成り立つ（左辺は Lebesgue 測度に関する積分，右辺は Riemann 積分）．それを踏まえて今後は Riemann 積分可能な関数の Lebesgue 測度に関する積分$\int f(x) d \lambda(x)$のことも$\int f(x)dx$と書いてよいとわかる．なお，実際にはもっと強いことが言えるので，（積分が定義できる前提で）$\int f(x) d \lambda(x)$のことを$\int f(x)dx$と書いてよいからそうする；次の問を参照せよ\footnote{TODO: この問は特に，できればちゃんと証明をつけて本文に組み込んでしまいたい．}．
+\item $\mu = \delta_x$（$x \in X$上の Dirac 測度）の場合，$\int f \dif \mu = f(x)$．
+\item $\mu = \sum_{n=1}^\infty \delta_{x_n}$（計数測度）の場合，$\int \dif \mu = \sum_{n=1}^\infty f(x_n)$．特に無限級数$\sum_{n=1}^\infty a_n$とは，数列$a \colon \Natu \to \Real$を自然数上の数え上げ測度$\sum_{n \in \Natu} \delta_n$に関して積分したものにほかならない．
+\item $\mathcal{B}/\mathcal{B}^*$-可測関数$f \colon \Real \to \overline{\Real}$が閉区間$[a,b]$上で Riemann 積分可能であるならば，$\int_{[a,b]} f \dif \lambda = \int_a^b f(x) \dif x$が成り立つ（左辺は Lebesgue 測度に関する積分，右辺は Riemann 積分）．それを踏まえて今後は Riemann 積分可能な関数の Lebesgue 測度に関する積分$\int f(x) \dif \lambda(x)$のことも$\int f(x)\dif x$と書いてよいとわかる．なお，実際にはもっと強いことが言えるので，（積分が定義できる前提で）$\int f(x) \dif \lambda(x)$のことを$\int f(x)\dif x$と書いてよいからそうする；次の問を参照せよ\footnote{TODO: この問は特に，できればちゃんと証明をつけて本文に組み込んでしまいたい．}．
 \end{itemize}
 \end{exm}
 
@@ -456,7 +456,7 @@ $(X,\mathcal{A},\mu)$上の$p$乗可積分関数全体の集合を$L^p(X,\mathca
 \begin{enumerate}
 \item 測度$\mu \colon \mathcal{A} \to [0,\infty]$が完備であるとは，$\mu(N)=0$かつ$M \subset N$ならば$M \in \mathcal{A}$が成り立つことをいう．言葉で述べれば，測度が0となるような可測集合の部分集合が必ず可測となるとき，その測度は完備であると言われる． このノートにおける Lebesgue 測度は完備ではない．
 \item 一般に，完備とは限らない測度$\mu \colon \mathcal{A} \to [0,\infty]$が与えられたとき，$\mathcal{A} \subset \mathcal{A}^*$を充たす$\sigma$-加法族ならびにその上の完備な測度$\mu^* \colon \mathcal{A}^* \to [0,\infty]$であって，$\mathcal{A}$上で$\mu$に一致するものが存在する．このような$\mu^*$の作り方の一つに「完備化」というものがある．$\lambda$の完備化によって得られる$\sigma$-加法族を$\mathcal{L}$と書き，$\mathcal{L}$の元を Lebesgue 可測集合という．また，文献によってはこのノートにおける Lebesgue 測度の完備化を単に Lebesgue 測度と呼ぶものもある．
-\item Riemann 積分可能な関数$f \colon [a,b] \to \Real$は，一般には$\mathcal{B}/\mathcal{B}^*$-可測であるとは限らない．が，$\mathcal{L}/\mathcal{B}^*$-可測にはなる．更に$\int_{[a,b]} f d \lambda = \int_a^b f(x) dx$が成り立つ（左辺は Lebesgue 測度の完備化に関する積分，右辺は Riemann 積分）．完備化まで考えれば，Lebesgue 測度に関する積分は Riemann 積分を包括していると言える．
+\item Riemann 積分可能な関数$f \colon [a,b] \to \Real$は，一般には$\mathcal{B}/\mathcal{B}^*$-可測であるとは限らない．が，$\mathcal{L}/\mathcal{B}^*$-可測にはなる．更に$\int_{[a,b]} f \dif \lambda = \int_a^b f(x) \dif x$が成り立つ（左辺は Lebesgue 測度の完備化に関する積分，右辺は Riemann 積分）．完備化まで考えれば，Lebesgue 測度に関する積分は Riemann 積分を包括していると言える．
 \item 他方，広義 Riemann 積分まで含めて考えると事情はやや複雑である．$f \colon [0,\infty) \to \overline{\Real}$が非負であるか$f \in L^1$であるならば，$\int_{(0,\infty)} f \dif \lambda = \int_{0}^\infty f \dif x$が成り立つ（右辺は広義 Riemann 積分として$\int_0^\infty f \dif x \coloneqq \lim_{R \to \infty} \int_0^R f \dif x$を考えているが，他の形の極限であったとしても本質的には同様に議論できると思う）．一方，$f(x) = \frac{\sin x}{x}$は広義 Riemann 積分としては有限確定値$\int_0^\infty f \dif x = \frac{\pi}{2}$を持つが，$f$は絶対可積分ではないので$\int_{(0,\infty)} f \dif \lambda = \infty$である．この例は優収束定理が使えない例としても捉えることができると思う．
 \end{enumerate}
 \end{que}
@@ -476,31 +476,31 @@ $(X,\mathcal{A},\mu)$上の$p$乗可積分関数全体の集合を$L^p(X,\mathca
 \end{align}となる．
 \end{proof}
 
-さて，実際の積分の計算では，積分の評価しやすい関数列$f_n$であって被積分関数$f$に何らかの意味で収束するものを取ってきて，$\lim_{n \to \infty}\int f_n d \mu$を計算する戦略を取ることが多々ある．が，これが$\int f d \mu$に一致するには，言い換えれば積分と極限の順序交換ができるには一定の条件が必要である．この問題に対する（個人的には Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以下に述べていく．
+さて，実際の積分の計算では，積分の評価しやすい関数列$f_n$であって被積分関数$f$に何らかの意味で収束するものを取ってきて，$\lim_{n \to \infty}\int f_n \dif \mu$を計算する戦略を取ることが多々ある．が，これが$\int f \dif \mu$に一致するには，言い換えれば積分と極限の順序交換ができるには一定の条件が必要である．この問題に対する（個人的には Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以下に述べていく．
 
 \begin{defi}
-関数$f \colon X \to \Real$と$g \colon X \to \Real$が任意の$x \in X$に対して$f(x) \leq g(x)$を充たすとき，$f \leq g$と書く．$f_1 \leq f_2 \leq \cdots$を充たす関数の族$\set{f_n}_{n=1}^\infty$が，任意の$x \in X$に対して$\lim_{n\to\infty} f_n(x) = f(x)$を充たすとき$f_n \uparrow f$と書く．
+関数$f \colon X \to \Real$と$g \colon X \to \Real$が任意の$x \in X$に対して$f(x) \leq g(x)$を充たすとき，$f \leq g$と書く．$f_1 \leq f_2 \leq \dotsb$を充たす関数の族$\set{f_n}_{n=1}^\infty$が，任意の$x \in X$に対して$\lim_{n\to\infty} f_n(x) = f(x)$を充たすとき$f_n \uparrow f$と書く．
 \end{defi}
 
 \begin{lem}
 単関数に対する積分は単調性ならびに線型性を充たす．すなわち，$f,g \colon X \to [0,\infty]$を非負単関数，$a,b\in \Real$とするとき，
 \begin{itemize}
-\item $f \leq g$を充たすならば$\int f d \mu \leq \int g d \mu$．
-\item $\int (af+bg) d\mu = a\int f d \mu + b\int g d \mu$．
+\item $f \leq g$を充たすならば$\int f \dif \mu \leq \int g \dif \mu$．
+\item $\int (af+bg) \dif\mu = a\int f \dif \mu + b\int g \dif \mu$．
 \end{itemize}
-したがって特に$A \in \mathcal{A}$とするとき，$f^{\pm} 1_A \leq f^{\pm}$なので，$f$の積分が定義できるならば$\int_A f d\mu$も定義される．
+したがって特に$A \in \mathcal{A}$とするとき，$f^{\pm} 1_A \leq f^{\pm}$なので，$f$の積分が定義できるならば$\int_A f \dif\mu$も定義される．
 \end{lem}
 
 \begin{proof}
 $f = \sum_{i=1}^m a_i 1_{A_i}$，$g = \sum_{j=1}^n b_j 1_{B_j}$と表示し，更に$C_{ij} \coloneqq A_i \cap B_j$と置く．このとき$f+g = \sum_{i=1}^m \sum_{j=1}^n (a_i+b_j)1_{C_{ij}}$が成り立つので，
 \begin{align}
-\int (f+g) d \mu &= \sum_{i=1}^m \sum_{j=1}^n (a_i + b_j) \mu(C_{ij}) \\
+\int (f+g) \dif \mu &= \sum_{i=1}^m \sum_{j=1}^n (a_i + b_j) \mu(C_{ij}) \\
 &= \sum_{i=1}^m \sum_{j=1}^n a_i \mu(C_{ij}) +  \sum_{i=1}^m \sum_{j=1}^n b_j \mu(C_{ij}) \\
 &= \sum_{i=1}^m a_i \mu(A_i) + \sum_{j=1}^n b_j \mu(B_j) \\
-&= \int f d\mu + \int g d\mu
+&= \int f \dif \mu + \int g \dif \mu
 \end{align}を得る．定数倍が積分記号と交換できることは積分の定義から直ちに従う．
 
-$f,g$が$f \leq g$を充たす非負単関数ならば$g -f \geq 0$すなわち$\int (g-f) d\mu \geq 0$なので，積分の線型性より$\int g d \mu \geq \int f d \mu$である（単関数は決して$\pm \infty$を取らないので，この議論の過程で$\infty - \infty$は起こらない）．
+$f,g$が$f \leq g$を充たす非負単関数ならば$g -f \geq 0$すなわち$\int (g-f) \dif\mu \geq 0$なので，積分の線型性より$\int g \dif \mu \geq \int f \dif \mu$である（単関数は決して$\pm \infty$を取らないので，この議論の過程で$\infty - \infty$は起こらない）．
 \end{proof}
 
 \begin{dig}
@@ -512,7 +512,7 @@ $f \colon X \to \Real$を非負可測関数とするとき，非負単関数か�
 \end{lem}
 
 \begin{proof}
-$n \in \Natu$ならびに$i = 1,2,\cdots, n2^n$に対して$B_n \coloneqq f^{-1}([n,\infty))$，$A_{n,i} \coloneqq f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\right)$と定めた上で，
+$n \in \Natu$ならびに$i = 1,2,\dots, n2^n$に対して$B_n \coloneqq f^{-1}([n,\infty))$，$A_{n,i} \coloneqq f^{-1}\left(\left[\frac{i-1}{2^n},\frac{i}{2^n}\right)\right)$と定めた上で，
 \begin{equation}
 f_n \coloneqq n 1_{B_n} + \sum_{i=1}^{n2^n} \frac{i-1}{2^n} 1_{A_{n,i}}
 \end{equation}とすれば，$0 \leq f_n \leq f$である．自然数$N$が充分大きければ$|f(x) - f_N(x)| < 2^{-N}$なので，$\lim_{n \to \infty}f_n(x)=f(x)$もよい．$n$に関する単調性は以下の考察から分かる\footnote{ここ，もっと簡単にならないか？}．
@@ -528,54 +528,54 @@ f_n \coloneqq n 1_{B_n} + \sum_{i=1}^{n2^n} \frac{i-1}{2^n} 1_{A_{n,i}}
 \end{dig}
 
 \begin{thm}[Beppo-Levi の単調収束定理]
-$f \colon X \to [0,\infty]$ならびに$f_n \colon X \to [0,\infty]$（$n \in \Natu$）を可測関数とする．$f_n \uparrow f$ならば$\lim_{n \to \infty} \int f_n d\mu = \int f d\mu$．
+$f \colon X \to [0,\infty]$ならびに$f_n \colon X \to [0,\infty]$（$n \in \Natu$）を可測関数とする．$f_n \uparrow f$ならば$\lim_{n \to \infty} \int f_n \dif \mu = \int f \dif \mu$．
 \end{thm}
 
 \begin{proof}
-証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$\int f_n d \mu$は$n$に関して非減少なので，$c \coloneqq \lim_{n \to \infty}\int f_n d \mu$が$[0,\infty]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c \leq \int f d\mu$が成り立つ．$g \colon X \to [0,\infty]$を，$g \leq f$を充たすような任意の非負単関数とするとき，$\int g d \mu \leq c$を示せばよい．$g = \sum_{i=1}^m a_i 1_{A_i}$と表示する．非負単関数に対する積分の線型性より，各$1 \leq i \leq m$に対して$a_i \mu(A_i) \leq \lim_{n\to\infty} \int f_n1_{A_i} d \mu$を示せば充分なのでそうする．$\varepsilon \in (0,1)$を任意に固定し，$B_{n,i} \coloneqq \set{x \in X | f_n(x) 1_{A_i} > (1-\varepsilon) a_i }$と置くと，$B_{n,i} \uparrow A_i$．更に$\int f_n 1_{A_i} d \mu \geq \int f_n 1_{B_{n,i}} d\mu \geq (1-\varepsilon) \mu(B_{n,i})$であるから，$n \to \infty$の極限をとって$\lim_{n \to \infty} \int f_n 1_{A_i} d \mu \geq (1-\varepsilon) a_i \mu(A_i)$であり，$\varepsilon \to 0$の極限を取ることで結論を得る．
+証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$\int f_n \dif \mu$は$n$に関して非減少なので，$c \coloneqq \lim_{n \to \infty}\int f_n \dif \mu$が$[0,\infty]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c \leq \int f \dif \mu$が成り立つ．$g \colon X \to [0,\infty]$を，$g \leq f$を充たすような任意の非負単関数とするとき，$\int g \dif \mu \leq c$を示せばよい．$g = \sum_{i=1}^m a_i 1_{A_i}$と表示する．非負単関数に対する積分の線型性より，各$1 \leq i \leq m$に対して$a_i \mu(A_i) \leq \lim_{n\to\infty} \int f_n1_{A_i} \dif \mu$を示せば充分なのでそうする．$\varepsilon \in (0,1)$を任意に固定し，$B_{n,i} \coloneqq \set{x \in X | f_n(x) 1_{A_i} > (1-\varepsilon) a_i }$と置くと，$B_{n,i} \uparrow A_i$．更に$\int f_n 1_{A_i} \dif \mu \geq \int f_n 1_{B_{n,i}} \dif \mu \geq (1-\varepsilon) \mu(B_{n,i})$であるから，$n \to \infty$の極限をとって$\lim_{n \to \infty} \int f_n 1_{A_i} \dif \mu \geq (1-\varepsilon) a_i \mu(A_i)$であり，$\varepsilon \to 0$の極限を取ることで結論を得る．
 
-次に$f_n$が非負可測関数の列であった場合を考える．補題 \ref{非負単関数の列} より非負単関数の列$\set{g_{n,i}}_{i=1}^\infty$であって$g_{n,i} \uparrow f_n$であるようなものがある．$h_m \coloneqq \max\set{ g_{m,1}, g_{m,2},\cdots, g_{m,m} }$と置けば$\set{h_m}_{m=1}^\infty$は単関数であって，$h_m \leq f_m$ならびに$h_m \uparrow f$を充たす．積分の単調性より$\int h_m d \mu \leq \int f_m d\mu \leq \int f d\mu$であり，前段の結果より$\lim_{m \to \infty} \int h_m d\mu = \int f d\mu$なので，はさみうちの原理より$\lim_{n \to \infty} \int f_n d\mu = \int f d\mu$である．
+次に$f_n$が非負可測関数の列であった場合を考える．補題 \ref{非負単関数の列} より非負単関数の列$\set{g_{n,i}}_{i=1}^\infty$であって$g_{n,i} \uparrow f_n$であるようなものがある．$h_m \coloneqq \max\set{ g_{m,1}, g_{m,2},\dots, g_{m,m} }$と置けば$\set{h_m}_{m=1}^\infty$は単関数であって，$h_m \leq f_m$ならびに$h_m \uparrow f$を充たす．積分の単調性より$\int h_m \dif \mu \leq \int f_m \dif \mu \leq \int f \dif \mu$であり，前段の結果より$\lim_{m \to \infty} \int h_m \dif \mu = \int f \dif \mu$なので，はさみうちの原理より$\lim_{n \to \infty} \int f_n \dif \mu = \int f \dif \mu$である．
 \end{proof}
 
 \begin{thm}[Fatou の補題]
-$f_n \colon X \to [0,\infty]$（$n \in \Natu$）を可測関数の族とする．このとき$\int \liminf_{n \to \infty} f_n d\mu \leq \liminf_{n \to \infty} \int f_n d\mu $．
+$f_n \colon X \to [0,\infty]$（$n \in \Natu$）を可測関数の族とする．このとき$\int \liminf_{n \to \infty} f_n \dif \mu \leq \liminf_{n \to \infty} \int f_n \dif \mu $．
 \end{thm}
 
 \begin{proof}
-$g_n \coloneqq \inf_{m \geq n} f_m$と置くと，$g_n \uparrow \sup_n g_n = \liminf_{n \to \infty} f_n$なので，単調収束定理より$\lim_{n \to \infty}\int g_n d \mu = \int \liminf_{n \to \infty} f_n d \mu$．また$g_n \leq f_n$なので$\int g_n d \mu \leq \int f_n d \mu$すなわち$\liminf_{n \to \infty}\int g_n d \mu \leq \liminf_{n\to\infty} \int f_n d \mu$である．以上より$\int \liminf_{n \to \infty} f_n d \mu = \lim_{n \to \infty}\int g_n d \mu = \liminf_{n \to \infty}\int g_n d \mu \leq \liminf_{n\to\infty} \int f_n d \mu$を得る．
+$g_n \coloneqq \inf_{m \geq n} f_m$と置くと，$g_n \uparrow \sup_n g_n = \liminf_{n \to \infty} f_n$なので，単調収束定理より$\lim_{n \to \infty}\int g_n \dif \mu = \int \liminf_{n \to \infty} f_n \dif \mu$．また$g_n \leq f_n$なので$\int g_n \dif \mu \leq \int f_n \dif \mu$すなわち$\liminf_{n \to \infty}\int g_n \dif \mu \leq \liminf_{n\to\infty} \int f_n \dif \mu$である．以上より$\int \liminf_{n \to \infty} f_n \dif \mu = \lim_{n \to \infty}\int g_n \dif \mu = \liminf_{n \to \infty}\int g_n \dif \mu \leq \liminf_{n\to\infty} \int f_n \dif \mu$を得る．
 \end{proof}
 
 \begin{thm}[Lebesgue の優収束定理]
-$f_n \in L^1$（$n \in \Natu$）がある関数$f \colon X \to \Real$に各点収束していた，すなわち任意の$x \in X$に対して$\lim_{n \to \infty} f_n(x) = f(x)$であったと仮定する．このとき，ある$g \in L^1$に対して$|f_n| \leq g$であるならば，$f \in L^1$であり，$\lim_{n\to\infty} \int f_n d\mu = \int f d \mu$．
+$f_n \in L^1$（$n \in \Natu$）がある関数$f \colon X \to \Real$に各点収束していた，すなわち任意の$x \in X$に対して$\lim_{n \to \infty} f_n(x) = f(x)$であったと仮定する．このとき，ある$g \in L^1$に対して$|f_n| \leq g$であるならば，$f \in L^1$であり，$\lim_{n\to\infty} \int f_n \dif \mu = \int f \dif \mu$．
 \end{thm}
 
 \begin{proof}
-$|f| \leq |g|$なので$f \in L^1$はよい．$g+f_n \geq 0$なので Fatou の補題が使えて，$\int \lim_{n \to \infty} (g+f_n) d \mu \leq \liminf_{n \to \infty} \int (g+f_n) d \mu$すなわち$\int \lim_{n \to \infty} f_n d \mu \leq \liminf_{n \to \infty} \int f_n d \mu$である．同様に$g-f_n \geq 0$なので再び Fatou の補題により$\int \lim_{n \to \infty} (g-f_n) d \mu \leq \liminf_{n \to \infty} \int (g-f_n) d \mu$つまり$\limsup_{n \to \infty} \int f_n d \mu \leq \int \lim_{n \to \infty} f_n d \mu$である．あとははさみうちの原理によればよい．
+$|f| \leq |g|$なので$f \in L^1$はよい．$g+f_n \geq 0$なので Fatou の補題が使えて，$\int \lim_{n \to \infty} (g+f_n) \dif \mu \leq \liminf_{n \to \infty} \int (g+f_n) \dif \mu$すなわち$\int \lim_{n \to \infty} f_n \dif \mu \leq \liminf_{n \to \infty} \int f_n \dif \mu$である．同様に$g-f_n \geq 0$なので再び Fatou の補題により$\int \lim_{n \to \infty} (g-f_n) \dif \mu \leq \liminf_{n \to \infty} \int (g-f_n) \dif \mu$つまり$\limsup_{n \to \infty} \int f_n \dif \mu \leq \int \lim_{n \to \infty} f_n \dif \mu$である．あとははさみうちの原理によればよい．
 \end{proof}
 
 収束定理たちの応用や，積分にまつわる具体例たちを見ていくことにしよう．
 
 \begin{cor}[積分の線型性]
-可測関数$f, g \colon X \to \overline{\Real}$が非負であるか，または$f,g \in L^1$であるならば，任意の$a,b \in \Real$に対して$\int (af+bg) d\mu = a\int f d \mu + b\int g d \mu$．
+可測関数$f, g \colon X \to \overline{\Real}$が非負であるか，または$f,g \in L^1$であるならば，任意の$a,b \in \Real$に対して$\int (af+bg) \dif \mu = a\int f \dif \mu + b\int g \dif \mu$．
 \end{cor}
 
 \begin{proof}
-$f,g$が非負ならば，非負単関数の列$\set{f_n}$ならびに$\set{g_n}$であって$f_n \uparrow f$，$g_n \uparrow g$を充たすものをとった上で単調収束定理を繰り返し使うと$a\int f d \mu + b\int g d \mu = a \int \lim_{n\to \infty}  f_n d\mu  + b \int \lim_{n\to \infty}  g_n d\mu = \lim_{n\to \infty} a \int f_n d\mu  + b \int g_n d\mu = \lim_{n\to \infty}\int (af_n + bg_n) d\mu = \int (f+g) d\mu$．$f,g \in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
+$f,g$が非負ならば，非負単関数の列$\set{f_n}$ならびに$\set{g_n}$であって$f_n \uparrow f$，$g_n \uparrow g$を充たすものをとった上で単調収束定理を繰り返し使うと$a\int f \dif \mu + b\int g \dif \mu = a \int \lim_{n\to \infty}  f_n \dif \mu  + b \int \lim_{n\to \infty}  g_n \dif \mu = \lim_{n\to \infty} a \int f_n \dif \mu  + b \int g_n \dif \mu = \lim_{n\to \infty}\int (af_n + bg_n) \dif \mu = \int (f+g) \dif \mu$．$f,g \in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
 \end{proof}
 
 \begin{thm}[積分と級数の交換，項別積分]
-非負可測関数$f_n \colon X \to [0,\infty]$（$n \in \Natu$）に対して，$\sum_{n=1}^\infty \left(\int f_n d \mu\right)  = \int  \left(\sum_{n=1}^\infty f_n\right) d \mu$．すなわち非負可測関数に関する限り，積分と級数は自由に交換できる．
+非負可測関数$f_n \colon X \to [0,\infty]$（$n \in \Natu$）に対して，$\sum_{n=1}^\infty \left(\int f_n \dif \mu\right)  = \int  \left(\sum_{n=1}^\infty f_n\right) \dif \mu$．すなわち非負可測関数に関する限り，積分と級数は自由に交換できる．
 \end{thm}
 
 \begin{proof}
-$g_N \coloneqq  \sum_{n=1}^N f_n$と置けば$g_N \uparrow \sum_{n=1}^\infty f_n$なので，積分の線型性と単調収束定理より$\lim_{N\to\infty} \sum_{n=1}^N \left(\int f_n d \mu\right) = \lim_{N \to \infty} \int g_N d\mu = \int \lim_{N \to \infty} g_N d \mu = \int  \left(\sum_{n=1}^\infty f_n\right) d \mu$．
+$g_N \coloneqq  \sum_{n=1}^N f_n$と置けば$g_N \uparrow \sum_{n=1}^\infty f_n$なので，積分の線型性と単調収束定理より$\lim_{N\to\infty} \sum_{n=1}^N \left(\int f_n \dif \mu\right) = \lim_{N \to \infty} \int g_N \dif \mu = \int \lim_{N \to \infty} g_N \dif \mu = \int  \left(\sum_{n=1}^\infty f_n\right) \dif \mu$．
 \end{proof}
 
 \begin{dig}（書くのを忘れていなければ）後に見るが，上記は Fubini の定理を用いても証明できる（はず）．
 \end{dig}
 
 \begin{exm}[Fatou の補題で等号が達成されない例]
-$n \in \Natu$に対して$f_n \coloneqq 1_{[n,n+1)}$と置くと，任意の$n \in \Natu$に対して$\int f_n d \mu = 1$であるが，$f_n \to 0$なので$\int \lim_{n\to\infty}f_n d\mu=0$．従って特に$\int \lim_{n\to\infty}f_n d\mu < \lim_{n\to\infty} \int f_n d\mu$である．
+$n \in \Natu$に対して$f_n \coloneqq 1_{[n,n+1)}$と置くと，任意の$n \in \Natu$に対して$\int f_n \dif \mu = 1$であるが，$f_n \to 0$なので$\int \lim_{n\to\infty}f_n \dif \mu=0$．従って特に$\int \lim_{n\to\infty}f_n \dif \mu < \lim_{n\to\infty} \int f_n \dif \mu$である．
 \end{exm}
 
 \begin{thm}[微分と積分の交換]\label{微分と積分の交換}
@@ -585,12 +585,12 @@ $f \colon X \times (a,b) \to \Real$を，次の3条件を充たす関数とす�
 \item 任意の$x \in X$に対して，$g_x \colon (a,b) \ni t \mapsto f(x,t) \in \Real$は$(a,b)$において微分可能．
 \item ある$h \in L^1$が存在して，任意の$x \in X$ならびに$t_0 \in (a,b)$に対して$\left| d g_x / dt (t_0) \right| \leq h(x)$．
 \end{itemize}
-このとき，$g \colon (a,b) \ni t \mapsto \int f(x,t) d\mu(x) \in \Real$は$(a,b)$において微分可能であって，任意の$t_0 \in (a,b)$に対して
+このとき，$g \colon (a,b) \ni t \mapsto \int f(x,t) \dif \mu(x) \in \Real$は$(a,b)$において微分可能であって，任意の$t_0 \in (a,b)$に対して
 \begin{equation}
-\frac{dg}{dt}(t_0) = \int \frac{d g_x}{dt}(t_0) d \mu(x)
+\frac{dg}{dt}(t_0) = \int \frac{d g_x}{dt}(t_0) \dif \mu(x)
 \end{equation}が成り立つ．人口に膾炙した記号を用いてより象徴的に書けば，
 \begin{equation}
-\frac{d}{dt}\bigg|_{t=t_0} \int f(x,t) d\mu(x)  = \int \frac{\partial f}{\partial t} (t_0,x) d \mu(x)
+\frac{d}{dt}\bigg|_{t=t_0} \int f(x,t) \dif \mu(x)  = \int \frac{\partial f}{\partial t} (t_0,x) \dif \mu(x)
 \end{equation}が任意の$t_0 \in (a,b)$に対して成り立つ．
 \end{thm}
 
@@ -600,7 +600,7 @@ $t_0\in(a,b)$を任意にひとつ固定する．$\Real$の点列$\set{\delta_n}
 \frac{f(x,t_0+\delta_n) - f(x,t_0)}{\delta_n} = \frac{d g_x}{dt} (x,t_0+\theta_{t_0,x,n} \delta_n)
 \end{equation}が成り立つ．従って任意の$t_0 \in (a,b)$，$x \in X$ならびに$n \in \Natu$に対して$\left|\frac{f(x,t_0+\delta_n) - f(x,t_0)}{\delta_n}\right| \leq h(x)$が成り立つから，優収束定理より
 \begin{equation}
-\lim_{n\to\infty}\frac{\int f(x,t_0+\delta_n) d\mu(x) - \int f(x,t_0) d\mu}{\delta_n}= \int \lim_{n\to\infty}\frac{f(x,t_0+\delta_n) - f(x,t_0)}{\delta_n} d\mu(x)
+\lim_{n\to\infty}\frac{\int f(x,t_0+\delta_n) \dif \mu(x) - \int f(x,t_0) \dif \mu(x)}{\delta_n}= \int \lim_{n\to\infty}\frac{f(x,t_0+\delta_n) - f(x,t_0)}{\delta_n} \dif \mu(x)
 \end{equation}を得るので結論が従う．
 \end{proof}
 
@@ -619,16 +619,16 @@ $\sum_{n=1}^\infty \frac{d}{dt} f_n(t) < \infty$であるならば，任意の$t
 \begin{prop}[Leibniz の積分公式]
 以下，$f \colon [a,b] \times [c,d] \to \Real$を連続関数とし，更に$\partial_2 f$が存在して連続であるとする．
 \begin{enumerate}
-\item[(i)] $F(x,y) \coloneqq \int_a^x f(t,y) dt$と定めると，$\partial_1 F = f$および$\partial_2 F(x,y) = \int_a^x \partial_2 f(t,y) dt$が成り立つ．
-\item[(ii)] $g \colon \Real \to (a,b)$を微分可能な関数とし，$G(x) \coloneqq \int_a^{g(x)} f(t,x) dt$と置くと，$G'(x) = f(g(x), x)\cdot g'(x) + \int_a^{g(x)} \partial_2f(t,x) dt$が成り立つ．特に$g(x) = x$のとき，$G'(x) = f(x, x) + \int_a^x \partial_2f(t,x) dt$である．
+\item $F(x,y) \coloneqq \int_a^x f(t,y) \dif t$と定めると，$\partial_1 F = f$および$\partial_2 F(x,y) = \int_a^x \partial_2 f(t,y) \dif t$が成り立つ．
+\item $g \colon \Real \to (a,b)$を微分可能な関数とし，$G(x) \coloneqq \int_a^{g(x)} f(t,x) \dif t$と置くと，$G'(x) = f(g(x), x)\cdot g'(x) + \int_a^{g(x)} \partial_2f(t,x) \dif t$が成り立つ．特に$g(x) = x$のとき，$G'(x) = f(x, x) + \int_a^x \partial_2f(t,x) \dif t$である．
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
 \leavevmode
 \begin{enumerate}
-\item[(i)] $\partial_1 F = f$は微積分学の基本定理である．$f$は\cref{微分と積分の交換}の前件をすべて充たすので，積分と微分を入れ替えてよいから後半も従う．
-\item[(ii)] 合成関数$x \mapsto (g(x), x) \mapsto F(g(x), x)$に合成則と (i) の結果を使え．
+\item $\partial_1 F = f$は微積分学の基本定理である．$f$は\cref{微分と積分の交換}の前件をすべて充たすので，積分と微分を入れ替えてよいから後半も従う．
+\item 合成関数$x \mapsto (g(x), x) \mapsto F(g(x), x)$に合成則と (i) の結果を使え．
 \end{enumerate}
 \end{proof}
 
@@ -636,10 +636,10 @@ $\sum_{n=1}^\infty \frac{d}{dt} f_n(t) < \infty$であるならば，任意の$t
 \cref{微分と積分の交換}の前件を検討すれば，Leibniz の積分公式において$f$に課した条件はより弱められることがわかる．ところでこの公式は名前がついているくらいだし，いろいろなところで使われると思うのだが，私は使いみちをよく知りません．
 \end{que}
 
-以下，やや寄り道となるが，$L^p$たちの包含関係について議論する．$\|f\|_p \coloneqq \left(\int |f|^p d\mu\right)^{1/p}$と定める．
+以下，やや寄り道となるが，$L^p$たちの包含関係について議論する．$\|f\|_p \coloneqq \left(\int |f|^p \dif \mu\right)^{1/p}$と定める．
 
-\begin{que}
-$f \in L^p$と$\|f\|_p < \infty$は同値である．$\|f\|_p$のことを$L^p$ノルムと呼びたいのだが，実際には$f=g \ \mu$-a.eでさえあれば（$f=g$ではなかったとしても）$\int f d\mu = \int g d\mu$となるので，ノルムの同一律を充たさない．なので「測度零集合での違いを除いて一致する」事に関する同値関係を入れ，その同値類の集合を考えないとノルムにはならない．文献によっては，同値関係で割る前の集合のことを$\mathcal{L}^p$と書き，割ったあとの集合のことを$L^p$と書いているものもある．
+\begin{que}[*]
+$f \in L^p$と$\|f\|_p < \infty$は同値である．$\|f\|_p$のことを$L^p$ノルムと呼びたいのだが，実際には$f=g \ \mu$-a.eでさえあれば（$f=g$ではなかったとしても）$\int f \dif \mu = \int g \dif \mu$となるので，ノルムの同一律を充たさない．なので「測度零集合での違いを除いて一致する」事に関する同値関係を入れ，その同値類の集合を考えないとノルムにはならない．文献によっては，同値関係で割る前の集合のことを$\mathcal{L}^p$と書き，割ったあとの集合のことを$L^p$と書いているものもある．
 \end{que}
 
 \begin{thm}[Young の不等式]
@@ -651,11 +651,11 @@ $a=0$または$b=0$の場合はあきらか．そうでないとすると，対�
 \end{proof}
 
 \begin{thm}[H\"older の不等式]
-可測関数$f,g \colon X \to \overline{\Real}$および$1/p+1/q=1$を充たす自然数$p,q$に対して$\int |fg| d\mu \leq \|f\|_p \|g\|_q$が成り立つ．$p=q=2$の場合を Cauchy-Schwarz の不等式という．
+可測関数$f,g \colon X \to \overline{\Real}$および$1/p+1/q=1$を充たす自然数$p,q$に対して$\int |fg| \dif \mu \leq \|f\|_p \|g\|_q$が成り立つ．$p=q=2$の場合を Cauchy-Schwarz の不等式という．
 \end{thm}
 
 \begin{proof}
-$\|f\|_p =0$ないしは$\|g\|_q =0$であるならば$\mu$-a.eに$f=0$または$\mu$-a.eに$g=0$なので，不等式の両辺とも0である．従って$\|f\|_p > 0$かつ$\|g\|_q > 0$と仮定してよい．更に積分の線型性より$f$を$f/\|f\|_p$に，$g$を$g/\|g\|_q$に置き換えて証明すれば良いことがわかるので，最初から$\|f\|_p=1$かつ$\|g\|_q=1$であるとして示して良い．Youngの不等式より各$x \in X$に対して$|f(x)g(x)| \leq (|f(x)|^p/p) + (|f(x)|^q/q)$を得るので，両辺を積分して$\int |fg| d\mu \leq (\|f\|_p/p) + (\|f(x)\|^q/q) = (1/p) + (1/q) = 1$となる．
+$\|f\|_p =0$ないしは$\|g\|_q =0$であるならば$\mu$-a.eに$f=0$または$\mu$-a.eに$g=0$なので，不等式の両辺とも0である．従って$\|f\|_p > 0$かつ$\|g\|_q > 0$と仮定してよい．更に積分の線型性より$f$を$f/\|f\|_p$に，$g$を$g/\|g\|_q$に置き換えて証明すれば良いことがわかるので，最初から$\|f\|_p=1$かつ$\|g\|_q=1$であるとして示して良い．Youngの不等式より各$x \in X$に対して$|f(x)g(x)| \leq (|f(x)|^p/p) + (|f(x)|^q/q)$を得るので，両辺を積分して$\int |fg| \dif \mu \leq (\|f\|_p/p) + (\|f(x)\|^q/q) = (1/p) + (1/q) = 1$となる．
 \end{proof}
 
 \begin{prop}
@@ -665,14 +665,14 @@ $\mu(X) < \infty$，すなわち$\mu$が有限測度であるとする．この�
 \begin{proof}
 $f \in L^p$を任意に取る．$r\coloneqq  p/q$，$s = p/(p-q)$として H\"older の不等式を使えば
 \begin{equation}
-\int |f|^q d \mu \leq \||f|^q\|_r \|1\|_s =\mu(X)^{(p-q)/p}\left(\int |f|^p d\mu \right)^{q/p}
-\end{equation}を得る．$\int |f|^p d\mu < \infty$ならびに$\mu(X) < \infty$なので$\|f\|_q < \infty$，すなわち$f \in L^q$である．
+\int |f|^q \dif \mu \leq \||f|^q\|_r \|1\|_s =\mu(X)^{(p-q)/p}\left(\int |f|^p \dif \mu \right)^{q/p}
+\end{equation}を得る．$\int |f|^p \dif\mu < \infty$ならびに$\mu(X) < \infty$なので$\|f\|_q < \infty$，すなわち$f \in L^q$である．
 \end{proof}
 
 上記の包含関係が成り立つ上で$\mu$の有限性は本質的である．
 
 \begin{exm}
-$f \colon \Real \to \Real$を，$f(x) \coloneqq \frac{1}{x}1_{[1,\infty)}(x)$で定める．$f$のLebesgue測度に関する積分を考えると，$\int f d\lambda = \int_1^\infty \frac{dx}{x} = \left[ \log x \right]_{x=1}^{x=\infty} = \infty$なので$f \notin L^1$．ところが任意の$p \geq 2$に対して$\int f^p d \lambda = \int_1^\infty \frac{dx}{x^p} = \left[ \frac{1}{-p+1}x^{-p+1} \right]_{x=1}^{x=\infty} = \frac{1}{-p+1} < \infty$なので$f \in L^p$である．他方$g \colon \Real \to \Real$を$g(x) \coloneqq 1_{(0,1]}(x) \frac{1}{\sqrt{x}}$で定めると，$\int g d\lambda = \int_0^1 \frac{dx}{\sqrt{x}} = \left[ 2 \sqrt{x} \right]_{x=0}^{x=1} = 2$なので$g \in L^1$である．他方，$\int g^2 d \lambda = \int_0^1 \frac{dx}{x} = \left[ \log x \right]_{x=0}^{x=1} = -\infty$なので$g \notin L^2$．したがって，この場合は$L^1 \subset L^2$でも$L^2 \subset L^1$でもない．
+$f \colon \Real \to \Real$を，$f(x) \coloneqq \frac{1}{x}1_{[1,\infty)}(x)$で定める．$f$のLebesgue測度に関する積分を考えると，$\int f \dif\lambda = \int_1^\infty \frac{\dif x}{x} = \left[ \log x \right]_{x=1}^{x=\infty} = \infty$なので$f \notin L^1$．ところが任意の$p \geq 2$に対して$\int f^p \dif \lambda = \int_1^\infty \frac{\dif x}{x^p} = \left[ \frac{1}{-p+1}x^{-p+1} \right]_{x=1}^{x=\infty} = \frac{1}{-p+1} < \infty$なので$f \in L^p$である．他方$g \colon \Real \to \Real$を$g(x) \coloneqq 1_{(0,1]}(x) \frac{1}{\sqrt{x}}$で定めると，$\int g \dif \lambda = \int_0^1 \frac{\dif x}{\sqrt{x}} = \left[ 2 \sqrt{x} \right]_{x=0}^{x=1} = 2$なので$g \in L^1$である．他方，$\int g^2 \dif \lambda = \int_0^1 \frac{\dif x}{x} = \left[ \log x \right]_{x=0}^{x=1} = -\infty$なので$g \notin L^2$．したがって，この場合は$L^1 \subset L^2$でも$L^2 \subset L^1$でもない．
 \end{exm}
 
 \begin{exm}
@@ -687,8 +687,8 @@ $f \colon \Real \to \Real$を，$f(x) \coloneqq \frac{1}{x}1_{[1,\infty)}(x)$で
 
 \begin{proof}[定理 \ref{拡張定理} における拡張の存在]$\mu^* \colon 2^X \to [0,\infty]$を，
 \begin{equation}
-\mu^*(E) \coloneqq \inf \left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ E \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \cdots \in \mathcal{A} \right\}
-\end{equation}によって定める．$E \in \mathcal{A}$であるならば，集合列$A_i$を$A_1 = E, A_2 = \emptyset, A_3 = \emptyset, \cdots$のように取って考えることで$\mu^*(E) \leq \mu(E)$がわかる．逆向きの不等式を示せば$\mu^*$は写像として$\mu$の拡張になっていることがわかるが，このノートではまだサボっている（ここに$\mu$の$\mathcal{A}$上での可算加法性を使う）．したがって$\mu^*$が$\sigma(\mathcal{A})$上の測度であることを示せばよい．以下，一般に実数の部分集合が$A \subset B$を充たすならば$\inf B \leq \inf A$であることに注意する．
+\mu^*(E) \coloneqq \inf \left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ E \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \dots \in \mathcal{A} \right\}
+\end{equation}によって定める．$E \in \mathcal{A}$であるならば，集合列$A_i$を$A_1 = E, A_2 = \emptyset, A_3 = \emptyset, \dots$のように取って考えることで$\mu^*(E) \leq \mu(E)$がわかる．逆向きの不等式を示せば$\mu^*$は写像として$\mu$の拡張になっていることがわかるが，このノートではまだサボっている（ここに$\mu$の$\mathcal{A}$上での可算加法性を使う）．したがって$\mu^*$が$\sigma(\mathcal{A})$上の測度であることを示せばよい．以下，一般に実数の部分集合が$A \subset B$を充たすならば$\inf B \leq \inf A$であることに注意する．
 
 まず$\mu^*$の単調性，すなわち$E, F \in 2^X$が$E \subset F$を充たすならば$\mu^*(E) \leq \mu^*(F)$となることを示す．
 \begin{equation}
@@ -697,12 +697,12 @@ $f \colon \Real \to \Real$を，$f(x) \coloneqq \frac{1}{x}1_{[1,\infty)}(x)$で
 \left\{ \set{A_i}  \subset \mathcal{A} \ \middle| \ E \subset \bigcup_{i=1}^\infty A_i \right\}
 \end{equation}であるから，
 \begin{equation}
-\left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ F \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \cdots \in \mathcal{A} \right\}
+\left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ F \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \dotsc \in \mathcal{A} \right\}
 \subset
-\left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ E \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \cdots \in \mathcal{A} \right\}
+\left\{ \sum_{i=1}^\infty \mu(A_i) \ \middle| \ E \subset \bigcup_{i=1}^\infty A_i \ \text{and} \ A_1,A_2, \dotsc \in \mathcal{A} \right\}
 \end{equation}すなわち$\mu^*(E) \leq \mu^*(F)$を得る．
 
-つづいて$\mu^*$の可算劣加法性，すなわち$E_1, E_2, \cdots \in 2^X$に対して$\mu^* \left( \bigcup_{n=1}^\infty E_n \right) \leq \sum_{n=1}^\infty \mu^*(E_n)$となることを示す．$\varepsilon > 0$を任意にひとつ取って固定する．各$n =1,2,\cdots$に対して，$\mathcal{A}$の元の族$\set{A_{n,i}}_{i=1}^\infty$を$E_n \subset \bigcup_{i=1}^\infty A_{n,i}$ならびに$\sum_{i=1}^\infty \mu(A_{n,i}) < \mu^*(E_n) + \frac{\varepsilon}{2^n}$を充たすように取れるので取る．このとき$\bigcup_{n=1}^\infty E_n \subset \bigcup_{i,n=1}^\infty A_{n,i}$なので，
+つづいて$\mu^*$の可算劣加法性，すなわち$E_1, E_2, \dots \in 2^X$に対して$\mu^* \left( \bigcup_{n=1}^\infty E_n \right) \leq \sum_{n=1}^\infty \mu^*(E_n)$となることを示す．$\varepsilon > 0$を任意にひとつ取って固定する．各$n =1,2,\dots$に対して，$\mathcal{A}$の元の族$\set{A_{n,i}}_{i=1}^\infty$を$E_n \subset \bigcup_{i=1}^\infty A_{n,i}$ならびに$\sum_{i=1}^\infty \mu(A_{n,i}) < \mu^*(E_n) + \frac{\varepsilon}{2^n}$を充たすように取れるので取る．このとき$\bigcup_{n=1}^\infty E_n \subset \bigcup_{i,n=1}^\infty A_{n,i}$なので，
 \begin{equation}
 \mu^*\left(\bigcup_{n=1}^\infty E_n \right) \leq \sum_{i,n=1}^\infty \mu(A_{n,i}) <  \varepsilon + \sum_{n=1}^\infty \mu^*(E_n) 
 \end{equation}を得る．$\varepsilon > 0$は任意だったので可算劣加法性が従う．
@@ -722,7 +722,7 @@ $f \colon \Real \to \Real$を，$f(x) \coloneqq \frac{1}{x}1_{[1,\infty)}(x)$で
 \mu^*(E \cap A) + \mu^*(E \setminus A) &\leq \inf \left\{ \sum_{i=1}^\infty \mu(A_i \setminus A) \ \middle| \  E \subset \bigcup_{i=1}^\infty A_i \right\} + \inf \left\{ \sum_{i=1}^\infty \mu(A_i \cap A) \ \middle| \  E \subset \bigcup_{i=1}^\infty A_i \right\} \\
 &\leq \inf \left\{ \sum_{i=1}^\infty \mu(A_i \setminus A) + \sum_{i=1}^\infty \mu(A_i \cap A) \ \middle| \  E \subset \bigcup_{i=1}^\infty A_i \right\} \\
 &= \mu^*(E)
-\end{align}を得る（最後の等式は測度の非負性，ならびに正項級数は項の順番を並べ替えても値が変わらないことから出る）．逆向きの不等式は可算劣加法性から従う．したがって$\mathcal{A} \subset \mathcal{C}$．$X \in \mathcal{C}$ならびに$A \in \mathcal{C} \Rightarrow X \setminus A \in \mathcal{C}$はよいので，$A_1, A_2, \cdots \in \mathcal{C}$のときに$\bigcup_{i=1}^\infty A_i \in \mathcal{C}$となること，すなわち$\mu^*(E) \geq \mu^*(E \cap \bigcup_{i=1}^\infty A_i) + \mu^*(E \setminus \bigcup_{i=1}^\infty A_i)$となることを示す（逆向きの不等式はやはり可算劣加法性から従うのでよい）．$A_1, A_2 \in \mathcal{C}$に対して
+\end{align}を得る（最後の等式は測度の非負性，ならびに正項級数は項の順番を並べ替えても値が変わらないことから出る）．逆向きの不等式は可算劣加法性から従う．したがって$\mathcal{A} \subset \mathcal{C}$．$X \in \mathcal{C}$ならびに$A \in \mathcal{C} \Rightarrow X \setminus A \in \mathcal{C}$はよいので，$A_1, A_2, \dots \in \mathcal{C}$のときに$\bigcup_{i=1}^\infty A_i \in \mathcal{C}$となること，すなわち$\mu^*(E) \geq \mu^*(E \cap \bigcup_{i=1}^\infty A_i) + \mu^*(E \setminus \bigcup_{i=1}^\infty A_i)$となることを示す（逆向きの不等式はやはり可算劣加法性から従うのでよい）．$A_1, A_2 \in \mathcal{C}$に対して
 \begin{align}
 \mu^*(E) &= \mu^* (E \cap A_1) + \mu^*(E \setminus A_1) \\
 &= \mu^*(E \cap A_1) + \mu^*((E \setminus A_1) \cap A_2) + \mu^*((E \setminus A_1)\\

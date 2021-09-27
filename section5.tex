@@ -110,7 +110,14 @@ S \otimes T(v_1, \dots, v_k, v_{k+1}, \dots, v_{k+\ell}) \coloneqq S(v_1, \dots,
 \end{defi}
 
 \begin{que}
-$S, S_1, S_2 \in \Tensor^k(V)$および$T, T_1, T_2 \in \Tensor^\ell(V)$，$U \in \Tensor^m(V)$，$a\in\Real$に対して，$(S_1 + S_2) \otimes T = S_1 \otimes T + S_2 \otimes T$，$S \otimes (T_1 + T_2) = S \otimes T_1 + S \otimes T_2$，$(aS) \otimes T = S \otimes (aT) = a(S\otimes T)$，$S\otimes (T \otimes U) = (S \otimes T) \otimes U$が成り立つ．やるだけでめんどくさいので証明を省いてます．
+$\otimes$は双線型かつ結合的である．すなわち，$S, S_1, S_2 \in \Tensor^k(V)$および$T, T_1, T_2 \in \Tensor^\ell(V)$，$U \in \Tensor^m(V)$，$a\in\Real$に対して，
+\begin{itemize}
+\item $(S_1 + S_2) \otimes T = S_1 \otimes T + S_2 \otimes T$
+\item $S \otimes (T_1 + T_2) = S \otimes T_1 + S \otimes T_2$
+\item $(aS) \otimes T = S \otimes (aT) = a(S\otimes T)$
+\item $S\otimes (T \otimes U) = (S \otimes T) \otimes U$
+\end{itemize}
+が成り立つ．やるだけでめんどくさいので証明を省いてます．
 \end{que}
 
 \begin{prop}
@@ -158,17 +165,17 @@ $f^*$を何と呼ぶかはやや迷った．多様体上の微分形式に対し
 \begin{defi}
 \leavevmode
 \begin{itemize}
-\item $T \in \Tensor^2(V)$が非退化であるとは，任意の$v \in V$に対して$T(v,v) \neq 0$であることをいう．$T \in \Tensor^2(V)$が正定値であるとは，任意の$v \in V$に対して$T(v,v) > 0$となることをいう．$V$上の正定値対称テンソルのことを$V$の内積という．
+\item $T \in \Tensor^2(V)$が非退化であるとは，任意の$v \in V$に対して$T(v,v) \neq 0$であることをいう．$T \in \Tensor^2(V)$が正定値であるとは，任意の$v \in V$に対して$T(v,v) > 0$となることをいう．
 \item $S \in \Tensor^k(V)$が対称テンソルであるとは，任意の$v_1, \dots, v_k \in V$ならびに$i \neq j$に対して，
 \begin{equation}
 S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots, v_k)
 \end{equation}
-が成り立つことをいう．
+が成り立つことをいう．$V$上の正定値対称テンソルのことを$V$の内積という．
 \item $\omega \in \Tensor^k(V)$が交代テンソルであるとは，任意の$v_1, \dots, v_k \in V$ならびに$i \neq j$に対して，
 \begin{equation}
 \omega(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = -\omega(v_1, \dots, v_j, \dots, v_i, \dots, v_k)
 \end{equation}
-が成り立つことをいう．$V$上の$k$階交代テンソル全体の集合を$\Omega^k(V)$で表す．これは$\Tensor^k(V)$の部分空間である．
+が成り立つことをいう．$V$上の$k$階交代テンソル全体の集合を$\Omega^k(V)$で表す．これは$\Tensor^k(V)$の部分空間である．ただし，$k=1$の場合は$\Omega^1(V) = \Tensor^1(V)$である\footnote{$i \neq j$となるような$i,j$が取れないため，交代テンソルが充たすべき条件は常に空虚に真である．}．
 \end{itemize}
 \end{defi}
 
@@ -178,7 +185,7 @@ S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots
 $F \colon M_n(\Real) \to \Real$を，$\Real^n$の元を$n$個受け取る写像とみなす；$F \colon \Real^n \times \dots \times \Real^n \to \Real$．$F$が交代的な多重線型写像であるならば，ある定数$c  \in \Real$が存在して$F = c \cdot \det$が成り立つ．
 \end{prop}
 
-この事実を言い換えると，$F \in \Omega^n(\Real^n)$が0でない（零写像でない）ならば，$F$は$\det$の定数倍になっているということである．これをさらに言い換えれば，$F$は線型空間として1次元である（基底として$\det$が取れる）ということになる．この項では，より一般的な状況を調べておく；$n$次元線型空間$V$に対して$\Omega^k(V)$の基底を列挙することで，その次元が$_nC_k = \frac{n!}{k!(n-k)!}$であることを示す．そのためには外積と呼ばれる操作が必要になる．
+この事実を言い換えると，$F \in \Omega^n(\Real^n)$ならば，$F$は$\det$の定数倍になっているということである．これをさらに言い換えれば，$F$は線型空間として1次元である（基底として$\det$が取れる）ということになる．ここでは，より一般的な状況を調べておく；$n$次元線型空間$V$に対して$\Omega^k(V)$の基底を列挙することで，その次元が$_nC_k = \frac{n!}{k!(n-k)!}$であることを示す．そのためには外積と呼ばれる操作が必要になる．
 
 \begin{defi}
 \leavevmode
@@ -186,7 +193,7 @@ $F \colon M_n(\Real) \to \Real$を，$\Real^n$の元を$n$個受け取る写像�
 \item $T \in \Tensor^k(V)$に対して，$\Alt(T) \in \Tensor^k(V)$を
 \begin{equation}
 \Alt(T)(v_1, \dots, v_k) \coloneqq \frac{1}{k!} \sum_{\sigma \in \Sym_k} (\sgn \sigma )T(v_{\sigma(1)}, \dots, v_{\sigma(k)})
-\end{equation}で定める．但し，$\Sym_k$は$k$次対称群\footnote{$[k] \coloneqq \set{1, \cdots, k}$と置いて，$\Sym_k \coloneqq \set{ \sigma \colon [k] \to [k] | \sigma は全単射}$を$k$次対称群という．「群」という文字を見たことがあるかどうかはともかくとして，この概念自体は行列式の定義で見かけていると思う．}．後に見るが，$\Alt(T) \in \Omega^k(V)$となることがわかるので，それを踏まえて$\Alt \colon \Tensor^k(V) \to \Omega^k(V)$を交代化作用素という．頭についている係数のいわれは後でわかる．
+\end{equation}で定める．但し，$\Sym_k$は$k$次対称群\footnote{$[k] \coloneqq \set{1, \cdots, k}$と置いて，$\Sym_k \coloneqq \set{ \sigma \colon [k] \to [k] | \sigma は全単射}$を$k$次対称群という．「群」という文字を見たことがあるかどうかはともかくとして，この概念自体は行列式の定義で見かけていると思う．}．$\Alt \colon \Tensor^k(V) \to \Tensor^k(V)$は線型写像である．すぐ後に見るが，$\Alt(T) \in \Omega^k(V)$となることがわかるので，それを踏まえて$\Alt \colon \Tensor^k(V) \to \Omega^k(V)$を交代化作用素という．頭についている係数のいわれは後でわかる．
 \item $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，その外積$\omega \wedge \eta \in \Omega^{k + \ell}(V)$を，
 \begin{equation}
 \omega \wedge \eta \coloneqq \frac{(k+\ell)!}{k!\ell!} \Alt (\omega \otimes \eta)
@@ -202,9 +209,10 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 交代化作用素と外積の定義を天下りに与えたくない気持ちがあるのだが，あまり良い説明を思いつかない．確かにテンソルを交代テンソルに化かすためには（定数倍を除いて）交代化作用素以上に簡単な方法はないとも思うし，交代性を保つような演算として外積より簡単なものを持ってこいと言われても（少なくとも私は）困るしかない．そんなわけで，「これは自然に思いつく」と言われたとしても，渋い顔をしながら「そうかもしれないですね」と言う以外にないのが正直なところである．
 \end{dig}
 
-\begin{prop}[交代化作用素の基本性質]
+\begin{prop}[交代化作用素の基本性質]\label{交代化作用素の基本性質}
 \leavevmode
 \begin{enumerate}
+\item $\omega \in \Omega^k(V)$，$\sigma \in \Sym_k$ならびに$v_1, \dots, v_k \in V$に対して$\omega(v_{\sigma(1)},\dots,v_{\sigma(k)}) = (\sgn \sigma)\cdot \omega(v_1, \dots, v_k)$．
 \item $T \in \Tensor^k(V)$に対して，$\Alt(T) \in \Omega^k(V)$．
 \item $\omega \in \Omega^k(V)$に対して，$\Alt(\omega) = \omega$．
 \item $T \in \Tensor^k(V)$に対して，$\Alt(\Alt(T)) = \Alt(T)$．
@@ -214,6 +222,7 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 \begin{proof}
 \leavevmode
 \begin{enumerate}
+\item $\sigma$が互換の場合は交代テンソルの定義そのものである．一般の置換は互換の積に分解できることからよい．
 \item $i$と$j$のみを動かしその他を動かさない互換を$(i \ j)$と書くことにして，$\sigma \in \Sym_k$に対し$\sigma' \coloneqq \sigma \circ (i \ j)$と置く．写像$\sigma \mapsto \sigma'$は単射であることに注意すると，$v_1, \dots, v_k \in V$に対して，
 \begin{align}
 \Alt(T)(v_1, \dots, v_j, \dots, v_i, \dots, v_k) &= \frac{1}{k!} \sum_{\sigma \in \Sym_k} (\sgn \sigma) T(v_{\sigma(1)}, \dots, v_{\sigma(j)}, \dots, v_{\sigma(i)}, \dots, v_{\sigma(k)}) \\
@@ -222,19 +231,19 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 &= \frac{1}{k!} \sum_{\sigma' \in \Sym_k} -(\sgn\sigma')T(v_{\sigma'(1)}, \dots, v_{\sigma'(i)}, \dots, v_{\sigma'(j)}, \dots, v_{\sigma'(k)}) \\
 &= -\Alt(T)(v_1, \dots, v_i, \dots, v_j, \dots, v_k)
 \end{align}となるからよい．
-\item $\omega \in \Omega^k(V)$なので，任意の$\sigma \in \Sym_k$ならびに$v_1, \dots, v_k \in V$に対して$\omega(v_{\sigma(1)},\dots,v_{\sigma(k)}) = (\sgn \sigma)\cdot \omega(v_1, \dots, v_k)$となる（置換を互換に分解したときの，その分解に現れる互換の数の大きさに関して帰納法を回せば良い）．したがって
+\item (i) の結果より
 \begin{align}
 \Alt(\omega) (v_1, \dots, v_k) &= \frac{1}{k!} \sum_{\sigma \in \Sym_k} (\sgn \sigma )\omega(v_{\sigma(1)}, \dots, v_{\sigma(k)}) \\
 &= \frac{1}{k!} \sum_{\sigma \in \Sym_k} (\sgn \sigma )(\sgn \sigma)\omega(v_1, \dots, v_k) \\
 &= \frac{1}{k!} \sum_{\sigma \in \Sym_k} \omega(v_1, \dots, v_k) \\
 &= \omega(v_1,\dots,v_k).
 \end{align}
-\item (i) と (ii) よりよい．
+\item (ii) と (iii) よりよい．
 \end{enumerate}
 \end{proof}
 
 \begin{dig}
-証明をよく見ればわかるように，交代化作用素に係数$\frac{1}{k!}$がついているのは$\omega \in \Omega^k(V)$に対して$\Alt(\omega) = \omega$を成り立たせるため，別の言い方をすれば$\Alt$が射影作用素としてはたらく（$\Alt^2 = \Alt$が成り立つ）ようにするためである．
+証明をよく見ればわかるように，交代化作用素に係数$\frac{1}{k!}$がついているのは$\omega \in \Omega^k(V)$に対して$\Alt(\omega) = \omega$を成り立たせるため，別の言い方をすれば$\Alt$が射影作用素としてはたらく，冪等になる（$\Alt^2 = \Alt$が成り立つ）ようにするためである．
 \end{dig}
 
 \begin{prop}[外積の基本性質]
@@ -246,21 +255,61 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 \item $(\omega_1 + \omega_2) \wedge \eta = \omega_1 \wedge \eta + \omega_2 \wedge \eta_2$
 \item $a(\omega \wedge \eta) = (a\omega) \wedge \eta = \omega \wedge (a \eta)$
 \end{itemize}が成り立つ．
-\item 外積を取る操作は次の意味で引き戻しと可換である；$f^*(\omega \wedge \eta) = f^*(\omega) \wedge f^*(\eta)$．
+\item 外積を取る操作は次の意味で引き戻しと可換である；$\omega \in \Omega^k(V)$ならびに$\eta \in \Omega^\ell(V)$として，$f \colon V \to W$を線型写像とするとき，$f^*(\omega \wedge \eta) = f^*(\omega) \wedge f^*(\eta)$．
 \item 外積を取る操作は次の意味で交代的である；$\omega \in \Omega^k(V)$ならびに$\eta \in \Omega^\ell(V)$に対して$\omega \wedge \eta = (-1)^{k\ell}\eta \wedge \omega$．
-\item 外積を取る操作は結合的である．即ち$\omega \in \Omega^k(V)$，$\eta \in \Omega^{\ell}(V)$，$\theta \in \Omega^m(V)$に対して，$(\omega \wedge \eta) \wedge \theta = \omega \wedge(\eta \wedge \theta)$が成り立つ．
+\item 外積を取る操作は結合的である．特に，$\omega \in \Omega^k(V)$，$\eta \in \Omega^{\ell}(V)$，$\theta \in \Omega^m(V)$に対して，$(\omega \wedge \eta) \wedge \theta = \omega \wedge(\eta \wedge \theta) = \frac{(k+\ell+m)!}{k! \ell! m!} \Alt(\omega \otimes \eta \otimes \theta)$が成り立つ．
 \end{enumerate}
 \end{prop}
 
 \begin{proof}
 \leavevmode
 \begin{enumerate}
-\item $\Alt$の線型性や$\omega \otimes (\eta_1 + \eta_2)=\omega \otimes \eta_1 + \omega \otimes \eta_2$などよりよい．細かいことはめんどくさいのでさぼりました．
+\item $\Alt$の線型性と$\otimes$の双線型性よりよい．細かいことはめんどくさいのでさぼりました．
 \item めんどくさいのでさぼりました．直接計算すれば (i) よりも簡単に証明できるはず．
-\item 直接計算だけど (i) や (ii) よりも見どころがあるのでさぼるべきではない．
-\item たいへんなのでそのうちちゃんと書く．
+\item $\tau \in \Sym_{k + \ell}$を，
+\begin{equation}
+\tau \coloneqq 
+    \begin{pmatrix}
+    1 & 2 & \cdots & \ell & \ell+1 & \cdots & \ell + k \\
+    k+1 & k+2 & \cdots & k + \ell & 1 & \cdots & k
+    \end{pmatrix}
+\end{equation}で定めると，$\sgn \tau = (-1)^{k \ell}$である\footnote{いわゆる「あみだくじ」を書いて符号を計算するのが一番簡単だと思う．}．\cref{交代化作用素の基本性質} (i) を繰り返し使うと，
+\begin{align}
+(\omega \wedge \eta)(v_1,\dots, v_{k+\ell}) &= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma) \omega(v_{\sigma(1)}, \dots, v_{\sigma(k)}) \eta (v_{\sigma(k+1)}, \dots, v_{\sigma(k+\ell)})\\
+&= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma)^3 \omega(v_{1}, \dots, v_{k}) \eta (v_{k+1}, \dots, v_{k+\ell})\\
+&= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma) \omega(v_{1}, \dots, v_{k}) \eta (v_{k+1}, \dots, v_{k+\ell})\\
+&= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma) \omega(v_{\tau(\ell+ 1)}, \dots, v_{\tau(\ell + k)}) \eta (v_{\tau(1)}, \dots, v_{\tau(\ell)})\\
+&= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma)(\sgn \tau) \omega(v_{\ell+ 1}, \dots, v_{\ell + k}) \eta (v_{1}, \dots, v_{\ell})\\
+&= \frac{(-1)^{k\ell}}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma) \eta (v_{1}, \dots, v_{\ell})\omega(v_{\ell+ 1}, \dots, v_{\ell + k}) \\
+&= (-1)^{k\ell}(\eta \wedge \omega)(v_1,\dots, v_{k+\ell}).
+\end{align}
+\item 証明を3段階に分割する．
+\begin{enumerate}
+\item $S \in \Tensor^k(V)$並びに$T \in \Tensor^\ell(V)$に対して$\Alt(S)=0$または$\Alt(T)=0$ならば$\Alt(S \otimes T)=0$となることを示す．議論は同様なので$\Alt(S)=0$の場合のみ証明する．ここでは$\Sym_k$を（$\sigma \in \Sym_k$は$k+1, \dots, k+\ell$を動かさないような$\Sym_{k+\ell}$の元だとみなすことで）$\Sym_{k+\ell}$の部分集合とみなす．
+\begin{align}
+\sum_{\sigma \in \Sym_k} S(v_{\sigma(1)}, \dots, v_{\sigma(k)})T(v_{\sigma(k+1)}, \dots, v_{\sigma(k + \ell)}) &= \sum_{\sigma \in \Sym_k} S(v_{\sigma(1)}, \dots, v_{\sigma(k)})T(v_{k+1}, \dots, v_{k + \ell}) \\
+&= \left(  \sum_{\sigma \in \Sym_k} S(v_{\sigma(1)}, \dots, v_{\sigma(k)}) \right) T(v_{k+1}, \dots, v_{k + \ell}) \\
+&=0.
+\end{align}
+次いで，$\tau \in \Sym_{k+\ell} \setminus \Sym_k$を任意に取る\footnote{ここから先の議論は群の剰余類の考え方を知っていれば見通しがよいと思う．要するに$\Sym_{k+\ell}$を部分群$\Sym_k$の定める右剰余類に分解し，各剰余類において和が0だから全体の和も0であるということを（群の言葉を一切出さずに）議論しているに過ぎない．}．$\Sym_k \tau \coloneqq \set{\sigma \tau | \sigma \in \Sym_k}$と置くと，
+\begin{align}
+\sum_{\sigma \in \Sym_k \tau} S(v_{\sigma(1)}, \dots, v_{\sigma(k)})T(v_{\sigma(k+1)}, \dots, v_{\sigma(k + \ell)}) &= \sum_{\sigma' \in \Sym_k} S(v_{\sigma'\tau(1)}, \dots, v_{\sigma'\tau(k)})T(v_{\tau(k+1)}, \dots, v_{\tau(k + \ell)}) \\
+&= \left(\sum_{\sigma' \in \Sym_k} S(v_{\sigma'\tau(1)}, \dots, v_{\sigma'\tau(k)}) \right) T(v_{\tau(k+1)}, \dots, v_{\tau(k + \ell)}) \\
+&= \left(\sum_{\sigma' \in \Sym_k} S(v_{\sigma'(1)}, \dots, v_{\sigma'(k)}) \right) T(v_{\tau(k+1)}, \dots, v_{\tau(k + \ell)}) \\
+&=0.
+\end{align}ここで，$\Sym_k \cap \Sym_k \tau = \emptyset$が次のようにしてわかる．そうでないとして，$\sigma_0 \in \Sym_k \cap \Sym_k \tau$を取ると，$\sigma_0 = \sigma_1 \tau$となるような$\sigma_1 \in \Sym_k$がある．したがって$\tau = (\sigma_1)^{-1}\sigma_0 \in \Sym_k$となるが，これは$\tau$の定め方に反する．同様に，相異なる$\tau_1, \tau_2 \in \Sym_{k+\ell} \setminus \Sym_k$を取ると$\Sym_k \tau_1 \cap \Sym_k \tau_2 = \emptyset$であることもわかる．以上より，総和$\sum_{\sigma \in \Sym_{k+\ell}}$は$\sum_{\sigma \in \Sym_k} + \sum_{\tau \in \Sym_{k+\ell} \setminus \Sym_k} \sum_{\sigma \in \Sym_k \tau}$の形に分解できる．分解した各々の項が0であることはすでに見たので，全体の総和も0である．
+\item $S \in \Tensor^k(V), T \in \Tensor^\ell(V), U \in \Tensor^m(V)$に対して$\Alt(S \otimes T \otimes U) = \Alt(\Alt(S \otimes T) \otimes U) = \Alt(S \otimes \Alt(T \otimes U))$となることを示す．$\Alt$は冪等なので，$\Alt(\Alt(S \otimes T) - S \otimes T)=0$であるから，前段の結果より$\Alt(\Alt(S \otimes T) \otimes U - S \otimes T \otimes U)=0$を得る．他の等式も同様である．
+\item 命題を証明する．
+\begin{align}
+(\omega \wedge \eta) \wedge \theta &= \frac{(k+\ell)!}{k!\ell!}\Alt(\omega \otimes \eta) \wedge \theta \\
+&= \frac{(k+\ell)!}{k!\ell!} \frac{(k+\ell+m)!}{(k+\ell)!m!} \Alt(\Alt(\omega \otimes \eta) \otimes \theta) \\
+&= \frac{(k+\ell+m)!}{k!\ell!m!} \Alt(\omega \otimes \eta \otimes \theta) \\
+\end{align}となる．もう一つの等式も同様にすればよい．
+\end{enumerate}
 \end{enumerate}
 \end{proof}
+
+外積が結合的であることを踏まえて，これ以降は3つ以上の交代テンソルの外積は括弧を省いて$\omega \wedge \eta \wedge \theta$のように書く．
 
 \begin{dig}
 交代テンソルに当てる記号として$\omega, \eta, \theta$と進めるのは Spivak にならってのことなのだが，どのような規則性に依るものなのか，何ならどれくらい一般的に使われているのか，私はよく知らない．たぶんそれっぽくてかっこいいギリシャ文字を使っているだけなのではなかろうか．

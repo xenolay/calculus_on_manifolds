@@ -35,7 +35,7 @@
 \begin{itemize}
 \item $v,w$は充分小さいので，$\omega_m$は各引数ごとに線型であることにする．
 \item 同じ方向を向いた2本のベクトルが張る平行四辺形の面積は0だと思うので，$\omega_m(v_m,v_m) = 0$とする．
-\item ベクトルが右手系なのか左手系なのかを込めて，符号つきで面積を測ることにして，$\omega_m(v,w) = - \omega_m(w_m,v_m)$とする．
+\item ベクトルが右手系なのか左手系なのかを込めて，符号つきで面積を測ることにして，$\omega_m(v_m,w_m) = - \omega_m(w_m,v_m)$とする．
 \end{itemize}
 そのように局所的に作った$\omega_m$という量を，いろいろなところで一斉に考えて，関数との値と掛け合わせて足し上げることで，積分の定義が得られるかもしれない．すなわち，いい感じに$\Sphere^2$を細かな領域に分割した上で
 \begin{equation}
@@ -53,7 +53,7 @@
 
 \subsection{双対空間とテンソル積}
 
-微分形式を定義するのに必要な線型代数の事項として，双対空間とテンソル積について扱う．以下しばらく，$V$ならびに$W$は線型空間とする．
+微分形式を定義するのに必要な線型代数の事項として，双対空間とテンソル積について扱う．関連して，線型空間の向きについても述べる．以下しばらく，$V$ならびに$W$は線型空間とする．
 
 \begin{defi}
 $V^* \coloneqq \set{f \colon V \to \Real | f は線型写像 }$を$V$の双対空間という．
@@ -64,7 +64,7 @@ $V^*$は線型空間の構造を持つ．やるだけでめんどくさいので
 \end{que}
 
 \begin{defi}
-$\set{e_1, \dots, e_n}$を$V$の基底とする．各$e_i$（$1 \leq i \leq n$）に対し，線型写像$f^i \colon V \to \Real$を，$f^i(e_j) = \delta^i_j$で定める．但し，右辺は Kronecker のデルタ．このとき，$\set{f^1, \dots, f^n}$は$V^*$の基底となる．この基底を$\set{e_1, \dots, e_n}$の双対基底という．
+$\set{v_1, \dots, v_n}$を$V$の基底とする．各$v_i$（$1 \leq i \leq n$）に対し，線型写像$w^i \colon V \to \Real$を，$w^i(v_j) = \delta^i_j$で定める．但し，右辺は Kronecker のデルタ．このとき，$\set{w^1, \dots, w^n}$は$V^*$の基底となる．この基底を$\set{v_1, \dots, v_n}$の双対基底という．$\set{v_1, \dots, v_n}$の双対基底を$\set{v_1^*, \dots, v_n^*}$のように書くことも多い．
 \end{defi}
 
 $\Real^n$が「縦ベクトルからなる空間」だとすれば$(\Real^n)^*$は「横ベクトルからなる空間」であると捉えられないこともない，ということを下支えするのが以下の命題である．
@@ -121,26 +121,26 @@ $\otimes$は双線型かつ結合的である．すなわち，$S, S_1, S_2 \in 
 \end{que}
 
 \begin{prop}
-$\set{e_1, \dots, e_n}$を$V$の基底，$\set{f^1, \dots, f^n}$をその双対基底とする．このとき，
+$\set{v_1, \dots, v_n}$を$V$の基底，$\set{w^1, \dots, w^n}$をその双対基底とする．このとき，
 \begin{equation}
-\set{ f^{i_1} \otimes \dots \otimes f^{i_k} | 1 \leq i_1, \dots i_k \leq n }
+\set{ w^{i_1} \otimes \dots \otimes w^{i_k} | 1 \leq i_1, \dots i_k \leq n }
 \end{equation}は$\Tensor^k(V)$の基底である．したがって$\Tensor^k(V)$は$n^k$次元である．
 \end{prop}
 
 \begin{proof}
-$f^{i_1} \otimes \dots \otimes f^{i_k}$たちが一次独立であることと$\Tensor^k(V)$の生成系であることを示せばよい．まず一次独立性を示す．
+$w^{i_1} \otimes \dots \otimes w^{i_k}$たちが一次独立であることと$\Tensor^k(V)$の生成系であることを示せばよい．まず一次独立性を示す．
 \begin{equation}
-\sum_{1\leq j_1, \dots, j_k \leq n} a_{j_1, \dots, j_k} f^{j_1} \otimes \dots \otimes f^{j_k} = 0
-\end{equation}が成り立っていたと仮定する．このとき左辺の線型写像を$(e_{i_1}, \dots, e_{i_k})$（$1 \leq i_1, \dots, i_k \leq n$）に作用させれば$a_{i_1, \dots, i_k}=0$が出るので，一次独立性がわかる．
+\sum_{1\leq j_1, \dots, j_k \leq n} a_{j_1, \dots, j_k} w^{j_1} \otimes \dots \otimes w^{j_k} = 0
+\end{equation}が成り立っていたと仮定する．このとき左辺の線型写像を$(v_{i_1}, \dots, v_{i_k})$（$1 \leq i_1, \dots, i_k \leq n$）に作用させれば$a_{i_1, \dots, i_k}=0$が出るので，一次独立性がわかる．
 
-$\Tensor^k(V)$の生成系になっていることを示すために，$T \in \Tensor^k(V)$を任意に一つ取る．$w_1, \dots, w_n \in V$を任意に取り，それを基底$\set{e_1, \dots, e_n}$で展開した係数を$a_i^j$のように書く；$w_i \eqqcolon \sum_{j} a_i^j e_j$．このとき，
+$\Tensor^k(V)$の生成系になっていることを示すために，$T \in \Tensor^k(V)$を任意に一つ取る．$u_1, \dots, u_n \in V$を任意に取り，それを基底$\set{v_1, \dots, v_n}$で展開した係数を$a_i^j$のように書く；$u_i \eqqcolon \sum_{j} a_i^j v_j$．このとき，
 \begin{align}
-T(w_1, \dots, w_n) &= T\left( \sum_{j_1} a_1^{j_1} e_{j_1}, \dots, \sum_{j_n} a_1^{j_n} e_{j_n} \right) \\
-&= \sum_{j_1} a_1^{j_1} T\left( e_{j_1},  \sum_{j_2} a_2^{j_2} e_{j_2}, \dots, \sum_{j_n} a_n^{j_n} e_{j_n} \right) \\
+T(u_1, \dots, u_n) &= T\left( \sum_{j_1} a_1^{j_1} v_{j_1}, \dots, \sum_{j_n} a_1^{j_n} v_{j_n} \right) \\
+&= \sum_{j_1} a_1^{j_1} T\left( v_{j_1},  \sum_{j_2} a_2^{j_2} v_{j_2}, \dots, \sum_{j_n} a_n^{j_n} v_{j_n} \right) \\
 &= \dotsb \\
-&= \sum_{j_1} a_1^{j_1} a_2^{j_2} \dots a_n^{j_n}  T\left( e_{j_1}, \dots, e_{j_n} \right) \\
-&= \sum_{j_1} a_1^{j_1} a_2^{j_2} \dots a_n^{j_n}  f^{j_1} \otimes \dots \otimes f^{j_n}
-\end{align}となるので，$f^{i_1} \otimes \dots \otimes f^{i_k}$たちは$\Tensor^k(V)$の生成系である．
+&= \sum_{j_1} a_1^{j_1} a_2^{j_2} \dots a_n^{j_n}  T\left( v_{j_1}, \dots, v_{j_n} \right) \\
+&= \sum_{j_1} a_1^{j_1} a_2^{j_2} \dots a_n^{j_n}  w^{j_1} \otimes \dots \otimes w^{j_n}
+\end{align}となるので，$w^{i_1} \otimes \dots \otimes w^{i_k}$たちは$\Tensor^k(V)$の生成系である．
 \end{proof}
 
 \begin{defi}
@@ -314,6 +314,65 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 \begin{dig}
 交代テンソルに当てる記号として$\omega, \eta, \theta$と進めるのは Spivak にならってのことなのだが，どのような規則性に依るものなのか，何ならどれくらい一般的に使われているのか，私はよく知らない．たぶんそれっぽくてかっこいいギリシャ文字を使っているだけなのではなかろうか．
 \end{dig}
+
+さて，$\Omega^k(V)$の次元を決定する準備を兼ねて，外積の係数のいわれを解き明かしておくことにする．
+
+\begin{lem}
+$\set{v_1, \dots, v_n}$を$V$の基底，$\set{w^1, \dots, w^n}$をその双対基底とする．このとき，$1 \leq i_1 < i_2 < \dots < i_k \leq n$ならば
+\begin{equation}
+w^{i_1} \wedge \dots \wedge w^{i_k} (v_{i_1}, \dots, v_{i_k}) = 1
+\end{equation}が成り立つ．
+\end{lem}
+
+\begin{proof}
+\begin{align}
+w^{i_1} \wedge \dots \wedge w^{i_k} &= k! \Alt(w^{i_1} \otimes \dots \otimes w^{i_k}) \\
+&= \sum_{\sigma \in \Sym_k} (\sgn \sigma) w^{\sigma(i_1)} \otimes \dots \otimes w^{\sigma(i_k)}
+\end{align}であり，$\sigma \neq \mathrm{id}$であるならば$(\sgn \sigma) w^{\sigma(i_1)} \otimes \dots \otimes w^{\sigma(i_k)} (v_{i_1}, \dots, v_{i_k})=0$であるからよい．
+\end{proof}
+
+\begin{dig}
+というわけで，外積の頭の係数はこの式（を含むいろいろな式）の見た目をきれいにするためである．と言ってしまうと実用性ゼロの理由に聞こえるが，いちおうこのあとに出てくる（と思われる）テンソルの成分計算をする際に楽になるという実用上のご利益があると思う．
+\end{dig}
+
+\begin{que}[*]
+いっぽう，定数倍の差が理論に本質的な影響を与えるかというと，（少なくともこのノートの範囲では）与えないと思う．実際，$\omega \wedge \eta \coloneqq \Alt (\omega \otimes \eta)$と定義する流儀もある．これは$\Omega^k(V)$を$\Tensor^k(V)$の商代数として構成した場合に自然な全射$\Tensor^k(V) \to \Omega^k(V)$が$\Omega^k(V)$上に誘導する積であるが，このノートではそもそも$\Omega^k(V)$を商代数として構成するなんてことはしていない．森田茂之「微分形式の幾何学」曰くは特性類の一般論を述べるときなどはこちらの係数のほうが都合が良いらしい．
+
+他にも$\omega \wedge \eta \coloneqq \sqrt{\frac{(k+\ell)!}{k!\ell!}} \Alt (\omega \wedge \eta)$と定義する流儀もある．この流儀だと，$\set{w^1, \dots, w^n}$が$V^*$上の正規直交基底である場合に$\set{w^{i_1} \wedge \dots \wedge w^{i_k} | 1 \leq i_1 < \dots < i_k \leq n}$が$\Omega^k(V)$上の正規直交基底になるという利点がある．
+\end{que}
+
+\begin{thm}
+$\set{v_1, \dots, v_n}$を$V$の基底，$\set{w^1, \dots, w^n}$をその双対基底とするとき，
+\begin{equation}
+\set{w^{i_1} \wedge \dots \wedge w^{i_k} | 1 \leq i_1 < \dots < i_k \leq n}
+\end{equation}は$\Omega^k(V)$の基底である．したがって$\dim \Omega^k(V) = \frac{n!}{k!(n-k)!}$．
+\end{thm}
+
+\begin{proof}
+一次独立性と生成系になっていることを証明すればよい．
+
+一次独立性を示すために，
+\begin{equation}
+\sum_{1 \leq j_1 < \dots < j_k \leq n} a_{j_1,\dots,i_k} w^{j_1} \wedge \dots \wedge w^{j_k} = 0
+\end{equation}であったと仮定する．$1 \leq j_1 < \dots j_k \leq n$となるような整数の組$(j_1, \dots, j_k)$を取った上で両辺に$(v_{j_1}, \dots, v_{j_k})$を作用させれば$a_{j_1,\dots,j_k}=0$がわかる．
+
+$\omega \in \Omega^k(V)$を任意に取れば$\omega \in \Tensor^k(V)$なので，
+\begin{equation}
+\omega \eqqcolon \sum_{i_1, \dots, i_k} a_{i_1,\dots,i_k} w^{i_1} \otimes \dots \otimes w^{i_k}
+\end{equation}と展開できる．両辺に交代化作用素を施すことで，
+\begin{align}
+\Alt(\omega) = \omega &= \sum_{i_1, \dots, i_k} a_{i_1,\dots,i_k} \Alt(w^{i_1} \otimes \dots \otimes w^{i_k}) \\
+&= \frac{1}{k!} \sum_{i_1, \dots, i_k} a_{i_1,\dots,i_k} w^{i_1} \wedge \dots \wedge w^{i_k}
+\end{align}となるので，生成系であることがわかる．
+\end{proof}
+
+\begin{defi}
+線型空間$V$の基底上の二項関係$\sim$を次のように定める；「$\mathcal{V} = \set{v_1, \dots, v_n}$ならびに$\mathcal{W} = \set{w_1, \dots, w_n}$を$V$の基底とし，$w_i \eqqcolon \sum a_i^j v_j$と置く．$\mathcal{V} \sim \mathcal{W}$となるのは，$\det \left(a_i^j\right) > 0$がなりたつとき」．$\sim$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．$\set{v_1, \dots, v_n}$が属する向きのことを$[ v_1, \dots, v_n ]$と書き，属さない向きのことを$- [ v_1, \dots, v_n ]$と書く．特に$V=\Real^n$の場合，標準基底$\set{e_1, \dots, e_n}$が属する向き$[e_1, \dots, e_n]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
+\end{defi}
+
+\begin{que}
+$V$の向きは常に2つ存在する．
+\end{que}
 
 \subsection{ベクトル場と微分形式}
 

@@ -53,7 +53,7 @@
 
 \subsection{双対空間とテンソル積}
 
-微分形式を定義するのに必要な線型代数の事項として，双対空間とテンソル積について扱う．関連して，線型空間の向きについても述べる．以下しばらく，$V$ならびに$W$は線型空間とする．
+微分形式を定義するのに必要な線型代数の事項として，双対空間とテンソル積，ならびに関連した話題について述べる．以下しばらく，$V$ならびに$W$は線型空間とする．
 
 \begin{defi}
 $V^* \coloneqq \set{f \colon V \to \Real | f は線型写像 }$を$V$の双対空間という．
@@ -67,24 +67,17 @@ $V^*$は線型空間の構造を持つ．やるだけでめんどくさいので
 $\set{v_1, \dots, v_n}$を$V$の基底とする．各$v_i$（$1 \leq i \leq n$）に対し，線型写像$w^i \colon V \to \Real$を，$w^i(v_j) = \delta^i_j$で定める．但し，右辺は Kronecker のデルタ．このとき，$\set{w^1, \dots, w^n}$は$V^*$の基底となる．この基底を$\set{v_1, \dots, v_n}$の双対基底という．$\set{v_1, \dots, v_n}$の双対基底を$\set{v_1^*, \dots, v_n^*}$のように書くことも多い．
 \end{defi}
 
-$\Real^n$が「縦ベクトルからなる空間」だとすれば$(\Real^n)^*$は「横ベクトルからなる空間」であると捉えられないこともない，ということを下支えするのが以下の命題である．
-
-\begin{que}
-$x \in \Real^n$に対し，$\varphi_x \in (\Real^n)^*$を$\varphi_x(y) \coloneqq \langle x,y \rangle$で定める．写像$T \colon \Real^n \ni x \mapsto \varphi_x \in (\Real^n)^*$は線型同型写像である．ちなみにこの同型写像は標準内積に依存しているので，特に基底に依存して定まる同型写像である．その意味で「自然ではない」という言い方がされることがあるが，私は自然性のことをすべて忘れました．
-\end{que}
-
-\begin{dig}
-ちなみにこの直感は無限次元だと破壊されるので，程々にしておくのが良いらしい…が，私は平気な顔して横ベクトルのことだと思っているフシがある．参考までに，広く知られている以下2点の事実を列挙しておく．ちなみに私は証明を読んだことはない．
-\end{dig}
-
-\begin{que}[Riesz の表現定理，**]
-$H$を Hilbert 空間とする．$x \in H$に対し，$\varphi_x \in H^*$を$\varphi_x(y) \coloneqq \langle x,y \rangle$で定める．写像$T \colon H \ni x \mapsto \varphi_x \in H^*$は線型同型写像である．
+\begin{que}\label{双対空間は縦ベクトル}
+$\Real^n$が「縦ベクトルからなる空間」だとすれば$(\Real^n)^*$は「横ベクトルからなる空間」であると捉えられないこともない，ということを下支えするのが以下の命題である；$x \in \Real^n$に対し，$\varphi_x \in (\Real^n)^*$を$\varphi_x(y) \coloneqq \langle x,y \rangle$で定める．写像$T \colon \Real^n \ni x \mapsto \varphi_x \in (\Real^n)^*$は線型同型写像である．ちなみにこの同型写像は標準内積に依存しているので，特に基底に依存して定まる同型写像である．その意味で「自然ではない」という言い方がされることがあるが，私は自然性のことをすべて忘れました．
 \end{que}
 
 \begin{que}[**]
-$V$を Banach 空間とする．写像$\Phi \colon V \to (V^*)^*$を，$\varphi \in V^*$に対して$\Phi(x)(\varphi) \coloneqq \varphi(x)$で定めると，これは単射な線型写像である．これが同型となるような Banach 空間は反射的であると言われる．ということは世の中には反射的でない Banach 空間が存在する．
+ちなみにこの直感は無限次元だと破壊されるので，程々にしておくのが良いらしい…が，私は平気な顔して横ベクトルのことだと思っているフシがある．参考までに，広く知られている以下2点の事実を列挙しておく．ちなみに私は証明を読んだことはない．
+\begin{enumerate}
+\item $H$を Hilbert 空間とする．$x \in H$に対し，$\varphi_x \in H^*$を$\varphi_x(y) \coloneqq \langle x,y \rangle$で定める．写像$T \colon H \ni x \mapsto \varphi_x \in H^*$は線型同型写像である（Riesz の表現定理）．
+\item Riesz の表現定理は，Banach 空間に対しては必ずしも成り立つとは限らない；$V$を Banach 空間とする．写像$\Phi \colon V \to (V^*)^*$を，$\varphi \in V^*$に対して$\Phi(x)(\varphi) \coloneqq \varphi(x)$で定めると，これは単射な線型写像である．これが同型となるような Banach 空間は反射的であると言われる．ということは世の中には反射的でない Banach 空間が存在する．
+\end{enumerate}
 \end{que}
-
 
 \begin{defi}
 $V$を線型空間とする．$S \colon V^k \to \Real$が多重線型写像，または$V$上の$k$階テンソルであるとは，各変数に関して$f$が線型写像であること，即ち任意の$1 \leq i \leq k$に対して
@@ -170,7 +163,7 @@ $f^*$を何と呼ぶかはやや迷った．多様体上の微分形式に対し
 \begin{equation}
 S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots, v_k)
 \end{equation}
-が成り立つことをいう．$V$上の正定値対称テンソルのことを$V$の内積という．
+が成り立つことをいう．$V$上の正定値対称2階テンソルのことを$V$の内積という\footnote{内積は正定値なので，自動的に2階テンソルになるから「2階」は余計なのだが，別に書いて損することもないと思ったので明示的に書いた．}．
 \item $\omega \in \Tensor^k(V)$が交代テンソルであるとは，任意の$v_1, \dots, v_k \in V$ならびに$i \neq j$に対して，
 \begin{equation}
 \omega(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = -\omega(v_1, \dots, v_j, \dots, v_i, \dots, v_k)
@@ -181,7 +174,7 @@ S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots
 
 特に交代テンソルは微分形式の定義に直結するので，この項で基本的性質を調べておくことにする．それに先立ち，線型代数で行列式を学んだ際に触れたであろう次の事実を思い出しておこう；
 
-\begin{prop}
+\begin{prop}\label{行列式の特徴づけ}
 $F \colon M_n(\Real) \to \Real$を，$\Real^n$の元を$n$個受け取る写像とみなす；$F \colon \Real^n \times \dots \times \Real^n \to \Real$．$F$が交代的な多重線型写像であるならば，ある定数$c  \in \Real$が存在して$F = c \cdot \det$が成り立つ．
 \end{prop}
 
@@ -197,7 +190,7 @@ $F \colon M_n(\Real) \to \Real$を，$\Real^n$の元を$n$個受け取る写像�
 \item $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，その外積$\omega \wedge \eta \in \Omega^{k + \ell}(V)$を，
 \begin{equation}
 \omega \wedge \eta \coloneqq \frac{(k+\ell)!}{k!\ell!} \Alt (\omega \otimes \eta)
-\end{equation}で定める．頭についている係数のいわれは Spivak いわく後でわかるらしい．
+\end{equation}で定める．こちらも頭についている係数の所以は後で説明する．
 \end{itemize}
 \end{defi}
 
@@ -206,7 +199,7 @@ $\omega \in \Omega^k(V)$，$\eta \in \Omega^\ell(V)$に対して，$\omega \otim
 \end{que}
 
 \begin{dig}
-交代化作用素と外積の定義を天下りに与えたくない気持ちがあるのだが，あまり良い説明を思いつかない．確かにテンソルを交代テンソルに化かすためには（定数倍を除いて）交代化作用素以上に簡単な方法はないとも思うし，交代性を保つような演算として外積より簡単なものを持ってこいと言われても（少なくとも私は）困るしかない．そんなわけで，「これは自然に思いつく」と言われたとしても，渋い顔をしながら「そうかもしれないですね」と言う以外にないのが正直なところである．
+交代化作用素と外積の定義を天下りに与えたくない気持ちがあるのだが，あまり良い説明を思いつかない．確かにテンソルを交代テンソルに化かすためには（定数倍を除いて）交代化作用素以上に簡単な方法はないとも思うし，交代性を保つような演算として外積より簡単なものを持ってこいと言われても（定数倍の差はともかく）（少なくとも私は）困るしかない．そんなわけで，「これは自然に思いつく」と言われたとしても，渋い顔をしながら「そうかもしれないですね」と言う以外にないのが正直なところである．
 \end{dig}
 
 \begin{prop}[交代化作用素の基本性質]\label{交代化作用素の基本性質}
@@ -336,7 +329,7 @@ w^{i_1} \wedge \dots \wedge w^{i_k} &= k! \Alt(w^{i_1} \otimes \dots \otimes w^{
 \end{dig}
 
 \begin{que}[*]
-いっぽう，定数倍の差が理論に本質的な影響を与えるかというと，（少なくともこのノートの範囲では）与えないと思う．実際，$\omega \wedge \eta \coloneqq \Alt (\omega \otimes \eta)$と定義する流儀もある．これは$\Omega^k(V)$を$\Tensor^k(V)$の商代数として構成した場合に自然な全射$\Tensor^k(V) \to \Omega^k(V)$が$\Omega^k(V)$上に誘導する積であるが，このノートではそもそも$\Omega^k(V)$を商代数として構成するなんてことはしていない．森田茂之「微分形式の幾何学」曰くは特性類の一般論を述べるときなどはこちらの係数のほうが都合が良いらしい．
+いっぽう，定数倍の差が理論に本質的な影響を与えるかというと，（少なくともこのノートの範囲では）与えないと思う．実際，$\omega \wedge \eta \coloneqq \Alt (\omega \otimes \eta)$と定義する流儀もある．森田茂之「微分形式の幾何学」曰くは特性類の一般論を述べるときなどはこちらの係数のほうが都合が良いらしい．たぶん適当な意味での自然性も充たすのだと思う．
 
 他にも$\omega \wedge \eta \coloneqq \sqrt{\frac{(k+\ell)!}{k!\ell!}} \Alt (\omega \wedge \eta)$と定義する流儀もある．この流儀だと，$\set{w^1, \dots, w^n}$が$V^*$上の正規直交基底である場合に$\set{w^{i_1} \wedge \dots \wedge w^{i_k} | 1 \leq i_1 < \dots < i_k \leq n}$が$\Omega^k(V)$上の正規直交基底になるという利点がある．
 \end{que}
@@ -366,6 +359,29 @@ $\omega \in \Omega^k(V)$を任意に取れば$\omega \in \Tensor^k(V)$なので�
 \end{align}となるので，生成系であることがわかる．
 \end{proof}
 
+したがって特に，$V$が（$\Real^n$でなかったとしても）$n$次元線型空間であるならば，$\dim \Omega^n(V)=1$であるとわかる．
+
+$\Omega^k(V)$の構造そのものについて調べるのはここまでである．ここからは，$\Tensor^k(V)$や$\Omega^k(V)$に関連する概念たちを（後の都合のために）定義しておくことにする．
+
+\begin{lem}
+$T \in \Tensor^2(V)$を$V$の内積とする．このとき，$V$上の基底$\set{v_1, \dots, v_n}$であって，
+\begin{equation}
+T(v_i, v_j) = \begin{dcases*}
+    1 & if $i=j$ \\
+    0 & otherwise
+  \end{dcases*}
+\end{equation}
+を充たすようなものが存在する．このような$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底という．
+\end{lem}
+
+\begin{proof}
+$\Real^n$の場合と同様に Gram-Schmidt の正規直交法によれ．
+\end{proof}
+
+\begin{dig}
+Kronecker のデルタを使って$T(v_i, v_j) = \delta_{ij}$と書こうかとも思ったのだが，やめた．第一節で述べたとおり，このノートでは意図して添字の上下を書き分けている箇所が多々ある．それを踏まえると，特に何も考えずに下付きの添字を書いたとしても，意図があって下付きになっていると読まれそうな気がしたからである．ここに限った話ではないが，用語や記法は難しさをおぼえることが少なくないと感じる．
+\end{dig}
+
 \begin{defi}
 線型空間$V$の基底上の二項関係$\sim$を次のように定める；「$\mathcal{V} = \set{v_1, \dots, v_n}$ならびに$\mathcal{W} = \set{w_1, \dots, w_n}$を$V$の基底とし，$w_i \eqqcolon \sum a_i^j v_j$と置く．$\mathcal{V} \sim \mathcal{W}$となるのは，$\det \left(a_i^j\right) > 0$がなりたつとき」．$\sim$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．$\set{v_1, \dots, v_n}$が属する向きのことを$[ v_1, \dots, v_n ]$と書き，属さない向きのことを$- [ v_1, \dots, v_n ]$と書く．特に$V=\Real^n$の場合，標準基底$\set{e_1, \dots, e_n}$が属する向き$[e_1, \dots, e_n]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
 \end{defi}
@@ -373,6 +389,68 @@ $\omega \in \Omega^k(V)$を任意に取れば$\omega \in \Tensor^k(V)$なので�
 \begin{que}
 $V$の向きは常に2つ存在する．
 \end{que}
+
+\begin{dig}
+このノートではここで「右手系」や「左手系」を定義した．ここより前でこれらの言葉を証明に組み込むことはしていない．が，それはそれとして，$\Real^2$や$\Real^3$の場合に「右手系」や「左手系」という言葉を多少なりとも見た人は多いと思う．
+\end{dig}
+
+\cref{行列式の特徴づけ}を踏まえれば，行列式$\det$の定義として，$\omega \in \Omega^n(\Real^n)$の元であって$\omega(e_1, \dots, e_n) = 1$を充たすもの，という定義を採っても構わない\footnote{学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？}．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
+
+\begin{lem}\label{最高次交代テンソルの変換則}
+$\set{v_1, \dots, v_n}$を$V$の基底とし，$\omega \in \Omega^n(V)$を任意に取る．更に，$w_1, \dots, w_n \in V$を任意にとり$w_i \eqqcolon \sum a_i^j v_j$と置く．このとき，
+\begin{equation}
+\omega(w_1, \dots, w_n) = \det \left( a_i^j \right) \omega(v_1, \dots, v_n).
+\end{equation}
+\end{lem}
+
+\begin{proof}
+$\eta \in \Tensor^n(\Real^n)$を次のように定める；$b_i = (b_i^1, \dots, b_i^n) \in \Real^n$（$1 \leq i \leq n$）に対して，
+\begin{equation}
+\eta (b_1, \dots, b_n) \coloneqq \omega \left(\sum_i b_1^i v_i, \dots, \sum_i b_n^i v_i \right).
+\end{equation}$\omega \in \Tensor^n(V)$であることから，$\eta \in \Omega^n(\Real^n)$がわかるので，ある定数$c \in \Real$があり，$\eta = c \cdot \det$である．$b_i = e_i$（$\Real^n$の標準基底）の場合を考えることで，$c = \omega(v_1, \dots, v_n)$がわかるから，$\omega(w_1, \dots, w_n) = \eta (a_1, \dots, a_n) = \det \left( a_i^j \right) \omega(v_1, \dots, v_n)$を得る．
+\end{proof}
+
+\begin{thm}
+$T$を$V$の内積とし，$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底とする．このとき，ある$\omega \in \Omega^n(V)$が存在して，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$を充たすような任意の正規直交基底$\set{w_1, \dots, w_n}$に対し$\omega (v_1, \dots, v_n) = 1$を充たす．この$\omega$を，内積$T$および向き$[v_1, \dots, v_n]$の定める$V$の体積要素という．特に，$\Real^n$の標準内積および自然な向きの定める体積要素は行列式$\det$である．
+\end{thm}
+
+\begin{proof}
+$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
+\end{proof}
+
+\begin{prop}
+$V = \Real^n$とする．$v_1, \dots, v_{n-1} \in V$を任意にとって固定する．このとき，任意の$w \in V$に対して，次の式を充たすような$z \in V$が一意的に存在する；
+\begin{equation}
+\langle z,w \rangle = \det\, (v_1, \dots, v_{n-1}, w).
+\end{equation}この$z$を$v_1 \times \dots \times v_{n-1}$と書いて，$v_1, \dots, v_{n-1}$のクロス積またはベクトル積という．
+\end{prop}
+
+\begin{proof}
+$\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}, w)$で定めれば，$\varphi$は線型写像なので，$\varphi \in V^*$である．したがって\cref{双対空間は縦ベクトル}の結果より任意の$w \in V$に対して$\varphi(w) = \langle z,w \rangle$を充たす$z$が一意的に存在する．
+\end{proof}
+
+このクロス積は，背伸びした高校生が学んだり，学部のベクトル解析で見かけるであろうあのクロス積と実際には同じものである．のだが，定義だけをみてもそれがわかる気がしないので，クロス積の諸性質（こちらのほうがまだ見慣れているだろう）を証明しておくことにする；
+
+\begin{prop}[クロス積の基本性質]$V = \Real^n$とする．
+\begin{enumerate}
+\item クロス積をとる写像$V^{n-1} \ni (v_1, \dots, v_{n-1}) \mapsto v_1 \times \dots \times v_{n-1} \in V$は多重線型である．
+\item 任意の$\sigma \in \Sym_{n-1}$に対して，$v_{\sigma(1)} \times \dots \times v_{\sigma(n-1)} = \sgn \sigma (v_1 \times \dots \times v_{n-1})$．
+\item 以下$V=\Real^3$とする．$x = \sum_i x^i e_i$ならびに$y = \sum_i y^i e_i$に対して，$x \times y = (x^2y^3 - x^3y^2)e_1 + (x^3y^1 - x^1y^3)e_2 + (x^1y^2 - x^2y^1)e_3$が成り立つ．
+\item $\langle x, x \times y \rangle = 0$ならびに$\langle y, x \times y \rangle = 0$である．
+\item $\theta$を$x$と$y$のなす角とするとき，$\|x \times y\| = \|x\| \cdot \|y\| \cdot \lvert \sin \theta \rvert$．
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item 行列式の多重線型性より従う．
+\item 行列式の交代性より従う．
+\item Sarrus の公式より$\det \, (x,y,z) = (x^2y^3 - x^3y^2)z^1 + (x^3y^1 - x^1y^3)z^2 + (x^1y^2 - x^2y^1)z^3$であるからよい．
+\item 前段の結果と合わせて内積を直接計算せよ．
+\item $\det \, (x,y,z)$は$x,y,z \in \Real^3$の張る平行六面体の体積であった．ここで，$z = x \times y / \| x \times y \|$の場合を考えると，$\lvert \det \, (x,y,z) \rvert = \|x \times y\|$である．$\langle x, x \times y \rangle = \langle y, x \times y \rangle = 0$をすでに見たので，$\|x \times y\|$は$x$と$y$が張る平行四辺形の面積である．
+\end{enumerate}
+\end{proof}
 
 \subsection{ベクトル場と微分形式}
 

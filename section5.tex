@@ -452,8 +452,134 @@ $\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}
 \end{enumerate}
 \end{proof}
 
-\subsection{ベクトル場と微分形式}
+後々でやるかもしれないことを見越して，クロス積に関係するようなしないようなコメントをいくつか付け加えておくことにする\footnote{実のところ，聞きかじりに基づいて「ここでこのコメントを入れておくと後で話のネタが増えるだろう」とヤマを張っているだけである．立てたフラグを回収する保証はない．}；
 
-\subsection{鎖体}
+\begin{exm}
+$V = \Real^3$とする．$z \in \Real^3$に対して，$\varphi_z(x,y) \coloneqq \det\, (x,y,z)$によって関数$\varphi_z$を定めると，$\varphi_z \in \Omega^2(\Real^3)$である．直接計算によって，$\varphi_{e_1} = e_2^* \wedge e_3^*$，$\varphi_{e_2} = e_3^* \wedge e_1^*$，$\varphi_{e_3} = e_1^* \wedge e_2^*$がわかるので，$\varphi \colon \Real^3 \in z \mapsto \varphi_z \in \Omega^2(\Real^3)$は同型写像である．この同型は，微分2-形式をベクトル場と同一視する際に用いられる．この仕方の同一視に基づいて得られるベクトル場は物理学において軸性ベクトル場と呼ばれるものであり，通常のベクトル場（物理学では極性ベクトル場という）とは座標変換の際に受ける変換が異なる，ということを気が向いたら見る．古典電磁気学においては，電場は極性ベクトル場であり，磁束密度は軸性ベクトル場である，らしい．
+\end{exm}
+
+\begin{exm}
+更に，$z = z^1 e_1 + z^2 e_2 + z^3 e_3$に対して$z^* \in \Omega^1(\Real^3)$を，$z^* \coloneqq z^1 e_1^* + z^2 e_2^* + z^3 e_3^*$によって定める．この写像も同型写像であるから，この2つの同型写像を合成して得られる$\Omega^1(\Real^3) \ni z^* \mapsto \varphi_z \in \Omega^2(\Real^3)$も同型写像である．かくして得られた同型写像を$* \colon \Omega^1(\Real^3) \to \Omega^2(\Real^3)$と書いて，Hodge スター作用素という．Hodge スター作用素は微分可能多様体上の Laplacian の定義に直接的に現れるのだが，どうして出てくるのか私はよく納得していない．なのでここで寄り道して定義を出した（が，Laplacian について書くかどうかは未定である）．
+\end{exm}
+
+\subsection{ベクトル場}
+
+この節では，$\Real^n$におけるベクトル場，ならびにベクトル場に沿った種々の量の微分を定義する．Stokes の定理までの最短ルートを採るならばベクトル場に沿った微分はやらなくても済むのだが，やらないのも微妙な気がするし，話のネタにもなると思うので，書いてみることにする．なお，これ以降，本ノートの終わりまで，$C^\infty$級たりえるすべてのものは断りなく$C^\infty$級と仮定することがある．
+
+
+\begin{que}[**]
+…というおまじないをかけたが，正直このおまじないがどこでどのように効いてくるのかいまいちよくわかっていない．関数が何回微分されたか等をいちいち気にするのが煩わしいので，それを気にしないで済ませるため，というのはあるのだが，もう少し本質的に効いてくるポイントもあるような気もしている．
+\end{que}
+
+\begin{defi}
+$p \in \Real^n$に対して，$T_p \Real^n \coloneqq \set{(p,v)| v \in \Real^n}$を$p$における接ベクトル空間，あるいは接空間という．$T_p \Real^n$は以下のように加法とスカラー倍を入れることで線型空間の構造を持つ；
+\begin{itemize}
+\item $(p, v) + (p, v') = (p, v+v')$
+\item $a(p,v) = (p, av)$
+\end{itemize}
+$(p,v) \in T_p \Real^n$のことを$\Tan_p(v)$とも書く．また，$T_p \Real^n$上の標準内積$\langle \cdot, \cdot \rangle_p$を，$\langle \Tan_p(v), \Tan_p(v) \rangle_p \coloneqq \langle v, w \rangle$によって定める．$[\Tan_p(e_1), \dots, \Tan_p(e_n)]$を$T_p \Real^n$の自然な向きと呼ぶ．
+\end{defi}
+
+気分としては，$T_p \Real^n$は「$p \in \Real^n$に足を持つベクトルの集合」である．ところで，古典ベクトル解析でベクトル場というものを見たことがあるかもしれない．ベクトル場はしばしば，$\Real^n$の各点にベクトルが生えているかのような図示がなされるが，その数学的な定式化のために接空間を持ち出した．すなわち，ベクトル場とは，各点$p$に対して$p$に足を持つようなベクトルを対応させる写像のこととする；
+
+\begin{defi}
+$T\Real^n \coloneqq \bigcup_{p \in \Real^n} T_p \Real^n$を$\Real^n$の接ベクトル束，あるいは接束という．写像$X \colon \Real^n \to T \Real^n$がベクトル場であるとは，任意の$p \in \Real^n$に対して$X(p) \in T_p \Real^n$であることをいう．ベクトル場$X$に対して，$X(p)$のことを$X_p$とも書く．また，$X_p = \Tan_p(v)$であるような$v$のことを$\Vect(X_p)$であらわす．
+
+$X,Y$をベクトル場とするとき，これらの和，関数倍，標準内積を，$(X+Y)_p \coloneqq X_p + Y_p$，$(fX)_p \coloneqq f(p) X_p$，$\langle X, Y \rangle (p) \coloneqq \langle X_p, Y_p \rangle_p$によって定める．
+\end{defi}
+
+\begin{defi}
+ベクトル場$\Real^n \ni p \mapsto \Tan_p(e_i) \in T_p \Real^n$のことを$E_i$と書くことにする．
+\end{defi}
+
+\begin{dig}
+$\Tan_p(v)$や$\Vect(X_p)$などという記号を採用したのはかなりの苦し紛れであり，おそらくこのノート以外では使われていない記号だと思う．当初はこのノートでは Spivak にならって$(p,v) \in T_p \Real^n$のことを$v_p$と書こうと思っていた．一方，ベクトル場$X$の$p$における値も$X_p$と書いている（この記法もかなり一般的である）．そうすると$_p$という記号が二通りに使われる．結果，$e_i$というのが$\Real^n$の標準基底なのか，各点に標準基底を対応させるようなベクトル場なのかがわからなかったり，「ベクトル場$X$」と書くだけで，各点にベクトル$X \in \Real^n$を対応させる定ベクトル場に見えたりするようになった．さすがに無理があると判断して$v_p$という記号をやめて$\Tan$という記号を導入した．いっぽう$X_p$の第2成分が取れないのも不便なので$\Vect$を導入した．接空間を微分作用素の空間として定義すればこのような悩みを抱えずに済んだような気もするが，この定義は最初に見たときにとっつきにくかったので，使いたくなかった．といった紆余曲折の結果がこれである．
+
+また，ベクトル場の終域をちゃんと明示するためにベクトル束という言葉だけを出した．けれども，このノートではそれ以上のことをするつもりはないので，接空間の和集合，以上のことはいったん考えないつもりである．本当はそうではないらしいのだけど，なにかに困らない限りそのあたりの話に踏み込む予定は（今のところ）ない．
+\end{dig}
+
+ベクトル場を考える一つのモチベーションは，ベクトル場に沿った微分操作（方向微分）の概念が作れることである．$\Real^n$の場合だけを考えるのであれば，ベクトル場に沿った微分を定義すること自体はそんなに大変ではない．$f \colon \Real^n \to \Real$を微分可能な関数として，ベクトル場$E_i$に沿った$f$の微分を
+\begin{equation}
+(E_i f)(p) \coloneqq \lim_{t \to 0} \frac{f(p + t e_i) - f(p)}{t} = \partial_i f (p)
+\end{equation}と定めて，一般のベクトル場に沿った微分はこの定義を適切に拡張して定めればよい．
+
+ここで定義を終わりにすることもできなくはないが，まだ考察の余地があるのも事実である；数学的には，上記の定義は微分可能多様体に対して拡張が通らない．物理的にも，ベクトル場はなにかの物理現象のモデリングが主たる用途のひとつなので，特定の座標系に本質的に依存するべきではなく，別の座標系で表現されてよいし，座標変換の際は適切な変換を受けるべきである．これらのことを踏まえて，後々を見越して定義を述べ直し，座標変換にともなうベクトル場の変換則についても述べる．
+
+というわけでここからは，ベクトル場ならびにベクトル場に沿った微分の「座標系によらない実体」を掴むことを当座の目標にする．記号$M$を$M \coloneqq \Real^n$で定める．数学的には$M$は単なる$\Real^n$のコピーなので，標準基底から定まる座標軸がなかば自動で引けてしまうのだが，気持ちとしてはまだ座標軸を一切引いていない空間，という気持ちで読んでほしい．逆に$M$ではなく$\Real^n$と書いたら，標準基底から定まる座標軸を引いたあとの空間を想定している．
+
+\begin{dig}
+もちろん，$M$と$\Real^n$が同じものならわざわざ記号を分けなくても数学的には同じものが出てくるはずなので，これ以降の記述は一部に迂遠な部分が現れる．のだが，のちに出てくる「座標軸が自動では引けない状況」（一般の微分可能多様体における議論）への着地をソフトにするために$\Real^n$の場合を見て慣れておく，という意図で遠回りなまま書くことにした．この「座標軸が自動で引けるとは限らないので，自分で都合よく座標軸を引いて考えて，座標軸の引き方に依存しないことを後追いで確かめる」という考え方は微分可能多様体上の考察においてよく用いるのだが，その考えを適用するのがいちばん難しい（勝手に座標軸が引かれてしまう）のが，一番簡単な微分可能多様体であるはずの$\Real^n$である，というのは難しいところと見るべきか，それとも私の考えすぎか．
+\end{dig}
+
+\begin{defi}
+$X$を$M$上のベクトル場とし，$f \colon M \to \Real$を微分可能な関数とする．このとき，$f$の$X$に沿った微分$Xf \colon M \to \Real$を，
+\begin{equation}
+(Xf)(p) \coloneqq \lim_{t \to 0} \frac{f(p + t \Vect(X_p)) - f(p)}{t}
+\end{equation}
+によって定める．
+\end{defi}
+
+\begin{defi}
+$U \subset M$を開集合とする．$y \colon U \to y(U) \subset \Real^n$が（$C^r$級）微分同相写像のとき，$y = (y^1, \dots, y^n)$を$U$上の$\Real^n$の（$C^r$級）座標系という．
+\end{defi}
+
+\begin{exm}[座標系の例]
+\leavevmode
+\begin{itemize}
+\item $p = \sum_i p^i e_i \in M$に対して$p^i$を対応させる座標関数$\pi^i \colon M \ni p \mapsto p^i \in \Real$を並べて得られる$(\pi^1, \dots, \pi^n)$は座標系である．この座標系を標準座標系といい，今後$x=(x^1, \dots, x^n)$とも書くことにする\footnote{行儀が悪い記号の書き換えなのは自分でもわかっているのだが，$\partial / \partial \pi ^1$とか$d\pi^1$といった記法を採る選択肢はないため，この書き換えを実行することにした．これを踏まえてノートの前半の記号を全部取り替えるべきな気もする．しかしめんどくさいな…}．と仰々しく書いているが，モノとしては$x = \id_{\Real^n}$である．
+\item $M = \Real^2$とする．2次元極座標変換$\Real^2 \supset (0, \infty) \times (0, 2\pi) \ni (r,\theta) \mapsto (r \cos \theta, r \sin \theta) \in M$の逆写像は座標系である．
+\end{itemize}
+\end{exm}
+
+ある座標系$y$を選んで考えるときに，しばしば「$M$に座標系$y$を入れる」というような言い方をする．気分としては，座標系を用いて座標軸のない Euclid 空間$M$（の部分集合）を座標軸のある$\Real^n$にうつしている．座標系は微分同相なので，その逆写像を用いて座標軸を$M$に書き込んでいると思ってもよい（砕けた言い方だが，こちらのほうがイメージは湧きやすいだろう）．極座標変換の場合の絵をここに入れるのが絶対によいと思うが，図を入れるのを面倒に感じているので，気が向いたら入れる．勉強会では絵を書いて説明する予定．
+
+\begin{que}
+ということで，2次元極座標変換の場合に絵を書いて，上の段落に書いてあることの気持ちを察してください．原点から放射状に引かれる軸と，原点を中心とする円のような軸が描かれるはず．
+\end{que}
+
+さて，このようにして描いた座標軸があるときに，座標軸に沿った方向微分を考えることがよくある．この「座標軸に沿った方向微分」は，「座標系から定まるベクトル場に沿った微分」と言い換えることで厳密化できるのだが，厳密な定義の前に，定義を作るための動機づけとなるような具体例を幾つか述べよう．$M=\Real^2$として，$f \colon M \to \Real$を微分可能な関数とするときに，
+\begin{itemize}
+\item $M$に標準座標系を入れる（要するに通常の Descartes 座標）．$f$の$x^1$軸\footnote{「$x^1$軸」「$x^2$軸」はそれぞれ「$x$軸」「$y$軸」というのが普通だとは思うが，このノートでは一般の座標系に記号$y$を充ててしまったので，あえて普通でない言い方のままにした．}に沿った方向微分は（厳密な定義を知らなくても）$\partial_1 f$のことになってほしいと思うだろう．$\partial_1 f$はしばしば$\frac{\partial f}{\partial x^1}$とも書かれる．この記法を踏まえて「ベクトル場$\frac{\partial}{\partial x}$に沿った$f$の微分が$\frac{\partial f}{\partial x^1}$」となるような$\frac{\partial}{\partial x^1}$を定義したい．同様に$\frac{\partial}{\partial x^2}$も定義したい．
+\item $M$に極座標系を入れる．$f$の動径方向の方向微分や偏角方向の方向微分を考えることが実用上は多々あり，それぞれ$\frac{\partial f}{\partial r}$とか$\frac{\partial f}{\partial \theta}$などと書かれる．このような方向微分をするベクトル場$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$を定義したい．
+\end{itemize}
+これらを含むような一般的な形で，座標系から定まるベクトル場を定義する．
+\begin{prop}
+$y=(y^1, \dots, y^n)$を$U \subset M$上の座標系とする．このとき，$U$上のベクトル場$\frac{\partial}{\partial y^i}$であって，任意の$p \in U$ならびに微分可能な関数$f \colon U \to \Real$に対して
+\begin{equation}
+\left( \frac{\partial}{\partial y^i} f \right)(p) = \left(\partial_i (f \circ y^{-1}) \right) (y(p))
+\end{equation}を充たすようなものが唯一つ存在する．更に，$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$は$T_pM$の基底をなす．$\frac{\partial}{\partial y^i}$を座標系$y$が定めるベクトル場という．
+\end{prop}
+
+\begin{proof}
+$y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と定めればよい．それ以外の場合は，$F = f \circ x^{-1}$，$G = x \circ y^{-1}$と置いて$\left(\partial_i (f \circ y^{-1}) \right) (y (p)) = \left(\partial_i (f \circ x^{-1} \circ x \circ y^{-1}) \right) (y (p)) = \left(\partial_i (F \circ G) \right) (y (p))$に対して\cref{実用的な方の合成則}を適用すると，
+\begin{align}
+\left(\partial_i (F \circ G) \right) (y (p)) &= \sum_{j} (\partial_j F)(G(y(p))) \cdot (\partial_i G^j)(y(p))\\
+&= \sum_{j} (\partial_j (f \circ x^{-1}))(p) \cdot (\partial_i G^j)(y(p))\\
+&= \sum_{j} (\partial_i G^j)(y(p)) \cdot \left(\frac{\partial}{\partial x^i} f\right)(p)\\
+\end{align}が成り立つので，
+\begin{equation}
+\frac{\partial}{\partial y^i} \coloneqq \sum_{j} (\partial_i G^j)(y(p)) \cdot \frac{\partial}{\partial x^i}
+\end{equation}と定めればよい．これらが各点$p$で$T_pM$の基底をなすことは，標準座標系の場合は明らかだし，一般の座標系の場合は$(\partial_i G^j)(y(p))$が正則行列であることから従う（正則行列でないとすると，$G = x \circ y^{-1}$が微分同相であることに反する）．
+\end{proof}
+
+\begin{que}
+上記の証明を具体的に極座標の場合に計算することで$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$の具体形を計算することができる．
+\end{que}
+
+また，上記の証明の過程で行った証明を少し修正することで，ベクトル場の座標変換則を得ることができる；
+
+\begin{prop}
+$y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
+\begin{equation}
+\frac{\partial}{\partial z^i} = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (z(p)) \cdot \frac{\partial}{\partial y^j}
+\end{equation}が成り立つ．より象徴的に，
+\begin{equation}
+\frac{\partial}{\partial z^i} = \sum_{j} \frac{\partial y^j}{\partial z^i} \frac{\partial}{\partial y^j}
+\end{equation}と書くこともある．
+\end{prop}
+
+というわけで，あえて（もともとある標準座標を一旦切り離して）座標系からベクトル場を定め，そのベクトル場に沿って微分するという操作を定義し，座標を取り替えたときにベクトル場がどのような変換を受けるかを見てきた．後に，一般の微分可能多様体に対しても同様の定義や変換則が通ることを見ていくことにする．
+
+\subsection{微分形式と鎖体}
 
 \subsection{微分形式の積分と Stokes の定理}

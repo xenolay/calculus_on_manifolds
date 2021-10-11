@@ -341,7 +341,7 @@ F \colon \Real^m \ni x \mapsto f(g^1(x), g^2(x), \dots, g^m(x)) \in \Real
 \end{prop}
 
 \begin{proof}
-$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \dots, g^n(x))$で定めると，\cref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\cref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i f (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
+$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \dots, g^n(x))$で定めると，\cref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\cref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i F (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
 \begin{equation}
 \left( \partial_1 f(g(a)),\ \partial_2 f(g(a)),\ \dots,\ \partial_n f(g(a))  \right)
 \end{equation}という$1 \times n$行列，$J_g(a)$は$(j,i)$成分が$\partial_i g^j(a)$であるような$n \times m$行列であるから，あとは行列の掛け算をすることで結論を得る．

@@ -173,7 +173,7 @@ S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots
 \end{defi}
 
 \begin{dig}
-Spivak だと交代テンソル全体の記号として$\Omega^k(V)$を使っていたが，このノートでは微分可能多様体$M$上の微分$k$-形式の集合に$\Omega^k(M)$を充てたいので，記号を変えることにした．$\GrassAlg^k(V^*)$という記号も一般的なものだと思う．
+Spivak だと交代テンソル全体の記号として$\Omega^k(V)$を使っていたが，このノートでは微分可能多様体$M$上の微分$k$-形式の集合に$\Omega^k(M)$を充てたいので，記号を変えることにした．$\GrassAlg^k(V^*)$という記号も一般的なものだと思う．$\GrassAlg^k(V)$が出てこない理由は，$\Tensor^k(V)$が出てこない理由と同様である．
 \end{dig}
 
 特に交代テンソルは微分形式の定義に直結するので，この項で基本的性質を調べておくことにする．それに先立ち，線型代数で行列式を学んだ際に触れたであろう次の事実を思い出しておこう；
@@ -202,9 +202,9 @@ $F \colon M_n(\Real) \to \Real$を，$\Real^n$の元を$n$個受け取る写像�
 $\omega \in \GrassAlg^k(V^*)$，$\eta \in \GrassAlg^\ell(V^*)$に対して，$\omega \otimes \eta \in \GrassAlg^{k + \ell}(V^*)$とは限らない．
 \end{que}
 
-\begin{dig}
-交代化作用素と外積の定義を天下りに与えたくない気持ちがあるのだが，あまり良い説明を思いつかない．確かにテンソルを交代テンソルに化かすためには（定数倍を除いて）交代化作用素以上に簡単な方法はないとも思うし，交代性を保つような演算として外積より簡単なものを持ってこいと言われても（定数倍の差はともかく）（少なくとも私は）困るしかない．そんなわけで，「これは自然に思いつく」と言われたとしても，渋い顔をしながら「そうかもしれないですね」と言う以外にないのが正直なところである．
-\end{dig}
+\begin{que}[*]
+交代化作用素と外積の定義を天下りに与えたくない気持ちがあるのだが，あまり良い説明を思いつかない．確かにテンソルを交代テンソルに化かすためには（定数倍を除いて）交代化作用素以上に簡単な方法はないとも思うし，交代性を保つような演算として外積より簡単なものを持ってこいと言われても（定数倍の差はともかく）（少なくとも私は）困るしかない．そんなわけで，「これは自然に思いつく」と言われたとしても，渋い顔をしながら「そうかもしれないですね」と言う以外にないのが正直なところである．ちなみに外冪の函手性を使うのはこのノートの範囲では禁じ手だと思うのでやらない．言い換えると，函手性という概念を知らない人が外冪の函手性に気づけるような筋書きが私の探している「良い説明」である．
+\end{que}
 
 \begin{prop}[交代化作用素の基本性質]\label{交代化作用素の基本性質}
 \leavevmode
@@ -468,7 +468,7 @@ $V = \Real^3$とする．$z \in \Real^3$に対して，$\varphi_z(x,y) \coloneqq
 
 \subsection{ベクトル場}
 
-この節では，$\Real^n$におけるベクトル場，ならびにベクトル場に沿った種々の量の微分を定義する．Stokes の定理までの最短ルートを採るならばベクトル場に沿った微分はやらなくても済むのだが，やらないのも微妙な気がするし，話のネタにもなると思うので，書いてみることにする．なお，これ以降，本ノートの終わりまで，$C^\infty$級たりえるすべてのものは断りなく$C^\infty$級と仮定することがある．
+$\Real^n$におけるベクトル場，ならびにベクトル場に沿った微分を定義する．Stokes の定理までの最短ルートを採るならばベクトル場に沿った微分はやらなくても済むのだが，やらないのも微妙な気がするし，話のネタにもなると思うので，書いてみることにする．なお，これ以降，本ノートの終わりまで，$C^\infty$級たりえるすべてのものは断りなく$C^\infty$級と仮定することがある．
 
 
 \begin{que}[**]
@@ -516,11 +516,11 @@ $\Tan_p(v)$や$\Vect(X_p)$などという記号を採用したのはかなりの
 \end{dig}
 
 \begin{defi}
-$X$を$M$上のベクトル場とし，$f \colon M \to \Real$を微分可能な関数とする．このとき，$f$の$X$に沿った微分$Xf \colon M \to \Real$を，
+$X$を$M$上のベクトル場とし，$f \colon M \to \Real$を微分可能な関数とする．このとき，$f$の$X_p$による微分$X_pf \in \Real$を，
 \begin{equation}
-(Xf)(p) \coloneqq \lim_{t \to 0} \frac{f(p + t \Vect(X_p)) - f(p)}{t}
+X_pf \coloneqq \lim_{t \to 0} \frac{f(p + t \Vect(X_p)) - f(p)}{t}
 \end{equation}
-によって定める．
+によって定める．$f$の$X$に沿った微分$Xf \colon M \to \Real$を$(Xf)(p) \coloneqq X_pf$によって定める．
 \end{defi}
 
 \begin{defi}
@@ -543,9 +543,10 @@ $U \subset M$を開集合とする．$y \colon U \to y(U) \subset \Real^n$が（
 
 さて，このようにして描いた座標軸があるときに，座標軸に沿った方向微分を考えることがよくある．この「座標軸に沿った方向微分」は，「座標系から定まるベクトル場に沿った微分」と言い換えることで厳密化できるのだが，厳密な定義の前に，定義を作るための動機づけとなるような具体例を幾つか述べよう．$M=\Real^2$として，$f \colon M \to \Real$を微分可能な関数とするときに，
 \begin{itemize}
-\item $M$に標準座標系を入れる（要するに通常の Descartes 座標）．$f$の$x^1$軸\footnote{「$x^1$軸」「$x^2$軸」はそれぞれ「$x$軸」「$y$軸」というのが普通だとは思うが，このノートでは一般の座標系に記号$y$を充ててしまったので，あえて普通でない言い方のままにした．}に沿った方向微分は（厳密な定義を知らなくても）$\partial_1 f$のことになってほしいと思うだろう．$\partial_1 f$はしばしば$\frac{\partial f}{\partial x^1}$とも書かれる．この記法を踏まえて「ベクトル場$\frac{\partial}{\partial x}$に沿った$f$の微分が$\frac{\partial f}{\partial x^1}$」となるような$\frac{\partial}{\partial x^1}$を定義したい．同様に$\frac{\partial}{\partial x^2}$も定義したい．
-\item $M$に極座標系を入れる．$f$の動径方向の方向微分や偏角方向の方向微分を考えることが実用上は多々あり，それぞれ$\frac{\partial f}{\partial r}$とか$\frac{\partial f}{\partial \theta}$などと書かれる．このような方向微分をするベクトル場$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$を定義したい．
+\item $M$に標準座標系を入れる（要するに通常の Descartes 座標）．$f$の$x^1$軸\footnote{「$x^1$軸」「$x^2$軸」はそれぞれ「$x$軸」「$y$軸」というのが普通だとは思うが，このノートでは一般の座標系に記号$y$を充ててしまったので，あえて普通でない言い方のままにした．}に沿った方向微分は（厳密な定義を知らなくても）$\partial_1 f$のことになってほしいと思うだろう．その直感を尊重するように「ベクトル場$\frac{\partial}{\partial x^1}$に沿った$f$の微分が$\partial_1 f$に一致する」ような$\frac{\partial}{\partial x^1}$を定義したい．同様に$\frac{\partial}{\partial x^2}$も定義したい．
+\item $M$に極座標系を入れる．$f$の動径$r$方向の方向微分や偏角$\theta$方向の方向微分を考えることが実用上は多々ある．このような方向微分をするベクトル場$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$を定義したい．
 \end{itemize}
+
 これらを含むような一般的な形で，座標系から定まるベクトル場を定義する．
 \begin{prop}
 $y=(y^1, \dots, y^n)$を$U \subset M$上の座標系とする．このとき，$U$上のベクトル場$\frac{\partial}{\partial y^i}$であって，任意の$p \in U$ならびに微分可能な関数$f \colon U \to \Real$に対して
@@ -567,22 +568,52 @@ $y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と�
 \end{proof}
 
 \begin{que}
-上記の証明を具体的に極座標の場合に計算することで$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$の具体形を計算することができる．
+上記の証明を具体的に極座標の場合に計算することで$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$の具体形を計算することができる．学部でベクトル解析や物理の計算を色々やっていれば一度は見たことがあるであろう関係式が出てくるはず．
 \end{que}
 
-また，上記の証明の過程で行った証明を少し修正することで，ベクトル場の座標変換則を得ることができる；
+\begin{dig}$\partial_1 f$はしばしば$\frac{\partial f}{\partial x^1}$とも書かれることがある（というか，こう書くことのほうが一般的である）．極座標に沿った微分もそれぞれ$\frac{\partial f}{\partial r}$とか$\frac{\partial f}{\partial \theta}$などと書かれることが多い．しかし，このノートではあくまでこれらの記法はベクトル場$\frac{\partial}{\partial x^1}$に沿った$f$の微分$\frac{\partial}{\partial x^1}f$のように理解する．このノートでこれらの記法をここまで避けてきた理由のひとつはここにもある\footnote{…と言えば聞こえはいいかもしれないが，そのほうが説明の都合がよいと後で気づいたのが正直なところである．}．Euclid 空間上の関数しか考えないのであれば，この記法をとりわけ避ける必要はなかった．しかし多様体上の関数をベクトル場に沿って微分する際に$\frac{\partial}{\partial x^1}f$という記号が使えないのは非常に厳しい反面，この微分は Euclid 空間上の関数に対する偏微分とは異なる概念である．なので，偏微分に$\frac{\partial}{\partial x^1}f$という記号を充てるのを避けた．Euclid 空間に標準座標系を入れた場合は一致するとはいえ，それは特別な場合に過ぎない，という考えである．
+
+ただ，ベクトル場を表示するのに$\frac{\partial}{\partial x^1}$などという表記を充て続けて他の記号を使わないのは，この歴史的表記を受けてのことであることは間違いないだろう．
+\end{dig}
+
+また，上記の証明の過程で行った計算を少し修正することで，ベクトル場の座標変換則を得ることができる；
 
 \begin{prop}
 $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
 \begin{equation}
 \frac{\partial}{\partial z^i} = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (z(p)) \cdot \frac{\partial}{\partial y^j}
-\end{equation}が成り立つ．より象徴的に，
+\end{equation}が成り立つ．より象徴的な略記として，
 \begin{equation}
 \frac{\partial}{\partial z^i} = \sum_{j} \frac{\partial y^j}{\partial z^i} \frac{\partial}{\partial y^j}
 \end{equation}と書くこともある．
 \end{prop}
 
 というわけで，あえて（もともとある標準座標を一旦切り離して）座標系からベクトル場を定め，そのベクトル場に沿って微分するという操作を定義し，座標を取り替えたときにベクトル場がどのような変換を受けるかを見てきた．後に，一般の微分可能多様体に対しても同様の定義や変換則が通ることを見ていくことにする．
+
+ベクトル場に関する話題について，もう一つだけ述べておく．
+\begin{defi}
+$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$X_p \in T_pM$とする．このとき，$df_p X_p = df_p (X_p) \in T_{f(p)}N$を，任意の関数$g \colon N \to \Real$に対して$(df_pX_p)(g) = X_p(g \circ f)$を充たすようなものとして定める．この対応によって定まる線型写像$df_p \colon T_pM \to T_{f(p)}N$を，$f$の$p$における微分といい，$p \mapsto df_p$を$df$と書いて$f$の微分という．
+\end{defi}
+
+第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$\partial / \partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．\cref{実用的な方の合成則}の主張は，$f \colon M \to N$ならびに$g \colon N \to \Real$に対して
+\begin{equation}
+\partial_i (g \circ f \circ x_M^{-1}) (a) = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \partial_j (g \circ x_N^{-1}) (f(a))
+\end{equation}が成り立つ，と言い換えることができる（$x_M$ならびに$x_N$が写像としては$\id$であることに注意）．これをいま用意した記号を用いて書き換えると，
+\begin{equation}
+\left( \frac{\partial}{\partial x^i_M} (g \circ f) \right) (a) = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \left(\frac{\partial}{\partial x_N^j} g\right) (f(a))
+\end{equation}
+すなわち
+\begin{equation}
+\left( \frac{\partial}{\partial x^i_M} \right)_a (g \circ f) = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \left(\frac{\partial}{\partial x_N^j}\right)_{f(a)} g
+\end{equation}
+を得る．これは先ほどの定義に則れば，
+\begin{equation}
+df_a \left( \frac{\partial}{\partial x^i_M} \right)_a = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \left(\frac{\partial}{\partial x_N^j}\right)_{f(a)}
+\end{equation}にほかならない．すなわち，線型写像$df_a$を，標準座標系から定まる接ベクトルに関して行列表示すると$f$の Jacobi 行列が得られると言ってもよいし，第2節で定義した$f \colon \Real^m \to \Real^n$の微分$df_a \colon \Real^m \to \Real^n$は，$df_a \colon T_a\Real^m \to T_{f(a)}\Real^n$の仮の姿に過ぎなかった，とも言えるのである．
+
+\begin{que}
+ここでは標準座標系だけをとって議論したが，微分の定義は標準座標系という特殊な座標系に依存していない．したがってもちろん標準座標系以外でも似たような議論が通る．これは（行列計算というより）線型代数の基本的な，しかし難しい議論であると思う．
+\end{que}
 
 \subsection{微分形式と鎖体}
 

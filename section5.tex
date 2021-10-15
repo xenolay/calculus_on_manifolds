@@ -80,7 +80,7 @@ $\Real^n$が「縦ベクトルからなる空間」だとすれば$(\Real^n)^*$�
 \end{que}
 
 \begin{defi}
-$V$を線型空間とする．$S \colon V^k \to \Real$が多重線型写像，または$V$上の$k$階テンソルであるとは，各変数に関して$f$が線型写像であること，即ち任意の$1 \leq i \leq k$に対して
+$V$を線型空間とする．$S \colon V^k \to \Real$が多重線型写像，または$V$上の$k$階テンソルであるとは，各変数に関して$S$が線型写像であること，即ち任意の$1 \leq i \leq k$に対して
 \begin{itemize}
 \item 任意の$v_1, v_2, \dots, v_k, v_i' \in V$に対して$S(v_1, \dots, v_i, \dots, v_k) + S(v_1, \dots, v_i', \dots, v_k) = S(v_1, \dots, v_i + v_i', \dots, v_k)$
 \item 任意の$v_1, v_2, \dots, v_k \in V$ならびに$a \in \Real$に対して$S(v_1, \dots, av_i, \dots, v_k) = aS(v_1, \dots, v_i, \dots, v_k)$
@@ -148,8 +148,8 @@ $f^*$を何と呼ぶかはやや迷った．多様体上の微分形式に対し
 
 \begin{exm}手頃な，そして重要なテンソルの例は内積と行列式である．
 \begin{itemize}
-\item $\Real^n$の標準内積$\langle \cdot, \cdot \rangle \colon \Real^n \times \Real^n \to \Real$は$\Tensor^2(\Real^n)$の元である．ところで，内積は単にテンソルであるというだけではなくて引数入れ替えに関して対称という性質がある．
-\item 行列式$A \mapsto \det A$を，ベクトルを$n$個受け取る多重線型写像$\det \colon \Real^n \times \Real^n \dots \times \Real^n \to \Real$とみなせば，$\det \in \Tensor^n(\Real^n)$である．ところで，行列式は単にテンソルであるというだけではなくて引数入れ替えをすると一定のルールのもとで符号が入れ替わるという性質がある．
+\item $\Real^n$の標準内積$\langle \cdot, \cdot \rangle \colon \Real^n \times \Real^n \to \Real$は$\Tensor^2((\Real^n)^*)$の元である．ところで，内積は単にテンソルであるというだけではなくて引数入れ替えに関して対称という性質がある．
+\item 行列式$A \mapsto \det A$を，ベクトルを$n$個受け取る多重線型写像$\det \colon \Real^n \times \Real^n \dots \times \Real^n \to \Real$とみなせば，$\det \in \Tensor^n((\Real^n)^*)$である．ところで，行列式は単にテンソルであるというだけではなくて引数入れ替えをすると一定のルールのもとで符号が入れ替わるという性質がある．
 \end{itemize}
 \end{exm}
 
@@ -158,7 +158,7 @@ $f^*$を何と呼ぶかはやや迷った．多様体上の微分形式に対し
 \begin{defi}
 \leavevmode
 \begin{itemize}
-\item $T \in \Tensor^2(V^*)$が非退化であるとは，任意の$v \in V$に対して$T(v,v) \neq 0$であることをいう．$T \in \Tensor^2(V^*)$が正定値であるとは，任意の$v \in V$に対して$T(v,v) > 0$となることをいう．
+\item $T \in \Tensor^2(V^*)$が非退化であるとは，任意の$v \in V$に対して$T(v,v) \neq 0$であることをいう．$T \in \Tensor^2(V^*)$が正定値であるとは，任意の$0_V \neq v \in V$に対して$T(v,v) > 0$となることをいう．
 \item $S \in \Tensor^k(V^*)$が対称テンソルであるとは，任意の$v_1, \dots, v_k \in V$ならびに$i \neq j$に対して，
 \begin{equation}
 S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots, v_k)
@@ -329,13 +329,13 @@ w^{i_1} \wedge \dots \wedge w^{i_k} &= k! \Alt(w^{i_1} \otimes \dots \otimes w^{
 \end{proof}
 
 \begin{dig}
-というわけで，外積の頭の係数はこの式（を含むいろいろな式）の見た目をきれいにするためである．と言ってしまうと実用性ゼロの理由に聞こえるが，いちおうこのあとに出てくる（と思われる）テンソルの成分計算をする際に楽になるという実用上のご利益があると思う．
+というわけで，外積の頭の係数はこの式（を含むいろいろな式）の見た目をきれいにするためである．直感的には$v_1^* \wedge v_2^* (v_1, v_2)$が$v_1$と$v_2$のなす平行四辺形の面積をはかっていると思える．ここまで実用性のある理由がないように見えなくもないが，いちおうこのあとに出てくる（と思われる）テンソルの成分計算をする際に楽になるという実用上のご利益があると思う．
 \end{dig}
 
 \begin{que}[*]
-いっぽう，定数倍の差が理論に本質的な影響を与えるかというと，（少なくともこのノートの範囲では）与えないと思う．実際，$\omega \wedge \eta \coloneqq \Alt (\omega \otimes \eta)$と定義する流儀もある．森田茂之「微分形式の幾何学」曰くは特性類の一般論を述べるときなどはこちらの係数のほうが都合が良いらしい．たぶん適当な意味での自然性も充たすのだと思う．
+いっぽう，定数倍の差が理論に本質的な影響を与えるかというと，（少なくともこのノートの範囲では）与えないと思う．実際，$\omega \wedge \eta \coloneqq \Alt (\omega \otimes \eta)$と定義する流儀もある．このようにした場合，直感的には$v_1^* \wedge v_2^* (v_1, v_2)$が$v_1$と$v_2$のなす単体の面積をはかっていると思える．森田茂之「微分形式の幾何学」曰くは特性類の一般論を述べるときなどはこちらの係数のほうが都合が良いらしい．たぶん適当な意味での自然性も充たすのだと思う．
 
-他にも$\omega \wedge \eta \coloneqq \sqrt{\frac{(k+\ell)!}{k!\ell!}} \Alt (\omega \wedge \eta)$と定義する流儀もある．この流儀だと，$\set{w^1, \dots, w^n}$が$V^*$上の正規直交基底である場合に$\set{w^{i_1} \wedge \dots \wedge w^{i_k} | 1 \leq i_1 < \dots < i_k \leq n}$が$\GrassAlg^k(V^*)$上の正規直交基底になるという利点がある．
+他にも$\omega \wedge \eta \coloneqq \sqrt{\frac{(k+\ell)!}{k!\ell!}} \Alt (\omega \otimes \eta)$と定義しても結合則は保たれる．これにも何かしらの幾何学的な意味付けを考えることができるのだと思う．
 \end{que}
 
 \begin{thm}
@@ -419,7 +419,7 @@ $T$を$V$の内積とし，$\set{v_1, \dots, v_n}$を$T$に関する正規直交
 \end{thm}
 
 \begin{proof}
-$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
+$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = \pm 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
 \end{proof}
 
 \begin{prop}
@@ -612,9 +612,20 @@ df_a \left( \frac{\partial}{\partial x^i_M} \right)_a = \sum_{j} \left( \partial
 \end{equation}にほかならない．すなわち，線型写像$df_a$を，標準座標系から定まる接ベクトルに関して行列表示すると$f$の Jacobi 行列が得られると言ってもよいし，第2節で定義した$f \colon \Real^m \to \Real^n$の微分$df_a \colon \Real^m \to \Real^n$は，$df_a \colon T_a\Real^m \to T_{f(a)}\Real^n$の仮の姿に過ぎなかった，とも言えるのである．
 
 \begin{que}
-ここでは標準座標系だけをとって議論したが，微分の定義は標準座標系という特殊な座標系に依存していない．したがってもちろん標準座標系以外でも似たような議論が通る．これは（行列計算というより）線型代数の基本的な，しかし難しい議論であると思う．
+ここでは標準座標系だけをとって議論したが，微分の定義は標準座標系という特殊な座標系に依存していない．したがってもちろん標準座標系以外でも似たような議論が通る．これは（行列計算というより）線型代数の基本的な，しかし（それゆえ）難しい議論であると思う．
 \end{que}
 
 \subsection{微分形式と鎖体}
+
+微分形式を定義する．前項に引き続き$M = \Real^n$とする．
+
+\begin{defi}
+$p \in M$に対して，$T_pM$の双対空間$(T_pM)^*$のことを$T_p^*M$と書いて，$p$における余接空間という．$T_p^*M$も線型空間の構造を持つ．
+更に，$y \colon U \to y(U)$を$U \subset M$上の座標系とするとき，$y$の定めるベクトル場は$T_pM$の基底$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$を定めた．この基底に関する双対基底を$\left\{ (dy^1)_p,\dots, \left(dy^n\right)_p \right\}$と書く．この表記を採る理由は後でわかる．
+\end{defi}
+
+\begin{defi}
+$\omega \colon M \to \bigcup_{p \in M} \GrassAlg^k(T_p^*M)$が微分$k$-形式，あるいは単に$k$-形式であるとは，任意の$p \in M$に対して$\omega_p \coloneqq \omega(p) \in \GrassAlg^k(T_p^*M)$となることをいう．
+\end{defi}
 
 \subsection{微分形式の積分と Stokes の定理}

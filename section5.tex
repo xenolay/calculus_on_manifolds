@@ -487,9 +487,9 @@ $(p,v) \in T_p \Real^n$のことを$\Tan_p(v)$とも書く．また，$T_p \Real
 気分としては，$T_p \Real^n$は「$p \in \Real^n$に足を持つベクトルの集合」である．ところで，古典ベクトル解析でベクトル場というものを見たことがあるかもしれない．ベクトル場はしばしば，$\Real^n$の各点にベクトルが生えているかのような図示がなされるが，その数学的な定式化のために接空間を持ち出した．すなわち，ベクトル場とは，各点$p$に対して$p$に足を持つようなベクトルを対応させる写像のこととする；
 
 \begin{defi}
-$T\Real^n \coloneqq \bigcup_{p \in \Real^n} T_p \Real^n$を$\Real^n$の接ベクトル束，あるいは接束という．写像$X \colon \Real^n \to T \Real^n$がベクトル場であるとは，任意の$p \in \Real^n$に対して$X(p) \in T_p \Real^n$であることをいう．ベクトル場$X$に対して，$X(p)$のことを$X_p$とも書く．また，$X_p = \Tan_p(v)$であるような$v$のことを$\Vect(X_p)$であらわす．
+$T\Real^n \coloneqq \bigcup_{p \in \Real^n} T_p \Real^n$を$\Real^n$の接ベクトル束，あるいは接束という．$U \subset \Real^n$を開集合とするとき，写像$X \colon U \to T \Real^n$が$U$上のベクトル場であるとは，任意の$p \in \Real^n$に対して$X(p) \in T_p \Real^n$であることをいう．定義域が問題にならない場合は「$U$上の」を省略する．
 
-$X,Y$をベクトル場とするとき，これらの和，関数倍，標準内積を，$(X+Y)_p \coloneqq X_p + Y_p$，$(fX)_p \coloneqq f(p) X_p$，$\langle X, Y \rangle (p) \coloneqq \langle X_p, Y_p \rangle_p$によって定める．
+ベクトル場$X$に対して，$X(p)$のことを$X_p$とも書く．また，$X_p = \Tan_p(v)$であるような$v$のことを$\Vect(X_p)$であらわす．$X,Y$をベクトル場とするとき，これらの和，関数倍，標準内積を，$(X+Y)_p \coloneqq X_p + Y_p$，$(fX)_p \coloneqq f(p) X_p$，$\langle X, Y \rangle (p) \coloneqq \langle X_p, Y_p \rangle_p$によって定める．
 \end{defi}
 
 \begin{defi}
@@ -581,12 +581,31 @@ $y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と�
 \begin{prop}
 $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
 \begin{equation}
-\frac{\partial}{\partial z^i} = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (z(p)) \cdot \frac{\partial}{\partial y^j}
-\end{equation}が成り立つ．より象徴的な略記として，
+\left( \frac{\partial}{\partial z^i} \right)_p = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (p) \cdot \left( \frac{\partial}{\partial y^j} \right)_p
+\end{equation}が成り立つ．より象徴的な略記として，特に$p$を省いても問題にならない場合に
 \begin{equation}
 \frac{\partial}{\partial z^i} = \sum_{j} \frac{\partial y^j}{\partial z^i} \frac{\partial}{\partial y^j}
 \end{equation}と書くこともある．
 \end{prop}
+
+\begin{defi}
+$y = (y^1, \dots, y^n)$を$U \subset M$上の$C^\infty$級座標系，$X$を$U$上定義されたベクトル場とする．このとき，任意の$p \in U$に対して$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$は$T_pM$の基底をなすので，ある関数$f_y \colon U \to \Real^n$が一意的に存在して，
+\begin{equation}
+X_p = \sum_{i} {f_y}^i(p) \left( \frac{\partial}{\partial y^i} \right)_p
+\end{equation}が成り立つ．このような表示のことを$y$による$X$の（局所）座標表示と呼ぶ．$X$が$C^\infty$級，あるいは滑らかであるとは，$f_y$が$C^\infty$級であることと定める．
+\end{defi}
+
+\begin{que}
+上記の「ベクトル場が滑らかである」ことの定義は well-defined である．すなわち，ベクトル場$X$の座標系$z$による座標表示
+\begin{equation}
+X_p = \sum_{i} {f_z}^i(p) \left( \frac{\partial}{\partial z^i} \right)_p
+\end{equation}
+に現れる$f_z$が$C^\infty$級であるかどうかは，$C^\infty$級座標系$z$のとり方によらない．
+\end{que}
+
+\begin{que}
+ベクトル場が滑らかであるとは，直感的には「点$p$を動かすと，$X$の生やすベクトルが滑らかに変化する」ことだと思うだろう．実際それを定義したいのである．ここでは座標系によらない話をはじめてしまったせいで，滑らかさの定義がずいぶんめんどうなことになってしまった．標準座標しか使わないのであれば，次のように定義するのが一番はやいだろう；「ベクトル場$X$が滑らかであるとは，$M \ni p \mapsto \Vect(X_p) \in \Real^n$が$C^\infty$級であることと定める」．さきほど述べた座標系によらない定義は，この定義を踏まえつつ座標依存性を消すことで得られる．特に，座標系として特に標準座標を取って考えれば，ここで述べた handy な定義が復元できる．
+\end{que}
 
 というわけで，あえて（もともとある標準座標を一旦切り離して）座標系からベクトル場を定め，そのベクトル場に沿って微分するという操作を定義し，座標を取り替えたときにベクトル場がどのような変換を受けるかを見てきた．後に，一般の微分可能多様体に対しても同様の定義や変換則が通ることを見ていくことにする．
 
@@ -617,15 +636,99 @@ df_a \left( \frac{\partial}{\partial x^i_M} \right)_a = \sum_{j} \left( \partial
 
 \subsection{微分形式と鎖体}
 
-微分形式を定義する．前項に引き続き$M = \Real^n$とする．
+$M = \Real^n$とし，$y \colon U \to y(U)$を$U \subset M$上の座標系とする．
 
 \begin{defi}
 $p \in M$に対して，$T_pM$の双対空間$(T_pM)^*$のことを$T_p^*M$と書いて，$p$における余接空間という．$T_p^*M$も線型空間の構造を持つ．
-更に，$y \colon U \to y(U)$を$U \subset M$上の座標系とするとき，$y$の定めるベクトル場は$T_pM$の基底$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$を定めた．この基底に関する双対基底を$\left\{ (dy^1)_p,\dots, \left(dy^n\right)_p \right\}$と書く．この表記を採る理由は後でわかる．
+更に，$y$の定めるベクトル場は$T_pM$の基底$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$を定めた．この基底に関する双対基底を$\left\{ (dy^1)_p,\dots, \left(dy^n\right)_p \right\}$と書く．
 \end{defi}
 
+$dy^i$という表記を採る理由の一部をここで説明する．前項で述べた写像の微分について，やや特別な場合を考察してみる．$f \colon U \to \Real$の$p$における微分$df_p \colon T_pM \to T_{f(p)}\Real$を考える．但し，$f$の終域の$\Real$には座標軸が入っていると考え，それを反映して$T_{f(p)} \Real$は同型写像$T_{f(p)} \Real \ni \frac{\partial}{\partial x} \mapsto 1 \in \Real$によって$\Real$と同一視する．このとき，前項最後の議論から
+\begin{equation}
+df_p \left( \frac{\partial}{\partial y^i} \right)_p = \left( \partial_i (f \circ y^{-1}) \right) (p) = \left( \frac{\partial}{\partial y^i} f \right) (p)
+\end{equation}が従う．特に$f$として座標関数$y^j$を取れば，
+\begin{equation}
+{dy^j}_p \left( \frac{\partial}{\partial y^i} \right)_p = \left( \frac{\partial}{\partial y^i} y^j \right) (p) = \delta_i^j
+\end{equation}がわかるので，特に$y^j$の$p$における微分をあつめた$\left\{ (dy^1)_p,\dots, \left(dy^n\right)_p \right\}$は$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$の双対基底と同一視できる．ここで走る同一視$T_{f(p)} \Real \simeq \Real$のことは明示的に考えないのがどうやら普通のようである．なので今後も断りなくこの同一視をつかう．
+
+さて，この節の最初で述べた直感を活かすように微分形式を定義する．
+
 \begin{defi}
-$\omega \colon M \to \bigcup_{p \in M} \GrassAlg^k(T_p^*M)$が微分$k$-形式，あるいは単に$k$-形式であるとは，任意の$p \in M$に対して$\omega_p \coloneqq \omega(p) \in \GrassAlg^k(T_p^*M)$となることをいう．
+$U \subset M$を開集合とする．自然数$k \geq 1$に対して$\omega \colon U \to \bigcup_{p \in M} \GrassAlg^k(T_p^*M)$が$U$上の微分$k$-形式，あるいは単に$k$-形式であるとは，任意の$p \in U$に対して$\omega_p \coloneqq \omega(p) \in \GrassAlg^k(T_p^*M)$となることをいう．また，（滑らかな）関数$f \colon U \to \Real$のことを微分0-形式ともいう\footnote{$\Tensor^0(T^*_pM) = \GrassAlg^0(T^*_pM)$の元は「ベクトルを$0$個受け取って実数を返す関数」だと考えれば実数と同一視できる．したがって$f \colon M \to \Real$は$f \colon M \to \bigcup_{p \in M} \GrassAlg^0 (T^*_pM)$ともみなせるので，このような定義をするのだと思う，}．$U$上の微分$k$-形式全体の集合を$\DiffForm^k(U)$と書く．$\omega \in \DiffForm^k(U)$の関数倍$f\omega$のことを$f \wedge \omega$とも書く．
 \end{defi}
+
+\begin{que}
+微分形式の和，関数倍，外積が（ベクトル場の場合と同様にして）各点ごとに和，関数倍，外積を取る仕方で定義できる．厳密な定義はさぼります．
+\end{que}
+
+\begin{defi}
+$\omega$を$U$上の$k$-形式とする．このとき，任意の$p \in U$に対して$\left\{ \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p \ \mid \ 1 \leq i_1 < \dots < i_k \leq n \right\}$は$\bigwedge^k T^*_pM$の基底をなすので，$(i_1, \dots, i_k)$で添字付けられたある関数の族$\set{ f^y_{i_1,i_2,\dots,i_n} \colon U \to \Real | 1 \leq i_1 < \dots < i_k \leq n }$が一意的に存在して，
+\begin{equation}
+\omega_p = \sum_{1 \leq i_1 < i_2 < \dots i_k \leq n} {f^y_{i_1,i_2,\dots,i_n}}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
+\end{equation}が成り立つ．このような表示のことを$y$による$\omega$の（局所）座標表示と呼ぶ．$\omega$が$C^\infty$級，あるいは滑らかであるとは，すべての$f^y_{i_1,i_2,\dots,i_n}$が$C^\infty$級であることと定める．
+\end{defi}
+
+\begin{exm}
+上記の定義はお世辞にもわかりやすいとはいえないと思う．定義を理解するために次の例を考える；$f \colon M \to \Real$の$p$における微分$df_p \colon T_pM \to \Real$を考えると，$df_p \in \bigwedge^1(T^*_pM)$なので，特に$df$は微分1-形式である．$df$の座標表示を計算してみよう．$\left\{ (dy^1)_p,\dots, \left(dy^n\right)_p \right\}$は$\bigwedge^1 (T^*_pM)$の基底をなすので，ある関数$g_1, \dots, g_n \colon M \to \Real$が存在して
+\begin{equation}
+df_p = \sum_i g_i(p) \cdot \left(dy^i \right)_p
+\end{equation}と書ける．ところで，すでに$df_p \left( \frac{\partial}{\partial y^i} \right)_p = \left( \frac{\partial}{\partial y^i} f \right) (p)$となることを見たので，$g_i = \left( \frac{\partial}{\partial y^i} f \right)$である．まとめると，
+\begin{equation}
+df_p = \sum_i \left( \frac{\partial}{\partial y^i} f \right)(p) \cdot \left(dy^i \right)_p
+\end{equation}を得る．
+
+ところで，しばしば$f$の「全微分」なる概念を
+\begin{equation}
+df \coloneqq \sum_i  \frac{\partial f}{\partial y^i}  dy^i
+\end{equation}と「定義する」，という言い回しを聞いたことがあるかもしれない\footnote{そして往々にして，右辺，とくに$dy^i$が何なのかはきちんと説明されてこない，ということを私自身経験したことがあり，そのたびに苛立っていた．このようにごまかすのも仕方ないかもしれない，と穏やかに思えるようになったのはごく最近のことである．}．この慣習的な言い回しが意味する正確なところはいま述べたとおりである．
+\end{exm}
+
+特に上の例で$f$として座標関数を取れば，ベクトル場のときとよく似た，しかし異なる座標変換則を得るに至る；
+
+\begin{prop}
+$y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
+\begin{equation}
+\left(dz^i\right)_p = \sum_{j} \left( \frac{\partial }{\partial y^j} z^i \right) (p) \cdot \left( dy^j \right)_p
+\end{equation}が成り立つ．より象徴的な略記として，特に$p$を省いても問題にならない場合に
+\begin{equation}
+dz^i = \sum_{j} \frac{\partial z^i}{\partial y^j} dy^j
+\end{equation}と書くこともある．
+\end{prop}
+
+\begin{dig}
+ここまで，ベクトル場と微分1-形式の座標変換則を見てきた．それぞれを再掲すると，
+\begin{equation}
+\left( \frac{\partial}{\partial z^i} \right)_p = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (p) \cdot \left( \frac{\partial}{\partial y^j} \right)_p
+\end{equation}
+ならびに
+\begin{equation}
+\left(dz^i\right)_p = \sum_{j} \left( \frac{\partial }{\partial y^j} z^i \right) (p) \cdot \left( dy^j \right)_p
+\end{equation}である．ここで，総和を取る添字である$j$が「上付き」ならびに「下付き」な仕方でそれぞれ現れることに気づかれよう．このあとの計算で見るように，座標関数の添字を上付きにして，ベクトル場の記号として$\frac{\partial}{\partial y^i}$のようなものを採用すれば，座標変換の際に総和を取るべき添字は必ず「上付き」と「下付き」のセットで現れる．そのことを援用して，「上付き添字と下付き添字が登場した場合は，総和を書かなくとも自動的に和を取ることにする」という規約を採ることがある．この規約を Einstein 規約という．Einstein 規約に則れば，例えば微分1-形式の座標変換則は
+\begin{equation}
+dz^i = \frac{\partial z^i}{\partial y^j} dy^j
+\end{equation}のように書かれることになる．物理などにおけるテンソル計算の際にはしばしば用いられる規約であるし，今後も座標変換に関わる計算を追いかける際に頭に入れておく価値はあると思う．但し，このノートにおいては Einstein 規約は用いず，煩雑なのを承知なうえで総和の添字を明示的に書くつもりである．
+
+座標関数の添字を（おそらく一般的ではないであろう）上付きで表記した理由はここにある．ということを，このノートの最初で説明するのは（できないとまでは言わないが）私にとってはあまり好みなやり方ではなかった．
+\end{dig}
+
+ここまで，0-形式$f$の微分$df$が1-形式となることを見た．すでに見ているように，$df$を標準基底に関して行列表示すると Jacobi 行列が現れる．というわけで大雑把に言えば$df$は$f$の方向微分に関する情報を全部持っているようなものである．これと似たようなことを一般の$n$-形式に対しても考えることができる；$n$-形式の方向微分とも言えるもの，それが外微分である．
+
+\begin{defi}$\omega \in \DiffForm^n(U)$とし，その座標表示
+\begin{equation}
+\omega_p = \sum_{1 \leq i_1 < i_2 < \dots i_k \leq n} {f^y_{i_1,i_2,\dots,i_n}}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
+\end{equation}を考える．このもとで，$\omega$の外微分$d \omega \in \DiffForm^{n+1}(U)$を，
+\begin{equation}
+d\omega_p \coloneqq \sum_{1 \leq i_1 < i_2 < \dots i_k \leq n} \left(df^y_{i_1,i_2,\dots,i_n}\right)_p \wedge \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
+\end{equation}
+によって定める．
+\end{defi}
+
+\begin{que}
+この定義は well-defined である．
+\end{que}
+
+\begin{prop}[外微分の基本性質]
+
+\end{prop}
 
 \subsection{微分形式の積分と Stokes の定理}

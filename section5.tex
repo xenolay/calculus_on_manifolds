@@ -383,7 +383,7 @@ $\Real^n$の場合と同様に Gram-Schmidt の正規直交法によれ．
 \end{proof}
 
 \begin{dig}
-Kronecker のデルタを使って$T(v_i, v_j) = \delta_{ij}$と書こうかとも思ったのだが，やめた．第一節で述べたとおり，このノートでは意図して添字の上下を書き分けている箇所が多々ある．それを踏まえると，特に何も考えずに下付きの添字を書いたとしても，意図があって下付きになっていると読まれそうな気がしたからである．ここに限った話ではないが，用語や記法は難しさをおぼえることが少なくないと感じる．
+Kronecker のデルタを使って$T(v_i, v_j) = \delta_{ij}$と書こうかとも思ったのだが，やめた．第1節で述べたとおり，このノートでは意図して添字の上下を書き分けている箇所が多々ある．それを踏まえると，特に何も考えずに下付きの添字を書いたとしても，意図があって下付きになっていると読まれそうな気がしたからである．ここに限った話ではないが，用語や記法は難しさをおぼえることが少なくないと感じる．
 \end{dig}
 
 \begin{defi}
@@ -472,7 +472,7 @@ $\Real^n$におけるベクトル場，ならびにベクトル場に沿った�
 
 
 \begin{que}[**]
-…というおまじないをかけたが，正直このおまじないがどこでどのように効いてくるのかいまいちよくわかっていない．関数が何回微分されたか等をいちいち気にするのが煩わしいので，それを気にしないで済ませるため，というのはあるのだが，もう少し本質的に効いてくるポイントもあるような気もしている．
+…というおまじないをかけたが，正直このおまじないがどこでどのように効いてくるのかいまいちよくわかっていない．関数が何回微分されたか等をいちいち気にするのが煩わしいので，それを気にしないで済ませるため，というのはあるのだが，もう少し本質的に効いてくるポイントもあるような気もしている．ひとつには，のちに外微分を局所座標を用いつつ定義するのだが，そこで well-defined なことを証明するのに微分形式が$C^2$級であることが本質的に効く．それ以外にもあるかもしれない．
 \end{que}
 
 \begin{defi}
@@ -485,6 +485,12 @@ $(p,v) \in T_p \Real^n$のことを$\Tan_p(v)$とも書く．また，$T_p \Real
 \end{defi}
 
 気分としては，$T_p \Real^n$は「$p \in \Real^n$に足を持つベクトルの集合」である．ところで，古典ベクトル解析でベクトル場というものを見たことがあるかもしれない．ベクトル場はしばしば，$\Real^n$の各点にベクトルが生えているかのような図示がなされるが，その数学的な定式化のために接空間を持ち出した．すなわち，ベクトル場とは，各点$p$に対して$p$に足を持つようなベクトルを対応させる写像のこととする；
+
+\begin{dig}
+接空間の定義だけ見ても「接して」いる感じが全くしないかもしれないが，それは Euclid 空間が平らだからである．この「接空間」は，曲面のある点における接平面を抽象化したようなものである．のだが，その「曲面」が真っ平らだと「接して」いる感じはしない．
+
+今後も何度か Euclid 空間の性質の良さに文句を言う「余談」が出てくることになるだろう．不思議なものだが，このあたりの概念は Euclid 空間の場合を考えるとかえってわかりにくい，といったケースが頻発するように思う．
+\end{dig}
 
 \begin{defi}
 $T\Real^n \coloneqq \bigcup_{p \in \Real^n} T_p \Real^n$を$\Real^n$の接ベクトル束，あるいは接束という．$U \subset \Real^n$を開集合とするとき，写像$X \colon U \to T \Real^n$が$U$上のベクトル場であるとは，任意の$p \in \Real^n$に対して$X(p) \in T_p \Real^n$であることをいう．定義域が問題にならない場合は「$U$上の」を省略する．
@@ -527,11 +533,17 @@ X_pf \coloneqq \lim_{t \to 0} \frac{f(p + t \Vect(X_p)) - f(p)}{t}
 $U \subset M$を開集合とする．$y \colon U \to y(U) \subset \Real^n$が（$C^r$級）微分同相写像のとき，$y = (y^1, \dots, y^n)$を$U$上の$\Real^n$の（$C^r$級）座標系という．
 \end{defi}
 
+\begin{dig}
+ここで，$y$が「微分」同相写像であることを仮定しているが，ここはずるいことをしたと言える．というのも，$y$の微分可能性について議論するためには$M$の実体が Euclid 空間であることを使わざるを得ないのであるが，それは$M$に標準座標を入れているのではないかと言われると返す言葉がない．
+
+とはいえ，ここで$y$が微分同相ではなく単に同相であるとだけ仮定してしまうと，このあとの議論に支障が出る．微分可能な関数$f \colon M \to \Real$に対して$\partial_i (f \circ y^{-1})$といった関数の微分を考えることで座標軸に沿ったベクトル場の定義をするのだが，$y$が微分同相でないとこのような微分がそもそも考えられなくなってしまう．折り目正しくやるなら，微分可能多様体の教科書よろしく位相空間の話からした上で微分構造の定義をきちんとやり，関数の微分可能性も定義し直すことになるような気がする．が，それらをきちんとやるのは気が遠くなるし，何より私は微分構造まわりの話に興味がない．なのでここでズルをやるのも許してほしい．おそらくここ以外でこの手のズルはしていないような気がするが，していたら教えて下さい．
+\end{dig}
+
 \begin{exm}[座標系の例]
 \leavevmode
 \begin{itemize}
 \item $p = \sum_i p^i e_i \in M$に対して$p^i$を対応させる座標関数$\pi^i \colon M \ni p \mapsto p^i \in \Real$を並べて得られる$(\pi^1, \dots, \pi^n)$は座標系である．この座標系を標準座標系といい，今後$x=(x^1, \dots, x^n)$とも書くことにする\footnote{行儀が悪い記号の書き換えなのは自分でもわかっているのだが，$\partial / \partial \pi ^1$とか$d\pi^1$といった記法を採る選択肢はないため，この書き換えを実行することにした．これを踏まえてノートの前半の記号を全部取り替えるべきな気もする．しかしめんどくさいな…}．と仰々しく書いているが，モノとしては$x = \id_{\Real^n}$である．
-\item $M = \Real^2$とする．2次元極座標変換$\Real^2 \supset (0, \infty) \times (0, 2\pi) \ni (r,\theta) \mapsto (r \cos \theta, r \sin \theta) \in M$の逆写像は座標系である．
+\item $M = \Real^2$とする．2次元極座標変換$\Real^2 \supset (0, \infty) \times (0, 2\pi) \ni (r,\theta) \mapsto (r \cos \theta, r \sin \theta) \in M$の逆写像は座標系である．この座標系を極座標系という．
 \end{itemize}
 \end{exm}
 
@@ -552,7 +564,7 @@ $U \subset M$を開集合とする．$y \colon U \to y(U) \subset \Real^n$が（
 $y=(y^1, \dots, y^n)$を$U \subset M$上の座標系とする．このとき，$U$上のベクトル場$\frac{\partial}{\partial y^i}$であって，任意の$p \in U$ならびに微分可能な関数$f \colon U \to \Real$に対して
 \begin{equation}
 \left( \frac{\partial}{\partial y^i} f \right)(p) = \left(\partial_i (f \circ y^{-1}) \right) (y(p))
-\end{equation}を充たすようなものが唯一つ存在する．更に，$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$は$T_pM$の基底をなす．$\frac{\partial}{\partial y^i}$を座標系$y$が定めるベクトル場という．
+\end{equation}を充たすようなものが唯一つ存在する．更に，$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$は$T_pM$の基底をなす．$\frac{\partial}{\partial y^i}$を座標系$y$が定めるベクトル場という．$\frac{\partial}{\partial y^i} f$のことを$\frac{\partial f}{\partial y^i}$とも書く．
 \end{prop}
 
 \begin{proof}
@@ -567,10 +579,6 @@ $y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と�
 \end{equation}と定めればよい．これらが各点$p$で$T_pM$の基底をなすことは，標準座標系の場合は明らかだし，一般の座標系の場合は$(\partial_i G^j)(y(p))$が正則行列であることから従う（正則行列でないとすると，$G = x \circ y^{-1}$が微分同相であることに反する）．
 \end{proof}
 
-\begin{que}
-上記の証明を具体的に極座標の場合に計算することで$\frac{\partial}{\partial r}$ならびに$\frac{\partial}{\partial \theta}$の具体形を計算することができる．学部でベクトル解析や物理の計算を色々やっていれば一度は見たことがあるであろう関係式が出てくるはず．
-\end{que}
-
 \begin{dig}$\partial_1 f$はしばしば$\frac{\partial f}{\partial x^1}$とも書かれることがある（というか，こう書くことのほうが一般的である）．極座標に沿った微分もそれぞれ$\frac{\partial f}{\partial r}$とか$\frac{\partial f}{\partial \theta}$などと書かれることが多い．しかし，このノートではあくまでこれらの記法はベクトル場$\frac{\partial}{\partial x^1}$に沿った$f$の微分$\frac{\partial}{\partial x^1}f$のように理解する．このノートでこれらの記法をここまで避けてきた理由のひとつはここにもある\footnote{…と言えば聞こえはいいかもしれないが，そのほうが説明の都合がよいと後で気づいたのが正直なところである．}．Euclid 空間上の関数しか考えないのであれば，この記法をとりわけ避ける必要はなかった．しかし多様体上の関数をベクトル場に沿って微分する際に$\frac{\partial}{\partial x^1}f$という記号が使えないのは非常に厳しい反面，この微分は Euclid 空間上の関数に対する偏微分とは異なる概念である．なので，偏微分に$\frac{\partial}{\partial x^1}f$という記号を充てるのを避けた．Euclid 空間に標準座標系を入れた場合は一致するとはいえ，それは特別な場合に過ぎない，という考えである．
 
 ただ，ベクトル場を表示するのに$\frac{\partial}{\partial x^1}$などという表記を充て続けて他の記号を使わないのは，この歴史的表記を受けてのことであることは間違いないだろう．
@@ -582,11 +590,27 @@ $y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と�
 $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
 \begin{equation}
 \left( \frac{\partial}{\partial z^i} \right)_p = \sum_{j} \left( \frac{\partial }{\partial z^i} y^j \right) (p) \cdot \left( \frac{\partial}{\partial y^j} \right)_p
-\end{equation}が成り立つ．より象徴的な略記として，特に$p$を省いても問題にならない場合に
+\end{equation}が成り立つ．したがって，ベクトル場の変換則は
 \begin{equation}
 \frac{\partial}{\partial z^i} = \sum_{j} \frac{\partial y^j}{\partial z^i} \frac{\partial}{\partial y^j}
-\end{equation}と書くこともある．
+\end{equation}と書ける．
 \end{prop}
+
+\begin{exm}
+具体例として，$\Real^2$の場合に標準座標系から極座標系へ変換する公式を導いてみる．極座標系を$P \colon M \ni p \mapsto (r(p), \theta(p)) \in \Real^2$と書き，標準座標系を$p \mapsto (x(p), y(p))$と書くことにする．このとき，上の命題より
+\begin{align}
+\left( \frac{\partial}{\partial r} \right)_p &= \left( \frac{\partial}{\partial r} x\right)(p) \cdot \left( \frac{\partial}{\partial x} \right)_p + \left( \frac{\partial}{\partial r} y\right)(p) \cdot \left( \frac{\partial}{\partial y} \right)_p, \\
+\left( \frac{\partial}{\partial \theta} \right)_p &= \left( \frac{\partial}{\partial \theta} x\right)(p) \cdot \left( \frac{\partial}{\partial x} \right)_p + \left( \frac{\partial}{\partial \theta} y\right)(p) \cdot \left( \frac{\partial}{\partial y} \right)_p
+\end{align}が成り立つ．ところで定義より$\left( \frac{\partial}{\partial r} x\right)(p) = \partial_1(x \circ P^{-1})(P(p)) $である．$P(p) \eqqcolon (a,b)$と置けば，$\left( \frac{\partial}{\partial r} x\right)(p) = \cos b$を得る．同様に計算して$\left( \frac{\partial}{\partial r} x\right)(p) = \sin b$，$\left( \frac{\partial}{\partial \theta} x\right)(p) = - a \sin b$，$\left( \frac{\partial}{\partial \theta} y\right)(p) = a \cos b$を得るので，結局
+\begin{align}
+\left( \frac{\partial}{\partial r} \right)_p &= \cos b \left( \frac{\partial}{\partial x} \right)_p + \sin b \left( \frac{\partial}{\partial y} \right)_p, \\
+\left( \frac{\partial}{\partial \theta} \right)_p &= - a\sin b \left( \frac{\partial}{\partial x} \right)_p + a \cos b \left( \frac{\partial}{\partial y} \right)_p
+\end{align}となる．このノートの記法としてはインフォーマルな書き方になるものの，
+\begin{align}
+\frac{\partial}{\partial r} &= \cos \theta \frac{\partial}{\partial x} + \sin \theta \frac{\partial}{\partial y}, \\
+\frac{\partial}{\partial \theta} &= - r\sin \theta \frac{\partial}{\partial x} + r \cos \theta \frac{\partial}{\partial y}
+\end{align}と書くほうが馴染みのある方も多いだろう．
+\end{exm}
 
 \begin{defi}
 $y = (y^1, \dots, y^n)$を$U \subset M$上の$C^\infty$級座標系，$X$を$U$上定義されたベクトル場とする．このとき，任意の$p \in U$に対して$\left\{ \left(\frac{\partial}{\partial y^i}\right)_p,\dots, \left(\frac{\partial}{\partial y^i}\right)_p \right\}$は$T_pM$の基底をなすので，ある関数$f_y \colon U \to \Real^n$が一意的に存在して，
@@ -611,7 +635,7 @@ X_p = \sum_{i} {f_z}^i(p) \left( \frac{\partial}{\partial z^i} \right)_p
 
 ベクトル場に関する話題について，もう一つだけ述べておく．
 \begin{defi}
-$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$X_p \in T_pM$とする．このとき，$df_p X_p = df_p (X_p) \in T_{f(p)}N$を，任意の関数$g \colon N \to \Real$に対して$(df_pX_p)(g) = X_p(g \circ f)$を充たすようなものとして定める．この対応によって定まる線型写像$df_p \colon T_pM \to T_{f(p)}N$を，$f$の$p$における微分といい，$p \mapsto df_p$を$df$と書いて$f$の微分という．
+$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置く．$U \subset M$を開集合，$f \colon U \to N$を関数とする．更に，$p \in U$を取り，$X_p \in T_pM$とする．このとき，$df_p X_p = df_p (X_p) \in T_{f(p)}N$を，任意の関数$g \colon N \to \Real$に対して$(df_pX_p)(g) = X_p(g \circ f)$を充たすようなものとして定める．この対応によって定まる線型写像$df_p \colon T_pM \to T_{f(p)}N$を，$f$の$p$における微分といい，$p \mapsto df_p$を$df$と書いて$f$の微分という．
 \end{defi}
 
 第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$\partial / \partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．\cref{実用的な方の合成則}の主張は，$f \colon M \to N$ならびに$g \colon N \to \Real$に対して
@@ -628,11 +652,21 @@ $M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$X_p \in T_pM$とする
 を得る．これは先ほどの定義に則れば，
 \begin{equation}
 df_a \left( \frac{\partial}{\partial x^i_M} \right)_a = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \left(\frac{\partial}{\partial x_N^j}\right)_{f(a)}
-\end{equation}にほかならない．すなわち，線型写像$df_a$を，標準座標系から定まる接ベクトルに関して行列表示すると$f$の Jacobi 行列が得られると言ってもよいし，第2節で定義した$f \colon \Real^m \to \Real^n$の微分$df_a \colon \Real^m \to \Real^n$は，$df_a \colon T_a\Real^m \to T_{f(a)}\Real^n$の仮の姿に過ぎなかった，とも言えるのである．
+\end{equation}にほかならない．すなわち，線型写像$df_a \colon T_aM \to T_{f(a)}N$を，標準座標系から定まる接ベクトルに関して行列表示すると$f$の Jacobi 行列が得られると言ってもよいし，第2節で定義した$f \colon \Real^m \to \Real^n$の微分$df_a \colon \Real^m \to \Real^n$は，$df_a \colon T_aM \to T_{f(a)}N$の仮の姿に過ぎなかった，とも言えるのである．
 
 \begin{que}
 ここでは標準座標系だけをとって議論したが，微分の定義は標準座標系という特殊な座標系に依存していない．したがってもちろん標準座標系以外でも似たような議論が通る．これは（行列計算というより）線型代数の基本的な，しかし（それゆえ）難しい議論であると思う．
 \end{que}
+
+微分の定義がそうであったのと同様に，第2節で示した命題の多くは，接空間の間の写像（写像の微分）を用いた装いへと持ち上げることができる．例えば，
+
+\begin{thm}[合成則]
+$f \colon M \to N$，$g \colon N \to L$に対して，$d(g \circ f) = dg \circ df$が成り立つ．
+\end{thm}
+
+\begin{proof}
+$X_p \in T_pM$ならびに$h \colon L \to \Real$を任意に取れば，$d(g \circ f)_p(X_p)(h) = X_p(h \circ g \circ f) = (df_p(X_p))(h \circ g) = ((dg_p)(df_p(X_p)))(h)$である．
+\end{proof}
 
 \subsection{微分形式と鎖体}
 
@@ -683,16 +717,16 @@ df \coloneqq \sum_i  \frac{\partial f}{\partial y^i}  dy^i
 \end{equation}と「定義する」，という言い回しを聞いたことがあるかもしれない\footnote{そして往々にして，右辺，とくに$dy^i$が何なのかはきちんと説明されてこない，ということを私自身経験したことがあり，そのたびに苛立っていた．このようにごまかすのも仕方ないかもしれない，と穏やかに思えるようになったのはごく最近のことである．}．この慣習的な言い回しが意味する正確なところはいま述べたとおりである．
 \end{exm}
 
-特に上の例で$f$として座標関数を取れば，ベクトル場のときとよく似た，しかし異なる座標変換則を得るに至る；
+特に上の例で$f$として座標関数を取れば，微分1-形式の座標変換則を得るに至る．ベクトル場のそれとよく似ているが，しかし異なる変換を受けることを見てほしい．
 
 \begin{prop}
 $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
 \begin{equation}
 \left(dz^i\right)_p = \sum_{j} \left( \frac{\partial }{\partial y^j} z^i \right) (p) \cdot \left( dy^j \right)_p
-\end{equation}が成り立つ．より象徴的な略記として，特に$p$を省いても問題にならない場合に
+\end{equation}が成り立つ．したがって微分1-形式の変換則は
 \begin{equation}
 dz^i = \sum_{j} \frac{\partial z^i}{\partial y^j} dy^j
-\end{equation}と書くこともある．
+\end{equation}と書ける．
 \end{prop}
 
 \begin{dig}
@@ -703,7 +737,7 @@ dz^i = \sum_{j} \frac{\partial z^i}{\partial y^j} dy^j
 ならびに
 \begin{equation}
 \left(dz^i\right)_p = \sum_{j} \left( \frac{\partial }{\partial y^j} z^i \right) (p) \cdot \left( dy^j \right)_p
-\end{equation}である．ここで，総和を取る添字である$j$が「上付き」ならびに「下付き」な仕方でそれぞれ現れることに気づかれよう．このあとの計算で見るように，座標関数の添字を上付きにして，ベクトル場の記号として$\frac{\partial}{\partial y^i}$のようなものを採用すれば，座標変換の際に総和を取るべき添字は必ず「上付き」と「下付き」のセットで現れる．そのことを援用して，「上付き添字と下付き添字が登場した場合は，総和を書かなくとも自動的に和を取ることにする」という規約を採ることがある．この規約を Einstein 規約という．Einstein 規約に則れば，例えば微分1-形式の座標変換則は
+\end{equation}である．ここで，総和を取る添字である$j$が，ベクトル場の記号における括線よりも「上側」ならびに「下側」でそれぞれ現れることに注意されたい．このあとの計算で見るように，座標関数の添字を上付きにして，ベクトル場の記号として$\frac{\partial}{\partial y^i}$のようなものを採用すれば，座標変換の際に総和を取るべき添字は必ず「上付き」と「下付き」のセットで現れる．そのことを援用して，「上付き添字と下付き添字が登場した場合は，総和を書かなくとも自動的に和を取ることにする」という規約を採ることがある．この規約を Einstein 規約という．Einstein 規約に則れば，例えば微分1-形式の座標変換則は
 \begin{equation}
 dz^i = \frac{\partial z^i}{\partial y^j} dy^j
 \end{equation}のように書かれることになる．物理などにおけるテンソル計算の際にはしばしば用いられる規約であるし，今後も座標変換に関わる計算を追いかける際に頭に入れておく価値はあると思う．但し，このノートにおいては Einstein 規約は用いず，煩雑なのを承知なうえで総和の添字を明示的に書くつもりである．
@@ -711,24 +745,196 @@ dz^i = \frac{\partial z^i}{\partial y^j} dy^j
 座標関数の添字を（おそらく一般的ではないであろう）上付きで表記した理由はここにある．ということを，このノートの最初で説明するのは（できないとまでは言わないが）私にとってはあまり好みなやり方ではなかった．
 \end{dig}
 
+より一般に，微分$k$-形式の座標変換則も明示的に書ける．1-形式やベクトル場よりは複雑になるが，他方で積分の変数変換公式を念頭に置くと，この座標変換則は記憶に残りやすいと思う．
+
+\begin{prop}
+$y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，$1 \leq i_1 < \dots < i_k \leq n$を充たすような$(i_1, \dots, i_k)$に対して
+\begin{equation}
+\left(dy^{i_1} \right)_p \wedge \dots \wedge \left(dy^{i_k} \right)_p = \sum_{1 \leq j_1 < \dots < j_k \leq n} \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) (p) \cdot \left( dz^{j_1} \right)_p \wedge \dots \wedge \left( dz^{j_k} \right)_p
+\end{equation}が成り立つ．但し，$\left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right)$は$(a,b)$成分が$\frac{\partial y^{i_a}}{\partial z^{j_b}}$であるような$k \times k$行列をあらわす．特に$n$-形式の場合は記述が少し簡単になり，
+\begin{equation}
+\left(dy^1 \right)_p \wedge \dots \wedge \left(dy^n \right)_p = \det \left( \frac{\partial y^i}{\partial z^j} \right) (p) \cdot \left( dz^1 \right)_p \wedge \dots \wedge \left( dz^n \right)_p
+\end{equation}が成り立つ．
+\end{prop}
+
+\begin{proof}
+$(j_1, \dots, j_k) \in \Natu^k$を，$1 \leq j_1 < \dots < j_k \leq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$_p$や関数の引数に入る$(p)$を省く．$\set{dz^{j_1} \wedge \dots \wedge dz^{j_k} | 1 \leq j_1< \dots < j_k \leq n }$は$\bigwedge^k(T_p^*M)$の基底をなすので，$dy^{i_1} \wedge \dots \wedge dy^{i_k} = \sum_{1 \leq j_1 < \dots < j_k \leq n} a_{j_1, j_2, \dots, j_k} dz^{j_1} \wedge \dots \wedge dz^{j_k}$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と\cref{最高次交代テンソルの変換則}より
+\begin{align}
+& dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \frac{\partial}{\partial z^{j_1}}, \dots, \frac{\partial}{\partial z^{j_k}} \right) \\
+{}=& dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \frac{\partial}{\partial z^{j_1}}, \dots, \frac{\partial}{\partial z^{j_k}} \right) \\
+{}=& dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \sum_{\ell=1}^n \frac{\partial y^\ell}{\partial z^{j_1}} \frac{\partial}{\partial y^\ell}, \dots, \sum_{\ell=1}^n \frac{\partial y^\ell}{\partial z^{j_k}} \frac{\partial}{\partial y^\ell} \right) \\
+{}=& dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \sum_{a=1}^k \frac{\partial y^{i_a}}{\partial z^{j_1}} \frac{\partial}{\partial y^{i_a}}, \dots, \sum_{a=1}^k \frac{\partial y^{i_a}}{\partial z^{j_k}} \frac{\partial}{\partial y^{i_a}} \right) \\
+{}=& \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \frac{\partial}{\partial y^{i_1}}, \dots, \frac{\partial}{\partial y^{i_k}} \right) = \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right)
+\end{align}
+であるから，展開係数は$\det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right)$とわかる．
+\end{proof}
+
+\begin{que}[*]
+そんなわけで，この変換則と重積分の変数変換公式とを念頭に置けば，いかにも微分$n$-形式を$\Real^n$上で積分することに意味があるように思えてくる．実際このあと微分形式の積分が定義できてしまうことを見ていく．それにしたってうまく行き過ぎているのだが，なんでこんなにうまくいくのか本当に謎である．交代性を課したことが全てを整えている印象があるが，交代性がどうしてここまで全てをきれいにしてくれるのか．
+\end{que}
+
 ここまで，0-形式$f$の微分$df$が1-形式となることを見た．すでに見ているように，$df$を標準基底に関して行列表示すると Jacobi 行列が現れる．というわけで大雑把に言えば$df$は$f$の方向微分に関する情報を全部持っているようなものである．これと似たようなことを一般の$n$-形式に対しても考えることができる；$n$-形式の方向微分とも言えるもの，それが外微分である．
 
 \begin{defi}$\omega \in \DiffForm^n(U)$とし，その座標表示
 \begin{equation}
-\omega_p = \sum_{1 \leq i_1 < i_2 < \dots i_k \leq n} {f^y_{i_1,i_2,\dots,i_n}}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
+\omega_p = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n} {f^y_{i_1,i_2,\dots,i_k}}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
 \end{equation}を考える．このもとで，$\omega$の外微分$d \omega \in \DiffForm^{n+1}(U)$を，
 \begin{equation}
-d\omega_p \coloneqq \sum_{1 \leq i_1 < i_2 < \dots i_k \leq n} \left(df^y_{i_1,i_2,\dots,i_n}\right)_p \wedge \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
+d\omega_p \coloneqq \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n} \left(df^y_{i_1,i_2,\dots,i_k}\right)_p \wedge \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p
 \end{equation}
 によって定める．
 \end{defi}
 
+\begin{prop}
+外微分の定義は well-defined である．すなわち，$y=(y^1, \dots, y^n)$ならびに$z = (z^1, \dots, z^n)$をそれぞれ2つの座標系とするとき，$\omega \in \DiffForm^k(U)$の2通りの座標表示
+\begin{equation}
+\omega_p = \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n} {f_{i_1,i_2,\dots,i_k}}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p = \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n} {g_{j_1,j_2,\dots,j_k}}(p) \cdot \left( dz^{j_1} \right)_p \wedge \dots \wedge \left( dz^{j_k} \right)_p
+\end{equation}
+に対して，
+\begin{equation}
+\sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n} \left( {df_{i_1,i_2,\dots,i_k}} \right)_p \wedge \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p = \sum_{1 \leq j_1 < j_2 < \dots < j_k \leq n} \left( {dg_{j_1,j_2,\dots,j_k}} \right)_p \wedge \left( dz^{j_1} \right)_p \wedge \dots \wedge \left( dz^{j_k} \right)_p
+\end{equation}が成り立つ．
+\end{prop}
+
+証明に入る前に，これ以降このノートの終わりまで，証明や命題の記述において，記号を軽くするために添字の$_p$や関数の引数に入る$(p)$を省くことがあることを断っておく．この省略をする理由は以降の証明を読んでいけば嫌でもわかる．
+
+\begin{proof}
+$\omega$が0-形式の場合は示すべきことはない．微分の線型性より，ある一つの$(i_1, \dots, i_k)$，$1 \leq i_1 < \dots < i_k \leq n$を用いて$\omega_p = f_{i_1,i_2,\dots,i_k}(p) \cdot \left( dy^{i_1} \right)_p \wedge \dots \wedge \left( dy^{i_k} \right)_p$と書ける場合に証明すれば充分である．$k$-形式に対する座標変換則より，
+\begin{equation}
+\sum_{1 \leq j_1 < \dots < j_k \leq n} g_{j_1,  j_2, \dots, j_k} \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} = \sum_{1 \leq j_1 < \dots < j_k \leq n} f_{i_1,  i_2, \dots, i_k} \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} 
+\end{equation}がわかるので，微分の Leibniz 則より
+\begin{align}
+\sum_{1 \leq j_1 < \dots < j_k \leq n} \dif g_{j_1,  j_2, \dots, j_k} \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} =& \sum_{1 \leq j_1 < \dots < j_k \leq n} \left( \dif f_{i_1,  i_2, \dots, i_k} \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \right) \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} \\
+&+ \sum_{1 \leq j_1 < \dots < j_k \leq n} \left( f_{i_1,  i_2, \dots, i_k} \dif \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \right) \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} \\
+=& \dif f_{i_1,  i_2, \dots, i_k} \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \\
+&+ \sum_{1 \leq j_1 < \dots < j_k \leq n} \left( f_{i_1,  i_2, \dots, i_k} \dif \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \right) \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} 
+\end{align}を得る．したがって示すべきことは
+\begin{equation}
+\sum_{1 \leq j_1 < \dots < j_k \leq n} \left( \dif \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \right) \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} = \sum_{1 \leq j_1 < \dots < j_k \leq n} \left( \sum_{j=1}^n \frac{\partial}{\partial z^j} \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b}} \right) \dif z^j \right) \wedge \dif z^{j_1} \wedge \dots \wedge \dif z^{j_k} = 0
+\end{equation}に帰着する．以下，ある程度きちんと証明をつけるが，総じて直接計算による力技なので，多分自分で証明をつけたほうが理解はしやすいです．
+
+以下，$(j_1', \dots, j_k')$，$1 \leq j_1' < \dots < j_k' \leq n$を任意にとって一つ固定する（総和のいちばん外側のループ変数を固定して考えようとしている）．このとき，$j' \in \set{j_1', \dots, j_k'}$であるならば明らかに
+\begin{equation}
+\frac{\partial}{\partial z^{j'}} \det \left( \frac{\partial y^{i_a}}{\partial z^{j_b'}} \right) \dif z^{j'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_k'} = 0
+\end{equation}である．なので，$j' \notin \set{j_1', \dots, j_k'}$の場合だけを考察すればよいから，そのように$j'$を取って固定する（内側のループ変数を固定して考えようとしている）．微分の Leibniz 則を使うと
+\begin{align}
+&\frac{\partial}{\partial z^{j'}} \det
+    \begin{pmatrix}
+    \frac{\partial y^{i_1}}{\partial z^{j_1'}} & \dots & \frac{\partial y^{i_1}}{\partial z^{j_p'}} & \dots & \frac{\partial y^{i_1}}{\partial z^{j_k'}} \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    \frac{\partial y^{i_k}}{\partial z^{j_1'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_p'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_k'}} \\
+    \end{pmatrix}
+\dif z^{j'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_p'} \wedge \dots \wedge \dif z^{j_k'} \\
+= & \sum_{p=1}^k \det
+    \begin{pmatrix}
+    \frac{\partial y^{i_1}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_1}}{\partial z^{j'} \partial z^{j_p'}} & \dots & \frac{\partial y^{i_1}}{\partial z^{j_k'}} \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    \frac{\partial y^{i_k}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_k}}{\partial z^{j'} \partial z^{j_p'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_k'}} \\
+    \end{pmatrix}
+\dif z^{j'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_p'} \wedge \dots \wedge \dif z^{j_k'}
+\end{align}と展開できる．この$r$項めを取り出してくると，
+\begin{equation}
+\det
+    \begin{pmatrix}
+    \frac{\partial y^{i_1}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_1}}{\partial z^{j'} \partial z^{j_r'}} & \dots & \frac{\partial y^{i_1}}{\partial z^{j_k'}} \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    \frac{\partial y^{i_k}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_k}}{\partial z^{j'} \partial z^{j_r'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_k'}} \\
+    \end{pmatrix}
+\dif z^{j'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_r'} \wedge \dots \wedge \dif z^{j_k'}.
+\end{equation}
+この項に対して，符号が逆になってちょうど打ち消し合うような項が総和の中に一意的に存在することを示す．$j'$に対する仮定より，$j_q < j' < j_{q+1}$を充たすような整数$q \geq 0$がある（但し，形式的に$j_{0}' = -\infty$，$j_{k+1}' = \infty$と解釈する）．更に$j' < j_r$と仮定して一般性を失わないのでそうする．2階微分の形から，打ち消し合う項が存在するならば，それは総和に現れるループ変数を$(j_1, \dots, j_k) = (j_1', \dots, j_{q}', j', j_{q+1}', \dots, j_{r-1}', j_{r+1}', \dots, j_k'), j = j_r', p = q+1$とした項，すなわち
+\begin{equation}
+\det
+    \begin{pmatrix}
+    \frac{\partial y^{i_1}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_1}}{\partial z^{j_r'} \partial z^{j'}} & \dots & \frac{\partial y^{i_1}}{\partial z^{j_k'}} \\
+    \vdots & \ddots & \vdots & \ddots & \vdots \\
+    \frac{\partial y^{i_k}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_k}}{\partial z^{j_r'} \partial z^{j'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_k'}} \\
+    \end{pmatrix}
+\dif z^{j_r'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_q'} \wedge \dif z^{j'} \wedge \dif z^{j_{q+1}'} \wedge \dots \wedge \dif z^{j_{r-1}'} \wedge \dif z^{j_{r+1}'} \wedge \dots \wedge \dif z^{j_k'}.
+\end{equation}
+のほかにはありえない（この時点で一意性は従う）．実際に符号が逆転することは行列式と外積の交代性を用いた直接計算より従う．
+\end{proof}
+
 \begin{que}
-この定義は well-defined である．
+最後の「従う」は「めんどくさくなったので省いた」の意である．実際に計算してみれば符号だけが変わり打ち消し合うことがわりあいすぐにわかるのだが，議論の内容の割に \LaTeX のコード量がかさばりそうなので億劫になっている．
 \end{que}
 
-\begin{prop}[外微分の基本性質]
+\begin{dig}
+外微分の定義の与え方はいくつか考えられる．ここでは用意する道具立てが少なくて済み（0-形式に対する外微分，すなわち写像の微分さえあれば定義できて），意味が比較的わかりやすい（方向微分の$k$-形式への一般化であることが見てわかる）と思われる定義の与え方を採用した．この方法に欠点がないとは言わない；事実，well-defined なことの証明は軽くはない．このノートに整理して書くにあたり，私自身いろいろと紆余曲折を経たことを正直に述べておく．
 
+well-defined なことが明らかな定義としては Lie 微分を使うものがあるが，（当然ながら）Lie 微分を持ち出してその基本性質を先んじて述べておく必要がある．純粋に代数的な性質だけを列挙して公理的に定義する方法もあるにはあるし，Spivak においては多様体上の微分形式をそのように定義しているのだが，外微分の意味するところがよくわからないままでつらいのではなかろうか．
+
+結局，どの方法にも長所と短所があり，完璧な方法というものはないのだろう．歯がゆさをおぼえるところはあるが，定義一つとっても奥深いものがあると考えるのがよいところなのかもしれない．
+\end{dig}
+
+\begin{prop}[外微分の基本性質] $\omega \in \DiffForm^k(U)$，$\eta \in \DiffForm^\ell(U)$とする．
+\begin{enumerate}
+\item $k=\ell$のとき，$\dif (\omega + \eta) = \dif \omega + \dif \eta$．
+\item $\dif (\omega \wedge \eta) = (\dif \omega) \wedge \eta + (-1)^k \omega \wedge \dif \eta$．
+\item $\dif (\dif \omega) = 0$．$\dif^2 = 0$と書く場合も多い．
+\end{enumerate}
 \end{prop}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item 0-形式の場合は微分の線型性にほかならず，一般の場合は0-形式の場合の線型性から直ちに出る．
+\item $k=0$の場合は外微分の定義そのままである．一般の場合に対しては，外微分の線型性より$\omega = f_{i_1, \dots, i_k} \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$，$\eta = g_{j_1, \dots, j_\ell} \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell}$と書ける場合に証明すれば充分である．このときは
+\begin{align}
+\dif (\omega \wedge \eta) 
+=& \dif (f_{i_1, \dots, i_k} g_{j_1, \dots, j_\ell}) \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+=& (g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k} + f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} ) \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+=& g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k}  \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+&+ f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+=& \dif f_{i_1, \dots, i_k}  \wedge \dif x^{i_1} \wedge \dots \wedge g_{j_1, \dots, j_\ell} \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+&+ (-1)^k f_{i_1, \dots, i_k} \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif g_{j_1, \dots, j_\ell} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+=& (\dif \omega) \wedge \eta + (-1)^k \omega \wedge \dif \eta
+\end{align}である．
+\item やはり外微分の線型性より，$\omega = f_{i_1, \dots, i_k} \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$と書ける場合に示せば充分である．
+\begin{align}
+\dif \omega = \sum_{s=1}^n \frac{\partial f_{i_1, \dots, i_k}}{\partial x^s} \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}
+\end{align}であるから，
+\begin{align}
+\dif \dif \omega = \sum_{t=1}^n \sum_{s=1}^n \frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^t\partial x^s} \dif x^t \wedge \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}
+\end{align}となり，$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^t\partial x^s} \dif x^t \wedge \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$と$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^s\partial x^t} \dif x^s \wedge \dif x^t \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$は符号が逆転して打ち消し合うので総和は0である．
+\end{enumerate}
+\end{proof}
+
+\begin{defi}$M \coloneqq \Real^m$，$N \coloneqq \Real^n$とし，$U \subset N$を開集合とする．このとき，$\omega \in \DiffForm^k(U)$の$f \colon M \to N$による引き戻し$f^* \omega \in \DiffForm^k(f^{-1}(U))$を，$v_1, \dots, v_k \in T_pM$に対して
+\begin{equation}
+(f^* \omega)_p (v_1, \dots, v_k) \coloneqq \omega_{f(p)} (\dif f_p v_1, \dots, \dif f_p v_k)
+\end{equation}とすることで定める．
+\end{defi}
+
+\begin{prop}[引き戻しの基本性質] $\omega \in \DiffForm^k(U)$，$\eta \in \DiffForm^\ell(U)$，$U \subset N$を開集合とし，$f \colon M \to N$とする．
+\begin{enumerate}
+\item $y$を$M$の，$z$を$N$の標準座標系とするとき，$f^*(\dif z^k) = \sum_i \frac{\partial (z^k \circ f)}{\partial y^i} dy^i$．
+\item $k = \ell$のとき，$f^*(\omega + \eta) = f^* \omega + f^* \eta$．
+\item $f^*(\omega \wedge \eta) = f^* \omega \wedge f^* \eta$．
+\item $f^*(\dif \omega) = \dif (f^*(\omega))$．
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+(i)-(iii) については総じて直接計算なので，(i) のみ示す．$Y = \sum_i Y^i \frac{\partial}{\partial y^i}$を$M$上のベクトル場とするとき，
+\begin{align}
+f^*(\dif z^k)(Y) = \dif z^k (df (Y)) &= \dif z^k \left( \sum_i Y^i df \frac{\partial}{\partial y^i} \right) \\
+&= \dif z^k \left( \sum_i Y^i \sum_j \partial_i (z^j \circ f \circ y^{-1}) \frac{\partial}{\partial z^j} \right) \\
+&= \dif z^k \left( \sum_i Y^i \sum_j \frac{\partial (z^j \circ f)}{\partial y^j} \frac{\partial}{\partial z^j} \right) \\
+&= \sum_i Y^i \frac{\partial (z^k \circ f)}{\partial y^j}
+\end{align}であることから (i) は従う．(ii), (iii) も同様に証明できて，(i) よりかんたんである．
+
+(iv) を示そう．$\omega$の次数に関する帰納法による．$\omega$が0-形式の場合は，$Y$を$U$上のベクトル場とすれば合成則より
+\begin{equation}
+f^*(\dif \omega)(Y) = \dif \omega (\dif (f Y)) = \dif (\omega \circ f) (Y) = \dif (f^* \omega)(Y)
+\end{equation}となるからよい．$k$-形式の場合に示せているとして，外積の線型性より$\omega \wedge \dif x^i$の形の$k+1$-形式に対して示せば充分である．
+\begin{align}
+f^* (\dif (\omega \wedge \dif x^i)) &= f^* (\dif \omega \wedge \dif x^i) \\
+&= (f^* \dif \omega) \wedge (f^* \dif x^i) \\
+&= (\dif f^* \omega) \wedge (\dif f^* x^i) \\
+&= \dif(f^* \omega \wedge f^* x^i) \\
+&= \dif (f^* (\omega \wedge x^i)) \\
+\end{align}である．
+\end{proof}
 
 \subsection{微分形式の積分と Stokes の定理}

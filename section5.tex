@@ -668,7 +668,7 @@ $f \colon M \to N$，$g \colon N \to L$に対して，$d(g \circ f) = dg \circ d
 $X_p \in T_pM$ならびに$h \colon L \to \Real$を任意に取れば，$d(g \circ f)_p(X_p)(h) = X_p(h \circ g \circ f) = (df_p(X_p))(h \circ g) = ((dg_p)(df_p(X_p)))(h)$である．
 \end{proof}
 
-\subsection{微分形式と鎖体}
+\subsection{微分形式}
 
 $M = \Real^n$とし，$y \colon U \to y(U)$を$U \subset M$上の座標系とする．
 
@@ -832,7 +832,7 @@ $\omega$が0-形式の場合は示すべきことはない．微分の線型性�
     \frac{\partial y^{i_k}}{\partial z^{j_1'}} & \dots & \frac{\partial^2 y^{i_k}}{\partial z^{j'} \partial z^{j_p'}} & \dots & \frac{\partial y^{i_k}}{\partial z^{j_k'}} \\
     \end{pmatrix}
 \dif z^{j'} \wedge \dif z^{j_1'} \wedge \dots \wedge \dif z^{j_p'} \wedge \dots \wedge \dif z^{j_k'}
-\end{align}と展開できる．この$r$項めを取り出してくると，
+\end{align}と展開できる．この第$r$項を取り出してくると，
 \begin{equation}
 \det
     \begin{pmatrix}
@@ -879,26 +879,28 @@ well-defined なことが明らかな定義としては Lie 微分を使うも�
 \leavevmode
 \begin{enumerate}
 \item 0-形式の場合は微分の線型性にほかならず，一般の場合は0-形式の場合の線型性から直ちに出る．
-\item $k=0$の場合は外微分の定義そのままである．一般の場合に対しては，外微分の線型性より$\omega = f_{i_1, \dots, i_k} \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$，$\eta = g_{j_1, \dots, j_\ell} \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell}$と書ける場合に証明すれば充分である．このときは
+\item $k=0$の場合は外微分の定義そのままである．一般の場合に対しては，外微分の線型性より$\omega = f_{i_1, \dots, i_k} \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}$，$\eta = g_{j_1, \dots, j_\ell} \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell}$と書ける場合に証明すれば充分である．このときは
 \begin{align}
 \dif (\omega \wedge \eta) 
-=& \dif (f_{i_1, \dots, i_k} g_{j_1, \dots, j_\ell}) \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
-=& (g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k} + f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} ) \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
-=& g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k}  \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
-&+ f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
-=& \dif f_{i_1, \dots, i_k}  \wedge \dif x^{i_1} \wedge \dots \wedge g_{j_1, \dots, j_\ell} \dif x^{i_k} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
-&+ (-1)^k f_{i_1, \dots, i_k} \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k} \wedge \dif g_{j_1, \dots, j_\ell} \wedge \dif x^{j_1} \wedge \dots \wedge \dif x^{j_\ell} \\
+=& \dif (f_{i_1, \dots, i_k} g_{j_1, \dots, j_\ell}) \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
+=& (g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k} + f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} ) \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
+=& g_{j_1, \dots, j_\ell} \dif f_{i_1, \dots, i_k}  \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
+&+ f_{i_1, \dots, i_k}\dif g_{j_1, \dots, j_\ell} \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
+=& \dif f_{i_1, \dots, i_k}  \wedge \dif y^{i_1} \wedge \dots \wedge g_{j_1, \dots, j_\ell} \dif y^{i_k} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
+&+ (-1)^k f_{i_1, \dots, i_k} \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k} \wedge \dif g_{j_1, \dots, j_\ell} \wedge \dif y^{j_1} \wedge \dots \wedge \dif y^{j_\ell} \\
 =& (\dif \omega) \wedge \eta + (-1)^k \omega \wedge \dif \eta
 \end{align}である．
-\item やはり外微分の線型性より，$\omega = f_{i_1, \dots, i_k} \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$と書ける場合に示せば充分である．
+\item やはり外微分の線型性より，$\omega = f_{i_1, \dots, i_k} \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}$と書ける場合に示せば充分である．
 \begin{align}
-\dif \omega = \sum_{s=1}^n \frac{\partial f_{i_1, \dots, i_k}}{\partial x^s} \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}
+\dif \omega = \sum_{s=1}^n \frac{\partial f_{i_1, \dots, i_k}}{\partial y^s} \dif y^s \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}
 \end{align}であるから，
 \begin{align}
-\dif \dif \omega = \sum_{t=1}^n \sum_{s=1}^n \frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^t\partial x^s} \dif x^t \wedge \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}
-\end{align}となり，$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^t\partial x^s} \dif x^t \wedge \dif x^s \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$と$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial x^s\partial x^t} \dif x^s \wedge \dif x^t \wedge \dif x^{i_1} \wedge \dots \wedge \dif x^{i_k}$は符号が逆転して打ち消し合うので総和は0である．
+\dif \dif \omega = \sum_{t=1}^n \sum_{s=1}^n \frac{\partial^2 f_{i_1, \dots, i_k}}{\partial y^t\partial y^s} \dif y^t \wedge \dif y^s \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}
+\end{align}となり，$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial y^t\partial y^s} \dif y^t \wedge \dif y^s \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}$と$\frac{\partial^2 f_{i_1, \dots, i_k}}{\partial y^s\partial y^t} \dif y^s \wedge \dif y^t \wedge \dif y^{i_1} \wedge \dots \wedge \dif y^{i_k}$は符号が逆転して打ち消し合うので総和は0である．
 \end{enumerate}
 \end{proof}
+
+ベクトル場や接ベクトルをうつす写像として「写像の微分」が定義できたように，微分形式に対しては「引き戻し」が定義できる．
 
 \begin{defi}$M \coloneqq \Real^m$，$N \coloneqq \Real^n$とし，$U \subset N$を開集合とする．このとき，$\omega \in \DiffForm^k(U)$の$f \colon M \to N$による引き戻し$f^* \omega \in \DiffForm^k(f^{-1}(U))$を，$v_1, \dots, v_k \in T_pM$に対して
 \begin{equation}
@@ -926,15 +928,230 @@ f^*(\dif z^k)(Y) = \dif z^k (df (Y)) &= \dif z^k \left( \sum_i Y^i df \frac{\par
 
 (iv) を示そう．$\omega$の次数に関する帰納法による．$\omega$が0-形式の場合は，$Y$を$U$上のベクトル場とすれば合成則より
 \begin{equation}
-f^*(\dif \omega)(Y) = \dif \omega (\dif (f Y)) = \dif (\omega \circ f) (Y) = \dif (f^* \omega)(Y)
-\end{equation}となるからよい．$k$-形式の場合に示せているとして，外積の線型性より$\omega \wedge \dif x^i$の形の$k+1$-形式に対して示せば充分である．
+f^*(\dif \omega)(Y) = \dif \omega (\dif f (Y)) = \dif (\omega \circ f) (Y) = \dif (f^* \omega)(Y)
+\end{equation}となるからよい．$k$-形式の場合に示せているとして，外積の線型性より$\omega \wedge \dif y^i$の形の$k+1$-形式に対して示せば充分である．
 \begin{align}
-f^* (\dif (\omega \wedge \dif x^i)) &= f^* (\dif \omega \wedge \dif x^i) \\
-&= (f^* \dif \omega) \wedge (f^* \dif x^i) \\
-&= (\dif f^* \omega) \wedge (\dif f^* x^i) \\
-&= \dif(f^* \omega \wedge f^* x^i) \\
-&= \dif (f^* (\omega \wedge x^i)) \\
+f^* (\dif (\omega \wedge \dif y^i)) &= f^* (\dif \omega \wedge \dif y^i) \\
+&= (f^* \dif \omega) \wedge (f^* \dif y^i) \\
+&= (\dif f^* \omega) \wedge (\dif f^* y^i) \\
+&= \dif(f^* \omega \wedge f^* y^i) \\
+&= \dif (f^* (\omega \wedge y^i)) \\
 \end{align}である．
 \end{proof}
 
-\subsection{微分形式の積分と Stokes の定理}
+\begin{dig}
+Spivak に扱われているトピックでこのノートに書かなかったこととして，閉形式と完全形式の概念，ならびに Poincar\'e の補題がある．これらの話題を，私が重要でないと思っているわけではない．むしろ面白い話題がたくさん転がっていると思っている…のだが，せっかくなら de Rham コホモロジーあたりまでは勉強して書いたほうが良いような気もする．他方，そこまで寄り道しているといつまで経ってもこのノートの終わりが見えない．というわけで，いったん潔くぜんぶカットすることにした．
+
+できることなら，コホモロジー理論が工学的に活きる場面を見てみたい．コホモロジーによって本質的に捉えられる工学的な知見なり，既存手法を大幅に改善する道のりなり，そういったものが見つかると心底わくわくできると思う．もちろん，これは「工学的な問題を解決したい」ではなくて「数学を使いたい」なので動機としてはかなり不純（見方によっては純粋すぎる？）で，よい研究になりにくそうな気もしているのですが…
+\end{dig}
+
+\subsection{微分形式の積分}
+
+微分形式に対する積分を定義する．
+
+\begin{defi}
+$M = \Real^n$とし，$U \subset M$を開集合または閉集合とする．更に$y \colon U \to y(U)$を$U$上の座標系であって，$p \in U$に対して$\det J_y(p) > 0$であるようなものとする．$\omega \in \DiffForm^n(U)$の座標表示を
+\begin{equation}
+\omega = f^y \dif y^{1} \wedge \dots \wedge \dif y^{n}
+\end{equation}とするとき，$\omega$の$U$上の積分を，
+\begin{equation}
+\int_U \omega \coloneqq \int_{y(U)} f^y \circ y^{-1} (x) \dif \lambda^n(x)
+\end{equation}で定める（右辺は Lebesgue 測度に関する積分）．
+\end{defi}
+
+\begin{prop}
+上記の微分形式の積分の定義は well-defined である．すなわち，$y$ならびに$z$をそれぞれ$\det J_y(p)>0$および$\det J_z(p) > 0$を充たすような$U$上の座標系とし，$\omega$の2通りの座標表示を
+\begin{equation}
+\omega = f^y \dif y^1 \wedge \dots \wedge \dif y^n = f^z \dif z^1 \wedge \dots \wedge \dif z^n
+\end{equation}とするとき，
+\begin{equation}
+\int_{y(U)} f^y \circ y^{-1} (x) \dif \lambda^n(x) = \int_{z(U)} f^z \circ z^{-1} (x) \dif \lambda^n(x)
+\end{equation}が成り立つ．
+\end{prop}
+
+\begin{proof}
+微分$n$-形式に対する座標変換則より$f^y(p) = f^z(p) \cdot \det J_{z \circ y^{-1}}(y(p))$である．したがって重積分の変数変換公式より
+\begin{align}
+\int_{y(U)} f^y (y^{-1} (x)) \dif \lambda^n (x) &= \int_{y(U)} f^z \circ y^{-1} (x) \det J_{z \circ y^{-1}} (x) \dif \lambda^n (x) \\
+&= \int_{y(U)} (f^z \circ z^{-1}) \circ (z \circ y^{-1}) (x) \det J_{z \circ y^{-1}} (x) \dif \lambda^n (x) \\
+&= \int_{(z \circ y^{-1}) \circ y(U)} (f^z \circ z^{-1}) (x) \dif \lambda^n (x) = \int_{z(U)} (f^z \circ z^{-1}) (x) \dif \lambda^n (x)
+\end{align}を得る．但し，ここで$\det J_y >0$および$\det J_z > 0$であることから$\det J_{z \circ y^{-1}} > 0$であることを用いた．
+\end{proof}
+
+\begin{dig}
+証明を見ればわかるように，本質的に効いているのは積分を Lebesgue 測度に関するものとしていることではなく，積分が変数変換公式を充たすことである．なので微分形式の積分を Riemann 積分を用いて定義してもこのあたりの議論で困ることはない．もっと言えば，変数変換公式を充たしさえすれば積分の実装がどうなっていようと問題ないと思われる．しかしながら，Lebesgue 測度に関する積分と Riemann 積分以外にこの形の変数変換公式と整合的な積分を私は知らない．あるのだろうか？
+\end{dig}
+
+
+\begin{dig}
+ところで，ここでの議論を少し検討すれば座標変換を「行列式が正のものに限る」としなければ証明が通らないことがわかるが，これは「多様体の向きを指定しなければ積分が定義できない」という事情の特別な場合と考えることができる．だったらそれをちゃんと説明しなさいよと思うのは無理もないが，個人的にはこの事情は$\Real^n$の場合に言われてもよくわからず，少なくとも球面$\Sphere^n$の場合のほうがしっくりきやすい．というわけでそこまでその事情の説明を遅らせることにして，ここでは証明を通すためだけに天下りに「行列式が正」だけ指定することにした．
+\end{dig}
+
+ここまでで，$M=\Real^n$上の微分$n$-形式に対してその積分を定義した．他方，このノートの最終目標の一つは，曲線や曲面の上で微積分を展開することである．例えば$M=\Real^n$上の曲線上で定義された何かを積分する「線積分」の概念はないと困る．
+
+線積分や面積分の定義を得るために，微分形式の引き戻しが役に立つ．
+
+\begin{defi}
+$k,n$を0以上の整数とし，$M=\Real^n$とする．$C^\infty$級写像$c \colon \Real^k \supset [0,1]^k \to M$のことを$M$内の曲$k$方体という．特に曲1方体のことを曲線と呼ぶ．$I^n \colon [0,1]^n \ni x \mapsto x \in M$のことを標準$n$方体という．
+\end{defi}
+
+\begin{dig}
+ふつうは$c$が$C^\infty$でなくても，連続でありさえすれば曲$n$-方体と呼ぶことが多い．のだが，今後$c$上の積分を考えるときにわざわざ$C^\infty$級であることを断るのも煩わしいし，（微分ができるかわからない世界での）トポロジーをやるつもりもないので，最初から方体は$C^\infty$であると定義してしまうことにした．
+\end{dig}
+
+直感的には，曲$k$方体とは曲線片や曲面片のことをあらわしている．この時点で曲$k$方体上での微分形式の積分が定義できなくはないので，とりあえず定義してしまうことにする．
+
+\begin{defi}
+$M=\Real^n$，$c \colon [0,1]^k \to M$を$M$上の曲$k$-方体，$\omega \in \Omega^k(M)$を$M$上の$k$-形式とする．$k > 0$のとき，$\omega$の$c$上での積分を，
+\begin{equation}
+\int_c \omega \coloneqq \int_{[0,1]^k} c^* \omega
+\end{equation}によって定める．$k=0$のときは，$\int_c \omega \coloneqq \omega(c(0))$と定める．
+\end{defi}
+
+古典ベクトル解析で線積分や面積分を見知っている方を念頭に置いて，この定義がそれら古典的な定義の一般化になっていることを見るために，次の命題を証明しておくことにする；
+
+\begin{prop}
+$M=\Real^2$とし，$M$の標準座標を$(x,y)$で表す．$M$上の2-形式$P \dif x+ Q \dif y$に対して，
+\begin{equation}
+\int_c P \dif x + Q \dif y = \lim \sum_{i=0}^n (P \circ c(t^i)) \left(c^1(t_{i+1}) - c^1(t_{i})\right) + (Q \circ c(t^i)) \left(c^2(t_{i+1}) - c^2(t_{i})\right)
+\end{equation}が成り立つ．ただし，$t_0, t_1, \dots, t_n$は$[0,1]$の分割，$t^i$は$t^i \in [t_i, t_{i+1}]$を充たすような任意の点，極限は$\max |t_{i+1} - t_i| \to 0$を充たすようなあらゆる分割にわたる．
+\end{prop}
+
+\begin{proof}
+左辺を定義に従って計算する．
+\begin{align}
+\int_c P \dif x + Q \dif y &= \int_{[0,1]} c^*(P \dif x + Q \dif y) \\
+&= \int_{[0,1]} (P \circ c) \cdot c^*(\dif x) + (Q \circ c) \cdot c^*(\dif y) \\
+&= \int_{[0,1]} (P \circ c) \cdot \frac{\dif (x \circ c)}{\dif t} \dif t + (Q \circ c) \cdot \frac{\dif (y \circ c)}{\dif t} \dif t \\
+\end{align}
+右辺の被積分関数は$[0,1]$上で連続かつ有界，したがって特に Riemann 可積分であるから，Riemann 和の極限としても書ける．すなわち，$t_0, t_1, \dots, t_n$を$[0,1]$の分割，$t^i$を$t^i \in [t_i, t_{i+1}]$を充たすような任意の点としたとき，
+\begin{align}
+\int_{[0,1]} (P \circ c) \cdot \frac{\dif (x \circ c)}{\dif t} \dif t + (Q \circ c) \cdot \frac{\dif (y \circ c)}{\dif t} \dif t =& \int_{[0,1]} (P \circ c) \cdot \frac{\dif c^1}{\dif t} \dif t + (Q \circ c) \cdot \frac{\dif c^2}{\dif t} \dif t \\
+=& \lim \sum_{i=0}^n (P \circ c(t^i)) \cdot \frac{\dif c^1}{\dif t}(t^i) \cdot \left(t_{i+1} - t_{i} \right) \\
+&+ (Q \circ c(t^i)) \cdot \frac{\dif c^2}{\dif t}(t^i) \cdot \left(t_{i+1} - t_{i} \right)
+\end{align}が成り立つ．ただし，極限は$\max |t_{i+1} - t_i| \to 0$を充たすようなあらゆる分割にわたる．
+
+ここで，各$i = 0,1, \dots, n$に対して平均値の定理より，$s^i \in [t_i, t_{i+1}]$であって$\frac{dc^1}{dt}(s^i) = \frac{c^1(t_{i+1}) - c^1(t_i)}{t_{i+1} - t_i}$を充たすようなものがあることに注意する．$c^2$に対しても同様のことが言えること，ならびに上記 Riemann 和における$t^i \in [t_i, t_{i+1}]$は任意だったことを踏まえれば，ある$s^i, u^i \in [t_i, t_{i+1}]$が存在して，
+\begin{equation}
+\int_c P \dif x + Q \dif y = \lim \sum_{i=0}^n (P \circ c(s^i)) \cdot \left(c^1(t_{i+1}) - c^1(t_{i})\right) + (Q \circ c(u^i)) \cdot \left(c^2(t_{i+1}) - c^2(t_{i})\right)\end{equation}
+と書き直せる．あとは，極限
+\begin{equation}
+\int_c P \dif x + Q \dif y = \lim \sum_{i=0}^n (P \circ c(s^i)) \left(c^1(t_{i+1}) - c^1(t_{i})\right) + (Q \circ c(u^i)) \left(c^2(t_{i+1}) - c^2(t_{i})\right)
+\end{equation}が$s^i, u^i \in [t_i, t_{i+1}]$のとり方に依らないことを示せばよい．$P \circ c$が$C^\infty$級，特に$[0,1]$で Lipschitz 連続なので，ある定数$L > 0$が存在して，任意の$t^i \in [t_i, t_{i+1}]$に対して$| P \circ c(t^i) - P \circ c(s^i) | \leq L (t_{i+1} - t_i)$が成り立つ．ところで極限は$\max |t_{i+1} - t_i| \to 0$を充たすようなあらゆる分割にわたるのだから，この誤差は極限をとれば0になる．
+\end{proof}
+
+というわけで，曲線（曲$k$方体$c$の像）じたいを細かく分割して積分する，という素朴な定義と，引き戻しを用いた定義は等価になることがわかる．引き戻しを使って定義するのは，高次元の場合でも定義に煩わしさが出ないことが一つの利点である．もうひとつの利点…というか都合としては，素朴な定義から引き戻しを用いた定義を復元することは困難である，というものもある．
+
+この後に登場する Stokes の定理との兼ね合いがあるので，もう少し曲方体に関わる定義や基本性質を述べておく必要がある．ややインフォーマルな言い方であるが，次のような準備が必要となる；Stokes の定理は微積分学の基本定理の一般化と捉えられる．ところでもともとの微積分学の基本定理は，閉区間$[a,b]$上の積分を，その境界$a$ならびに$b$における情報のみから計算できるということを主張していた．その対応付けをにらむならば，曲方体にたいしてその「境界」を定義しておく必要がありそうである．定義を見ればわかるが，ここでの「境界」は単一の方体として表すには無理があるので，方体の形式的な和や整数倍を考えられるように拡張しておく必要がある．
+
+\begin{defi}
+$M$内の曲$k$方体の整数係数の形式的な線型結合で表される元のことを$M$内の曲$k$鎖体という．例えば，$c_1, c_2$が曲$k$方体であるとき，$3c_1 -4c_2$は曲$k$鎖体である．
+
+標準$k$方体$I^k$に対し，その境界$\partial I^k$と呼ばれる曲$k-1$鎖体を次のように定義する．まず$i = 1, 2, \dots, k$並びに$\alpha = 0,1$に対して，曲$k-1$方体$I^k_{(i,\alpha)}$を
+\begin{equation}
+I^k_{(i,\alpha)}(x) \coloneqq (x^1, x^2, \dots, x^{i-1}, \alpha, x^{i}, \dots, x^k)
+\end{equation}によって定め，$I^k$の$(i, \alpha)$境面という．このもとで
+\begin{equation}
+\partial I^k \coloneqq \sum_{i=1}^k \sum_{\alpha = 0}^1 (-1)^{i+\alpha} I^k_{(i,\alpha)}
+\end{equation}と定める．
+
+一般の曲$k$方体$c$に対しては，その$(i, \alpha)$境面を$c_{(i, \alpha)} \coloneqq c \circ I^k_{(i, \alpha)}$によって定めた上で，
+\begin{equation}
+\partial c \coloneqq \sum_{i=1}^k \sum_{\alpha = 0}^1 (-1)^{i+\alpha} c_{(i,\alpha)}
+\end{equation}と定める．更に一般の曲$k$鎖体$c = \sum a_i c_i$に対しては$\partial c \coloneqq \sum a_i \partial c_i$と定める．
+\end{defi}
+
+\begin{dig}
+ホモロジー群をご存知であれば，$\partial^2 = 0$であること，曲$n$鎖体からなる$\Zahl$加群は境界準同型と合わせてチェイン複体の条件を全て充たすこと（従ってホモロジー群が定義できること）まで察しがつくかもしれない．このノートの範囲では必要ないだろうからやっていないだけで，おそらく特異チェイン複体と同様にこのチェイン複体からも意味のあるホモロジー理論が取り出せるのだと思う．
+\end{dig}
+
+\begin{defi}
+$M=\Real^n$，$\omega \in \Omega^k(M)$を$M$上の$k$-形式とする．一般の曲$k$鎖体$c = \sum a_i c_i$に対して，$\omega$の$c$上での積分を
+\begin{equation}
+\int_c \omega \coloneqq \sum a_i \int_{c_i} \omega
+\end{equation}によって定める．
+\end{defi}
+
+ここまでで，Stokes の定理を述べる準備が整った．
+
+\begin{thm}[Stokes]
+
+$U \subset M$を開集合，$c \colon [0,1]^k \to U$を曲$k$鎖体とし，$\omega \in \DiffForm^{k-1}(U)$とする．このとき，
+\begin{equation}
+\int_{c} \dif \omega = \int_{\partial c} \omega.
+\end{equation}
+\end{thm}
+
+\begin{proof}
+総じて，単純計算のみで証明が終わる．まず$c = I^n$，$[0,1]^k \subset U$となっている場合を証明する．すでに微分形式の積分が座標系に依らないことは証明してあるので，これ以降は$M$に標準座標を入れて計算する．$\omega$は次の形の$k-1$-形式
+\begin{equation}
+f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k
+\end{equation}の形式和なので，それぞれに対して命題を証明すれば充分である（$\widehat{\dif x^i}$は，$i$番目を飛ばす，という意味）．
+
+$\int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k$を評価する．
+\begin{align}
+\int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k
+&= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{I^k_{(j,\alpha)}} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \\
+&= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{[0,1]^{k-1}} \left(I^k_{(j,\alpha)}\right)^* f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \\
+&= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{[0,1]^{k-1}} \left(f \circ I^n_{(j,\alpha)}\right) \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^1\right) \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^2\right) \wedge \dots \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^k\right)  \\
+\end{align}
+ところで，
+\begin{align}
+\left(\left(I^k_{(j,\alpha)}\right)^*\dif x^\ell \right) &= \sum_m \frac{\partial \left(x^{\ell} \circ I^k_{(j, \alpha)}\right)}{\partial x^m} \dif x^m
+=\begin{dcases*}
+    \dif x^\ell & if $j\neq\ell$ \\
+    0 & if $j = \ell$
+  \end{dcases*}
+\end{align}なので，結局
+\begin{align}
+&\int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^1\right) \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^2\right) \wedge \dots \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^k\right) \\
+=& \begin{dcases*}
+    \int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k & if $j = i$ \\
+    0 & if $j \neq i$
+  \end{dcases*} \\
+=& \begin{dcases*}
+    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \widehat{\dif x^i} \cdots \dif x^k & if $j = i$ \\
+    0 & if $j \neq i$
+  \end{dcases*} \\
+=& \begin{dcases*}
+    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \dif x^i \cdots \dif x^k & if $j = i$ \\
+    0 & if $j \neq i$
+  \end{dcases*}
+\end{align}
+である．ゆえに
+\begin{align}
+\int_{\partial I^n} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k
+= &(-1)^{i+1} \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, 1, \dots, x^k)  \dif x^1 \cdots \dif x^k \\
+&+ (-1)^i \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, 0, \dots, x^k)  \dif x^1 \cdots \dif x^k.
+\end{align}
+一方で，
+\begin{align}
+\int_{I^n} \dif \left( f \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \right) &= \int_{I^n} \partial_i f \dif x^i \wedge \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \\
+&= (-1)^{i-1}\int_{I^n} \partial_i f \dif x^1 \wedge \dif x^2 \wedge \dots \wedge \dif x^i \wedge \dots \wedge \dif x^k \\
+&= (-1)^{i-1}\int_{I^n} \partial_i f \dif x^1 \cdots \dif x^k.
+\end{align}更に Fubini の定理と微積分学の基本定理から，
+\begin{align}
+(-1)^{i-1}\int_{I^n} \partial_i f \dif x^1 \cdots \dif x^k 
+=&
+(-1)^{i-1}\int_0^1 \dotsi \int_0^1 \left( \int_0^1  \partial_i f \dif x^i \right) \dif x^1  \dif x^2  \dots  \widehat{\dif x^i}  \dots \dif x^k \\
+=&
+(-1)^{i-1}\int_0^1 \dotsi \int_0^1 \left( f(x^1, \dots, 1, \dots, x^k) - f(x^1, \dots, 0, \dots, x^k) \right) \dif x^1  \dif x^2  \dots  \widehat{\dif x^i}  \dots \dif x^k \\
+=&
+(-1)^{i+1}\int_0^1 \dotsi \int_0^1 \left( f(x^1, \dots, 1, \dots, x^k) \right) \dif x^1  \cdots  \dif x^k \\
+&+(-1)^{i}\int_0^1 \dotsi \int_0^1 \left( f(x^1, \dots, 0, \dots, x^k) \right) \dif x^1   \cdots  \dif x^k
+\end{align}
+となるので，結局$\int_{I^n} d \omega = \int_{\partial I^n} \omega$を得る．
+
+$c$が一般の曲$k$方体のときは，定義より$\int_{\partial c} \omega = \int_{\partial I^n} c^* \omega$なので，
+\begin{equation}
+\int_c \dif \omega = \int_{I^k} c^* (\dif \omega) = \int_{I^k} \dif (c^* \omega) = \int_{\partial I^k} c^* \omega = \int_{\partial c} \omega.
+\end{equation}$c$が一般の曲$k$鎖体の場合は積分の線型性と曲$k$方体に対する結果よりよい．
+\end{proof}
+
+Spivak いわく Stokes の定理は3つの大きな特徴を持っているとされる．
+\begin{enumerate}
+\item 自明な定理である．
+\item 自明であるのは，主張にあらわれる概念たちが適切に定義されてきたがゆえである．
+\item 複数の重要な帰結を導く．
+\end{enumerate}
+ここまでの議論ではじめのふたつの特徴が確かに認められること，ならびにここからの議論でもうひとつの特徴が認められることが納得できたなら，このノートの目標は完全に達成されたといえる．

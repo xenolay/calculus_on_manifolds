@@ -560,7 +560,7 @@ $U \subset M$を開集合とする．$y \colon U \to y(U) \subset \Real^n$が（
 \end{itemize}
 
 これらを含むような一般的な形で，座標系から定まるベクトル場を定義する．
-\begin{prop}
+\begin{prop}\label{Euclid空間での座標系から定まるベクトル場}
 $y=(y^1, \dots, y^n)$を$U \subset M$上の座標系とする．このとき，$U$上のベクトル場$\frac{\partial}{\partial y^i}$であって，任意の$p \in U$ならびに微分可能な関数$f \colon U \to \Real$に対して
 \begin{equation}
 \left( \frac{\partial}{\partial y^i} f \right)(p) = \left(\partial_i (f \circ y^{-1}) \right) (y(p))
@@ -996,7 +996,7 @@ $k,n$を0以上の整数とし，$M=\Real^n$とする．$C^\infty$級写像$c \c
 \end{defi}
 
 \begin{dig}
-ふつうは$c$が$C^\infty$でなくても，連続でありさえすれば曲$n$-方体と呼ぶことが多い．のだが，今後$c$上の積分を考えるときにわざわざ$C^\infty$級であることを断るのも煩わしいし，（微分ができるかわからない世界での）トポロジーをやるつもりもないので，最初から方体は$C^\infty$であると定義してしまうことにした．
+ふつうは$c$が$C^\infty$級でなくても，連続でありさえすれば曲$n$-方体と呼ぶことが多い．のだが，今後$c$上の積分を考えるときにわざわざ$C^\infty$級であることを断るのも煩わしいし，（微分ができるかわからない世界での）トポロジーをやるつもりもないので，最初から方体は$C^\infty$級であると定義してしまうことにした．
 \end{dig}
 
 直感的には，曲$k$方体とは曲線片や曲面片のことをあらわしている．この時点で曲$k$方体上での微分形式の積分が定義できなくはないので，とりあえず定義してしまうことにする．
@@ -1042,6 +1042,10 @@ $M=\Real^2$とし，$M$の標準座標を$(x,y)$で表す．$M$上の2-形式$P 
 
 というわけで，曲線（曲$k$方体$c$の像）じたいを細かく分割して積分する，という素朴な定義と，引き戻しを用いた定義は等価になることがわかる．引き戻しを使って定義するのは，高次元の場合でも定義に煩わしさが出ないことが一つの利点である．もうひとつの利点…というか都合としては，素朴な定義から引き戻しを用いた定義を復元することは困難である，というものもある．
 
+\begin{que}[*]
+と書いたものの，「困難である」かどうか，私はきちんと確かめきったわけではない．もちろん不可能性の証明は一般に難しいのですが…
+\end{que}
+
 この後に登場する Stokes の定理との兼ね合いがあるので，もう少し曲方体に関わる定義や基本性質を述べておく必要がある．ややインフォーマルな言い方であるが，次のような準備が必要となる；Stokes の定理は微積分学の基本定理の一般化と捉えられる．ところでもともとの微積分学の基本定理は，閉区間$[a,b]$上の積分を，その境界$a$ならびに$b$における情報のみから計算できるということを主張していた．その対応付けをにらむならば，曲方体にたいしてその「境界」を定義しておく必要がありそうである．定義を見ればわかるが，ここでの「境界」は単一の方体として表すには無理があるので，方体の形式的な和や整数倍を考えられるように拡張しておく必要がある．
 
 \begin{defi}
@@ -1069,7 +1073,7 @@ I^k_{(i,\alpha)}(x) \coloneqq (x^1, x^2, \dots, x^{i-1}, \alpha, x^{i}, \dots, x
 $M=\Real^n$，$\omega \in \Omega^k(M)$を$M$上の$k$-形式とする．一般の曲$k$鎖体$c = \sum a_i c_i$に対して，$\omega$の$c$上での積分を
 \begin{equation}
 \int_c \omega \coloneqq \sum a_i \int_{c_i} \omega
-\end{equation}によって定める．
+\end{equation}によって定める．特に，1-形式の1鎖体上での積分のことを線積分，2-形式の2鎖体上での積分のことを面積分という．
 \end{defi}
 
 ここまでで，Stokes の定理を述べる準備が整った．
@@ -1083,7 +1087,7 @@ $U \subset M$を開集合，$c \colon [0,1]^k \to U$を曲$k$鎖体とし，$\om
 \end{thm}
 
 \begin{proof}
-総じて，単純計算のみで証明が終わる．まず$c = I^n$，$[0,1]^k \subset U$となっている場合を証明する．すでに微分形式の積分が座標系に依らないことは証明してあるので，これ以降は$M$に標準座標を入れて計算する．$\omega$は次の形の$k-1$-形式
+総じて，単純計算のみで証明が終わる．まず$c = I^k$，$[0,1]^k \subset U$となっている場合を証明する．すでに微分形式の積分が座標系に依らないことは証明してあるので，これ以降は$M$に標準座標を入れて計算する．$\omega$は次の形の$k-1$-形式
 \begin{equation}
 f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k
 \end{equation}の形式和なので，それぞれに対して命題を証明すれば充分である（$\widehat{\dif x^i}$は，$i$番目を飛ばす，という意味）．
@@ -1093,7 +1097,7 @@ $\int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^
 \int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k
 &= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{I^k_{(j,\alpha)}} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \\
 &= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{[0,1]^{k-1}} \left(I^k_{(j,\alpha)}\right)^* f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k \\
-&= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{[0,1]^{k-1}} \left(f \circ I^n_{(j,\alpha)}\right) \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^1\right) \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^2\right) \wedge \dots \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^k\right)  \\
+&= \sum_{j = 1}^k \sum_{\alpha = 0}^1 \int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^1\right) \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^2\right) \wedge \dots \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^k\right)  \\
 \end{align}
 ところで，
 \begin{align}

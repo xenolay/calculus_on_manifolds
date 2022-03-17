@@ -185,8 +185,118 @@ d\omega_p \coloneqq \sum_{1 \leq i_1 < i_2 < \dots < i_k \leq n} \left(df^y_{i_1
 
 \subsection{多様体の向き}
 
+微分形式の座標変換則には Jacobi 行列の行列式が現れる．それが原因で，座標の取り替え方によっては符号が変わる．なので，Euclid 空間において微分形式の積分を well-defined に定義するには，座標変換の Jacobi 行列の行列式が正であることを要求しなければいけなかった．それと同様の要求が微分可能多様体に対しても必要になる．それが「向きを選ぶ」という操作である．
+
+\begin{defi}
+線型空間$V$の基底上の二項関係$\sim$を次のように定める；「$\mathcal{V} = \set{v_1, \dots, v_n}$ならびに$\mathcal{W} = \set{w_1, \dots, w_n}$を$V$の基底とし，$w_i \eqqcolon \sum a_i^j v_j$と置く．$\mathcal{V} \sim \mathcal{W}$となるのは，$\det \left(a_i^j\right) > 0$がなりたつとき」．$\sim$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．$\set{v_1, \dots, v_n}$が属する向きのことを$[ v_1, \dots, v_n ]$と書き，属さない向きのことを$- [ v_1, \dots, v_n ]$と書く．特に$V=\Real^n$の場合，標準基底$\set{e_1, \dots, e_n}$が属する向き$[e_1, \dots, e_n]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
+\end{defi}
+
+\begin{que}
+$V$の向きは常に2つ存在する．
+\end{que}
+
+\begin{dig}
+このノートではここで「右手系」や「左手系」を定義した．ここより前でこれらの言葉を証明に組み込むことはしていない．が，それはそれとして，$\Real^2$や$\Real^3$の場合に「右手系」や「左手系」という言葉を多少なりとも見た人は多いと思う．
+\end{dig}
+
+\begin{defi}
+$M$を$k$次元多様体とする．各$p \in M$ごとに，$T_pM$の向きのひとつ$\mu_p$を選んで集めた集合$\set{\mu_p | p \in M}$のことを，$M$の接空間の向きの系という．
+
+$\set{\mu_p | p \in M}$を$M$の接空間の向きの系とする．向きの系$\set{\mu_p | p \in M}$は次の条件を充たすときに一貫しているといわれ，充たさないときに一貫してないといわれる；任意の座標系$f \colon V_p \to \Real^k$をとり，その逆写像を$g \colon f(V_p) \to V_p$とするとき，任意の$a,b \in f(V_p)$に対して$[dg_a(\Tan_a(e_1)), dg_a(\Tan_a(e_2)), \dots, dg_a(\Tan_a(e_k))] = \mu_{g(a)}$と$[dg_b(\Tan_b(e_1)), dg_b(\Tan_b(e_2)), \dots, dg_b(\Tan_b(e_k))] = \mu_{g(b)}$が同値である．
+
+一貫した$M$の接空間の向きの系が存在するとき，$M$は向き付け可能であるという．このとき，ふたつ存在する一貫した$M$の接空間の向きの系のおのおのを$M$の向きという．向きの定まった多様体のことを向きづけられた多様体という．
+\end{defi}
+
+\begin{defi}
+$M$を向き付けられた多様体とし，その向きを$\mu = \set{\mu_p | p \in M}$とする．座標系$f \colon V_p \to \Real^k$をとり，その逆写像を$g \colon f(V_p) \to V_p$とする．$f$が向きを保つとは，ある$a \in f(V_p)$に対して，すなわち任意の$a \in f(V_p)$に対して$[dg_a(\Tan_a(e_1)), \dots, dg_a(\Tan_a(e_k))] = \mu_{g(a)}$が成り立つことをいう．
+\end{defi}
+
+$f$が向きを保たないならば，線型変換$T \colon \Real^k \to \Real^k$であって$\det T = -1$であるようなものを取れば$T \circ f$は向きを保つ．したがって，各点において向きを保つ座標系が存在する．
+
+\begin{lem}
+$f_1, f_2 \colon V_p \to \Real^k$を$p$のまわりの向きを保つ座標系とする．このとき，$\det D_{f_2 \circ f_1^{-1}} > 0$である．
+\end{lem}
+
+\begin{proof}$f_1$，$f_2$の逆写像をそれぞれ$g_1$，$g_2$とする．$f_1$と$f_2$がいずれも向きを保つことから，
+\begin{equation}
+[d{g_1}_p(\Tan_p(e_1)), d{g_1}_p(\Tan_p(e_2)), \dots, d{g_1}_p(\Tan_p(e_k))] = [d{g_2}_p(\Tan_p(e_1)), d{g_2}_p(\Tan_p(e_2)), \dots, d{g_2}_p(\Tan_p(e_k))]
+\end{equation}
+である．更に$g_2 \circ f_2 \circ g_1 = g_1$なので，特に$dg_2 \circ d(f_2 \circ g_1) = dg_1$を得る．したがって
+\begin{align}
+& [dg_2 \circ d(f_2 \circ g_1)_p(\Tan_p(e_1)), dg_2 \circ d(f_2 \circ g_1)_p(\Tan_p(e_2)), \dots, dg_2 \circ d(f_2 \circ g_1)_p(\Tan_p(e_k))] \\
+= &[d{g_2}_p(\Tan_p(e_1)), d{g_2}_p(\Tan_p(e_2)), \dots, d{g_2}_p(\Tan_p(e_k))]
+\end{align}を得るから，
+\begin{align}
+& [d(f_2 \circ g_1)_p(\Tan_p(e_1)), d(f_2 \circ g_1)_p(\Tan_p(e_2)), \dots, d(f_2 \circ g_1)_p(\Tan_p(e_k))] \\
+= &[\Tan_p(e_1), \Tan_p(e_2), \Tan_p(e_k)]
+\end{align}となる．したがって$\det D_{f_2 \circ f_1^{-1}} > 0$を得る．
+\end{proof}
+
+\begin{defi}
+$M$を$k$次元ふち付き多様体とし，$p \in \partial M$ならびに$p$のまわりの座標系$f \colon V_p \to \Hyp^k$を任意に取る．このとき$T_p \partial M$は$T_pM$の$k-1$次元部分線型空間である．したがって，$T_pM$における$T_p \partial M$の直交補空間は1次元線型空間をなすから，特にこの直交補空間に属する長さ1のベクトル$v$が2本取れる．その中で，$df_p(v)$の$\frac{\partial}{\partial x^k}$成分が負のものを，$M$の$p$における単位外法線といい$n(p)$であらわす．
+\end{defi}
+
+\begin{defi}
+$M$を$k$次元ふち付き多様体とし，$\mu$を$M$の向きとする．$p \in \partial M$を任意に取る．このとき，$v_1, \dots, v_{k-1} \in T_p \partial M$を，$[n(p), v_1, \dots, v_{k-1}] = \mu_p$が成り立つように取る．ここで，$v_1, \dots, v_{k-1}$が定める$T_p \partial M$の向き$[v_1, \dots, v_{k-1}]$を$(\partial M)_p$と書く．$\set{(\partial M)_p | p \in M}$は$\partial M$の向きを定める．この向きを$M$から定まる$\partial M$の向きという．
+\end{defi}
+
 \subsection{Stokes の定理}
 
 \subsection{Riemann 計量と体積形式}
+
+\cref{行列式の特徴づけ}を踏まえれば，行列式$\det$の定義として，$\omega \in \GrassAlg^n(\Real^n)$の元であって$\omega(e_1, \dots, e_n) = 1$を充たすもの，という定義を採っても構わない\footnote{学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？}．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
+
+\begin{thm}
+$T$を$V$の内積とし，$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底とする．このとき，ある$\omega \in \GrassAlg^n(V^*)$が存在して，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$を充たすような任意の正規直交基底$\set{w_1, \dots, w_n}$に対し$\omega (v_1, \dots, v_n) = 1$を充たす．この$\omega$を，内積$T$および向き$[v_1, \dots, v_n]$の定める$V$の体積要素という．特に，$\Real^n$の標準内積および自然な向きの定める体積要素は行列式$\det$である．
+\end{thm}
+
+\begin{proof}
+$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = \pm 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
+\end{proof}
+
+\begin{prop}
+$V = \Real^n$とする．$v_1, \dots, v_{n-1} \in V$を任意にとって固定する．このとき，任意の$w \in V$に対して，次の式を充たすような$z \in V$が一意的に存在する；
+\begin{equation}
+\langle z,w \rangle = \det\, (v_1, \dots, v_{n-1}, w).
+\end{equation}この$z$を$v_1 \times \dots \times v_{n-1}$と書いて，$v_1, \dots, v_{n-1}$のクロス積またはベクトル積という．
+\end{prop}
+
+\begin{proof}
+$\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}, w)$で定めれば，$\varphi$は線型写像なので，$\varphi \in V^*$である．したがって\cref{双対空間は縦ベクトル}の結果より任意の$w \in V$に対して$\varphi(w) = \langle z,w \rangle$を充たす$z$が一意的に存在する．
+\end{proof}
+
+このクロス積は，背伸びした高校生が学んだり，学部のベクトル解析で見かけるであろうあのクロス積と実際には同じものである．のだが，定義だけをみてもそれがわかる気がしないので，クロス積の諸性質（こちらのほうがまだ見慣れているだろう）を証明しておくことにする；
+
+\begin{prop}[クロス積の基本性質]$V = \Real^n$とする．
+\begin{enumerate}
+\item クロス積をとる写像$V^{n-1} \ni (v_1, \dots, v_{n-1}) \mapsto v_1 \times \dots \times v_{n-1} \in V$は多重線型である．
+\item 任意の$\sigma \in \Sym_{n-1}$に対して，$v_{\sigma(1)} \times \dots \times v_{\sigma(n-1)} = \sgn \sigma (v_1 \times \dots \times v_{n-1})$．
+\item 以下$V=\Real^3$とする．$x = \sum_i x^i e_i$ならびに$y = \sum_i y^i e_i$に対して，$x \times y = (x^2y^3 - x^3y^2)e_1 + (x^3y^1 - x^1y^3)e_2 + (x^1y^2 - x^2y^1)e_3$が成り立つ．
+\item $\langle x, x \times y \rangle = 0$ならびに$\langle y, x \times y \rangle = 0$である．
+\item $\theta$を$x$と$y$のなす角とするとき，$\|x \times y\| = \|x\| \cdot \|y\| \cdot \lvert \sin \theta \rvert$．
+\end{enumerate}
+\end{prop}
+
+\begin{proof}
+\leavevmode
+\begin{enumerate}
+\item 行列式の多重線型性より従う．
+\item 行列式の交代性より従う．
+\item Sarrus の公式より$\det \, (x,y,z) = (x^2y^3 - x^3y^2)z^1 + (x^3y^1 - x^1y^3)z^2 + (x^1y^2 - x^2y^1)z^3$であるからよい．
+\item 前段の結果と合わせて内積を直接計算せよ．
+\item $\det \, (x,y,z)$は$x,y,z \in \Real^3$の張る平行六面体の体積であった．ここで，$z = x \times y / \| x \times y \|$の場合を考えると，$\lvert \det \, (x,y,z) \rvert = \|x \times y\|$である．$\langle x, x \times y \rangle = \langle y, x \times y \rangle = 0$をすでに見たので，$\|x \times y\|$は$x$と$y$が張る平行四辺形の面積である．
+\end{enumerate}
+\end{proof}
+
+後々でやるかもしれないことを見越して，クロス積に関係するようなしないようなコメントをいくつか付け加えておくことにする\footnote{実のところ，聞きかじりに基づいて「ここでこのコメントを入れておくと後で話のネタが増えるだろう」とヤマを張っているだけである．立てたフラグを回収する保証はない．}；
+
+\begin{exm}
+$V = \Real^3$とする．$z \in \Real^3$に対して，$\varphi_z(x,y) \coloneqq \det\, (x,y,z)$によって関数$\varphi_z$を定めると，$\varphi_z \in \GrassAlg^2(\Real^3)$である．直接計算によって，$\varphi_{e_1} = e_2^* \wedge e_3^*$，$\varphi_{e_2} = e_3^* \wedge e_1^*$，$\varphi_{e_3} = e_1^* \wedge e_2^*$がわかるので，$\varphi \colon \Real^3 \in z \mapsto \varphi_z \in \GrassAlg^2(\Real^3)$は同型写像である．この同型は，微分2-形式をベクトル場と同一視する際に用いられる．この仕方の同一視に基づいて得られるベクトル場は物理学において軸性ベクトル場と呼ばれるものであり，通常のベクトル場（物理学では極性ベクトル場という）とは座標変換の際に受ける変換が異なる，ということを気が向いたら見る．古典電磁気学においては，電場は極性ベクトル場であり，磁束密度は軸性ベクトル場である，らしい．
+\end{exm}
+
+\begin{exm}
+更に，$z = z^1 e_1 + z^2 e_2 + z^3 e_3$に対して$z^* \in \GrassAlg^1(\Real^3)$を，$z^* \coloneqq z^1 e_1^* + z^2 e_2^* + z^3 e_3^*$によって定める．この写像も同型写像であるから，この2つの同型写像を合成して得られる$\GrassAlg^1(\Real^3) \ni z^* \mapsto \varphi_z \in \GrassAlg^2(\Real^3)$も同型写像である．かくして得られた同型写像を$* \colon \GrassAlg^1(\Real^3) \to \GrassAlg^2(\Real^3)$と書いて，Hodge スター作用素という．Hodge スター作用素は微分可能多様体上の Laplacian の定義に直接的に現れるのだが，どうして出てくるのか私はよく納得していない．なのでここで寄り道して定義を出した（が，Laplacian について書くかどうかは未定である）．
+\end{exm}
+
 
 \subsection{古典ベクトル解析の諸定理}

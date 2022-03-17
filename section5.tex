@@ -176,6 +176,25 @@ S(v_1,\dots, v_i, \dots, v_j, \dots, v_k) = S(v_1, \dots, v_j, \dots, v_i, \dots
 Spivak だと交代テンソル全体の記号として$\Omega^k(V)$を使っていたが，このノートでは微分可能多様体$M$上の微分$k$-形式の集合に$\Omega^k(M)$を充てたいので，記号を変えることにした．$\GrassAlg^k(V^*)$という記号も一般的なものだと思う．$\GrassAlg^k(V)$が出てこない理由は，$\Tensor^k(V)$が出てこない理由と同様である．
 \end{dig}
 
+\begin{lem}
+$T \in \Tensor^2(V^*)$を$V$の内積とする．このとき，$V$上の基底$\set{v_1, \dots, v_n}$であって，
+\begin{equation}
+T(v_i, v_j) = \begin{dcases*}
+    1 & if $i=j$ \\
+    0 & otherwise
+  \end{dcases*}
+\end{equation}
+を充たすようなものが存在する．このような$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底という．
+\end{lem}
+
+\begin{proof}
+$\Real^n$の場合と同様に Gram-Schmidt の正規直交法によれ．
+\end{proof}
+
+\begin{dig}
+Kronecker のデルタを使って$T(v_i, v_j) = \delta_{ij}$と書こうかとも思ったのだが，やめた．第1節で述べたとおり，このノートでは意図して添字の上下を書き分けている箇所が多々ある．それを踏まえると，特に何も考えずに下付きの添字を書いたとしても，意図があって下付きになっていると読まれそうな気がしたからである．ここに限った話ではないが，用語や記法は難しさをおぼえることが少なくないと感じる．
+\end{dig}
+
 特に交代テンソルは微分形式の定義に直結するので，この項で基本的性質を調べておくことにする．それに先立ち，線型代数で行列式を学んだ際に触れたであろう次の事実を思い出しておこう；
 
 \begin{prop}\label{行列式の特徴づけ}
@@ -365,41 +384,6 @@ $\omega \in \GrassAlg^k(V^*)$を任意に取れば$\omega \in \Tensor^k(V^*)$な
 
 したがって特に，$V$が（$\Real^n$でなかったとしても）$n$次元線型空間であるならば，$\dim \GrassAlg^n(V^*)=1$であるとわかる．
 
-$\GrassAlg^k(V^*)$の構造そのものについて調べるのはここまでである．ここからは，$\Tensor^k(V^*)$や$\GrassAlg^k(V^*)$に関連する概念たちを（後の都合のために）定義しておくことにする．
-
-\begin{lem}
-$T \in \Tensor^2(V^*)$を$V$の内積とする．このとき，$V$上の基底$\set{v_1, \dots, v_n}$であって，
-\begin{equation}
-T(v_i, v_j) = \begin{dcases*}
-    1 & if $i=j$ \\
-    0 & otherwise
-  \end{dcases*}
-\end{equation}
-を充たすようなものが存在する．このような$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底という．
-\end{lem}
-
-\begin{proof}
-$\Real^n$の場合と同様に Gram-Schmidt の正規直交法によれ．
-\end{proof}
-
-\begin{dig}
-Kronecker のデルタを使って$T(v_i, v_j) = \delta_{ij}$と書こうかとも思ったのだが，やめた．第1節で述べたとおり，このノートでは意図して添字の上下を書き分けている箇所が多々ある．それを踏まえると，特に何も考えずに下付きの添字を書いたとしても，意図があって下付きになっていると読まれそうな気がしたからである．ここに限った話ではないが，用語や記法は難しさをおぼえることが少なくないと感じる．
-\end{dig}
-
-\begin{defi}
-線型空間$V$の基底上の二項関係$\sim$を次のように定める；「$\mathcal{V} = \set{v_1, \dots, v_n}$ならびに$\mathcal{W} = \set{w_1, \dots, w_n}$を$V$の基底とし，$w_i \eqqcolon \sum a_i^j v_j$と置く．$\mathcal{V} \sim \mathcal{W}$となるのは，$\det \left(a_i^j\right) > 0$がなりたつとき」．$\sim$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．$\set{v_1, \dots, v_n}$が属する向きのことを$[ v_1, \dots, v_n ]$と書き，属さない向きのことを$- [ v_1, \dots, v_n ]$と書く．特に$V=\Real^n$の場合，標準基底$\set{e_1, \dots, e_n}$が属する向き$[e_1, \dots, e_n]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
-\end{defi}
-
-\begin{que}
-$V$の向きは常に2つ存在する．
-\end{que}
-
-\begin{dig}
-このノートではここで「右手系」や「左手系」を定義した．ここより前でこれらの言葉を証明に組み込むことはしていない．が，それはそれとして，$\Real^2$や$\Real^3$の場合に「右手系」や「左手系」という言葉を多少なりとも見た人は多いと思う．
-\end{dig}
-
-\cref{行列式の特徴づけ}を踏まえれば，行列式$\det$の定義として，$\omega \in \GrassAlg^n(\Real^n)$の元であって$\omega(e_1, \dots, e_n) = 1$を充たすもの，という定義を採っても構わない\footnote{学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？}．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
-
 \begin{lem}\label{最高次交代テンソルの変換則}
 $\set{v_1, \dots, v_n}$を$V$の基底とし，$\omega \in \GrassAlg^n(V^*)$を任意に取る．更に，$w_1, \dots, w_n \in V$を任意にとり$w_i \eqqcolon \sum a_i^j v_j$と置く．このとき，
 \begin{equation}
@@ -411,60 +395,8 @@ $\set{v_1, \dots, v_n}$を$V$の基底とし，$\omega \in \GrassAlg^n(V^*)$を�
 $\eta \in \Tensor^n(\Real^n)$を次のように定める；$b_i = (b_i^1, \dots, b_i^n) \in \Real^n$（$1 \leq i \leq n$）に対して，
 \begin{equation}
 \eta (b_1, \dots, b_n) \coloneqq \omega \left(\sum_i b_1^i v_i, \dots, \sum_i b_n^i v_i \right).
-\end{equation}$\omega \in \Tensor^n(V^*)$であることから，$\eta \in \GrassAlg^n(\Real^n)$がわかるので，ある定数$c \in \Real$があり，$\eta = c \cdot \det$である．$b_i = e_i$（$\Real^n$の標準基底）の場合を考えることで，$c = \omega(v_1, \dots, v_n)$がわかるから，$\omega(w_1, \dots, w_n) = \eta (a_1, \dots, a_n) = \det \left( a_i^j \right) \omega(v_1, \dots, v_n)$を得る．
+\end{equation}$\omega \in \GrassAlg^n(V^*)$であることから，$\eta \in \GrassAlg^n(\Real^n)$がわかるので，ある定数$c \in \Real$があり，$\eta = c \cdot \det$である．$b_i = e_i$（$\Real^n$の標準基底）の場合を考えることで，$c = \omega(v_1, \dots, v_n)$がわかるから，$\omega(w_1, \dots, w_n) = \eta (a_1, \dots, a_n) = \det \left( a_i^j \right) \omega(v_1, \dots, v_n)$を得る．
 \end{proof}
-
-\begin{thm}
-$T$を$V$の内積とし，$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底とする．このとき，ある$\omega \in \GrassAlg^n(V^*)$が存在して，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$を充たすような任意の正規直交基底$\set{w_1, \dots, w_n}$に対し$\omega (v_1, \dots, v_n) = 1$を充たす．この$\omega$を，内積$T$および向き$[v_1, \dots, v_n]$の定める$V$の体積要素という．特に，$\Real^n$の標準内積および自然な向きの定める体積要素は行列式$\det$である．
-\end{thm}
-
-\begin{proof}
-$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = \pm 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
-\end{proof}
-
-\begin{prop}
-$V = \Real^n$とする．$v_1, \dots, v_{n-1} \in V$を任意にとって固定する．このとき，任意の$w \in V$に対して，次の式を充たすような$z \in V$が一意的に存在する；
-\begin{equation}
-\langle z,w \rangle = \det\, (v_1, \dots, v_{n-1}, w).
-\end{equation}この$z$を$v_1 \times \dots \times v_{n-1}$と書いて，$v_1, \dots, v_{n-1}$のクロス積またはベクトル積という．
-\end{prop}
-
-\begin{proof}
-$\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}, w)$で定めれば，$\varphi$は線型写像なので，$\varphi \in V^*$である．したがって\cref{双対空間は縦ベクトル}の結果より任意の$w \in V$に対して$\varphi(w) = \langle z,w \rangle$を充たす$z$が一意的に存在する．
-\end{proof}
-
-このクロス積は，背伸びした高校生が学んだり，学部のベクトル解析で見かけるであろうあのクロス積と実際には同じものである．のだが，定義だけをみてもそれがわかる気がしないので，クロス積の諸性質（こちらのほうがまだ見慣れているだろう）を証明しておくことにする；
-
-\begin{prop}[クロス積の基本性質]$V = \Real^n$とする．
-\begin{enumerate}
-\item クロス積をとる写像$V^{n-1} \ni (v_1, \dots, v_{n-1}) \mapsto v_1 \times \dots \times v_{n-1} \in V$は多重線型である．
-\item 任意の$\sigma \in \Sym_{n-1}$に対して，$v_{\sigma(1)} \times \dots \times v_{\sigma(n-1)} = \sgn \sigma (v_1 \times \dots \times v_{n-1})$．
-\item 以下$V=\Real^3$とする．$x = \sum_i x^i e_i$ならびに$y = \sum_i y^i e_i$に対して，$x \times y = (x^2y^3 - x^3y^2)e_1 + (x^3y^1 - x^1y^3)e_2 + (x^1y^2 - x^2y^1)e_3$が成り立つ．
-\item $\langle x, x \times y \rangle = 0$ならびに$\langle y, x \times y \rangle = 0$である．
-\item $\theta$を$x$と$y$のなす角とするとき，$\|x \times y\| = \|x\| \cdot \|y\| \cdot \lvert \sin \theta \rvert$．
-\end{enumerate}
-\end{prop}
-
-\begin{proof}
-\leavevmode
-\begin{enumerate}
-\item 行列式の多重線型性より従う．
-\item 行列式の交代性より従う．
-\item Sarrus の公式より$\det \, (x,y,z) = (x^2y^3 - x^3y^2)z^1 + (x^3y^1 - x^1y^3)z^2 + (x^1y^2 - x^2y^1)z^3$であるからよい．
-\item 前段の結果と合わせて内積を直接計算せよ．
-\item $\det \, (x,y,z)$は$x,y,z \in \Real^3$の張る平行六面体の体積であった．ここで，$z = x \times y / \| x \times y \|$の場合を考えると，$\lvert \det \, (x,y,z) \rvert = \|x \times y\|$である．$\langle x, x \times y \rangle = \langle y, x \times y \rangle = 0$をすでに見たので，$\|x \times y\|$は$x$と$y$が張る平行四辺形の面積である．
-\end{enumerate}
-\end{proof}
-
-後々でやるかもしれないことを見越して，クロス積に関係するようなしないようなコメントをいくつか付け加えておくことにする\footnote{実のところ，聞きかじりに基づいて「ここでこのコメントを入れておくと後で話のネタが増えるだろう」とヤマを張っているだけである．立てたフラグを回収する保証はない．}；
-
-\begin{exm}
-$V = \Real^3$とする．$z \in \Real^3$に対して，$\varphi_z(x,y) \coloneqq \det\, (x,y,z)$によって関数$\varphi_z$を定めると，$\varphi_z \in \GrassAlg^2(\Real^3)$である．直接計算によって，$\varphi_{e_1} = e_2^* \wedge e_3^*$，$\varphi_{e_2} = e_3^* \wedge e_1^*$，$\varphi_{e_3} = e_1^* \wedge e_2^*$がわかるので，$\varphi \colon \Real^3 \in z \mapsto \varphi_z \in \GrassAlg^2(\Real^3)$は同型写像である．この同型は，微分2-形式をベクトル場と同一視する際に用いられる．この仕方の同一視に基づいて得られるベクトル場は物理学において軸性ベクトル場と呼ばれるものであり，通常のベクトル場（物理学では極性ベクトル場という）とは座標変換の際に受ける変換が異なる，ということを気が向いたら見る．古典電磁気学においては，電場は極性ベクトル場であり，磁束密度は軸性ベクトル場である，らしい．
-\end{exm}
-
-\begin{exm}
-更に，$z = z^1 e_1 + z^2 e_2 + z^3 e_3$に対して$z^* \in \GrassAlg^1(\Real^3)$を，$z^* \coloneqq z^1 e_1^* + z^2 e_2^* + z^3 e_3^*$によって定める．この写像も同型写像であるから，この2つの同型写像を合成して得られる$\GrassAlg^1(\Real^3) \ni z^* \mapsto \varphi_z \in \GrassAlg^2(\Real^3)$も同型写像である．かくして得られた同型写像を$* \colon \GrassAlg^1(\Real^3) \to \GrassAlg^2(\Real^3)$と書いて，Hodge スター作用素という．Hodge スター作用素は微分可能多様体上の Laplacian の定義に直接的に現れるのだが，どうして出てくるのか私はよく納得していない．なのでここで寄り道して定義を出した（が，Laplacian について書くかどうかは未定である）．
-\end{exm}
 
 \subsection{ベクトル場}
 
@@ -1146,7 +1078,7 @@ $\int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^
 \end{align}
 となるので，結局$\int_{I^n} d \omega = \int_{\partial I^n} \omega$を得る．
 
-$c$が一般の曲$k$方体のときは，定義より$\int_{\partial c} \omega = \int_{\partial I^n} c^* \omega$なので，
+$c$が一般の曲$k$方体のときは，定義より$\int_{\partial c} \omega = \int_{\partial I^k} c^* \omega$\footnote{$\int_{\partial c} \omega = \int_{[0,1]^k} (\partial c)^* \omega = \int_{[0,1]^k} \left(\sum_{i=1}^k \sum_{\alpha=0}^1 (-1)^{i+\alpha} c \circ I_{(i,\alpha)}^k \right)^* \omega = \int_{[0,1]^k} \sum_{i=1}^k \sum_{\alpha=0}^1 (-1)^{i+\alpha} \left(I_{(i,\alpha)}^k \right)^* \circ c^* \omega = \int_{[0,1]^k} \left(\partial I^k\right)^* \circ c^* \omega = \int_{\partial I^k} c^* \omega$である．}なので，
 \begin{equation}
 \int_c \dif \omega = \int_{I^k} c^* (\dif \omega) = \int_{I^k} \dif (c^* \omega) = \int_{\partial I^k} c^* \omega = \int_{\partial c} \omega.
 \end{equation}$c$が一般の曲$k$鎖体の場合は積分の線型性と曲$k$方体に対する結果よりよい．

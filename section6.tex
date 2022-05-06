@@ -366,5 +366,66 @@ $V = \Real^3$とする．$z \in \Real^3$に対して，$\varphi_z(x,y) \coloneqq
 更に，$z = z^1 e_1 + z^2 e_2 + z^3 e_3$に対して$z^* \in \GrassAlg^1(\Real^3)$を，$z^* \coloneqq z^1 e_1^* + z^2 e_2^* + z^3 e_3^*$によって定める．この写像も同型写像であるから，この2つの同型写像を合成して得られる$\GrassAlg^1(\Real^3) \ni z^* \mapsto \varphi_z \in \GrassAlg^2(\Real^3)$も同型写像である．かくして得られた同型写像を$* \colon \GrassAlg^1(\Real^3) \to \GrassAlg^2(\Real^3)$と書いて，Hodge スター作用素という．Hodge スター作用素は微分可能多様体上の Laplacian の定義に直接的に現れるのだが，どうして出てくるのか私はよく納得していない．なのでここで寄り道して定義を出した（が，Laplacian について書くかどうかは未定である）．
 \end{exm}
 
+\begin{defi}
+$T_pM$の内積$g(p) = g_p \colon T_pM \times T_pM \to \Real$を，$g_p(v,w) \coloneqq \langle v, w\rangle_p$によって定める（ただし，$\langle\cdot,\cdot\rangle_p$は$T_p\Real^n$の標準内積）．この$g$を$M$の Riemann 計量という．$M$が2次元の場合，$g$のことを第一基本形式ともいう．Riemann計量$g$が与えられた多様体のことを Riemann 多様体という．
+\end{defi}
+
+\begin{defi}
+$M$を向きづけられた Riemann 多様体とし，その Riemann 計量を$g$，向きを$\mu$とする．このとき，各$p \in M$に対して，$g_p$ならびに向き$\mu_p$が定める$T_pM$の体積要素$\omega_p$が存在する．したがって，$\omega \colon p \mapsto \omega_p$は$M$上の$k$形式となるが，これを$\mu$ならびに$g$によって定まる$M$の体積要素といい，しばしば$\dif V$と書く（が，これは$k-1$形式$V$の外微分などではない）．$\int_M \dif V$が存在するならば，その値を$M$の体積という．
+
+特に$M$が1次元のときは$dV$を$ds$とも書いて，線素と呼ぶこともある．$\int_M \dif s$は「長さ」と呼ぶほうが一般的である．2次元のときは$\dif V$を$\dif A$ないし$\dif S$とも書いて，面素と呼ぶこともある．$\int_M \dif A$は「面積」と呼ぶほうが一般的である．
+\end{defi}
+
+\begin{exm}
+$M \subset \Real^3$を2次元多様体とし，$\omega_p \in \GrassAlg^2(T_pM)$を$\omega_p(v,w) \coloneqq \det(v,w,n(p))$によって定める．このとき，$v,w$が$[v,w] = \mu_p$を充たすような$T_pM$の正規直交基底であるならば，$\omega_p(v,w) = 1$である．したがって$\omega = \dif A$である．他方，ベクトル積の定義から$\omega(v,w) = \langle v \times w, n(p) \rangle$であり，$v \times w$は$n(p)$の定数倍なので，$[v,w] = \mu_p$ならば$\dif A(v,w) = |v \times w|$である．
+\end{exm}
+
+\begin{thm}
+$n$を単位外法線ベクトル場とし，$(x,y,z)$を$\Real^3$の座標とする．更に$M \subset \Real^3$を2次元多様体とし，$\dif A$を面素とする．このとき，$M$上で
+\begin{enumerate}
+\item $\dif A = n^1 \dif y\wedge \dif z + n^2 \dif z \wedge \dif x + n^3 \dif z \wedge \dif x$
+\item $n^1 \dif A = \dif y \wedge \dif z$
+\item $n^2 \dif A = \dif z \wedge \dif x$
+\item $n^3 \dif A = \dif x \wedge \dif z$
+\end{enumerate}が成り立つ．ただし，包含写像$\iota \colon M \to \Real^3$による引き戻し$\iota^*(\dif x)$のことも$\dif x$と書いていることに注意せよ．
+\end{thm}
 
 \subsection{古典ベクトル解析の諸定理}
+
+最後に，ここまで見た一般論から，古典ベクトル解析の大定理たちが出せることをみて終わりにする．以下，このノートの終わりまで，$\Real^2$の座標を$(x,y)$で，$\Real^3$の座標を$(x,y,z)$で表すことにする．また，多様体はすべて向き付けられているとして，その境界にはもとの多様体から定まる向きを入れる．
+
+\begin{thm}[Green]
+$M$を$\Real^2$内のコンパクト2次元ふちつき多様体，$\alpha, \beta \colon M \to \Real$を$C^\infty$級関数とする．このとき，
+\begin{equation}
+\int_{\partial M} \alpha \dif x + \beta \dif y = \int_M \left( \partial_1 \beta - \partial_2 \alpha \right) \dif x \wedge \dif y
+\end{equation}が成り立つ．古典的な書き方をすれば，
+\begin{equation}
+\int_{\partial M} \alpha \dif x + \beta \dif y = \int_M \left( \frac{\partial \beta}{\partial x} - \frac{\partial \alpha}{\partial y} \right) \dif x \dif y
+\end{equation}が成り立つ．
+\end{thm}
+
+\begin{proof}
+$\omega = \alpha \dif x + \beta \dif y$とした際の Stokes の定理である．
+\end{proof}
+
+\begin{thm}[Gau\ss]
+$M$を$\Real^3$内のコンパクト3次元ふちつき多様体，$n$を$M$の単位外法線ベクトル場，$F$を$M$上の$C^\infty$級ベクトル場とする．このとき，
+\begin{equation}
+\int_M \left( \partial_1 F^1 + \partial_2 F^2 + \partial_3 F^3 \right) \dif V = \int_{\partial M} \langle F, n \rangle \dif A
+\end{equation}が成り立つ．
+\end{thm}
+
+\begin{proof}
+$\omega = F^1 \dif y \wedge \dif z + F^2 \dif z \wedge \dif x + F^3 \dif x \wedge \dif y$としたときの Stokes の定理である．実際，$n^1 \dif A = \dif y \wedge \dif z$などより$\langle F, n \rangle \dif A = \omega$がわかる．
+\end{proof}
+
+\begin{thm}[Classical Stokes]
+$M$を$\Real^3$内のコンパクト3次元ふちつき多様体，$n$を$M$の単位外法線ベクトル場，$F$を$M$上の$C^\infty$級ベクトル場とする．更に，ベクトル場$\nabla \times F$を，$\left(\partial_2 F^3 - \partial_3 F^2\right) \frac{\partial}{\partial x} + \left(\partial_3 F^1 - \partial_1 F^3\right) \frac{\partial}{\partial y} + \left(\partial_1 F^2 - \partial_2 F^1\right) \frac{\partial}{\partial z}$によって定める．また，$\partial M$上のベクトル場$T$を，$\dif s (T) = 1$を充たすような唯一のものとして定める．このとき，
+\begin{equation}
+\int_M \langle \nabla \times F, n \rangle \dif A = \int_{\partial M} \langle F, T \rangle \dif s
+\end{equation}が成り立つ．
+\end{thm}
+
+\begin{proof}
+$\omega = F_1 \dif x + F_2 \dif y + F_3 \dif z$としたときの Stokes の定理である．実際，$n^1 \dif A = \dif y \wedge \dif z$などより$\langle \nabla \times F, n \rangle \dif A = \dif \omega$がわかり，$\dif s(T)=1$より$T^1 \dif s = \dif x$などがわかるので，$\omega = \langle F, T \rangle \dif s$が従う．
+\end{proof}

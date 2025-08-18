@@ -88,3 +88,57 @@ pandoc -f latex -t typst -s Calculus_on_Manifolds.tex \
 当然ながらそのままだとあちこちメチャクチャになっており、動かない。ので、LaTeX の section 単位で分割して移行する方針にする。
 
 とりあえず、本文をすべてコメントアウトしてコンパイルが通ることを確認する。→できた。
+
+## pandoc が変換してくれなかったと明示的に申告してきたもの
+
+この時点で pandoc が出した警告も確認しておくと、以下のようなものがたくさんでていた。
+
+```
+  unexpected control sequence \set
+  expecting "%", "\\label", "\\tag", "\\nonumber", whitespace or "\\allowbreak"
+[WARNING] Could not convert TeX math \set{x}, rendering as TeX:
+  \set{x}
+      ^
+```
+
+記憶が正しければ私は braket パッケージで宣言されている `\set` コマンドを使って集合を書いていたはず。 https://www.ctan.org/pkg/braket
+さすがに外部パッケージのコマンドまでいい感じに解決はしてくれないか。
+
+## pandoc 任せで全部うまく行ったもの
+
+逆に、自分が定義した preamble であればある程度は pandoc で勝手に解決してくれるように見える。私はあんまり凝ったことを preamble でやっていなかったので苦労せずに済んだのかも。
+
+TeX 側で
+
+```tex
+\newcommand{\Real}{\mathbb{R}}
+```
+
+のように定義したうえで
+
+```tex
+特に，$M$として$\Real$の閉区間$[a,b]$，$\omega$として$[a,b]$上の0-形式（すなわち$C^\infty$級関数）$F$を取り，$F$の導関数を$f$と書くことにすれば，...
+```
+
+と書いていたものが、pandoc に通した段階で
+
+```typ
+特に，$M$として$bb(R)$の閉区間$\[ a \, b \]$，$omega$として$\[ a \, b \]$上の0-形式（すなわち$C^oo$級関数）$F$を取り，$F$の導関数を$f$と書くことにすれば，...
+```
+
+のように翻訳されていた。LaTeX の preamble で勝手に定義した `\Real` が typst の `$bb(R)` に変換されていることに注意。
+
+## pandoc 任せだとちっともうまく行ってる様子がないもの
+
+- 章の番号付けや定理番号
+- フォント
+
+がかなりうまく行ってない様子。
+
+latex 
+![image](./compare_style_latex.png)
+
+typst
+![image](./compare_style_typst.png)
+
+とりあえず定理番号がちゃんとついてフォントがマトモになればそれっぽさが増すと思うのでそこを修復する。

@@ -130,7 +130,8 @@ TeX 側で
 
 ## pandoc 任せだとちっともうまく行ってる様子がないもの
 
-- 章の番号付けや定理番号
+- 定理番号
+- ラベルとその参照
 - フォントなどのスタイル調整
 
 がかなりうまく行ってない様子。
@@ -143,7 +144,9 @@ typst
 
 とりあえず定理番号がちゃんとついてフォントがマトモになればそれっぽさが増すと思うのでそこを修復する。
 
-### なんで定理番号がついてないのか
+### 定理番号
+
+#### うまく行ってない理由
 
 - 定理環境を以下のように外部パッケージのコマンドを使って宣言していた
   - thmtools パッケージで宣言されている `\declaretheorem`  https://ctan.org/pkg/thmtools
@@ -232,6 +235,8 @@ a \cdot (x^1, x^2, \dots, x^n) &\coloneqq (ax^1, ax^2, \dots, ax^n)
 - pandoc を通したあとの `.typ` を温かみのある手作業で編集するか
 
 のどちらかだが……さすがに後者をやるのは嫌なのでもう少し逃げ道を考える。
+
+#### 修復まで
 
 ちょい調べたところ、pandoc は input を AST に変換してその AST をもとに対象の言語へのアウトプットを吐くらしい。で、その AST に対して特定の規則で変換をかけることができる。この変換のことを filter というらしい。
 
@@ -370,41 +375,6 @@ local function env_of(classes)
 end
 
 local function esc(s) return s and (s:gsub("\\","\\\\"):gsub('"','\\"')) or s end
-
--- try to strip "Theorem 1 (Title)." prefix that pandoc injects
-local function peel_header(blocks)
-  if #blocks == 0 or blocks[1].t ~= "Para" then return nil, blocks end
-  local inls = blocks[1].content or blocks[1] -- pandoc 3.x
-  if not inls or #inls == 0 then return nil, blocks end
-
-  -- Heuristic: starts with Strong["Theorem"/"Lemma"/...]
-  local headword = nil
-  if inls[1] and inls[1].t == "Strong" then
-    headword = pandoc.utils.stringify(inls[1])
-  end
-  if not headword then return nil, blocks end
-
-  -- collect title between first (...) after headword; drop until first period after that
-  local title, stage, new_inls = {}, "seek_open", {}
-  for i=1,#inls do
-    local el = inls[i]
-    local txt = (el.t == "Str") and el.text or nil
-    if stage == "seek_open" then
-      if txt == "(" then stage = "in_title" end
-    elseif stage == "in_title" then
-      if txt == ")" then stage = "seek_period" else table.insert(title, el) end
-    elseif stage == "seek_period" then
-      if txt == "." then stage = "keep_rest" end
-    else -- keep_rest
-      table.insert(new_inls, el)
-    end
-  end
-  local t = pandoc.utils.stringify(pandoc.Inlines(title))
-  local rest = {}
-  if #new_inls > 0 then table.insert(rest, pandoc.Para(new_inls)) end
-  for i=2,#blocks do table.insert(rest, blocks[i]) end
-  return (t ~= "" and t or nil), rest
-end
 
 function Div(el)
   local typ = env_of(el.classes)
@@ -617,7 +587,166 @@ https://forum.typst.app/t/how-do-i-align-text-in-ctheorems-thmbox/3273
   a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
 ```
 
+### ラベルとその参照
 
+以下を `debug_label.tex` として保存して
+
+```tex
+\newcommand{\Real}{\mathbb{R}}
+
+
+\begin{que}\label{線型写像と行列の対応}
+$A$を$m \times n$行列とする時，$A$倍写像$\Real^n \ni x \mapsto Ax \in \Real^m$は線型写像である．逆に$T \colon \Real^n \to \Real^m$を線型写像とすると，ある行列$A$が存在して$T(x) = Ax$が成り立つ．
+\end{que}
+
+\begin{lem}\label{線型写像の連続性}
+$T \colon \Real^m \to \Real^n$を線型写像とする．このとき，ある実数$M$があって，任意の$h \in V$に対して$\|T(h)\| \leq M \|h\|$が成り立つ．
+\end{lem}
+
+\begin{proof}
+問 \ref{線型写像と行列の対応} の結果より，ある行列$A = \left(a^i_j\right)$があって$T(h) = Ah$であるとしてよい．$M \coloneqq \max \left\{\left|a^i_j\right|\right\} $とすればよい．
+\end{proof}
+```
+
+pandoc にかけると以下のようになる。
+
+```typst
+$ pandoc -f latex -t typst -L thm2typst.lua debug_label.tex
+#que[
+<線型写像と行列の対応>
+$A$を$m times n$行列とする時，$A$倍写像$bb(R)^n in.rev x mapsto A x in bb(R)^m$は線型写像である．逆に$T : bb(R)^n arrow.r bb(R)^m$を線型写像とすると，ある行列$A$が存在して$T \( x \) = A x$が成り立つ．
+
+]
+
+]
+#proof[
+#emph[Proof.] 問 @線型写像と行列の対応
+の結果より，ある行列$A = (a_j^i)$があって$T \( h \) = A h$であるとしてよい．$M colon.eq max {lr(|a_j^i|)}$とすればよい．~◻
+
+]
+```
+
+上掲したものは動作しない。label はこの位置ではなくて、block の直後に置かれてもらわないと困る。
+
+```typst
+#que[
+  $A$を$m times n$行列とする時，$A$倍写像$bb(R)^n in.rev x mapsto A x in bb(R)^m$は線型写像である．逆に$T : bb(R)^n arrow.r bb(R)^m$を線型写像とすると，ある行列$A$が存在して$T \( x \) = A x$が成り立つ．
+
+] <線型写像と行列の対応>
+
+#proof[
+  #emph[Proof.] 問 @線型写像と行列の対応
+  の結果より，ある行列$A = (a_j^i)$があって$T \( h \) = A h$であるとしてよい．$M colon.eq max {lr(|a_j^i|)}$とすればよい．~◻
+
+]
+```
+
+これ自体は label が pandoc の AST 上でどこに入ってくるかを見極めたうえでそいつを引っ掛けられるように lua filter を書き換えればいい。
+
+```lua
+-- thm2typst.lua
+local map = {
+  thm="thm",
+  defi="defi",
+  lem="lem",
+  que="que",
+  cor="cor",
+  prop="prop",
+  dig="dig",
+  state="state",
+  exm="exm",
+  rem="rem",
+  proof="proof",
+  myproof="proof"
+}
+
+local function env_of(classes)
+  for _,c in ipairs(classes or {}) do
+    if map[c] then return map[c], c end
+  end
+end
+
+local function esc(s) return s and (s:gsub("\\","\\\\"):gsub('"','\\"')) or s end
+
+-- 先頭段落から \label を抜き出す（Typst では #env[...] の後に置くため）
+local function extract_label(blocks)
+  if #blocks == 0 or blocks[1].t ~= "Para" then return nil, blocks end
+  local inls = blocks[1].content or blocks[1]
+  local new_inls, label = {}, nil
+
+  local function pick_from_span(span)
+    local attrs = span.attributes or (span.attr and span.attr.attributes) or {}
+    if attrs and (attrs.label or attrs.target) then return attrs.label or attrs.target end
+    return nil
+  end
+
+  for _,el in ipairs(inls) do
+    if label == nil and el.t == "Span" then
+      label = pick_from_span(el)
+    else
+      table.insert(new_inls, el) 
+    end
+  end
+
+  if label then
+    -- 先頭段落が空になったら落とす
+    local rest = {}
+    if #new_inls > 0 then table.insert(rest, pandoc.Para(new_inls)) end
+    for i=2,#blocks do table.insert(rest, blocks[i]) end
+    return label, rest
+  else
+    return nil, blocks
+  end
+end
+
+function Div(el)
+  local typ = env_of(el.classes)
+  if not typ then return nil end
+
+  local label
+  local body = el.content
+  label, body = extract_label(body)
+
+  local open = string.format('#%s[', typ)
+  local out = { pandoc.RawBlock("typst", open) }
+  for _,b in ipairs(body) do
+    table.insert(out, b)
+  end
+  table.insert(out, pandoc.RawBlock("typst", "]"))
+  if label then
+    table.insert(out, pandoc.RawBlock("typst", " <"..esc(label)..">"))
+  end
+  return out
+end
+```
+
+やり直してみたらちゃんと動いた。
+
+```typst
+#que[
+  $A$を$m times n$行列とする時，$A$倍写像$bb(R)^n in.rev x mapsto A x in bb(R)^m$は線型写像である．逆に$T : bb(R)^n arrow.r bb(R)^m$を線型写像とすると，ある行列$A$が存在して$T \( x \) = A x$が成り立つ．
+
+]
+<線型写像と行列の対応>
+#lem[
+  $T : bb(R)^m arrow.r bb(R)^n$を線型写像とする．このとき，ある実数$M$があって，任意の$h in V$に対して$parallel T \( h \) parallel lt.eq M parallel h parallel$が成り立つ．
+
+]
+<線型写像の連続性>
+#proof[
+  #emph[Proof.] 問 @線型写像と行列の対応
+  の結果より，ある行列$A = (a_j^i)$があって$T \( h \) = A h$であるとしてよい．$M colon.eq max {lr(|a_j^i|)}$とすればよい．~◻
+
+]
+```
+
+`#emph[Proof.]` が混ざっているが、これくらいなら `.typ` に変換したあとに ctrl-f で検索して一括で消せばいいので、これは lua filter では対応しないでよさそうだ。とおもって本文を全部 lua filter に通してみたところ、なぜか `#emph[Proof.]` が混ざらずに済んだ。機序は謎だが楽ができたので良かった。
+
+ここまでで、LaTeX 組み込みの `\label` ならびに `\ref` を用いた定理番号の参照まで移行できた。
+
+### restatable の移行
+
+出来てないことがわかっている。
 
 ### スタイル調整
 

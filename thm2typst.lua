@@ -22,55 +22,53 @@ end
 
 local function esc(s) return s and (s:gsub("\\","\\\\"):gsub('"','\\"')) or s end
 
--- try to strip "Theorem 1 (Title)." prefix that pandoc injects
-local function peel_header(blocks)
+-- 先頭段落から \label を抜き出す（Typst では #env[...] の後に置くため）
+local function extract_label(blocks)
   if #blocks == 0 or blocks[1].t ~= "Para" then return nil, blocks end
-  local inls = blocks[1].content or blocks[1] -- pandoc 3.x
-  if not inls or #inls == 0 then return nil, blocks end
+  local inls = blocks[1].content or blocks[1]
+  local new_inls, label = {}, nil
 
-  -- Heuristic: starts with Strong["Theorem"/"Lemma"/...]
-  local headword = nil
-  if inls[1] and inls[1].t == "Strong" then
-    headword = pandoc.utils.stringify(inls[1])
+  local function pick_from_span(span)
+    local attrs = span.attributes or (span.attr and span.attr.attributes) or {}
+    if attrs and (attrs.label or attrs.target) then return attrs.label or attrs.target end
+    return nil
   end
-  if not headword then return nil, blocks end
 
-  -- collect title between first (...) after headword; drop until first period after that
-  local title, stage, new_inls = {}, "seek_open", {}
-  for i=1,#inls do
-    local el = inls[i]
-    local txt = (el.t == "Str") and el.text or nil
-    if stage == "seek_open" then
-      if txt == "(" then stage = "in_title" end
-    elseif stage == "in_title" then
-      if txt == ")" then stage = "seek_period" else table.insert(title, el) end
-    elseif stage == "seek_period" then
-      if txt == "." then stage = "keep_rest" end
-    else -- keep_rest
-      table.insert(new_inls, el)
+  for _,el in ipairs(inls) do
+    if label == nil and el.t == "Span" then
+      label = pick_from_span(el)
+    else
+      table.insert(new_inls, el) 
     end
   end
-  local t = pandoc.utils.stringify(pandoc.Inlines(title))
-  local rest = {}
-  if #new_inls > 0 then table.insert(rest, pandoc.Para(new_inls)) end
-  for i=2,#blocks do table.insert(rest, blocks[i]) end
-  return (t ~= "" and t or nil), rest
+
+  if label then
+    -- 先頭段落が空になったら落とす
+    local rest = {}
+    if #new_inls > 0 then table.insert(rest, pandoc.Para(new_inls)) end
+    for i=2,#blocks do table.insert(rest, blocks[i]) end
+    return label, rest
+  else
+    return nil, blocks
+  end
 end
 
 function Div(el)
   local typ = env_of(el.classes)
   if not typ then return nil end
 
-  local title, body = peel_header(el.content)
-  local open
-  if title then
-    open = string.format('#%s("%s")[', typ, esc(title))
-  else
-    open = string.format('#%s[', typ)
-  end
+  local label
+  local body = el.content
+  label, body = extract_label(body)
 
+  local open = string.format('#%s[', typ)
   local out = { pandoc.RawBlock("typst", open) }
-  for _,b in ipairs(body) do table.insert(out, b) end
+  for _,b in ipairs(body) do
+    table.insert(out, b)
+  end
   table.insert(out, pandoc.RawBlock("typst", "]"))
+  if label then
+    table.insert(out, pandoc.RawBlock("typst", " <"..esc(label)..">"))
+  end
   return out
 end

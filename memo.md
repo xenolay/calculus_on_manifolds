@@ -244,3 +244,98 @@ INPUT --reader--> AST --filter--> AST --writer--> OUTPUT
 ```
 
 ということは pandoc の AST について調べて filter をかけばよさそうな感じに見える。公式ドキュメント曰くは Lua filter と JSON filter の2つがあり、Lua filter がおすすめらしいので Lua filter を頑張って書いてみよう。
+
+とはいえ自分が相手にしている AST の様子がまったくわからないと手を出しにくいので、小さなサイズでとりあえずナマの AST を出力させてみることにする。
+
+```latex
+\begin{dig}
+ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと， \LaTeX で書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．
+\end{dig}
+```
+
+これを json format ならびに haskell native format で出力させてみた結果がこちら
+
+```
+{
+  "t": "Div",
+  "c": [
+    ["", ["dig"], []],   // Attr: id="", classes=["dig"], attrs=[]
+    [                    // 中身([Block])
+      { "t": "Para",
+        "c": [
+          { "t": "Str", "c": "ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと，" },
+          { "t": "Space" },
+          { "t": "Str", "c": "LaTeXで書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．" }
+        ]
+      }
+    ]
+  ]
+}
+```
+
+```
+Div
+    ( "" , [ "dig" ] , [] )
+    [ Para
+        [ Str
+            "\12505\12463\12488\12523\12434\32048\23383\12391\26360\12356\12390\12356\12427\29702\30001\12399\12394\12435\12392\12394\12367\12471\12531\12503\12523\12391\12363\12387\12371\12424\12356\12398\12392\65292"
+        , Space
+        , Str
+            "LaTeX\12391\26360\12367\37327\12364\28187\12427\12363\12425\12391\12354\12427\65294\25968\23398\12398\39080\32722\12395\21512\12431\12379\12390\12356\12427\12392\12356\12358\12479\12486\12510\12456\12434\12388\12369\12425\12428\12394\12367\12418\12394\12356\12364\65292\12354\12367\12414\12391\12479\12486\12510\12456\12398\22495\12434\20986\12394\12356\65294"
+        ]
+    ]
+```
+
+よくわからないので更に調べてみた感じ、（Haskell で定義されている）Div というコンストラクタがあって、そいつの引数が Attr と Block のリストだということらしい。
+
+[] Block | 
+https://hackage.haskell.org/package/pandoc-types-1.23.1/docs/src/Text.Pandoc.Definition.html#Block
+```hs
+-- | Block element.
+data Block
+    -- | Plain text, not a paragraph
+    = Plain [Inline]
+    -- | Paragraph
+    | Para [Inline]
+    -- | Multiple non-breaking lines
+    | LineBlock [[Inline]]
+    -- | Code block (literal) with attributes
+    | CodeBlock Attr Text
+    -- | Raw block
+    | RawBlock Format Text
+    -- | Block quote (list of blocks)
+    | BlockQuote [Block]
+    -- | Ordered list (attributes and a list of items, each a list of
+    -- blocks)
+    | OrderedList ListAttributes [[Block]]
+    -- | Bullet list (list of items, each a list of blocks)
+    | BulletList [[Block]]
+    -- | Definition list. Each list item is a pair consisting of a
+    -- term (a list of inlines) and one or more definitions (each a
+    -- list of blocks)
+    | DefinitionList [([Inline],[[Block]])]
+    -- | Header - level (integer) and text (inlines)
+    | Header Int Attr [Inline]
+    -- | Horizontal rule
+    | HorizontalRule
+    -- | Table, with attributes, caption, optional short caption,
+    -- column alignments and widths (required), table head, table
+    -- bodies, and table foot
+    | Table Attr Caption [ColSpec] TableHead [TableBody] TableFoot
+    -- | Figure, with attributes, caption, and content (list of blocks)
+    | Figure Attr Caption [Block]
+    -- | Generic block container with attributes
+    | Div Attr [Block]
+    deriving (Eq, Ord, Read, Show, Typeable, Data, Generic)
+```
+
+[] Attr | 
+https://hackage.haskell.org/package/pandoc-types-1.23.1/docs/src/Text.Pandoc.Definition.html#Attr
+```
+-- | Attributes: identifier, classes, key-value pairs
+type Attr = (Text, [Text], [(Text, Text)])
+```
+
+まあつまりは AST 上で Div というやつを見かけたらそいつの class を確認して、defi や lem などが入り込んでいたらそれに応じて内容を block ではない別の要素で包み直すということをすれば動きそうである。
+
+実際に不明な定理環境を見かけたときに block に落とし込むかどうかは実装を見ればわかりそうだが、一旦はそこまではしない。

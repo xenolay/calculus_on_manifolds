@@ -339,3 +339,127 @@ type Attr = (Text, [Text], [(Text, Text)])
 まあつまりは AST 上で Div というやつを見かけたらそいつの class を確認して、defi や lem などが入り込んでいたらそれに応じて内容を block ではない別の要素で包み直すということをすれば動きそうである。
 
 実際に不明な定理環境を見かけたときに block に落とし込むかどうかは実装を見ればわかりそうだが、一旦はそこまではしない。
+
+当然 Lua の書き方なんてよく知らないので ChatGPT 5 Thinking に Lua filter を書かせて少し手直ししたものがこちら。
+
+```lua
+-- thm2typst.lua
+local map = {
+  thm="thm",
+  defi="defi",
+  lem="lem",
+  que="que",
+  cor="cor",
+  prop="prop",
+  dig="dig",
+  state="state",
+  exm="exm",
+  rem="rem"
+}
+
+local function env_of(classes)
+  for _,c in ipairs(classes or {}) do
+    if map[c] then return map[c], c end
+  end
+end
+
+local function esc(s) return s and (s:gsub("\\","\\\\"):gsub('"','\\"')) or s end
+
+-- try to strip "Theorem 1 (Title)." prefix that pandoc injects
+local function peel_header(blocks)
+  if #blocks == 0 or blocks[1].t ~= "Para" then return nil, blocks end
+  local inls = blocks[1].content or blocks[1] -- pandoc 3.x
+  if not inls or #inls == 0 then return nil, blocks end
+
+  -- Heuristic: starts with Strong["Theorem"/"Lemma"/...]
+  local headword = nil
+  if inls[1] and inls[1].t == "Strong" then
+    headword = pandoc.utils.stringify(inls[1])
+  end
+  if not headword then return nil, blocks end
+
+  -- collect title between first (...) after headword; drop until first period after that
+  local title, stage, new_inls = {}, "seek_open", {}
+  for i=1,#inls do
+    local el = inls[i]
+    local txt = (el.t == "Str") and el.text or nil
+    if stage == "seek_open" then
+      if txt == "(" then stage = "in_title" end
+    elseif stage == "in_title" then
+      if txt == ")" then stage = "seek_period" else table.insert(title, el) end
+    elseif stage == "seek_period" then
+      if txt == "." then stage = "keep_rest" end
+    else -- keep_rest
+      table.insert(new_inls, el)
+    end
+  end
+  local t = pandoc.utils.stringify(pandoc.Inlines(title))
+  local rest = {}
+  if #new_inls > 0 then table.insert(rest, pandoc.Para(new_inls)) end
+  for i=2,#blocks do table.insert(rest, blocks[i]) end
+  return (t ~= "" and t or nil), rest
+end
+
+function Div(el)
+  local typ = env_of(el.classes)
+  if not typ then return nil end
+
+  local title, body = peel_header(el.content)
+  local open
+  if title then
+    open = string.format('#%s("%s")[', typ, esc(title))
+  else
+    open = string.format('#%s[', typ)
+  end
+
+  local out = { pandoc.RawBlock("typst", open) }
+  for _,b in ipairs(body) do table.insert(out, b) end
+  table.insert(out, pandoc.RawBlock("typst", "]"))
+  return out
+end
+```
+
+`peel_header` が明らかに不要ないし不適切な処理をしているのが透けて見えるが、とりあえず最低限の動作をするかどうかはこの時点で見ておこう。
+
+動作確認のために以下を `debug.tex` として保存して、
+
+```tex
+\newcommand{\Real}{\mathbb{R}}
+
+\begin{defi}
+$\Real$の$n$つ組からなる集合のことを$\Real^n$と書き，$n$次元 Euclid 空間と呼ぶ．すなわち$\Real^n$は，$n$個の実数$x^1, x^2, \dots, x^n$を用いて$(x^1, x^2, \dots, x^n)$と書かれるようなもの全体のことである．
+$\Real^n$には次のような仕方で加法とスカラー倍が定まる；
+\begin{align}
+(x^1, x^2, \dots, x^n)+(y^1, y^2, \dots, y^n) &\coloneqq (x^1 + y^1, x^2 + y^2, \dots, x^n + y^n) \\
+a \cdot (x^1, x^2, \dots, x^n) &\coloneqq (ax^1, ax^2, \dots, ax^n) 
+\end{align}ただし，$a \in \Real$．
+\end{defi}
+
+通常$\Real^n$の元は（行列の計算との都合上）$x^i$たちを縦に並べたものとすることが多い（すなわち$n \times 1$行列と同一視することが多い）が，縦ベクトルは紙幅を取るし，かといって逐一転置${}^\top$を書くのも煩雑なので，文脈から分かる場合および縦横の差異が問題にならない場合は横に並べて書いた上で転置の記号を省略する．以下，$x \in \Real^n$に対して，その第$i$成分を$x^i$と表すことにする．
+
+\begin{dig}
+ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと， \LaTeX で書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．
+\end{dig}
+```
+
+動作確認。動いてそう。
+
+```bash
+$ pandoc -f latex -t typst -L thm2typst.lua debug.tex
+#defi[
+$bb(R)$の$n$つ組からなる集合のことを$bb(R)^n$と書き，$n$次元 Euclid
+空間と呼ぶ．すなわち$bb(R)^n$は，$n$個の実数$x^1 \, x^2 \, dots.h \, x^n$を用いて$\( x^1 \, x^2 \, dots.h \, x^n \)$と書かれるようなもの全体のことである．
+$bb(R)^n$には次のような仕方で加法とスカラー倍が定まる；
+$ \( x^1 \, x^2 \, dots.h \, x^n \) + \( y^1 \, y^2 \, dots.h \, y^n \) & colon.eq \( x^1 + y^1 \, x^2 + y^2 \, dots.h \, x^n + y^n \)\
+a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
+
+]
+通常$bb(R)^n$の元は（行列の計算との都合上）$x^i$たちを縦に並べたものとすることが多い（すなわち$n times 1$行列と同一視することが多い）が，縦ベクトルは紙幅を取るし，かといって逐一転置$zws^top$を書くのも煩雑なので，文脈から分かる場合および縦横の差異が問題にならない場合は横に並べて書いた上で転置の記号を省略する．以下，$x in bb(R)^n$に対して，その第$i$成分を$x^i$と表すことにする．
+
+#dig[
+ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと，
+LaTeXで書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．
+
+]
+$
+```

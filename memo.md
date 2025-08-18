@@ -142,3 +142,90 @@ typst
 ![image](./compare_style_typst.png)
 
 とりあえず定理番号がちゃんとついてフォントがマトモになればそれっぽさが増すと思うのでそこを修復する。
+
+### なんで定理番号がついてないのか
+
+- 定理環境を thmtools パッケージで宣言されている `\declaretheorem` で宣言していた
+https://ctan.org/pkg/thmtools
+
+```tex
+% preamble の記述
+\usepackage{thmtools}
+
+\newtheoremstyle{mythm}% name
+{10pt}% Space above
+{15pt}% Space below
+{\normalfont}% Body font
+{}% Indent amount
+{\bfseries}% Theorem head font
+{.}% Punctuation after theorem head
+{5pt plus 1pt minus 1pt}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+
+% thm：定理番号を振る．
+% thm*：定理番号を振らない．declaretheorem を使わない．
+
+\theoremstyle{mythm}
+\declaretheorem[name=定理,numberwithin=section]{thm}
+\declaretheorem[name=定義,numberlike=thm]{defi}
+\declaretheorem[name=補題,numberlike=thm]{lem}
+\declaretheorem[name=問,numberlike=thm]{que}
+\declaretheorem[name=系,numberlike=thm]{cor}
+\declaretheorem[name=命題,numberlike=thm]{prop}
+\declaretheorem[name=余談,numberlike=thm]{dig}
+\declaretheorem[name=主張,numberlike=thm]{state}
+\declaretheorem[name=例,numberlike=thm]{exm}
+\declaretheorem[name=注意,numberlike=thm]{rem}
+\newtheorem*{thm*}{定理}
+\newtheorem*{lem*}{補題}
+\newtheorem*{defi*}{定義}
+\newtheorem*{exm*}{例}
+\newtheorem*{cor*}{系}
+\newtheorem*{que*}{問}
+\newtheorem*{state*}{主張}
+\newtheorem*{prop*}{命題}
+```
+
+```tex
+% 実際の記述
+\begin{defi}
+$\Real$の$n$つ組からなる集合のことを$\Real^n$と書き，$n$次元 Euclid 空間と呼ぶ．すなわち$\Real^n$は，$n$個の実数$x^1, x^2, \dots, x^n$を用いて$(x^1, x^2, \dots, x^n)$と書かれるようなもの全体のことである．
+$\Real^n$には次のような仕方で加法とスカラー倍が定まる；
+\begin{align}
+(x^1, x^2, \dots, x^n)+(y^1, y^2, \dots, y^n) &\coloneqq (x^1 + y^1, x^2 + y^2, \dots, x^n + y^n) \\
+a \cdot (x^1, x^2, \dots, x^n) &\coloneqq (ax^1, ax^2, \dots, ax^n) 
+\end{align}ただし，$a \in \Real$．
+\end{defi}
+
+通常$\Real^n$の元は（行列の計算との都合上）$x^i$たちを縦に並べたものとすることが多い（すなわち$n \times 1$行列と同一視することが多い）が，縦ベクトルは紙幅を取るし，かといって逐一転置${}^\top$を書くのも煩雑なので，文脈から分かる場合および縦横の差異が問題にならない場合は横に並べて書いた上で転置の記号を省略する．以下，$x \in \Real^n$に対して，その第$i$成分を$x^i$と表すことにする．
+
+\begin{dig}
+ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと， \LaTeX で書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．
+\end{dig}
+```
+
+これが pandoc を通した結果、ぜんぶ block に書き換わっている。定理も定義も補題も全部 `#block` に潰れてしまっている。
+
+```typ
+#block[
+  $bb(R)$の$n$つ組からなる集合のことを$bb(R)^n$と書き，$n$次元 Euclid
+  空間と呼ぶ．すなわち$bb(R)^n$は，$n$個の実数$x^1 \, x^2 \, dots.h \, x^n$を用いて$\( x^1 \, x^2 \, dots.h \, x^n \)$と書かれるようなもの全体のことである．
+  $bb(R)^n$には次のような仕方で加法とスカラー倍が定まる；
+  $ \( x^1 \, x^2 \, dots.h \, x^n \) + \( y^1 \, y^2 \, dots.h \, y^n \) & colon.eq \( x^1 + y^1 \, x^2 + y^2 \, dots.h \, x^n + y^n \)\
+  a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
+
+]
+通常$bb(R)^n$の元は（行列の計算との都合上）$x^i$たちを縦に並べたものとすることが多い（すなわち$n times 1$行列と同一視することが多い）が，縦ベクトルは紙幅を取るし，かといって逐一転置$zws^top$を書くのも煩雑なので，文脈から分かる場合および縦横の差異が問題にならない場合は横に並べて書いた上で転置の記号を省略する．以下，$x in bb(R)^n$に対して，その第$i$成分を$x^i$と表すことにする．
+
+#block[
+  ベクトルを細字で書いている理由はなんとなくシンプルでかっこよいのと，
+  LaTeXで書く量が減るからである．数学の風習に合わせているというタテマエをつけられなくもないが，あくまでタテマエの域を出ない．
+
+]
+```
+
+ということは、
+- pandoc 側で区別をつけて変換できるように `.tex` を編集するか
+- pandoc を通したあとの `.typ` を温かみのある手作業で編集するか
+
+のどちらかだが……さすがに後者をやるのは嫌なのでもう少し逃げ道を考える。

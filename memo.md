@@ -340,6 +340,12 @@ type Attr = (Text, [Text], [(Text, Text)])
 
 実際に不明な定理環境を見かけたときに block に落とし込むかどうかは実装を見ればわかりそうだが、一旦はそこまではしない。
 
+ちなみに typst に組み込みで定理環境があるのかというとなさそうで、調べる限りだと typst-theorems という外部パッケージを利用する方針になりそう。
+
+https://github.com/sahasatvik/typst-theorems
+
+で、pandoc の AST に変換する時点でこのパッケージのことは知る由もないはずなので、 typst 向けの preamble を別途手書きする方針で行く。そんなに数は多くないので大変じゃないと思う。
+
 当然 Lua の書き方なんてよく知らないので ChatGPT 5 Thinking に Lua filter を書かせて少し手直ししたものがこちら。
 
 ```lua
@@ -463,3 +469,102 @@ LaTeXで書く量が減るからである．数学の風習に合わせている
 ]
 $
 ```
+
+ということで、残るはこの `#defi` とかをちゃんと変数として定義してあげれば動きそう。
+
+んで、
+```
+$ pandoc -f latex -t typst -s section1.tex -L thm2typst.lua --resource-path=. -o draft/chapter1.typ
+```
+
+したうえで
+
+```typst
+// main.typ
+#import "@preview/ctheorems:1.1.3": *
+#show: thmrules
+#let defi = thmbox("定理", "定理")
+
+#include "heading.typ"
+
+#include "chapter1.typ"
+```
+
+みたいにやってみたのだが動かず。どうも include 元で定義していたとしても include される側単独で定義を解決できないと動かないという挙動に見える。
+
+```
+$ typst compile draft/main.typ draft/out.pdf
+error: unknown variable: defi
+  ┌─ draft/chapter1.typ:7:1
+  │
+7 │ #defi[
+  │  ^^^^
+
+help: error occurred while importing this module
+    ┌─ draft/main.typ:138:9
+    │
+138 │ #include "chapter1.typ"
+    │          ^^^^^^^^^^^^^^
+
+$
+```
+
+公式ドキュメントの modules の項をみてもいまいちわからない。
+
+[] Modules | Scripting – Typst Documentation
+https://typst.app/docs/reference/scripting/#modules
+```
+Including: include "bar.typ"
+Evaluates the file at the path bar.typ and returns the resulting content.
+
+Import: import "bar.typ"
+Evaluates the file at the path bar.typ and inserts the resulting module into the current scope as bar (filename without extension). You can use the as keyword to rename the imported module: import "bar.typ" as baz. You can import nested items using dot notation: import "bar.typ": baz.a.
+
+Import items: import "bar.typ": a, b
+Evaluates the file at the path bar.typ, extracts the values of the variables a and b (that need to be defined in bar.typ, e.g. through let bindings) and defines them in the current file. Replacing a, b with * loads all variables defined in a module. You can use the as keyword to rename the individual items: import "bar.typ": a as one, b as two
+```
+
+しょうがないので、preamble の内容を `preamble.typ` に分離して、各 section のファイルで `preamble.typ` を import する形にしてみたところ、ちゃんと動いた。
+なお include だと同じエラーで動かない。
+
+```typst
+// main.typ
+#include "heading.typ"
+
+#include "section1.typ"
+```
+
+```typst
+// preamble.typ
+#import "@preview/ctheorems:1.1.3": *
+#show: thmrules
+#let thm = thmbox("theorem", "定理")
+#let defi = thmbox("theorem", "定義")
+#let lem = thmbox("theorem", "補題")
+#let que = thmbox("theorem", "問")
+#let cor = thmbox("theorem", "系")
+#let prop = thmbox("theorem", "命題")
+#let dig = thmbox("theorem", "余談")
+#let state = thmbox("theorem", "主張")
+#let exm = thmbox("theorem", "例")
+#let rem = thmbox("theorem", "注意")
+#let proof = thmproof("proof", "証明")
+
+```
+
+```typst
+// 各セクションファイル。
+#import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
+
+== $bb(R)^n$の線型空間としての構造
+<mathbbrnの線型空間としての構造>
+#defi[
+  $bb(R)$の$n$つ組からなる集合のことを$bb(R)^n$と書き，$n$次元 Euclid
+  空間と呼ぶ．すなわち$bb(R)^n$は，$n$個の実数$x^1 \, x^2 \, dots.h \, x^n$を用いて$\( x^1 \, x^2 \, dots.h \, x^n \)$と書かれるようなもの全体のことである．
+  $bb(R)^n$には次のような仕方で加法とスカラー倍が定まる；
+  $ \( x^1 \, x^2 \, dots.h \, x^n \) + \( y^1 \, y^2 \, dots.h \, y^n \) & colon.eq \( x^1 + y^1 \, x^2 + y^2 \, dots.h \, x^n + y^n \)\
+  a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
+```
+
+動いた時の様子がこちら。なんかグチャグチャだけど、番号はついているのでとりあえず良しとする。
+![image](./theorem_number_works.png)

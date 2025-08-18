@@ -44,8 +44,8 @@
   cols: 1,
   margin: (x: 1.25in, y: 1.25in),
   paper: "us-letter",
-  lang: "en",
-  region: "US",
+  lang: "ja",
+  region: "Ja",
   font: (),
   fontsize: 11pt,
   sectionnumbering: none,
@@ -125,7 +125,7 @@
 
 #include "heading.typ"
 
-#include "chapter1.typ"
+#include "section1.typ"
 
 // = 多変数関数の微分
 // <多変数関数の微分>

@@ -1,4 +1,9 @@
-#import "preamble.typ": *
+#import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
+#show: thmrules
+
+= 準備
+<準備>
+多変数解析学を本格的に議論するにあたって必要な概念たちを手短に扱う．
 
 == $bb(R)^n$の線型空間としての構造
 <mathbbrnの線型空間としての構造>
@@ -111,7 +116,7 @@ $bb(R)^n$は線型空間の例である．実際には他にもいろいろな�
   $V \, W$を線型空間とし，\$\\set{v\_1, \\dots, v\_n}\$を$V$の基底とする．$T : V arrow.r W$を線型写像とするとき，$T$は基底での値$T \( v_1 \) \, dots.h \, T \( v_n \)$で特徴づけられる．すなわち，$w_1 \, dots.h \, w_n in W$とする時，$T \( v_i \) = w_i$（$1 lt.eq i lt.eq n$）を充たす線型写像はひとつしかない．
 
 ]
-#block[
+#proof[
   任意の$v in V$は\$\\set{v\_1, \\dots, v\_n}\$を用いて$v = sum a^i v_i$とただ一通りに表せる．したがって$T \( v \) = T \( sum a^i v_i \) = sum a_i T \( v_i \) = sum a^i w_i$となる．#footnote[本当はこの証明は少しいい加減ではあると思う．「$T_1$および$T_2$を，命題にあるような条件を充たす線型写像とする．すると写像として$T_1 = T_2$である」のようにやるほうが議論によどみがないと感じる．]
 
 ]
@@ -142,7 +147,7 @@ $bb(R)^n$は線型空間の例である．実際には他にもいろいろな�
   $T : bb(R)^m arrow.r bb(R)^n$を線型写像とする．このとき，ある実数$M$があって，任意の$h in V$に対して$parallel T \( h \) parallel lt.eq M parallel h parallel$が成り立つ．
 
 ]
-#block[
+#proof[
   問 // @線型写像と行列の対応
   の結果より，ある行列$A = (a_j^i)$があって$T \( h \) = A h$であるとしてよい．$M colon.eq max {lr(|a_j^i|)}$とすればよい．
 
@@ -184,7 +189,7 @@ $bb(R)$の閉区間
   $U \, V$を$bb(R)^n$の開集合とする．$U sect V$は$bb(R)^n$の開集合である．
 
 ]
-#block[
+#proof[
   $x in U sect V$を任意にひとつ取る．$U$は開集合なので，$x in O_U subset U$を充たすような開方体$O_U$がある．$V$も開集合なので，$x in O_V subset V$を充たすような開方体$O_V$がある．したがって$O_U sect O_V$が開方体であることが証明できればよい．$n = 1$のときは場合分けをすればあきらかである#footnote[訳：きちんと書くのがめんどくさい];し，$n gt.eq 2$の場合は各成分ごとに$n = 1$の場合の議論が適用できることから従う．
 
 ]
@@ -192,7 +197,7 @@ $bb(R)$の閉区間
   $U$を$bb(R)^n$の開集合とする．$U$は開方体の和集合の形に表せる．
 
 ]
-#block[
+#proof[
   開集合の定義より，$U$の各点$x$に対して$x in O_x$を充たすような開方体$O_x subset U$が存在する．$U = union.big_(x in U) O_x$である．
 
 ]
@@ -260,7 +265,7 @@ Heine-Borel の定理のみである．
   $bb(R)$の有界閉区間$\[ a \, b \]$はコンパクトである．
 
 ]
-#block[
+#proof[
   $\[ a \, b \]$の開被覆$cal(O)$を任意にひとつとって固定し，$A = A_(cal(O)) subset \[ a \, b \]$を，$\[ a \, x \]$が$cal(O)$の有限個の元で覆えるような点$x$の集合とする．あきらかに$a in A$であるので空ではなく，かつ$A$は上に有界である（ひとつの上界として$b$が取れる）．したがって実数の完備性より$sup A$が存在するから，これを$alpha$と置く．$alpha in A$かつ$alpha = b$を示せば良い．
 
   - $alpha in A$を示す．$alpha in \[ a \, b \]$なので，$cal(O)$の元$U$であって$alpha in U$であるようなものが存在する．このとき，$y lt.eq alpha$なる数$y$であって$y in A$かつ$y in U$なるものがある#footnote[$U$は開集合なので，ある$epsilon > 0$が存在して，$\( alpha - epsilon \, alpha \) subset U$．この開区間の中に$A$の元がなかったとすると$alpha = sup A lt.eq alpha - epsilon$となって$sup A$の定め方に反する．したがってこの開区間の中に$A$の元がひとつ以上あることがわかるから，そのようなものを任意にひとつ取って$y$とすればよい．この議論では$bb(R)$の（完備性ではなく）稠密性を使っている．];．$A$の定め方より$\[ a \, y \]$は有限個の$cal(O)$の元で覆うことができる．更に$\[ y \, alpha \]$は$U$だけで覆えるから，特に有限個の$cal(O)$の元で覆うことができる．したがって$\[ a \, alpha \]$は有限個の$cal(O)$の元で覆うことができるので，$alpha in A$である．
@@ -274,7 +279,7 @@ Heine-Borel の定理のみである．
   $B subset bb(R)^n$がコンパクトであるとする．$x in bb(R)^m$に対し，\$\\set{x} \\times B \\subset \\mathbb{R}^{m+n}\$はコンパクトである．
 
 ]
-#block[
+#proof[
   まず\$\\set{x} \\times B \\subset \\mathbb{R}^{m+n}\$の開被覆は開方体のみからなっているとして一般性を失わないのでそうする#footnote[TODO:この議論はおかしいので手書きメモをもとにして直す！！！\$A \\coloneqq \\set{x}\$と置く．$A times B$の開被覆\$\\set{X\_\\lambda}\$を取る．各$X_lambda$は開集合なので，開方体の和集合で書ける．各開集合を開方体の和集合で表したとき，その表示に現れる開方体を（すべての開集合にわたって）あつめて得られる開被覆を\$\\set{Y\_\\mu}\$とする．\$\\set{Y\_\\mu}\$の有限部分被覆があれば，それは\$\\set{X\_\\lambda}\$の有限部分被覆にもなっている．この証明を検討すればわかるが，この議論は$A$が1点集合でなくても同様に通る．];；\$\\set{U\_a \\times V\_a }\$を\$\\set{x} \\times B\$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$B$がコンパクトなので，\$\\set{V\_a}\$の中から有限個を選べばそれが$B$の被覆になるから，有限部分被覆を選んで\$\\set{V\_{x\_i}}\$とする．\$\\set{U\_{x\_i} \\times V\_{x\_i}}\$は\$\\set{x} \\times B\$の有限部分被覆である．
 
 ]
@@ -282,7 +287,7 @@ Heine-Borel の定理のみである．
   $A subset bb(R)^m$および$B subset bb(R)^n$がそれぞれコンパクトであるならば，$A times B subset bb(R)^(m + n)$はコンパクトである．
 
 ]
-#block[
+#proof[
   やはり開被覆は開方体のみからなっているとして一般性を失わないのでそうする；\$\\mathscr{O} \\coloneqq \\set{U\_a \\times V\_a }\$を$A times B$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$x in A$をひとつとって固定する．このとき\$\\set{x} \\times B\$はコンパクトで，$cal(O)$によって被覆されているので，この中から有限個\$\\set{U\_{x\_i} \\times V\_{x\_i} }\$を取り出すことで\$\\set{x} \\times B\$を被覆できる．ところで$U_x colon.eq sect.big U_(x_i)$は$x$を含む開集合になるので，\$\\set{U\_x \\times V\_{x\_i} }\$は\$\\set{x} \\times B\$の開被覆になっている．この操作を各$x in A$に対し繰り返すことで，$x in A$に対して開集合$U_x subset A$とそれに付随する有限個の開集合$V_(x_i) subset B$を作ることができた．ところで$A$はコンパクトで，\$\\set{U\_x}\$は$A$の開被覆なので，有限部分被覆\$\\set{U\_j}\$が存在する．\$\\set{U\_j \\times V\_{j\_i}}\$は$A times B$の有限部分被覆である．
 
 ]
@@ -295,7 +300,7 @@ Heine-Borel の定理のみである．
   $bb(R)^m$の閉方体はコンパクトである．
 
 ]
-#block[
+#proof[
   Tychonoff の定理と Heine-Borel の定理を組み合わせて帰納的に従う．
 
 ]
@@ -303,7 +308,7 @@ Heine-Borel の定理のみである．
   $A subset bb(R)^m$が$bb(R)^m$の有界閉集合であるならば，それはコンパクトである．
 
 ]
-#block[
+#proof[
   $A$は有界なので，$A$を含む閉方体$B$がある．$A$の開被覆$cal(O)$を任意にひとつ取る．$A$は閉集合なので，その補集合$A^C colon.eq bb(R)^m \\ A$は開集合である．したがって\$\\mathscr{O} \\cup \\set{A^C}\$は開集合の族であり，更に$bb(R)^m$を被覆しているので，特に$B$の開被覆にもなっている．ゆえに\$\\mathscr{O} \\cup \\set{A^C}\$から有限被覆$cal(O)_2$を選んで$B$を被覆できる．$A subset B$なのだから，これは$A$の開被覆にもなっている．したがって\$\\mathscr{O}\_2 \\setminus \\set{A^C}\$
   が$cal(O)$から選んだ$A$の有限部分被覆である．
 
@@ -319,7 +324,7 @@ Heine-Borel の定理のみである．
   $bb(R)^m$のコンパクト集合は有界閉集合に限られる．
 
 ]
-#block[
+#proof[
   この証明では「開球が開集合である」ことは認めて使う#footnote[開球が開集合であることの証明は直接やってもよいし，連続関数を用いた証明をする場合でもこの定理は使わないので，循環論法にはならない．];．$A subset bb(R)^m$をコンパクトとする．このとき，$A$の被覆であって開方体からなるものを取ると，$A$は有限個の開方体で被覆されるので，とくに有界である．$A$が閉であること，すなわち$A^C colon.eq bb(R)^m \\ A$が開であることを示す．$x in A^C$を任意にひとつ取って固定する．$a in A$に対して$epsilon_a colon.eq parallel x - a parallel \/ 4$と定めると，$a eq.not x$なので$epsilon_a > 0$である．\$\\set{B(a; \\varepsilon\_a)}\$は$A$の開被覆なので，$A$のコンパクト性より有限部分被覆\$\\set{B(i; \\varepsilon\_i)}\$が取れる．ところで\$V \\coloneqq B(x; \\min\_i \\set{\\varepsilon\_i})\$は$x$をふくむ開集合であって，$V sect A = nothing$すなわち$V subset A^C$である．$x$は任意だったので，$A^C$は開集合である．
 
 ]
@@ -401,7 +406,7 @@ Heine-Borel の定理のみである．
   - 任意の開集合$O subset bb(R)^n$に対し，$f^(- 1) \( O \) = V sect A$を充たすような開集合$V subset bb(R)^m$が存在する．
 
 ]
-#block[
+#proof[
   前半から後半を示す．$O subset bb(R)^n$を開集合とする．$a in f^(- 1) \( O \)$を任意に取ると，$f \( a \) in O$である．$O$は開集合なので，充分小さい$epsilon_(f \( a \)) > 0$に対して#footnote[ここは普通であれば添字の$f \( a \)$を省いて記述するところであろうが，ここを省いてしまうと直下の改行した式が意味不明になってしまうので，重たくなるのを承知で添字をつけている．];$B \( f \( a \) ; epsilon_(f \( a \)) \) subset O$である．$f$は$A$上定義された連続関数なので，適当な$delta_(f \( a \)) > 0$に対して$f \( B \( a ; delta_(f \( a \)) \) sect A \) subset B \( f \( a \) ; epsilon_(f \( a \)) \)$すなわち$B \( a ; delta_(f \( a \)) \) sect A subset f^(- 1) \( B \( f \( a \) ; epsilon_a \) \)$が成り立つ．これを$f^(- 1) \( O \)$の各点に対して一斉に考えることで
   $ (union.big_(a in f^(- 1) \( O \)) B \( a ; delta_(f \( a \)) \)) sect A subset f^(- 1) (union.big_(a in f^(- 1) \( O \)) B \( f \( a \) ; epsilon_(f \( a \)) \)) $を得る．右辺は実際には$f^(- 1) \( O \)$に等しいし，$V colon.eq union.big_(a in f^(- 1) \( O \)) B \( a ; delta_f \( a \) \)$は開集合であるから，あとは左辺と右辺が等しいことを示せばよいが，これはあきらかである．
 
@@ -416,7 +421,7 @@ Heine-Borel の定理のみである．
   - 任意の開集合$O subset bb(R)^n$に対し，$f^(- 1) \( O \) = V$は開集合である．
 
 ]
-#block[
+#proof[
   先ほどの定理において$A = bb(R)^m$とせよ．
 
 ]
@@ -449,7 +454,7 @@ Heine-Borel の定理のみである．
   $A subset bb(R)^m$をコンパクト集合，$f : A arrow.r bb(R)^n$を連続写像とする．このとき$f \( A \)$はコンパクトである．
 
 ]
-#block[
+#proof[
   $f \( A \)$の開被覆\$\\set{U\_\\lambda}\$をとる．$f$は連続なので，各$f^(- 1) \( U_lambda \)$は$bb(R)^m$の開集合である．\$\\set{f^{-1}(U\_\\lambda)}\$は$A$を被覆するから，$A$のコンパクト性よりその中の有限個\$\\set{f^{-1}(U\_i)}\$が$A$を覆う．この有限集合に現れた\$\\set{U\_i}\$が$f \( A \)$の有限被覆になっている．
 
 ]

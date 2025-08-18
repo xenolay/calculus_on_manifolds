@@ -556,6 +556,10 @@ Evaluates the file at the path bar.typ, extracts the values of the variables a a
 // 各セクションファイル。
 #import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
 
+= 準備
+<準備>
+多変数解析学を本格的に議論するにあたって必要な概念たちを手短に扱う．
+
 == $bb(R)^n$の線型空間としての構造
 <mathbbrnの線型空間としての構造>
 #defi[
@@ -566,8 +570,54 @@ Evaluates the file at the path bar.typ, extracts the values of the variables a a
   a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
 ```
 
-動いた時の様子がこちら。なんかグチャグチャだけど、番号はついているのでとりあえず良しとする。
+動いた時の様子がこちら。番号はついている。
 ![image](./theorem_number_works.png)
+
+もともとの本では定理番号を section ごとに管理していたので、そうなるように直したい。これは ctheorems の manual に普通に書いてあって、base_level を指定すれば出来た。
+
+```typst
+// preamble.tex
+#import "@preview/ctheorems:1.1.3": *
+#let thm = thmbox("theorem", "定理", base_level: 1)
+#let defi = thmbox("theorem", "定義", base_level: 1)
+#let lem = thmbox("theorem", "補題", base_level: 1)
+#let que = thmbox("theorem", "問", base_level: 1)
+#let cor = thmbox("theorem", "系", base_level: 1)
+#let prop = thmbox("theorem", "命題", base_level: 1)
+#let dig = thmbox("theorem", "余談", base_level: 1)
+#let state = thmbox("theorem", "主張", base_level: 1)
+#let exm = thmbox("theorem", "例", base_level: 1)
+#let rem = thmbox("theorem", "注意", base_level: 1)
+#let proof = thmproof("proof", "証明", base_level: 1)
+```
+
+ちなみにここで `fill` を指定してあげれば色もつく（けど、下の画像では色がついていない）。
+
+![image](./theorem_number_works_2.png)
+
+また、意図せず中央揃えになっているものは各セクションファイルで `#show: thmrules` を書いてあげないと直らない。マジかよー。
+公式の forum でもそのように案内がされている。このへんはこなれていない印象がある。
+https://forum.typst.app/t/how-do-i-align-text-in-ctheorems-thmbox/3273
+
+```diff
+// 各セクションファイル。
+#import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
++ #show: thmrules
+= 準備
+<準備>
+多変数解析学を本格的に議論するにあたって必要な概念たちを手短に扱う．
+
+== $bb(R)^n$の線型空間としての構造
+<mathbbrnの線型空間としての構造>
+#defi[
+  $bb(R)$の$n$つ組からなる集合のことを$bb(R)^n$と書き，$n$次元 Euclid
+  空間と呼ぶ．すなわち$bb(R)^n$は，$n$個の実数$x^1 \, x^2 \, dots.h \, x^n$を用いて$\( x^1 \, x^2 \, dots.h \, x^n \)$と書かれるようなもの全体のことである．
+  $bb(R)^n$には次のような仕方で加法とスカラー倍が定まる；
+  $ \( x^1 \, x^2 \, dots.h \, x^n \) + \( y^1 \, y^2 \, dots.h \, y^n \) & colon.eq \( x^1 + y^1 \, x^2 + y^2 \, dots.h \, x^n + y^n \)\
+  a dot.op \( x^1 \, x^2 \, dots.h \, x^n \) & colon.eq \( a x^1 \, a x^2 \, dots.h \, a x^n \) $ただし，$a in bb(R)$．
+```
+
+
 
 ### スタイル調整
 

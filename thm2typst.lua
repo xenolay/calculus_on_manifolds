@@ -10,7 +10,8 @@ local map = {
   state="state",
   exm="exm",
   rem="rem",
-  proof="proof"
+  proof="proof",
+  myproof="proof"
 }
 
 local function env_of(classes)

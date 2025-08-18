@@ -48,7 +48,7 @@
   region: "Ja",
   font: (),
   fontsize: 11pt,
-  sectionnumbering: none,
+  sectionnumbering: "1.1.",
   pagenumbering: "1",
   doc,
 ) = {

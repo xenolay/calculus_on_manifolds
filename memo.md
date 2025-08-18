@@ -145,8 +145,11 @@ typst
 
 ### なんで定理番号がついてないのか
 
-- 定理環境を thmtools パッケージで宣言されている `\declaretheorem` で宣言していた
-https://ctan.org/pkg/thmtools
+- 定理環境を以下のように外部パッケージのコマンドを使って宣言していた
+  - thmtools パッケージで宣言されている `\declaretheorem`  https://ctan.org/pkg/thmtools
+  - amsthm パッケージで宣言されている `\newtheorem` https://ctan.org/pkg/amsthm
+
+（他の人の LaTeX ソースコードをまじめに読んだことはないけど、定理環境の見た目をそれっぽくしたい人が外部パッケージを何の気なしにいれるというのは珍しくないようにも思う。昔の私とかまさにそれだったわけだし……）
 
 ```tex
 % preamble の記述
@@ -225,7 +228,19 @@ a \cdot (x^1, x^2, \dots, x^n) &\coloneqq (ax^1, ax^2, \dots, ax^n)
 ```
 
 ということは、
-- pandoc 側で区別をつけて変換できるように `.tex` を編集するか
+- pandoc 側で区別をつけて変換できるようにするか
 - pandoc を通したあとの `.typ` を温かみのある手作業で編集するか
 
 のどちらかだが……さすがに後者をやるのは嫌なのでもう少し逃げ道を考える。
+
+ちょい調べたところ、pandoc は input を AST に変換してその AST をもとに対象の言語へのアウトプットを吐くらしい。で、その AST に対して特定の規則で変換をかけることができる。この変換のことを filter というらしい。
+
+[] Pandoc - Pandoc filters
+https://pandoc.org/filters.html
+```
+A “filter” is a program that modifies the AST, between the reader and the writer.
+
+INPUT --reader--> AST --filter--> AST --writer--> OUTPUT
+```
+
+ということは pandoc の AST について調べて filter をかけばよさそうな感じに見える。公式ドキュメント曰くは Lua filter と JSON filter の2つがあり、Lua filter がおすすめらしいので Lua filter を頑張って書いてみよう。

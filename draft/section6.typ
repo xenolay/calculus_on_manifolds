@@ -28,7 +28,8 @@ $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R
 
 ]
 #proof[
-  #link(<陰関数定理の言い換え>)[\[陰関数定理の言い換え\]];より，各点$p in g \( M \)$に対して，$g \( p \)$を含む開集合$U_p$上で定義された微分同相$F_p : U_p arrow.r bb(R)^n$であって，$g compose F_p^(- 1) \( p \) = \( p^(n - k + 1) \, dots.h \, p^n \)$を充たすようなものがある．$F_p \( U_p \) colon.eq V_p$と置く．$F_p : U_p arrow.r V_p$が，定義の条件にあるような微分同相写像であること，すなわち\$F\_p(U\_p \\cap M) = V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を示せばよい．
+  @陰関数定理の言い換え
+  より，各点$p in g \( M \)$に対して，$g \( p \)$を含む開集合$U_p$上で定義された微分同相$F_p : U_p arrow.r bb(R)^n$であって，$g compose F_p^(- 1) \( p \) = \( p^(n - k + 1) \, dots.h \, p^n \)$を充たすようなものがある．$F_p \( U_p \) colon.eq V_p$と置く．$F_p : U_p arrow.r V_p$が，定義の条件にあるような微分同相写像であること，すなわち\$F\_p(U\_p \\cap M) = V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を示せばよい．
 
   \$F\_p(U\_p \\cap M) \\subset V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を示すために，$q in U_p sect M$を任意に取って$r colon.eq F_p \( q \)$と置く．$r in V_p$はよい．$g compose F_p^(- 1) \( r \) = g \( p \) = 0$なので，$r^(n - p + 1) = dots.h = r^n = 0$，すなわち\$r \\in \\mathbb{R}^{n-k} \\times \\set{0}\$がわかる．
 
@@ -58,7 +59,8 @@ $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R
     (i)
     より，$f \( W_p \) = U_1 sect M$となるような開集合$U_1$がある．更に座標条件の
     (iii)
-    より$f^(- 1)$は連続であるから，\$W\' \\coloneqq \\set{ a | (a,0) \\in V\'}\$は開集合であることとあわせれば#link(<開集合の引き戻しは開集合>)[\[開集合の引き戻しは開集合\]];より\$\\set{f(a) | (a,0) \\in V\' } = f(W\') = U\_2 \\cap f(W\_p)\$となるような開集合$U_2$がある．$U'' colon.eq U_1 sect U_2$とすればよい．];．$U_p colon.eq U' sect U''$，$V_p colon.eq g^(- 1) \( U_p \)$とする．このとき，\$U\_p \\cap M = \\set{ f(a) | (a,0) \\in V\_p} = \\set{ g(a,0) | (a,0) \\in V\_p}\$なので#footnote[この部分も行間があるので補う．2つ目の等号はよいと思うので，\$U\_p \\cap M = \\set{ g(a,0) | (a,0) \\in V\_p}\$を示す．$V_p subset V'$なので，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset  \\set{ g(a,0) | (a,0) \\in V\'} = U\'\' \\cap M\$であり，かつ\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset g(V\') = U\'\$であるから，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset U\' \\cap U\'\' \\cap M = U\_p \\cap M\$である．逆の包含を示すために$p in U_p sect M$を取る．\$p \\notin \\set{ g(a,0) | (a,0) \\in V\_p}\$であったとすると，\$p \\in \\set{ g(a,0) | (a,0) \\in V\'}\$なので，結局\$p \\in \\set{ g(a,0) | (a,0) \\in V\' \\setminus V\_p}\$であることになるが，これは$p in U_p = g \( V_p \)$に反する．];，\$h\_p(U\_p \\cap M) = g^{-1}(U\_p \\cap M) = g^{-1}(\\set{g(a,0) | (a,0) \\in V\_p}) = \\set{(a,0) | (a,0) \\in V\_p} = V\_p \\cap (\\mathbb{R}^k \\times \\set{0})\$である．
+    より$f^(- 1)$は連続であるから，\$W\' \\coloneqq \\set{ a | (a,0) \\in V\'}\$は開集合であることとあわせれば@開集合の引き戻しは開集合
+    より\$\\set{f(a) | (a,0) \\in V\' } = f(W\') = U\_2 \\cap f(W\_p)\$となるような開集合$U_2$がある．$U'' colon.eq U_1 sect U_2$とすればよい．];．$U_p colon.eq U' sect U''$，$V_p colon.eq g^(- 1) \( U_p \)$とする．このとき，\$U\_p \\cap M = \\set{ f(a) | (a,0) \\in V\_p} = \\set{ g(a,0) | (a,0) \\in V\_p}\$なので#footnote[この部分も行間があるので補う．2つ目の等号はよいと思うので，\$U\_p \\cap M = \\set{ g(a,0) | (a,0) \\in V\_p}\$を示す．$V_p subset V'$なので，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset  \\set{ g(a,0) | (a,0) \\in V\'} = U\'\' \\cap M\$であり，かつ\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset g(V\') = U\'\$であるから，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset U\' \\cap U\'\' \\cap M = U\_p \\cap M\$である．逆の包含を示すために$p in U_p sect M$を取る．\$p \\notin \\set{ g(a,0) | (a,0) \\in V\_p}\$であったとすると，\$p \\in \\set{ g(a,0) | (a,0) \\in V\'}\$なので，結局\$p \\in \\set{ g(a,0) | (a,0) \\in V\' \\setminus V\_p}\$であることになるが，これは$p in U_p = g \( V_p \)$に反する．];，\$h\_p(U\_p \\cap M) = g^{-1}(U\_p \\cap M) = g^{-1}(\\set{g(a,0) | (a,0) \\in V\_p}) = \\set{(a,0) | (a,0) \\in V\_p} = V\_p \\cap (\\mathbb{R}^k \\times \\set{0})\$である．
 
 ]
 ここに現れた$f : W_p arrow.r bb(R)^n$の逆写像$f^(- 1) : f \( W_p \) arrow.r W_p$を，$p$のまわりの座標系という．今後$M$上の座標系を取る場合には，いちいち逆写像を取り直したり定義域を書き下すのが煩雑なので，「$p$のまわりの座標系$f : V_p arrow.r bb(R)^k$」などと，逆写像を持ち出さずに記号を定義し，定義域の宣言も暗黙に済ませることにする．
@@ -130,7 +132,8 @@ Stokes
 
 ]
 この定義から，自動的に$frac(partial, partial y^i)$は$f : V_p arrow.r bb(R)$に対する微分作用素となる．具体的に作用を書き下せば，
-$ (frac(partial, partial y^i))_p f = d z_p (frac(partial, partial x^i))_(y \( p \)) f = (frac(partial, partial x^i))_(y \( p \)) \( f compose z \) = partial_i \( f compose z \) \( y \( p \) \) = partial_i \( f compose y^(- 1) \) \( y \( p \) \) $となる．この作用は，#link(<Euclid空間での座標系から定まるベクトル場>)[\[Euclid空間での座標系から定まるベクトル場\]];における定義と酷似していることに気づかれたい#footnote[というか，ここの定義から逆算して
+$ (frac(partial, partial y^i))_p f = d z_p (frac(partial, partial x^i))_(y \( p \)) f = (frac(partial, partial x^i))_(y \( p \)) \( f compose z \) = partial_i \( f compose z \) \( y \( p \) \) = partial_i \( f compose y^(- 1) \) \( y \( p \) \) $となる．この作用は，@Euclid空間での座標系から定まるベクトル場
+における定義と酷似していることに気づかれたい#footnote[というか，ここの定義から逆算して
   Euclid
   空間の場合を定義した，というのが実際のところである．];．座標変換則もまた，Euclid
 空間の場合と同様にして得られる．
@@ -290,7 +293,9 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #proof[
-  $c_1 \, c_2$が向きを保つことと#link(<向きを保てば座標変換の行列式は正>)[\[向きを保てば座標変換の行列式は正\]];より$det D_(c_2^(- 1) compose c_1) > 0$が出るので，#link(<微分形式の積分はwell-defined>)[\[微分形式の積分はwell-defined\]];と同様に証明すればよい．
+  $c_1 \, c_2$が向きを保つことと@向きを保てば座標変換の行列式は正
+  より$det D_(c_2^(- 1) compose c_1) > 0$が出るので，@微分形式の積分はwell-defined
+  と同様に証明すればよい．
 
 ]
 #defi[
@@ -337,7 +342,8 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 ]
 == Riemann 計量と体積形式
 <riemann-計量と体積形式>
-#link(<行列式の特徴づけ>)[\[行列式の特徴づけ\]];を踏まえれば，行列式$det$の定義として，$omega in and.big^n \( bb(R)^n \)$の元であって$omega \( e_1 \, dots.h \, e_n \) = 1$を充たすもの，という定義を採っても構わない#footnote[学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz
+@行列式の特徴づけ
+を踏まえれば，行列式$det$の定義として，$omega in and.big^n \( bb(R)^n \)$の元であって$omega \( e_1 \, dots.h \, e_n \) = 1$を充たすもの，という定義を採っても構わない#footnote[学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz
   の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？];．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
 
 #thm[
@@ -345,7 +351,8 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #proof[
-  \$\\set{v\_1^\*, \\dots, v\_n^\*}\$を\$\\set{v\_1, \\dots ,v\_n}\$の双対基底とすれば，$omega colon.eq v_1^(\*) and dots.h and v_n^(\*)$は$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．$w_i eq.colon sum a_i^j v_j$によって行列$A eq.colon (a_i^j)$を定めれば，$bb(R)^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$det A = plus.minus 1$となる．したがって#link(<最高次交代テンソルの変換則>)[\[最高次交代テンソルの変換則\]];により，$\[ v_1 \, dots.h \, v_n \] = \[ w_1 \, dots.h \, w_n \]$であるならば$omega \( w_1 \, dots.h \, w_n \) = 1$である．
+  \$\\set{v\_1^\*, \\dots, v\_n^\*}\$を\$\\set{v\_1, \\dots ,v\_n}\$の双対基底とすれば，$omega colon.eq v_1^(\*) and dots.h and v_n^(\*)$は$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．$w_i eq.colon sum a_i^j v_j$によって行列$A eq.colon (a_i^j)$を定めれば，$bb(R)^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$det A = plus.minus 1$となる．したがって@最高次交代テンソルの変換則
+  により，$\[ v_1 \, dots.h \, v_n \] = \[ w_1 \, dots.h \, w_n \]$であるならば$omega \( w_1 \, dots.h \, w_n \) = 1$である．
 
 ]
 #prop[
@@ -354,7 +361,8 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #proof[
-  $phi : V arrow.r bb(R)$を$phi \( w \) colon.eq det thin \( v_1 \, dots.h \, v_(n - 1) \, w \)$で定めれば，$phi$は線型写像なので，$phi in V^(\*)$である．したがって#link(<双対空間は縦ベクトル>)[\[双対空間は縦ベクトル\]];の結果より任意の$w in V$に対して$phi \( w \) = angle.l z \, w angle.r$を充たす$z$が一意的に存在する．
+  $phi : V arrow.r bb(R)$を$phi \( w \) colon.eq det thin \( v_1 \, dots.h \, v_(n - 1) \, w \)$で定めれば，$phi$は線型写像なので，$phi in V^(\*)$である．したがって@双対空間は縦ベクトル
+  の結果より任意の$w in V$に対して$phi \( w \) = angle.l z \, w angle.r$を充たす$z$が一意的に存在する．
 
 ]
 このクロス積は，背伸びした高校生が学んだり，学部のベクトル解析で見かけるであろうあのクロス積と実際には同じものである．のだが，定義だけをみてもそれがわかる気がしないので，クロス積の諸性質（こちらのほうがまだ見慣れているだろう）を証明しておくことにする；

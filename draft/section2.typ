@@ -98,7 +98,9 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
   & lt.eq frac(∥g \( f \( a + h \) \) - g \( f \( a \) \) - d g_(f \( a \)) \( f \( a + h \) - f \( a \) \)∥, parallel h parallel) + frac(∥d g_(f \( a \)) \( f \( a + f \) - f \( a \) - d f_a \( h \) \)∥, parallel h parallel)\
   & eq.colon A + B . $$A$と$B$が$h arrow.r 0$で0に収束することを示せればよい．
 
-  #link(<線型写像の連続性>)[\[線型写像の連続性\]];より，ある実数$M$があって$B lt.eq frac(M ∥f \( a + f \) - f \( a \) - d f_a \( h \) \)∥, parallel h parallel) arrow.r 0$なので$B$はよい．$A$を評価する．$epsilon > 0$を任意に取る．ふたたび#link(<線型写像の連続性>)[\[線型写像の連続性\]];より，任意の$h in bb(R)^m$に対して$parallel d f_a \( h \) parallel lt.eq N parallel h parallel$となるような実数$N$がある．以下，3つの評価を使う；
+  @線型写像の連続性
+  より，ある実数$M$があって$B lt.eq frac(M ∥f \( a + f \) - f \( a \) - d f_a \( h \) \)∥, parallel h parallel) arrow.r 0$なので$B$はよい．$A$を評価する．$epsilon > 0$を任意に取る．ふたたび@線型写像の連続性
+  より，任意の$h in bb(R)^m$に対して$parallel d f_a \( h \) parallel lt.eq N parallel h parallel$となるような実数$N$がある．以下，3つの評価を使う；
 
   - $g$は$f \( a \)$において微分可能なので，
     $ lim_(y arrow.r f \( a \)) frac(∥g \( y \) - g \( f \( a \) \) - d g_(f \( a \)) \( y - f \( a \) \)∥, parallel y - f \( a \) parallel) = 0 $すなわちある$delta > 0$が存在して$parallel y - f \( a \) parallel < delta$ならば
@@ -251,7 +253,8 @@ Fubini の定理を使って証明するので，ここでは証明しない．
 ]
 <微分可能なら偏微分可能>
 #proof[
-  #link(<微分の基本性質>)[\[微分の基本性質\]];より，結局は各成分関数ごとの考察に帰着するため，$n = 1$の場合を証明すればよい．$h : bb(R) arrow.r bb(R)^m$を，$h \( x \) = \( a^1 \, dots.h \, a^(j - 1) \, x \, a^(j + 1) \, dots.h \, a^m \)$で定めると$f compose h : bb(R) arrow.r bb(R)$は微分可能であるが，導関数$d \( f compose h \)$とは$partial_j f$のことである．更に$J_h \( x \) = e_j$であるから，$J_(f compose h) (a^j) = J_f (h (a^j)) dot.op J_h (a^j) = J_f (a) dot.op e_j$である．つまり$1 times m$行列$J_f (a)$の$j$列目は$partial_j f \( a \)$に等しい．
+  @微分の基本性質
+  より，結局は各成分関数ごとの考察に帰着するため，$n = 1$の場合を証明すればよい．$h : bb(R) arrow.r bb(R)^m$を，$h \( x \) = \( a^1 \, dots.h \, a^(j - 1) \, x \, a^(j + 1) \, dots.h \, a^m \)$で定めると$f compose h : bb(R) arrow.r bb(R)$は微分可能であるが，導関数$d \( f compose h \)$とは$partial_j f$のことである．更に$J_h \( x \) = e_j$であるから，$J_(f compose h) (a^j) = J_f (h (a^j)) dot.op J_h (a^j) = J_f (a) dot.op e_j$である．つまり$1 times m$行列$J_f (a)$の$j$列目は$partial_j f \( a \)$に等しい．
 
 ]
 #que[
@@ -269,7 +272,7 @@ Fubini の定理を使って証明するので，ここでは証明しない．
 ]
 <C1なら微分可能>
 #proof[
-  #link(<微分の基本性質>)[\[微分の基本性質\]]
+  @微分の基本性質
   より，各成分関数の微分可能性を示せば充分であるから，やはり$n = 1$の場合を証明すれば良い．$f \( a + h \) - f \( a \)$を，
   $ f \( a + h \) - f \( a \) & = f \( a^1 + h^1 \, a^2 \, dots.h \, a^n \) - f \( a^1 \, a^2 \, dots.h \, a^n \)\
   & + f \( a^1 + h^1 \, a^2 + h^2 \, dots.h \, a^n \) - f \( a^1 + h^1 \, a^2 \, dots.h \, a^n \)\
@@ -300,8 +303,8 @@ Fubini の定理を使って証明するので，ここでは証明しない．
 ]
 <実用的な方の合成則>
 #proof[
-  $g : bb(R)^m arrow.r bb(R)^n$を$g \( x \) colon.eq \( g^1 \( x \) \, dots.h \, g^n \( x \) \)$で定めると，#link(<C1なら微分可能>)[\[C1なら微分可能\]]
-  より$g$は微分可能であるので，$F = f compose g$も微分可能である．#link(<微分可能なら偏微分可能>)[\[微分可能なら偏微分可能\]]
+  $g : bb(R)^m arrow.r bb(R)^n$を$g \( x \) colon.eq \( g^1 \( x \) \, dots.h \, g^n \( x \) \)$で定めると，@C1なら微分可能
+  より$g$は微分可能であるので，$F = f compose g$も微分可能である．@微分可能なら偏微分可能
   より$F$の$a$における Jacobi
   行列$J_F \( a \)$は$1 times m$行列であって$\( 1 \, i \)$成分が$partial_i F \( a \)$に等しいことがわかる．したがって$F$の
   Jacobi
@@ -373,11 +376,13 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 ]
 #proof[
   $f$は原点以外で$C^oo$級であるのは明らかなので，非自明な点は任意階数の導関数が原点で0になり，かつ連続になることである．これを$i$に関する帰納法によって示す．まず
-  $ f^(\( 1 \)) \( 0 \) = lim_(h arrow.r 0) frac(f \( h \) - f \( 0 \), h) = lim_(h arrow.r 0) h^(- 1) exp \( - h^(- 2) \) = 0 $なので$f^(\( 1 \))$は$bb(R)$上定義されているとわかる．更に$x eq.not 0$において$f^(\( 1 \)) \( x \) = 2 x^(- 3) e^(- x^(- 2))$なので，#link(<指数関数は多項式に優越する>)[\[指数関数は多項式に優越する\]];によって$lim_(x arrow.r 0) f^(\( 1 \)) \( x \) = 0$であるから$f^(\( 1 \))$は連続関数である．$i gt.eq 0$に対して帰納法の仮定より
+  $ f^(\( 1 \)) \( 0 \) = lim_(h arrow.r 0) frac(f \( h \) - f \( 0 \), h) = lim_(h arrow.r 0) h^(- 1) exp \( - h^(- 2) \) = 0 $なので$f^(\( 1 \))$は$bb(R)$上定義されているとわかる．更に$x eq.not 0$において$f^(\( 1 \)) \( x \) = 2 x^(- 3) e^(- x^(- 2))$なので，@指数関数は多項式に優越する
+  によって$lim_(x arrow.r 0) f^(\( 1 \)) \( x \) = 0$であるから$f^(\( 1 \))$は連続関数である．$i gt.eq 0$に対して帰納法の仮定より
   $ f^(\( i + 1 \)) \( 0 \) colon.eq lim_(h arrow.r 0) frac(f^(\( i \)) \( h \) - f^(\( i \)) \( 0 \), h) = lim_(h arrow.r 0) frac(f^(\( i \)) \( h \), h) $を得る．$f^(\( i \))$は帰納法の仮定より微分可能であり，$lim_(h arrow.r 0) f^(\( i \)) \( h \) = lim_(h arrow.r 0) h = 0$であるから
   l'Hôpital の定理が使えて，
   $ lim_(h arrow.r 0) frac(f^(\( i \)) \( h \), h) = lim_(h arrow.r 0) frac(f^(\( i + 1 \)) \( h \), 1) $を得るので，この時点で$f^(\( i + 1 \))$が原点で定義されていればそれは連続であるとわかる．更に帰納的に議論を繰り返すことで，
-  $ f^(\( i + 1 \)) \( 0 \) colon.eq lim_(h arrow.r 0) frac(f^(\( i \)) \( h \), h) = lim_(h arrow.r 0) frac(f^(\( i - 1 \)) \( h \), h^2) = dots.h = lim_(h arrow.r 0) frac(f^(\( 1 \)) \( h \), h^i) $がわかるが，ふたたび#link(<指数関数は多項式に優越する>)[\[指数関数は多項式に優越する\]];によってこれは0である．
+  $ f^(\( i + 1 \)) \( 0 \) colon.eq lim_(h arrow.r 0) frac(f^(\( i \)) \( h \), h) = lim_(h arrow.r 0) frac(f^(\( i - 1 \)) \( h \), h^2) = dots.h = lim_(h arrow.r 0) frac(f^(\( 1 \)) \( h \), h^i) $がわかるが，ふたたび@指数関数は多項式に優越する
+  によってこれは0である．
 
 ]
 #prop[
@@ -440,7 +445,8 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 
 ]
 #que[
-  #link(<閉集合とコンパクト集合は充分離れる>)[\[閉集合とコンパクト集合は充分離れる\]];において，$K$のコンパクト性は本質的である．すなわち$C sect K = nothing$を充たす閉集合$C \, K subset bb(R)^n$であって$d \( C \, K \) = 0$となるようなものがある．
+  @閉集合とコンパクト集合は充分離れる
+  において，$K$のコンパクト性は本質的である．すなわち$C sect K = nothing$を充たす閉集合$C \, K subset bb(R)^n$であって$d \( C \, K \) = 0$となるようなものがある．
 
 ]
 #block[
@@ -451,9 +457,10 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 #proof[
   この証明において，$a in bb(R)^n$を中心とする幅$2 epsilon$の開方体$product_(i = 1)^n \( a^i - epsilon \, a^i + epsilon \)$のことを$R \( a ; epsilon \)$と書くことにする．
 
-  $x in K$を任意に取ると，\$\\set{x}\$はコンパクトで，$A^C colon.eq bb(R)^n \\ A$は閉集合なので，#link(<閉集合とコンパクト集合は充分離れる>)[\[閉集合とコンパクト集合は充分離れる\]];によって$epsilon_x > 0$があり$d (x \, A^C) = 2 epsilon_x$となる．このとき$R \( x ; epsilon_x \) subset A$であり，特に$d (R \( x ; epsilon_x \) \, A^C) = epsilon_x$である．これをすべての$x in K$に対して考えることで，$K$の開被覆\$\\set{ R(x,\\varepsilon\_x) }\_{x \\in K}\$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆\$\\set{ R(x\_i, \\varepsilon\_i) }\_{i=1}^n\$を取ることができるから取る．$M colon.eq union.big_(i = 1)^n R \( x_i ; epsilon_i \)$と置き，$L colon.eq overline(M)$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L subset A$である．
+  $x in K$を任意に取ると，\$\\set{x}\$はコンパクトで，$A^C colon.eq bb(R)^n \\ A$は閉集合なので，@閉集合とコンパクト集合は充分離れる
+  によって$epsilon_x > 0$があり$d (x \, A^C) = 2 epsilon_x$となる．このとき$R \( x ; epsilon_x \) subset A$であり，特に$d (R \( x ; epsilon_x \) \, A^C) = epsilon_x$である．これをすべての$x in K$に対して考えることで，$K$の開被覆\$\\set{ R(x,\\varepsilon\_x) }\_{x \\in K}\$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆\$\\set{ R(x\_i, \\varepsilon\_i) }\_{i=1}^n\$を取ることができるから取る．$M colon.eq union.big_(i = 1)^n R \( x_i ; epsilon_i \)$と置き，$L colon.eq overline(M)$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L subset A$である．
 
-  #link(<開方体上の隆起関数>)[\[開方体上の隆起関数\]]
+  @開方体上の隆起関数
   に即して関数$g_(x_i \, epsilon_i)$を作り，$h colon.eq sum_(i = 1)^n g_(x_i \, epsilon_i)$と定めると，これは$M$上で正なので$K$上でも正であり，$L$の外部で0である．
 
 ]
@@ -467,10 +474,11 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
   $ k_epsilon \( x \) colon.eq frac(integral_0^x g_(epsilon \/ 2 \, epsilon \/ 2) \( t \) d t, integral_0^oo g_(epsilon \/ 2 \, epsilon \/ 2) \( t \) d t) $とせよ#footnote[要するに$g_(epsilon \/ 2 \, epsilon \/ 2)$を確率密度関数に持つような確率分布関数を作るのを真似ればよい，と言っている．];．
 
 ]
-ここまで来れば#link(<隆起関数の存在>)[\[隆起関数の存在\]];を示すのは難しくない．
+ここまで来れば@隆起関数の存在 を示すのは難しくない．
 
 #proof[
-  $h : bb(R)^n arrow.r bb(R)$を，#link(<未調整な隆起関数>)[\[未調整な隆起関数\]];で構成した関数とすると，$h$の$K$への制限は正値であり，かつ$K$はコンパクトなので$h$は$K$上最小値を持つからそれを$epsilon > 0$とする．$k_epsilon compose h$がそのような関数である．
+  $h : bb(R)^n arrow.r bb(R)$を，@未調整な隆起関数
+  で構成した関数とすると，$h$の$K$への制限は正値であり，かつ$K$はコンパクトなので$h$は$K$上最小値を持つからそれを$epsilon > 0$とする．$k_epsilon compose h$がそのような関数である．
 
 ]
 == 逆関数定理
@@ -560,7 +568,8 @@ Banach の縮小写像の原理を述べる．
 #proof[
   まず座標軸を平行移動することで$a = 0$および$f \( a \) = 0$と仮定して構わない．更に$lambda : bb(R)^n arrow.r bb(R)^n$を可逆線型写像とするとき，$lambda^(- 1) compose f$に関して逆関数定理が成り立てばあきらかに$f$に対しても成り立つとわかる上，仮定より$d f_a$は可逆なので，必要ならば$\( d f_a \)^(- 1)$倍した写像を考えることで$d f_a = upright(i d)_(bb(R)^n)$すなわち$J_f \( a \) = I_n$と仮定してもやはり一般性を失わない．ただし$I_n$は$n times n$単位行列．なのでこれらの仮定を置いて証明を進める．
 
-  $f$は$C^1$級なので，ある半径$delta$の閉球$D = overline(B \( 0\; delta \))$が存在して，任意の$x in D$および$1 lt.eq i \, j lt.eq n$に対して$parallel partial_j f^i \( x \) - partial_j f^i \( 0 \) parallel lt.eq 1 \/ 2 n^2$となるようにできる．このとき，関数$w : D arrow.r D$を$w \( x \) colon.eq f \( x \) - x$によって定めると，$J_w \( x \) = J_f \( x \) - I_n = \( partial_j f^i \( x \) - partial_j f^i \( 0 \) \)$なので，#link(<微分の定量評価>)[\[微分の定量評価\]];によって$parallel w \( x + h \) - w \( x \) parallel lt.eq parallel h parallel \/ 2$すなわち$parallel f \( x + h \) - f \( x \) - h parallel lt.eq parallel h parallel \/ 2$を得る．
+  $f$は$C^1$級なので，ある半径$delta$の閉球$D = overline(B \( 0\; delta \))$が存在して，任意の$x in D$および$1 lt.eq i \, j lt.eq n$に対して$parallel partial_j f^i \( x \) - partial_j f^i \( 0 \) parallel lt.eq 1 \/ 2 n^2$となるようにできる．このとき，関数$w : D arrow.r D$を$w \( x \) colon.eq f \( x \) - x$によって定めると，$J_w \( x \) = J_f \( x \) - I_n = \( partial_j f^i \( x \) - partial_j f^i \( 0 \) \)$なので，@微分の定量評価
+  によって$parallel w \( x + h \) - w \( x \) parallel lt.eq parallel h parallel \/ 2$すなわち$parallel f \( x + h \) - f \( x \) - h parallel lt.eq parallel h parallel \/ 2$を得る．
 
   $f \( a \) = 0$を含む開集合として$V = B \( 0 ; delta \/ 2 \)$を取る．ここで，任意の$y in V$に対して$f \( x \) = y$を充たす$x in D$が一意的に存在すること，すなわち単射$g : V arrow.r D$であって$f compose g = upright(i d)$となるものが存在することを示したい．これが示せれば$f$の$g \( V \)$への制限が可逆であるとわかる．$g$は次のようにして構成する；関数$u_y : D arrow.r bb(R)^n$を$u_y \( x \) = x + \( y - f \( x \) \)$によって定め，$u_y$の値域が実際には$D$であること，および$u_y : D arrow.r D$が縮小的であることを示せば，Banach
   の縮小写像の原理によって$u_y$は唯一の不動点を持つとわかるので，それを$g \( y \)$とすればよい．
@@ -569,7 +578,8 @@ Banach の縮小写像の原理を述べる．
 
   $g$の連続性を示すため，相異なる$y \, y + k in V$を取ると，$f \( x \) = y$および$f \( x + h \) = y + k$を充たすような$x \, x + h in D^compose$が一意的に存在する．したがって$parallel k - h parallel lt.eq parallel y + k - y - h parallel lt.eq parallel h parallel \/ 2$を得るが，$parallel h parallel - parallel k parallel lt.eq parallel k - h parallel$であるから結局$parallel h parallel lt.eq 2 parallel k parallel$を得る．したがって$g$は連続である．
 
-  $g$の微分可能性を示す．$x \, x + h in D^compose$および$y \, y + k in V$を連続性の議論において用いた点たちとし，$f \( x + h \) - f \( x \) - J_f \( x \) h$を考える．この量は$y + k - y - J_f \( x \) \( g \( y + k \) - g \( y \) \) = k - J_f \( x \) \( g \( y + k \) - g \( y \) \)$と書き直せる．線型写像$h mapsto \( J_f \( x \) - I_n \) h$に対して#link(<微分の定量評価>)[\[微分の定量評価\]];を適用することで$parallel J_f \( x \) h - h parallel lt.eq parallel h parallel \/ 2$を得るので，特に$parallel h parallel - parallel J_f \( x \) h parallel lt.eq parallel h parallel \/ 2$すなわち$parallel J_f \( x \) h parallel gt.eq parallel h parallel \/ 2$を得るから$J_f \( x \)$は正則行列である．したがって適当な実数$M > 0$があって
+  $g$の微分可能性を示す．$x \, x + h in D^compose$および$y \, y + k in V$を連続性の議論において用いた点たちとし，$f \( x + h \) - f \( x \) - J_f \( x \) h$を考える．この量は$y + k - y - J_f \( x \) \( g \( y + k \) - g \( y \) \) = k - J_f \( x \) \( g \( y + k \) - g \( y \) \)$と書き直せる．線型写像$h mapsto \( J_f \( x \) - I_n \) h$に対して@微分の定量評価
+  を適用することで$parallel J_f \( x \) h - h parallel lt.eq parallel h parallel \/ 2$を得るので，特に$parallel h parallel - parallel J_f \( x \) h parallel lt.eq parallel h parallel \/ 2$すなわち$parallel J_f \( x \) h parallel gt.eq parallel h parallel \/ 2$を得るから$J_f \( x \)$は正則行列である．したがって適当な実数$M > 0$があって
   $ frac(parallel g \( y + k \) - g \( y \) - J_f \( x \)^(- 1) k parallel, parallel k parallel) & = frac(parallel g \( y + k \) - g \( y \) - J_f \( x \)^(- 1) k parallel, parallel h parallel) frac(parallel h parallel, parallel k parallel)\
   & lt.eq 2 frac(parallel g \( y + k \) - g \( y \) - J_f \( x \)^(- 1) k parallel, parallel h parallel)\
   & = 2 frac(parallel h - J_f \( x \)^(- 1) \( f \( x + h \) - f \( x \) \) parallel, parallel h parallel)\
@@ -670,7 +680,8 @@ Banach の縮小写像の原理を述べる．
   0 & otherwise
   \\end{dcases\*}\$\$ である．
   $f$を$g^(- 1) \( 0 \)$に制限するというのは$x^(n - p + 1) = x^(n - p + 2) = x^n = 0$に固定して$n - p$変数の関数だと見なすことと同値である．したがって$f$が$a in bb(R)^n$において極値を取るならば，$partial_1 f \( a \) = partial_2 f \( a \) = dots.h partial_(n - p) f \( a \) = 0$である．したがって$lambda_i = partial_(n - p + i) f \( a \)$とすれば命題の主張が成り立つ．一般の$g$に対しては，陰関数定理によって$a$を含む開集合$U$で定義された$C^1$級微分同相$F$があって$g compose F^(- 1) = \( x^(n - p + 1) \, dots.h \, x^n \)$となるから，$F$の逆写像を$G$と書けば，前段の議論により実数$lambda_1 \, dots.h \, lambda_p$があって
-  $ partial_j \( f compose G \) \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g compose G \)^i \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g^i compose G \) \( F \( a \) \) $となる．#link(<実用的な方の合成則>)[\[実用的な方の合成則\]];より
+  $ partial_j \( f compose G \) \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g compose G \)^i \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g^i compose G \) \( F \( a \) \) $となる．@実用的な方の合成則
+  より
   $
     partial_j \( f compose G \) \( F \( a \) \) = sum_(k = 1)^n partial_k f \( G \( F \( a \) \) \) dot.op partial_j G^k \( F \( a \) \) = sum_(k = 1)^n partial_k f \( a \) dot.op partial_j G^k \( F \( a \) \) \,
   $
@@ -714,7 +725,8 @@ Banach の縮小写像の原理を述べる．
   Legendre
   変換である」と言い換えることができる．この$S$は熱力学的エントロピーと呼ばれる．
 
-  さて，$S$の表式には$lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H \( p \)$の制約付き極値における$lambda^k$は$U_k$の関数として書ける#footnote[本当は記号を分けて$lambda_(\*)^k \( U_1 \, dots.h \, U_n \)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．];．ここでは更に$lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると#link(<実用的な方の合成則>)[\[実用的な方の合成則\]];によって
+  さて，$S$の表式には$lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H \( p \)$の制約付き極値における$lambda^k$は$U_k$の関数として書ける#footnote[本当は記号を分けて$lambda_(\*)^k \( U_1 \, dots.h \, U_n \)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．];．ここでは更に$lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると@実用的な方の合成則
+  によって
   $ partial_i S \( U \) = sum_(k = 1)^m [partial_k log Z \( lambda \( U \) \) dot.op partial_i lambda^k \( U \)] + sum_(k = 1)^m [U_k partial_i lambda^k \( U \)] + lambda^k \( U \) = lambda^k \( U \) $を得る．したがって未定乗数は熱力学的エントロピーの導関数として現れることがわかった．いくつかの物理学的設定のもとでは，$lambda^k$は「示量変数$U_k$に共役な示強変数」と呼ばれる．また物理学においては熱力学的エントロピー$S$の引数に「エネルギー」と呼ばれる引数$U$を含むように要請することが多い．この$U$に共役な示強変数には「逆温度」という名前がついている；もちろん，適切な設定ならびに考察のもとで，この量と我々が見知っている温度との間に深い関わりを見いだせるだろうが，このノートで書くのはここまでにしておく．
 
 ]

@@ -23,7 +23,7 @@ $A \subset \Real^n$を開集合，$g \colon A \to \Real^p$を$C^\infty$級関数
 \end{prop}
 
 \begin{proof}
-\cref{陰関数定理の言い換え}より，各点$p \in g(M)$に対して，$g(p)$を含む開集合$U_p$上で定義された微分同相$F_p \colon U_p \to \Real^n$であって，$g \circ {F_p}^{-1} (p) = (p^{n-k+1}, \dots, p^n)$を充たすようなものがある．$F_p(U_p) \coloneqq V_p$と置く．$F_p \colon U_p \to V_p$が，定義の条件にあるような微分同相写像であること，すなわち$F_p(U_p \cap M) = V_p \cap \left( \Real^{n-k} \times \set{0} \right)$を示せばよい．
+\ref{陰関数定理の言い換え} より，各点$p \in g(M)$に対して，$g(p)$を含む開集合$U_p$上で定義された微分同相$F_p \colon U_p \to \Real^n$であって，$g \circ {F_p}^{-1} (p) = (p^{n-k+1}, \dots, p^n)$を充たすようなものがある．$F_p(U_p) \coloneqq V_p$と置く．$F_p \colon U_p \to V_p$が，定義の条件にあるような微分同相写像であること，すなわち$F_p(U_p \cap M) = V_p \cap \left( \Real^{n-k} \times \set{0} \right)$を示せばよい．
 
 $F_p(U_p \cap M) \subset V_p \cap \left( \Real^{n-k} \times \set{0} \right)$を示すために，$q \in U_p \cap M$を任意に取って$r \coloneqq F_p(q)$と置く．$r \in V_p$はよい．$g \circ {F_p}^{-1}(r) = g(p) = 0$なので，$r^{n-p+1} = \dots = r^n = 0$，すなわち$r \in \Real^{n-k} \times \set{0}$がわかる．
 
@@ -46,7 +46,7 @@ $M \subset \Real^n$が$k$次元多様体であることと，$M$の各点$p$が�
 \begin{proof}
 $M$が$k$次元多様体であったとする．$p \in M$を任意に取れば，定義にあるような微分同相$h_p \colon U_p \to V_p$が存在する．このとき，$W_p \coloneqq \set{(b^1, \dots, b^k) | b \in V_p \cap (\Real^k \times \set{0})}$として，$f \colon W_p \to \Real^n$を$f(a) \coloneqq {h_p}^{-1}(a,0)$で定める．$h_p$が$C^\infty$級微分同相であることから$f$の単射性と$C^\infty$級であることがわかる．$W_p \subset \Real^k$が開集合であることはよく，$(a,0) \in V_p \cap (\Real^k \times \set{0})$なので$f(a) = {h_p}^{-1}(a,0) \in U_p \cap M$である．更に$f^{-1} = h_p|_{f(W_p)}$なので（連続関数の制限は常に連続なのだから）$f^{-1}$は連続である．最後に，関数$H_p \colon \Real^n \to \Real^k$を$H_p(a) \coloneqq ({h_p}^1(a), \dots, {h_p}^k(a))$によって定めれば，$H_p$は微分可能であり，更に$H_p(f(q))=q$を充たす．したがって Jacobi 行列を考えることで$J_{H_p}(f(q)) \cdot J_f(q) = I_k$がわかるので，特に$J_f(q)$の階数は$k$である．
 
-逆に$M$の各点が座標条件を充たすと仮定する．$p \in M$を任意に取れば，座標条件にあらわれる関数$f \colon W_p \to \Real^n$が存在する．$p = f(q)$によって$q \in \Real^k$を定める．関数$g \colon W_p \times \Real^{n-k} \to \Real^n$を，$g(a,b) \coloneqq f(a) + (0,b)$で定めると，$\det D_g(q,0) = \det D_f(q) \neq 0$であることから，逆関数定理より$(q,0)$を含む開集合$V'$ならびに$p$を含む開集合$U'$が存在して，$g$は$V'$上で$C^\infty$級の逆写像$h_p \colon U' \to V'$を持つ．また，$f$が座標条件を充たすことから，$\set{f(a) | (a,0) \in V' } = U'' \cap M$を充たす開集合$U''$が存在する\footnote{この部分は行間が大きいと思うが，本文に組み込むと議論の見通しが悪くなるので脚注で補う；座標条件の (i) より，$f(W_p) = U_1 \cap M$となるような開集合$U_1$がある．更に座標条件の (iii) より$f^{-1}$は連続であるから，$W' \coloneqq \set{ a | (a,0) \in V'}$は開集合であることとあわせれば\cref{開集合の引き戻しは開集合}より$\set{f(a) | (a,0) \in V' } = f(W') = U_2 \cap f(W_p)$となるような開集合$U_2$がある．$U'' \coloneqq U_1 \cap U_2$とすればよい．}．$U_p \coloneqq U' \cap U''$，$V_p \coloneqq g^{-1}(U_p)$とする．このとき，$U_p \cap M = \set{ f(a) | (a,0) \in V_p} = \set{ g(a,0) | (a,0) \in V_p}$なので\footnote{この部分も行間があるので補う．2つ目の等号はよいと思うので，$U_p \cap M = \set{ g(a,0) | (a,0) \in V_p}$を示す．$V_p \subset V'$なので，$ \set{ g(a,0) | (a,0) \in V_p} \subset  \set{ g(a,0) | (a,0) \in V'} = U'' \cap M$であり，かつ$\set{ g(a,0) | (a,0) \in V_p} \subset g(V') = U'$であるから，$\set{ g(a,0) | (a,0) \in V_p} \subset U' \cap U'' \cap M = U_p \cap M$である．逆の包含を示すために$p \in U_p \cap M$を取る．$p \notin \set{ g(a,0) | (a,0) \in V_p}$であったとすると，$p \in \set{ g(a,0) | (a,0) \in V'}$なので，結局$p \in \set{ g(a,0) | (a,0) \in V' \setminus V_p}$であることになるが，これは$p \in U_p = g(V_p)$に反する．}，$h_p(U_p \cap M) = g^{-1}(U_p \cap M) = g^{-1}(\set{g(a,0) | (a,0) \in V_p}) = \set{(a,0) | (a,0) \in V_p} = V_p \cap (\Real^k \times \set{0})$である．
+逆に$M$の各点が座標条件を充たすと仮定する．$p \in M$を任意に取れば，座標条件にあらわれる関数$f \colon W_p \to \Real^n$が存在する．$p = f(q)$によって$q \in \Real^k$を定める．関数$g \colon W_p \times \Real^{n-k} \to \Real^n$を，$g(a,b) \coloneqq f(a) + (0,b)$で定めると，$\det D_g(q,0) = \det D_f(q) \neq 0$であることから，逆関数定理より$(q,0)$を含む開集合$V'$ならびに$p$を含む開集合$U'$が存在して，$g$は$V'$上で$C^\infty$級の逆写像$h_p \colon U' \to V'$を持つ．また，$f$が座標条件を充たすことから，$\set{f(a) | (a,0) \in V' } = U'' \cap M$を充たす開集合$U''$が存在する\footnote{この部分は行間が大きいと思うが，本文に組み込むと議論の見通しが悪くなるので脚注で補う；座標条件の (i) より，$f(W_p) = U_1 \cap M$となるような開集合$U_1$がある．更に座標条件の (iii) より$f^{-1}$は連続であるから，$W' \coloneqq \set{ a | (a,0) \in V'}$は開集合であることとあわせれば\ref{開集合の引き戻しは開集合} より$\set{f(a) | (a,0) \in V' } = f(W') = U_2 \cap f(W_p)$となるような開集合$U_2$がある．$U'' \coloneqq U_1 \cap U_2$とすればよい．}．$U_p \coloneqq U' \cap U''$，$V_p \coloneqq g^{-1}(U_p)$とする．このとき，$U_p \cap M = \set{ f(a) | (a,0) \in V_p} = \set{ g(a,0) | (a,0) \in V_p}$なので\footnote{この部分も行間があるので補う．2つ目の等号はよいと思うので，$U_p \cap M = \set{ g(a,0) | (a,0) \in V_p}$を示す．$V_p \subset V'$なので，$ \set{ g(a,0) | (a,0) \in V_p} \subset  \set{ g(a,0) | (a,0) \in V'} = U'' \cap M$であり，かつ$\set{ g(a,0) | (a,0) \in V_p} \subset g(V') = U'$であるから，$\set{ g(a,0) | (a,0) \in V_p} \subset U' \cap U'' \cap M = U_p \cap M$である．逆の包含を示すために$p \in U_p \cap M$を取る．$p \notin \set{ g(a,0) | (a,0) \in V_p}$であったとすると，$p \in \set{ g(a,0) | (a,0) \in V'}$なので，結局$p \in \set{ g(a,0) | (a,0) \in V' \setminus V_p}$であることになるが，これは$p \in U_p = g(V_p)$に反する．}，$h_p(U_p \cap M) = g^{-1}(U_p \cap M) = g^{-1}(\set{g(a,0) | (a,0) \in V_p}) = \set{(a,0) | (a,0) \in V_p} = V_p \cap (\Real^k \times \set{0})$である．
 \end{proof}
 
 ここに現れた$f \colon W_p \to \Real^n$の逆写像$f^{-1} \colon f(W_p) \to W_p$を，$p$のまわりの座標系という．今後$M$上の座標系を取る場合には，いちいち逆写像を取り直したり定義域を書き下すのが煩雑なので，「$p$のまわりの座標系$f \colon V_p \to \Real^k$」などと，逆写像を持ち出さずに記号を定義し，定義域の宣言も暗黙に済ませることにする．
@@ -103,7 +103,7 @@ $p \in M$とし，$y \colon V_p \to \Real^k$を$p$のまわりの座標系とす
 この定義から，自動的に$\frac{\partial}{\partial y^i}$は$f \colon V_p \to \Real$に対する微分作用素となる．具体的に作用を書き下せば，
 \begin{equation}
 \left( \frac{\partial}{\partial y^i} \right)_p f = dz_p \left(\frac{\partial}{\partial x^i} \right)_{y(p)} f = \left(\frac{\partial}{\partial x^i} \right)_{y(p)} (f \circ z) = \partial_i  (f \circ z) (y(p)) = \partial_i  (f \circ y^{-1}) (y(p))
-\end{equation}となる．この作用は，\cref{Euclid空間での座標系から定まるベクトル場}における定義と酷似していることに気づかれたい\footnote{というか，ここの定義から逆算して Euclid 空間の場合を定義した，というのが実際のところである．}．座標変換則もまた，Euclid 空間の場合と同様にして得られる．
+\end{equation}となる．この作用は，\ref{Euclid空間での座標系から定まるベクトル場} における定義と酷似していることに気づかれたい\footnote{というか，ここの定義から逆算して Euclid 空間の場合を定義した，というのが実際のところである．}．座標変換則もまた，Euclid 空間の場合と同様にして得られる．
 
 \begin{prop}
 $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座標系とする．このとき，
@@ -267,7 +267,7 @@ $c \colon [0,1]^k \to M$を向きを変えない曲$k$方体，$\omega$を$M$上
 \end{prop}
 
 \begin{proof}
-$c_1, c_2$が向きを保つことと\cref{向きを保てば座標変換の行列式は正}より$\det D_{c_2^{-1} \circ c_1} > 0$が出るので，\cref{微分形式の積分はwell-defined}と同様に証明すればよい．
+$c_1, c_2$が向きを保つことと\ref{向きを保てば座標変換の行列式は正} より$\det D_{c_2^{-1} \circ c_1} > 0$が出るので，\ref{微分形式の積分はwell-defined} と同様に証明すればよい．
 \end{proof}
 
 \begin{defi}
@@ -314,14 +314,14 @@ $M$をコンパクトふち付き$k$次元多様体，$\omega$を$M$上の微分
 
 \subsection{Riemann 計量と体積形式}
 
-\cref{行列式の特徴づけ}を踏まえれば，行列式$\det$の定義として，$\omega \in \GrassAlg^n(\Real^n)$の元であって$\omega(e_1, \dots, e_n) = 1$を充たすもの，という定義を採っても構わない\footnote{学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？}．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
+\ref{行列式の特徴づけ} を踏まえれば，行列式$\det$の定義として，$\omega \in \GrassAlg^n(\Real^n)$の元であって$\omega(e_1, \dots, e_n) = 1$を充たすもの，という定義を採っても構わない\footnote{学部の線型代数の講義でいきなり外積代数の一般論を広げてこの定義をするのはとっつきづらくて敬遠される気もする．のだが，同じくらいとっつきにくい（と私は感じる）Leibniz の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？}．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
 
 \begin{thm}
 $T$を$V$の内積とし，$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底とする．このとき，ある$\omega \in \GrassAlg^n(V^*)$が存在して，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$を充たすような任意の正規直交基底$\set{w_1, \dots, w_n}$に対し$\omega (v_1, \dots, v_n) = 1$を充たす．この$\omega$を，内積$T$および向き$[v_1, \dots, v_n]$の定める$V$の体積要素という．特に，$\Real^n$の標準内積および自然な向きの定める体積要素は行列式$\det$である．
 \end{thm}
 
 \begin{proof}
-$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = \pm 1$となる．したがって\cref{最高次交代テンソルの変換則}により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
+$\set{v_1^*, \dots, v_n^*}$を$\set{v_1, \dots ,v_n}$の双対基底とすれば，$\omega \coloneqq v_1^* \wedge \dots \wedge v_n^*$は$\omega(v_1, \dots ,v_n) = 1$を充たす．$w_i \eqqcolon \sum a_i^j v_j$によって行列$A \eqqcolon \left(a_i^j\right)$を定めれば，$\Real^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$\det A = \pm 1$となる．したがって\ref{最高次交代テンソルの変換則} により，$[v_1, \dots, v_n] = [w_1, \dots, w_n]$であるならば$\omega(w_1, \dots, w_n) = 1$である．
 \end{proof}
 
 \begin{prop}
@@ -332,7 +332,7 @@ $V = \Real^n$とする．$v_1, \dots, v_{n-1} \in V$を任意にとって固定�
 \end{prop}
 
 \begin{proof}
-$\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}, w)$で定めれば，$\varphi$は線型写像なので，$\varphi \in V^*$である．したがって\cref{双対空間は縦ベクトル}の結果より任意の$w \in V$に対して$\varphi(w) = \langle z,w \rangle$を充たす$z$が一意的に存在する．
+$\varphi \colon V \to \Real$を$\varphi(w) \coloneqq \det\, (v_1, \dots, v_{n-1}, w)$で定めれば，$\varphi$は線型写像なので，$\varphi \in V^*$である．したがって\ref{双対空間は縦ベクトル} の結果より任意の$w \in V$に対して$\varphi(w) = \langle z,w \rangle$を充たす$z$が一意的に存在する．
 \end{proof}
 
 このクロス積は，背伸びした高校生が学んだり，学部のベクトル解析で見かけるであろうあのクロス積と実際には同じものである．のだが，定義だけをみてもそれがわかる気がしないので，クロス積の諸性質（こちらのほうがまだ見慣れているだろう）を証明しておくことにする；

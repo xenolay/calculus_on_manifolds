@@ -132,8 +132,7 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
 ]
 Fubini
 の定理の応用は数多いと思われる．ここではそのごく一部を紹介する．手始めに，以前証明を保留した
-Clairaut
-の定理（#link(<clairaut>)[\[clairaut\]];）に証明をつけることにする．
+Clairaut の定理（@clairaut）に証明をつけることにする．
 
 #proof[
   必要ならば変数を並べ替え，更に他の変数をすべて止めて考えることで，最初から$f : bb(R)^2 arrow.r bb(R)$，$i = 1$，$j = 2$であるとして証明して構わないのでそうする．対称性より，ある点$p in bb(R)^2$において$partial_(1 \, 2) f \( p \) - partial_(2 \, 1) f \( p \) > 0$であると仮定して矛盾を導けばよい．$f$が$C^2$級なので，$partial_(1 \, 2) f$ならびに$partial_(2 \, 1) f$はいずれも連続関数である．従って$p$を含む適当な閉方体$A = \[ a \, b \] times \[ c \, d \]$が存在して，$q in A$ならば$partial_(1 \, 2) f \( q \) - partial_(2 \, 1) f \( q \) > 0$である．このことより$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) "" #h(-1em) d lambda^2 > 0$を得る．$partial_(1 \, 2) f - partial_(2 \, 1) f$は連続関数なので，コンパクト集合$A$上で最大値と最小値を持つから特に絶対可積分である．従って
@@ -177,16 +176,20 @@ Clairaut
 #proof[
   証明を4段階に分割する．
 
-  + $A$がコンパクトの場合．$cal(O)$から有限個を選んだ\$\\set{U\_1, \\dots, U\_m}\$が$A$の被覆になっている．\$\\set{U\_1 ,\\dots, U\_m}\$に従属する$A$上の1の分割を構成すればよい．以下，$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち\$\\set{{K\_1}^\\circ,\\dots, {K\_m}^\\circ}\$が$A$の被覆になっているようなものが取れたとする．このとき#link(<未調整な隆起関数>)[\[未調整な隆起関数\]];によって，$K_i subset L_i subset U_i$を充たすコンパクト集合$L_i$ならびに$C^oo$級関数$psi_i : bb(R)^n arrow.r bb(R)$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U supset union.big_i K_i^compose$が存在して，$U$上で$sum_(j = 1)^m psi_j > 0$である．
+  + $A$がコンパクトの場合．$cal(O)$から有限個を選んだ\$\\set{U\_1, \\dots, U\_m}\$が$A$の被覆になっている．\$\\set{U\_1 ,\\dots, U\_m}\$に従属する$A$上の1の分割を構成すればよい．以下，$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち\$\\set{{K\_1}^\\circ,\\dots, {K\_m}^\\circ}\$が$A$の被覆になっているようなものが取れたとする．このとき@未調整な隆起関数
+    によって，$K_i subset L_i subset U_i$を充たすコンパクト集合$L_i$ならびに$C^oo$級関数$psi_i : bb(R)^n arrow.r bb(R)$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U supset union.big_i K_i^compose$が存在して，$U$上で$sum_(j = 1)^m psi_j > 0$である．
     \$\$\\varphi\_i(x) \\coloneqq
     \\begin{dcases\*}
     \\frac{\\psi\_i(x)}{\\sum\_{j=1}^m \\psi\_j(x)} & if \$x \\in U\$, \\\\
     0 & otherwise,
-    \\end{dcases\*}\$\$によって関数$phi_i$を定める．また，#link(<隆起関数の存在>)[\[隆起関数の存在\]];より，$C^oo$級関数$f : bb(R)^n arrow.r bb(R)$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．\$\\Phi \\coloneqq \\set{f \\cdot \\varphi\_i}\_{i=1}^m\$とすればよい#footnote[「$f dot.op phi_i : bb(R)^n arrow.r bb(R)$が$C^oo$級である」ことは非自明だと思うので，この点について補っておく；$f dot.op phi_i$が$U$において$C^oo$級であることはよい．$f dot.op phi_i$は$U$に含まれるコンパクト集合の外で0なので，$partial U$の近傍および$U$の外部において$f dot.op phi_i$は恒等的に0である．];．
+    \\end{dcases\*}\$\$によって関数$phi_i$を定める．また，@隆起関数の存在
+    より，$C^oo$級関数$f : bb(R)^n arrow.r bb(R)$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．\$\\Phi \\coloneqq \\set{f \\cdot \\varphi\_i}\_{i=1}^m\$とすればよい#footnote[「$f dot.op phi_i : bb(R)^n arrow.r bb(R)$が$C^oo$級である」ことは非自明だと思うので，この点について補っておく；$f dot.op phi_i$が$U$において$C^oo$級であることはよい．$f dot.op phi_i$は$U$に含まれるコンパクト集合の外で0なので，$partial U$の近傍および$U$の外部において$f dot.op phi_i$は恒等的に0である．];．
 
-    あとは$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，\$\\set{{K\_1}^\\circ,\\dots, {K\_i}^\\circ, U\_{i+1}, \\dots, {U\_m}}\$が$A$の被覆になっていたとする．$M_(i + 1) colon.eq A \\ \( K_1^compose union K_2^compose union dots.h union K_i^compose union U_(i + 2) union dots.h U_m \)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_(i + 1) subset U_(i + 1)$を充たす．したがって#link(<未調整な隆起関数>)[\[未調整な隆起関数\]];によって$M_(i + 1) subset K_(i + 1) subset U_(i + 1)$を充たすコンパクト集合$K_(i + 1)$があり，$M_(i + 1) subset K_(i + 1)^compose$を充たす．従って\$\\set{{K\_1}^\\circ,\\dots, {K\_{i+1}}^\\circ, U\_{i+2}, \\dots, {U\_m}}\$が$A$の被覆になるから帰納法が進む．
+    あとは$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，\$\\set{{K\_1}^\\circ,\\dots, {K\_i}^\\circ, U\_{i+1}, \\dots, {U\_m}}\$が$A$の被覆になっていたとする．$M_(i + 1) colon.eq A \\ \( K_1^compose union K_2^compose union dots.h union K_i^compose union U_(i + 2) union dots.h U_m \)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_(i + 1) subset U_(i + 1)$を充たす．したがって@未調整な隆起関数
+    によって$M_(i + 1) subset K_(i + 1) subset U_(i + 1)$を充たすコンパクト集合$K_(i + 1)$があり，$M_(i + 1) subset K_(i + 1)^compose$を充たす．従って\$\\set{{K\_1}^\\circ,\\dots, {K\_{i+1}}^\\circ, U\_{i+2}, \\dots, {U\_m}}\$が$A$の被覆になるから帰納法が進む．
 
-  + $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 subset K_2 subset dots.h$であって，$K_i subset K_(i + 1)^compose$ならびに$K_i arrow.t A$を充たすようなものがある場合．$L_i colon.eq K_i \\ K_(i - 1)^compose$と置くと，$L_i$はコンパクトで，\$\\mathscr{O}\_i \\coloneqq \\set{ O \\cap (K\_{i+1}^\\circ \\setminus K\_{i-2} ) |  O \\in \\mathscr{O}}\$は$L_i$の開被覆である．従って$cal(O)_i$に従属した（すなわち$cal(O)$にも従属した）$L_i$上の1の分割$Phi_i$が取れる．$sigma \( x \) colon.eq sum_(i = 1)^oo sum_(phi in Phi_i) phi \( x \)$と定めると，$sigma$は各点で有限和なので実数値$C^oo$級関数になり，$overline(A)$を含む開集合$U$上で正である．#link(<隆起関数の存在>)[\[隆起関数の存在\]];を用いて$f : bb(R)^n arrow.r bb(R)$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，\$\\Phi \\coloneqq \\set{ f \\cdot  (\\varphi / \\sigma) | \\varphi \\in \\bigcup\_i \\Phi\_i }\$と置けば，これが求める1の分割である．
+  + $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 subset K_2 subset dots.h$であって，$K_i subset K_(i + 1)^compose$ならびに$K_i arrow.t A$を充たすようなものがある場合．$L_i colon.eq K_i \\ K_(i - 1)^compose$と置くと，$L_i$はコンパクトで，\$\\mathscr{O}\_i \\coloneqq \\set{ O \\cap (K\_{i+1}^\\circ \\setminus K\_{i-2} ) |  O \\in \\mathscr{O}}\$は$L_i$の開被覆である．従って$cal(O)_i$に従属した（すなわち$cal(O)$にも従属した）$L_i$上の1の分割$Phi_i$が取れる．$sigma \( x \) colon.eq sum_(i = 1)^oo sum_(phi in Phi_i) phi \( x \)$と定めると，$sigma$は各点で有限和なので実数値$C^oo$級関数になり，$overline(A)$を含む開集合$U$上で正である．@隆起関数の存在
+    を用いて$f : bb(R)^n arrow.r bb(R)$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，\$\\Phi \\coloneqq \\set{ f \\cdot  (\\varphi / \\sigma) | \\varphi \\in \\bigcup\_i \\Phi\_i }\$と置けば，これが求める1の分割である．
 
   + $A$が開集合の場合．\$K\_i \\coloneqq \\set{ x \\in A | \\|x\\| \\leq i, d(x, \\partial A) \\leq 1/i }\$とすれば\$\\set{K\_i}\$が$A$のコンパクト集合による充填になるので，前段に帰着する．
 
@@ -304,7 +307,8 @@ Clairaut
 
 #exm[
   $P colon.eq \( 0 \, oo \) times \( 0 \, 2 pi \)$と置いて，関数$phi : P arrow.r bb(R)^2$を$phi \( r \, theta \) = \( r cos theta \, r sin theta \)$によって定める．$phi$は単射であり，Jacobi
-  行列は$J_phi \( r \, theta \) = mat(delim: "(", cos theta, - r sin theta; sin theta, r cos theta)$なので，特に$det J_phi \( r \, theta \) = r$がわかるから，逆関数定理より$phi$を$phi \( P \)$への写像とみなすと$C^1$級微分同相である．ところで\$A \\coloneqq \\set{(x,0) \\in \\mathbb{R}^2 | x \\geq 0}\$と置くとこれは閉集合で，$phi \( P \) = bb(R)^2 \\ A$なので，#link(<変数変換公式の弱い形>)[\[変数変換公式の弱い形\]];より，$f : bb(R)^2 arrow.r overline(bb(R))$が非負可測であるか$f in L^1 \( bb(R)^2 \)$であるならば
+  行列は$J_phi \( r \, theta \) = mat(delim: "(", cos theta, - r sin theta; sin theta, r cos theta)$なので，特に$det J_phi \( r \, theta \) = r$がわかるから，逆関数定理より$phi$を$phi \( P \)$への写像とみなすと$C^1$級微分同相である．ところで\$A \\coloneqq \\set{(x,0) \\in \\mathbb{R}^2 | x \\geq 0}\$と置くとこれは閉集合で，$phi \( P \) = bb(R)^2 \\ A$なので，@変数変換公式の弱い形
+  より，$f : bb(R)^2 arrow.r overline(bb(R))$が非負可測であるか$f in L^1 \( bb(R)^2 \)$であるならば
   $ integral_(phi \( P \)) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) dot.op \| det J_phi \( r \, theta \) \| "" #h(-1em) d lambda^2 \( r \, theta \) $すなわち
   $ integral_(bb(R)^2 \\ A) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) med r "" #h(-1em) d lambda^2 \( r \, theta \) $を得る．$A$が測度0なので，左辺は$bb(R)^2$全域での積分に置き換えることができる．また右辺に対して
   Fubini の定理を適用することで，
@@ -331,7 +335,8 @@ Sard の定理である．
 
   $U$の各辺の長さを$ell$と置く．$epsilon > 0$を任意に一つ取って固定する．$phi$は$C^1$級なので，$partial_i phi^j$はすべて$U$上で一様連続である．したがって「$parallel x - y parallel < delta$ならば任意の$i \, j$に対して$parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$」となるような$delta > 0$がある．$U$の各辺を$N$等分することで，各辺の長さが$ell \/ N$の閉方体が$N^n$個できるが，その中で$B$と共通部分を持つものを任意にとって$S$とする．$N$を充分大きく取っておくことで，「$x \, y in S$ならば$parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$」が成り立つようにできるので，そのように$N$は取っておく．
 
-  $x in S sect B$を取ると，$det J_phi \( x \) = 0$なので，$d phi_x$は正則ではない．したがって\$\\set{ d\\varphi\_x (y-x) | y \\in S }\$はある$n - 1$次元部分空間$V subset.neq bb(R)^n$に含まれる．更に$y in S$に対して$f \( y \) colon.eq d phi_x \( y \) - phi \( y \)$と定めると，$parallel phi_i f^j \( y \) parallel = parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$なので，#link(<微分の定量評価>)[\[微分の定量評価\]];より$parallel d phi_x \( y - x \) - phi \( y \) + phi \( x \) parallel = parallel f \( y \) - f \( x \) parallel < epsilon parallel y - x parallel lt.eq epsilon ell sqrt(n) \/ N$である．言い換えると，$d \( V + phi \( x \) \, phi \( y \) \) < epsilon ell sqrt(n) \/ N$である．また$phi$の$S$上での一様連続性より$parallel phi \( y \) - phi \( x \) parallel < M parallel y - x parallel lt.eq M ell sqrt(n) \/ N$となるような$M > 0$がある．したがって（$epsilon \, N$の何れにも依存しない）定数$A > 0$があって\$\\lambda^n( \\set{\\varphi(y) | y \\in S}) \< A (M \\ell \\sqrt{n} / N)^{n-1} \\cdot \\varepsilon \\ell \\sqrt{n} / N = AM^{n-1} \\varepsilon (\\ell \\sqrt{n}/N)^n\$が成り立つ．$S$は$S sect B = nothing$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局\$\\lambda^n( \\set{\\varphi(y) | y \\in U \\cap S}) \< AM^{n-1} \\varepsilon (\\ell \\sqrt{n})^n\$が成り立つ．$epsilon$は任意だったので，$lambda^n \( U sect B \) = 0$である．
+  $x in S sect B$を取ると，$det J_phi \( x \) = 0$なので，$d phi_x$は正則ではない．したがって\$\\set{ d\\varphi\_x (y-x) | y \\in S }\$はある$n - 1$次元部分空間$V subset.neq bb(R)^n$に含まれる．更に$y in S$に対して$f \( y \) colon.eq d phi_x \( y \) - phi \( y \)$と定めると，$parallel phi_i f^j \( y \) parallel = parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$なので，@微分の定量評価
+  より$parallel d phi_x \( y - x \) - phi \( y \) + phi \( x \) parallel = parallel f \( y \) - f \( x \) parallel < epsilon parallel y - x parallel lt.eq epsilon ell sqrt(n) \/ N$である．言い換えると，$d \( V + phi \( x \) \, phi \( y \) \) < epsilon ell sqrt(n) \/ N$である．また$phi$の$S$上での一様連続性より$parallel phi \( y \) - phi \( x \) parallel < M parallel y - x parallel lt.eq M ell sqrt(n) \/ N$となるような$M > 0$がある．したがって（$epsilon \, N$の何れにも依存しない）定数$A > 0$があって\$\\lambda^n( \\set{\\varphi(y) | y \\in S}) \< A (M \\ell \\sqrt{n} / N)^{n-1} \\cdot \\varepsilon \\ell \\sqrt{n} / N = AM^{n-1} \\varepsilon (\\ell \\sqrt{n}/N)^n\$が成り立つ．$S$は$S sect B = nothing$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局\$\\lambda^n( \\set{\\varphi(y) | y \\in U \\cap S}) \< AM^{n-1} \\varepsilon (\\ell \\sqrt{n})^n\$が成り立つ．$epsilon$は任意だったので，$lambda^n \( U sect B \) = 0$である．
 
 ]
 #dig[

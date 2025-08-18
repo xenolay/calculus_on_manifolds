@@ -95,7 +95,7 @@ $\sigma$-有限性を用いて有限測度の場合に考察を帰着する部�
 \begin{dig}Spivak を見てもらうとわかるが，被積分関数の連続性まで課してしまえば Riemann 積分の場合でも主張はすっきりするけれども，そうでない場合までカバーしようとすると途端に主張がごたついて見える．積分の順序を入れ替えてよい充分条件をシンプルに記述するというのは実用上の重要性を持つと思う．一方，可測関数というものがずいぶんいろいろな関数を含んでいて，そこに難しさを押し付けているだけでは？といわれると返す言葉もないですが…
 \end{dig}
 
-Fubini の定理の応用は数多いと思われる．ここではそのごく一部を紹介する．手始めに，以前証明を保留した Clairaut の定理（\cref{clairaut}）に証明をつけることにする．
+Fubini の定理の応用は数多いと思われる．ここではそのごく一部を紹介する．手始めに，以前証明を保留した Clairaut の定理（\ref{clairaut}）に証明をつけることにする．
 
 \clairaut*
 
@@ -135,16 +135,16 @@ $A \subset \Real^n$を部分集合，$\mathscr{O}$を$A$の開被覆とする．
 \begin{proof}
 証明を4段階に分割する．
 \begin{enumerate}
-\item $A$がコンパクトの場合．$\mathscr{O}$から有限個を選んだ$\set{U_1, \dots, U_m}$が$A$の被覆になっている．$\set{U_1 ,\dots, U_m}$に従属する$A$上の1の分割を構成すればよい．以下，$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち$\set{{K_1}^\circ,\dots, {K_m}^\circ}$が$A$の被覆になっているようなものが取れたとする．このとき\cref{未調整な隆起関数}によって，$K_i \subset L_i \subset U_i$を充たすコンパクト集合$L_i$ならびに$C^\infty$級関数$\psi_i \colon \Real^n \to \Real$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U \supset \bigcup_i {K_i}^\circ$が存在して，$U$上で$\sum_{j=1}^m \psi_j > 0$である．
+\item $A$がコンパクトの場合．$\mathscr{O}$から有限個を選んだ$\set{U_1, \dots, U_m}$が$A$の被覆になっている．$\set{U_1 ,\dots, U_m}$に従属する$A$上の1の分割を構成すればよい．以下，$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち$\set{{K_1}^\circ,\dots, {K_m}^\circ}$が$A$の被覆になっているようなものが取れたとする．このとき\ref{未調整な隆起関数} によって，$K_i \subset L_i \subset U_i$を充たすコンパクト集合$L_i$ならびに$C^\infty$級関数$\psi_i \colon \Real^n \to \Real$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U \supset \bigcup_i {K_i}^\circ$が存在して，$U$上で$\sum_{j=1}^m \psi_j > 0$である．
 \begin{equation}\varphi_i(x) \coloneqq 
  \begin{dcases*}
     \frac{\psi_i(x)}{\sum_{j=1}^m \psi_j(x)} & if $x \in U$, \\
     0 & otherwise,
   \end{dcases*}
-\end{equation}によって関数$\varphi_i$を定める．また，\cref{隆起関数の存在}より，$C^\infty$級関数$f \colon \Real^n \to \Real$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$\Phi \coloneqq \set{f \cdot \varphi_i}_{i=1}^m$とすればよい\footnote{「$f \cdot \varphi_i \colon \Real^n \to \Real$が$C^\infty$級である」ことは非自明だと思うので，この点について補っておく；$f \cdot \varphi_i$が$U$において$C^\infty$級であることはよい．$f \cdot \varphi_i$は$U$に含まれるコンパクト集合の外で0なので，$\partial U$の近傍および$U$の外部において$f \cdot \varphi_i$は恒等的に0である．}．
+\end{equation}によって関数$\varphi_i$を定める．また，\ref{隆起関数の存在} より，$C^\infty$級関数$f \colon \Real^n \to \Real$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$\Phi \coloneqq \set{f \cdot \varphi_i}_{i=1}^m$とすればよい\footnote{「$f \cdot \varphi_i \colon \Real^n \to \Real$が$C^\infty$級である」ことは非自明だと思うので，この点について補っておく；$f \cdot \varphi_i$が$U$において$C^\infty$級であることはよい．$f \cdot \varphi_i$は$U$に含まれるコンパクト集合の外で0なので，$\partial U$の近傍および$U$の外部において$f \cdot \varphi_i$は恒等的に0である．}．
 
-あとは$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，$\set{{K_1}^\circ,\dots, {K_i}^\circ, U_{i+1}, \dots, {U_m}}$が$A$の被覆になっていたとする．$M_{i+1} \coloneqq A \setminus ({K_1}^\circ \cup {K_2}^\circ \cup \dots \cup {K_i}^\circ \cup U_{i+2} \cup \dots U_m)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_{i+1} \subset U_{i+1}$を充たす．したがって\cref{未調整な隆起関数}によって$M_{i+1} \subset K_{i+1} \subset U_{i+1}$を充たすコンパクト集合$K_{i+1}$があり，$M_{i+1} \subset {K_{i+1}}^\circ$を充たす．従って$\set{{K_1}^\circ,\dots, {K_{i+1}}^\circ, U_{i+2}, \dots, {U_m}}$が$A$の被覆になるから帰納法が進む．
-\item $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 \subset K_2 \subset \dots $であって，$K_i \subset {K_{i+1}}^\circ$ならびに$K_i \uparrow A$を充たすようなものがある場合．$L_i \coloneqq K_{i} \setminus {K_{i-1}}^\circ$と置くと，$L_i$はコンパクトで，$\Opensets_i \coloneqq \set{ O \cap (K_{i+1}^\circ \setminus K_{i-2} ) |  O \in \Opensets }$は$L_i$の開被覆である．従って$\Opensets_i$に従属した（すなわち$\Opensets$にも従属した）$L_i$上の1の分割$\Phi_i$が取れる．$\sigma(x) \coloneqq \sum_{i=1}^\infty \sum_{\varphi \in \Phi_i} \varphi(x)$と定めると，$\sigma$は各点で有限和なので実数値$C^\infty$級関数になり，$\overline{A}$を含む開集合$U$上で正である．\cref{隆起関数の存在}を用いて$f \colon \Real^n \to \Real$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，$\Phi \coloneqq \set{ f \cdot  (\varphi / \sigma) | \varphi \in \bigcup_i \Phi_i }$と置けば，これが求める1の分割である．
+あとは$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，$\set{{K_1}^\circ,\dots, {K_i}^\circ, U_{i+1}, \dots, {U_m}}$が$A$の被覆になっていたとする．$M_{i+1} \coloneqq A \setminus ({K_1}^\circ \cup {K_2}^\circ \cup \dots \cup {K_i}^\circ \cup U_{i+2} \cup \dots U_m)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_{i+1} \subset U_{i+1}$を充たす．したがって\ref{未調整な隆起関数} によって$M_{i+1} \subset K_{i+1} \subset U_{i+1}$を充たすコンパクト集合$K_{i+1}$があり，$M_{i+1} \subset {K_{i+1}}^\circ$を充たす．従って$\set{{K_1}^\circ,\dots, {K_{i+1}}^\circ, U_{i+2}, \dots, {U_m}}$が$A$の被覆になるから帰納法が進む．
+\item $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 \subset K_2 \subset \dots $であって，$K_i \subset {K_{i+1}}^\circ$ならびに$K_i \uparrow A$を充たすようなものがある場合．$L_i \coloneqq K_{i} \setminus {K_{i-1}}^\circ$と置くと，$L_i$はコンパクトで，$\Opensets_i \coloneqq \set{ O \cap (K_{i+1}^\circ \setminus K_{i-2} ) |  O \in \Opensets }$は$L_i$の開被覆である．従って$\Opensets_i$に従属した（すなわち$\Opensets$にも従属した）$L_i$上の1の分割$\Phi_i$が取れる．$\sigma(x) \coloneqq \sum_{i=1}^\infty \sum_{\varphi \in \Phi_i} \varphi(x)$と定めると，$\sigma$は各点で有限和なので実数値$C^\infty$級関数になり，$\overline{A}$を含む開集合$U$上で正である．\ref{隆起関数の存在} を用いて$f \colon \Real^n \to \Real$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，$\Phi \coloneqq \set{ f \cdot  (\varphi / \sigma) | \varphi \in \bigcup_i \Phi_i }$と置けば，これが求める1の分割である．
 \item $A$が開集合の場合．$K_i \coloneqq \set{ x \in A | \|x\| \leq i, d(x, \partial A) \leq 1/i }$とすれば$\set{K_i}$が$A$のコンパクト集合による充填になるので，前段に帰着する．
 \item $A$が一般の集合の場合．$\Opensets$に属する開集合すべての和集合を$U$とすると，$U$は開集合なので，前段により$U$上の1の分割$\Phi$であって$\Opensets$に従属するものが取れる．$\Phi$は$A$上の1の分割でもある．
 \end{enumerate}
@@ -253,7 +253,7 @@ J_{\varphi}(r,\theta) =
     \cos \theta & -r \sin \theta \\
     \sin \theta & r \cos \theta
     \end{pmatrix}
-$なので，特に$\det J_\varphi(r,\theta) = r$がわかるから，逆関数定理より$\varphi$を$\varphi(P)$への写像とみなすと$C^1$級微分同相である．ところで$A \coloneqq \set{(x,0) \in \Real^2 | x \geq 0}$と置くとこれは閉集合で，$\varphi(P) = \Real^2 \setminus A$なので，\cref{変数変換公式の弱い形}より，$f \colon \Real^2 \to \overline{\Real}$が非負可測であるか$f \in L^1(\Real^2)$であるならば
+$なので，特に$\det J_\varphi(r,\theta) = r$がわかるから，逆関数定理より$\varphi$を$\varphi(P)$への写像とみなすと$C^1$級微分同相である．ところで$A \coloneqq \set{(x,0) \in \Real^2 | x \geq 0}$と置くとこれは閉集合で，$\varphi(P) = \Real^2 \setminus A$なので，\ref{変数変換公式の弱い形} より，$f \colon \Real^2 \to \overline{\Real}$が非負可測であるか$f \in L^1(\Real^2)$であるならば
 \begin{equation}
 \int_{\varphi(P)} f(x,y) \dif \lambda^2(x,y) = \int_P (f \circ \varphi) (r, \theta) \cdot |\det J_\varphi (r,\theta)| \dif\lambda^2(r,\theta)
 \end{equation}すなわち
@@ -282,7 +282,7 @@ $A \subset \Real^n$を開集合，$\varphi \colon A \to \Real^n$を$C^1$級写�
 
 $U$の各辺の長さを$\ell$と置く．$\varepsilon > 0$を任意に一つ取って固定する．$\varphi$は$C^1$級なので，$\partial_i \varphi^j$はすべて$U$上で一様連続である．したがって「$\|x-y\| < \delta$ならば任意の$i,j$に対して$\|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\|< \varepsilon / n^2$」となるような$\delta > 0$がある．$U$の各辺を$N$等分することで，各辺の長さが$\ell / N$の閉方体が$N^n$個できるが，その中で$B$と共通部分を持つものを任意にとって$S$とする．$N$を充分大きく取っておくことで，「$x,y \in S$ならば$\|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\|< \varepsilon / n^2$」が成り立つようにできるので，そのように$N$は取っておく．
 
-$x \in S \cap B$を取ると，$\det J_\varphi (x) = 0$なので，$d\varphi_x$は正則ではない．したがって$\set{ d\varphi_x (y-x) | y \in S }$はある$n-1$次元部分空間$V \subsetneq \Real^n$に含まれる．更に$y \in S$に対して$f(y) \coloneqq d\varphi_x(y) - \varphi(y)$と定めると，$\|\varphi_i f^j(y)\| = \|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\| < \varepsilon / n^2$なので，\cref{微分の定量評価}より$\|d\varphi_x(y-x) - \varphi(y) + \varphi(x)\| = \|f(y)-f(x)\| < \varepsilon \|y-x\| \leq \varepsilon \ell \sqrt{n} / N$である．言い換えると，$d(V+\varphi(x), \varphi(y)) < \varepsilon \ell \sqrt{n} / N$である．また$\varphi$の$S$上での一様連続性より$\|\varphi(y)-\varphi(x)\| < M \|y-x\| \leq M \ell \sqrt{n} / N$となるような$M > 0$がある．したがって（$\varepsilon, N$の何れにも依存しない）定数$A > 0$があって$\lambda^n( \set{\varphi(y) | y \in S}) < A (M \ell \sqrt{n} / N)^{n-1} \cdot \varepsilon \ell \sqrt{n} / N = AM^{n-1} \varepsilon (\ell \sqrt{n}/N)^n $が成り立つ．$S$は$S \cap B = \emptyset$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局$\lambda^n( \set{\varphi(y) | y \in U \cap S}) < AM^{n-1} \varepsilon (\ell \sqrt{n})^n$が成り立つ．$\varepsilon$は任意だったので，$\lambda^n(U \cap B) = 0$である．
+$x \in S \cap B$を取ると，$\det J_\varphi (x) = 0$なので，$d\varphi_x$は正則ではない．したがって$\set{ d\varphi_x (y-x) | y \in S }$はある$n-1$次元部分空間$V \subsetneq \Real^n$に含まれる．更に$y \in S$に対して$f(y) \coloneqq d\varphi_x(y) - \varphi(y)$と定めると，$\|\varphi_i f^j(y)\| = \|\partial_i\varphi^j(x) - \partial_i \varphi^j(y)\| < \varepsilon / n^2$なので，\ref{微分の定量評価} より$\|d\varphi_x(y-x) - \varphi(y) + \varphi(x)\| = \|f(y)-f(x)\| < \varepsilon \|y-x\| \leq \varepsilon \ell \sqrt{n} / N$である．言い換えると，$d(V+\varphi(x), \varphi(y)) < \varepsilon \ell \sqrt{n} / N$である．また$\varphi$の$S$上での一様連続性より$\|\varphi(y)-\varphi(x)\| < M \|y-x\| \leq M \ell \sqrt{n} / N$となるような$M > 0$がある．したがって（$\varepsilon, N$の何れにも依存しない）定数$A > 0$があって$\lambda^n( \set{\varphi(y) | y \in S}) < A (M \ell \sqrt{n} / N)^{n-1} \cdot \varepsilon \ell \sqrt{n} / N = AM^{n-1} \varepsilon (\ell \sqrt{n}/N)^n $が成り立つ．$S$は$S \cap B = \emptyset$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局$\lambda^n( \set{\varphi(y) | y \in U \cap S}) < AM^{n-1} \varepsilon (\ell \sqrt{n})^n$が成り立つ．$\varepsilon$は任意だったので，$\lambda^n(U \cap B) = 0$である．
 \end{proof}
 
 \begin{dig}

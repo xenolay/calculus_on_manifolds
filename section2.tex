@@ -114,7 +114,7 @@ C &=\frac{\left\|g (f(a+h)) - g ( f(a) ) - dg_{f(a)}(df_a(h)) \right\|}{\|h\|} \
 & \eqqcolon A + B.
 \end{align}$A$と$B$が$h \to 0$で0に収束することを示せればよい．
 
-\cref{線型写像の連続性}より，ある実数$M$があって$B \leq \frac{M \left\|f(a+f) - f(a) -df_a(h)) \right\|}{\|h\|} \to 0$なので$B$はよい．$A$を評価する．$\varepsilon>0$を任意に取る．ふたたび\cref{線型写像の連続性}より，任意の$h \in \Real^m$に対して$\|df_{a}(h)\| \leq N\|h\|$となるような実数$N$がある．以下，3つの評価を使う；
+\ref{線型写像の連続性} より，ある実数$M$があって$B \leq \frac{M \left\|f(a+f) - f(a) -df_a(h)) \right\|}{\|h\|} \to 0$なので$B$はよい．$A$を評価する．$\varepsilon>0$を任意に取る．ふたたび\ref{線型写像の連続性} より，任意の$h \in \Real^m$に対して$\|df_{a}(h)\| \leq N\|h\|$となるような実数$N$がある．以下，3つの評価を使う；
 \begin{itemize}
 \item $g$は$f(a)$において微分可能なので，
 \begin{equation}
@@ -276,7 +276,7 @@ $f \colon \Real^m \to \Real^n$が$a$において微分可能であるとする�
 \end{thm}
 
 \begin{proof}
-\cref{微分の基本性質}より，結局は各成分関数ごとの考察に帰着するため，$n=1$の場合を証明すればよい．$h \colon \Real \to \Real^m$を，$h(x) = (a^1 , \dots, a^{j-1}, x, a^{j+1}, \dots, a^m)$で定めると$f \circ h \colon \Real \to \Real$は微分可能であるが，導関数$d(f \circ h)$とは$\partial_j f$のことである．更に$J_h(x) = e_j$であるから，$J_{f \circ h} \left(a^j\right)= J_f \left(h\left(a^j\right)\right) \cdot J_h\left(a^j\right) =  J_f \left(a\right) \cdot e_j$である．つまり$1 \times m$行列$J_f \left(a\right)$の$j$列目は$\partial_j f(a)$に等しい．
+\ref{微分の基本性質} より，結局は各成分関数ごとの考察に帰着するため，$n=1$の場合を証明すればよい．$h \colon \Real \to \Real^m$を，$h(x) = (a^1 , \dots, a^{j-1}, x, a^{j+1}, \dots, a^m)$で定めると$f \circ h \colon \Real \to \Real$は微分可能であるが，導関数$d(f \circ h)$とは$\partial_j f$のことである．更に$J_h(x) = e_j$であるから，$J_{f \circ h} \left(a^j\right)= J_f \left(h\left(a^j\right)\right) \cdot J_h\left(a^j\right) =  J_f \left(a\right) \cdot e_j$である．つまり$1 \times m$行列$J_f \left(a\right)$の$j$列目は$\partial_j f(a)$に等しい．
 \end{proof}
 
 \begin{que}
@@ -299,7 +299,7 @@ $f \colon \Real^m \to \Real^n$が$C^1$級であるならば$f$は微分可能で
 \end{thm}
 
 \begin{proof}
-\cref{微分の基本性質} より，各成分関数の微分可能性を示せば充分であるから，やはり$n=1$の場合を証明すれば良い．$f(a+h) - f(a)$を，
+\ref{微分の基本性質} より，各成分関数の微分可能性を示せば充分であるから，やはり$n=1$の場合を証明すれば良い．$f(a+h) - f(a)$を，
 \begin{align}
 f(a+h) - f(a) &= f(a^1+h^1, a^2, \dots, a^n) - f(a^1 , a^2, \dots, a^n) \\
 &+ f(a^1+h^1, a^2+h^2, \dots, a^n) - f(a^1+h^1 , a^2, \dots, a^n) \\
@@ -343,7 +343,7 @@ F \colon \Real^m \ni x \mapsto f(g^1(x), g^2(x), \dots, g^m(x)) \in \Real
 \end{prop}
 
 \begin{proof}
-$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \dots, g^n(x))$で定めると，\cref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\cref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i F (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
+$g \colon \Real^m \to \Real^n$を$g(x) \coloneqq (g^1(x), \dots, g^n(x))$で定めると，\ref{C1なら微分可能} より$g$は微分可能であるので，$F = f \circ g$も微分可能である．\ref{微分可能なら偏微分可能} より$F$の$a$における Jacobi 行列$J_F(a)$は$1 \times m$行列であって$(1,i)$成分が$\partial_i F (a)$に等しいことがわかる．したがって$F$の Jacobi 行列を計算すればよいが，合成則より$J_F(a) = J_f (g(a)) \cdot J_g(a)$であって，$J_f(g(a))$は
 \begin{equation}
 \left( \partial_1 f(g(a)),\ \partial_2 f(g(a)),\ \dots,\ \partial_n f(g(a))  \right)
 \end{equation}という$1 \times n$行列，$J_g(a)$は$(j,i)$成分が$\partial_i g^j(a)$であるような$n \times m$行列であるから，あとは行列の掛け算をすることで結論を得る．
@@ -414,7 +414,7 @@ f(x) =   \begin{dcases*}
 $f$は原点以外で$C^\infty$級であるのは明らかなので，非自明な点は任意階数の導関数が原点で0になり，かつ連続になることである．これを$i$に関する帰納法によって示す．まず
 \begin{equation}
 f^{(1)}(0) = \lim_{h \to 0} \frac{f(h)-f(0)}{h} = \lim_{h \to 0} h^{-1} \exp(-h^{-2})=0
-\end{equation}なので$f^{(1)}$は$\Real$上定義されているとわかる．更に$x \neq 0$において$f^{(1)}(x) = 2x^{-3} e^{-x^{-2}}$なので，\cref{指数関数は多項式に優越する}によって$\lim_{x \to 0} f^{(1)}(x) = 0$であるから$f^{(1)}$は連続関数である．$i \geq 0$に対して帰納法の仮定より
+\end{equation}なので$f^{(1)}$は$\Real$上定義されているとわかる．更に$x \neq 0$において$f^{(1)}(x) = 2x^{-3} e^{-x^{-2}}$なので，\ref{指数関数は多項式に優越する} によって$\lim_{x \to 0} f^{(1)}(x) = 0$であるから$f^{(1)}$は連続関数である．$i \geq 0$に対して帰納法の仮定より
 \begin{equation}
 f^{(i+1)}(0) \coloneqq \lim_{h\to 0 } \frac{f^{(i)}(h) - f^{(i)}(0)}{h} = \lim_{h\to 0}\frac{f^{(i)}(h)}{h}
 \end{equation}を得る．$f^{(i)}$は帰納法の仮定より微分可能であり，$\lim_{h \to 0} f^{(i)}(h) = \lim_{h \to 0}h =0$であるから l'H\^opital の定理が使えて，
@@ -423,7 +423,7 @@ f^{(i+1)}(0) \coloneqq \lim_{h\to 0 } \frac{f^{(i)}(h) - f^{(i)}(0)}{h} = \lim_{
 \end{equation}を得るので，この時点で$f^{(i+1)}$が原点で定義されていればそれは連続であるとわかる．更に帰納的に議論を繰り返すことで，
 \begin{equation}
 f^{(i+1)}(0) \coloneqq \lim_{h\to 0}\frac{f^{(i)}(h)}{h}  = \lim_{h\to 0}\frac{f^{(i-1)}(h)}{h^2} = \dots = \lim_{h\to 0}\frac{f^{(1)}(h)}{h^i}
-\end{equation}がわかるが，ふたたび\cref{指数関数は多項式に優越する}によってこれは0である．
+\end{equation}がわかるが，ふたたび\ref{指数関数は多項式に優越する} によってこれは0である．
 \end{proof}
 
 
@@ -484,7 +484,7 @@ $C \cap K = \emptyset$なので，$K$の各点$x$に対して$d(x,C) \eqqcolon \
 \end{proof}
 
 \begin{que}
-\cref{閉集合とコンパクト集合は充分離れる}において，$K$のコンパクト性は本質的である．すなわち$C \cap K = \emptyset$を充たす閉集合$C,K \subset \Real^n$であって$d(C,K)=0$となるようなものがある．
+\ref{閉集合とコンパクト集合は充分離れる} において，$K$のコンパクト性は本質的である．すなわち$C \cap K = \emptyset$を充たす閉集合$C,K \subset \Real^n$であって$d(C,K)=0$となるようなものがある．
 \end{que}
 
 \begin{restatable}{prop}{nonadjustedbump}\label{未調整な隆起関数}
@@ -494,9 +494,9 @@ $K \subset A \subset \Real^n$とし，更に$K$をコンパクト，$A$を開集
 \begin{proof}
 この証明において，$a \in \Real^n$を中心とする幅$2\varepsilon$の開方体$\prod_{i=1}^n (a^i - \varepsilon, a^i + \varepsilon)$のことを$R(a; \varepsilon)$と書くことにする．
 
-$x \in K$を任意に取ると，$\set{x}$はコンパクトで，$A^C \coloneqq \Real^n \setminus A$は閉集合なので，\cref{閉集合とコンパクト集合は充分離れる}によって$\varepsilon_x > 0$があり$d\left(x,A^C\right) = 2\varepsilon_x$となる．このとき$R(x;\varepsilon_x) \subset A$であり，特に$d\left(R(x;\varepsilon_x), A^C\right) = \varepsilon_x$である．これをすべての$x \in K$に対して考えることで，$K$の開被覆$\set{ R(x,\varepsilon_x) }_{x \in K}$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆$\set{ R(x_i, \varepsilon_i) }_{i=1}^n$を取ることができるから取る．$M \coloneqq \bigcup_{i=1}^n R(x_i; \varepsilon_i)$と置き，$L \coloneqq \overline{M}$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L \subset A$である．
+$x \in K$を任意に取ると，$\set{x}$はコンパクトで，$A^C \coloneqq \Real^n \setminus A$は閉集合なので，\ref{閉集合とコンパクト集合は充分離れる} によって$\varepsilon_x > 0$があり$d\left(x,A^C\right) = 2\varepsilon_x$となる．このとき$R(x;\varepsilon_x) \subset A$であり，特に$d\left(R(x;\varepsilon_x), A^C\right) = \varepsilon_x$である．これをすべての$x \in K$に対して考えることで，$K$の開被覆$\set{ R(x,\varepsilon_x) }_{x \in K}$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆$\set{ R(x_i, \varepsilon_i) }_{i=1}^n$を取ることができるから取る．$M \coloneqq \bigcup_{i=1}^n R(x_i; \varepsilon_i)$と置き，$L \coloneqq \overline{M}$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L \subset A$である．
 
-\cref{開方体上の隆起関数} に即して関数$g_{x_i,\varepsilon_i}$を作り，$h \coloneqq \sum_{i=1}^n g_{x_i, \varepsilon_i}$と定めると，これは$M$上で正なので$K$上でも正であり，$L$の外部で0である．
+\ref{開方体上の隆起関数} に即して関数$g_{x_i,\varepsilon_i}$を作り，$h \coloneqq \sum_{i=1}^n g_{x_i, \varepsilon_i}$と定めると，これは$M$上で正なので$K$上でも正であり，$L$の外部で0である．
 \end{proof}
 
 ここまでで関数の概形の構成が済んだので，あとは値を調整すれば良い．
@@ -511,10 +511,10 @@ k_\varepsilon(x) \coloneqq \frac{\int_0^x g_{\varepsilon/2, \varepsilon/2} (t) d
 \end{equation}とせよ\footnote{要するに$g_{\varepsilon/2, \varepsilon/2}$を確率密度関数に持つような確率分布関数を作るのを真似ればよい，と言っている．}．
 \end{proof}
 
-ここまで来れば\cref{隆起関数の存在}を示すのは難しくない．
+ここまで来れば\ref{隆起関数の存在} を示すのは難しくない．
 
-\begin{proof}[\cref{隆起関数の存在}]
-$h \colon \Real^n \to \Real$を，\cref{未調整な隆起関数}で構成した関数とすると，$h$の$K$への制限は正値であり，かつ$K$はコンパクトなので$h$は$K$上最小値を持つからそれを$\varepsilon > 0$とする．$k_\varepsilon \circ h$がそのような関数である．
+\begin{proof}[\ref{隆起関数の存在}]
+$h \colon \Real^n \to \Real$を，\ref{未調整な隆起関数} で構成した関数とすると，$h$の$K$への制限は正値であり，かつ$K$はコンパクトなので$h$は$K$上最小値を持つからそれを$\varepsilon > 0$とする．$k_\varepsilon \circ h$がそのような関数である．
 \end{proof}
 
 \subsection{逆関数定理}
@@ -601,10 +601,10 @@ f^i(a+h) - f^i(a) &= f^i(a^1+h^1, a^2, \dots, a^n) - f^i(a^1 , a^2, \dots, a^n) 
 
 以上で逆関数定理を示す準備が整った．
 
-\begin{proof}[\cref{逆関数定理}]
+\begin{proof}[\ref{逆関数定理}]
 まず座標軸を平行移動することで$a=0$および$f(a)=0$と仮定して構わない．更に$\lambda \colon \Real^n \to \Real^n$を可逆線型写像とするとき，$\lambda^{-1} \circ f$に関して逆関数定理が成り立てばあきらかに$f$に対しても成り立つとわかる上，仮定より$df_a$は可逆なので，必要ならば$(df_a)^{-1}$倍した写像を考えることで$df_a = \mathrm{id}_{\Real^n}$すなわち$J_f(a) = I_n$と仮定してもやはり一般性を失わない．ただし$I_n$は$n \times n$単位行列．なのでこれらの仮定を置いて証明を進める．
 
-$f$は$C^1$級なので，ある半径$\delta$の閉球$D=\overline{B(0;\delta)}$が存在して，任意の$x \in D$および$1 \leq i,j \leq n$に対して$\|\partial_j f^i(x) - \partial_j f^i(0)\| \leq 1/2n^2$となるようにできる．このとき，関数$w \colon D \to D$を$w(x) \coloneqq f(x) - x$によって定めると，$J_w(x) = J_f(x) - I_n = (\partial_jf^i(x) - \partial_jf^i(0))$なので，\cref{微分の定量評価}によって$\|w(x+h) - w(x)\| \leq \|h\|/2$すなわち$\|f(x+h) - f(x) - h\| \leq \|h\|/2$を得る．
+$f$は$C^1$級なので，ある半径$\delta$の閉球$D=\overline{B(0;\delta)}$が存在して，任意の$x \in D$および$1 \leq i,j \leq n$に対して$\|\partial_j f^i(x) - \partial_j f^i(0)\| \leq 1/2n^2$となるようにできる．このとき，関数$w \colon D \to D$を$w(x) \coloneqq f(x) - x$によって定めると，$J_w(x) = J_f(x) - I_n = (\partial_jf^i(x) - \partial_jf^i(0))$なので，\ref{微分の定量評価} によって$\|w(x+h) - w(x)\| \leq \|h\|/2$すなわち$\|f(x+h) - f(x) - h\| \leq \|h\|/2$を得る．
 
 $f(a)=0$を含む開集合として$V = B(0;\delta/2)$を取る．ここで，任意の$y \in V$に対して$f(x) = y$を充たす$x \in D$が一意的に存在すること，すなわち単射$g \colon V \to D$であって$f \circ g = \mathrm{id}$となるものが存在することを示したい．これが示せれば$f$の$g(V)$への制限が可逆であるとわかる．$g$は次のようにして構成する；関数$u_y\colon D \to \Real^n$を$u_y(x) = x + (y-f(x))$によって定め，$u_y$の値域が実際には$D$であること，および$u_y \colon D \to D$が縮小的であることを示せば，Banach の縮小写像の原理によって$u_y$は唯一の不動点を持つとわかるので，それを$g(y)$とすればよい．
 
@@ -612,7 +612,7 @@ $u_y$の値域が$D$であることは，先程得た評価$\|f(x+h) - f(x) - h\
 
 $g$の連続性を示すため，相異なる$y, y+k \in V$を取ると，$f(x) = y$および$f(x+h) = y+k$を充たすような$x, x+h \in D^\circ$が一意的に存在する．したがって$\|k-h\| \leq \|y+k -y -h \| \leq \|h\|/2$を得るが，$\|h\|- \|k\| \leq \|k -h \|$であるから結局$\|h\| \leq 2\|k\|$を得る．したがって$g$は連続である．
 
-$g$の微分可能性を示す．$x, x+h \in D^\circ$および$y,y+k \in V$を連続性の議論において用いた点たちとし，$f(x+h) - f(x) - J_f(x)h$を考える．この量は$y+k - y - J_f(x)(g(y+k) - g(y)) = k - J_f(x)(g(y+k)-g(y))$と書き直せる．線型写像$h \mapsto (J_f(x) - I_n)h$に対して\cref{微分の定量評価}を適用することで$\|J_f(x)h - h\| \leq \|h\|/2$を得るので，特に$\|h\| - \|J_f(x)h\| \leq \|h\|/2$すなわち$\|J_f(x)h\| \geq \|h\|/2$を得るから$J_f(x)$は正則行列である．したがって適当な実数$M > 0$があって
+$g$の微分可能性を示す．$x, x+h \in D^\circ$および$y,y+k \in V$を連続性の議論において用いた点たちとし，$f(x+h) - f(x) - J_f(x)h$を考える．この量は$y+k - y - J_f(x)(g(y+k) - g(y)) = k - J_f(x)(g(y+k)-g(y))$と書き直せる．線型写像$h \mapsto (J_f(x) - I_n)h$に対して\ref{微分の定量評価} を適用することで$\|J_f(x)h - h\| \leq \|h\|/2$を得るので，特に$\|h\| - \|J_f(x)h\| \leq \|h\|/2$すなわち$\|J_f(x)h\| \geq \|h\|/2$を得るから$J_f(x)$は正則行列である．したがって適当な実数$M > 0$があって
 \begin{align}
 \frac{\|g(y+k)-g(y) - {J_f(x)}^{-1}k \|}{\|k\|} &= \frac{\|g(y+k)-g(y) - {J_f(x)}^{-1}k \|}{\|h\|}\frac{\|h\|}{\|k\|}\\
 &\leq 2\frac{\|g(y+k)-g(y) - {J_f(x)}^{-1}k \|}{\|h\|}\\
@@ -707,7 +707,7 @@ $n,p$を$p \leq n$を充たすような自然数，$A \subset \Real^n$を開集�
 $f$を$g^{-1}(0)$に制限するというのは$x^{n-p+1} = x^{n-p+2} = x^n=0$に固定して$n-p$変数の関数だと見なすことと同値である．したがって$f$が$a \in \Real^n$において極値を取るならば，$\partial_1 f(a) = \partial_2 f(a) = \dots \partial_{n-p}f(a) =0$である．したがって$\lambda_i = \partial_{n-p+i} f(a)$とすれば命題の主張が成り立つ．一般の$g$に対しては，陰関数定理によって$a$を含む開集合$U$で定義された$C^1$級微分同相$F$があって$g \circ F^{-1} =  (x^{n-p+1}, \dots, x^n)$となるから，$F$の逆写像を$G$と書けば，前段の議論により実数$\lambda_1, \dots, \lambda_p$があって
 \begin{equation}
 \partial_j (f \circ G)(F(a)) = \sum_{i=1}^p \lambda_i \partial_j (g \circ G)^i(F(a)) = \sum_{i=1}^p \lambda_i \partial_j (g^i \circ G)(F(a))
-\end{equation}となる．\cref{実用的な方の合成則}より
+\end{equation}となる．\ref{実用的な方の合成則} より
 \begin{equation}
 \partial_j (f \circ G)(F(a)) = \sum_{k=1}^n \partial_k f (G(F(a))) \cdot \partial_j G^k(F(a)) = \sum_{k=1}^n \partial_k f(a) \cdot \partial_j G^k(F(a)),
 \end{equation}
@@ -767,7 +767,7 @@ S(U) &= \max_{p,\lambda^0,\lambda} H(p) \\
 &= \max_{\lambda} \left[ \log Z(\lambda) + \sum_{k=1}^m \lambda^k  U_k  \right]
 \end{align}を得る．一般に，凸関数$f \colon \Real^n \to \Real$に対して$f^*(p) \coloneqq \max_x \left[ \langle x,p \rangle - f(x) \right]$を$f$の Legendre 変換という．この言葉を用いれば，「$S$は分配関数$-\log Z(\lambda)$の Legendre 変換である」と言い換えることができる．この$S$は熱力学的エントロピーと呼ばれる．
 
-さて，$S$の表式には$\lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H(p)$の制約付き極値における$\lambda^k$は$U_k$の関数として書ける\footnote{本当は記号を分けて$\lambda^k_*(U_1,\dots,U_n)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．}．ここでは更に$\lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると\cref{実用的な方の合成則}によって
+さて，$S$の表式には$\lambda^k$たちが現れているが，実際には$S$は$U_k$の関数なので，$H(p)$の制約付き極値における$\lambda^k$は$U_k$の関数として書ける\footnote{本当は記号を分けて$\lambda^k_*(U_1,\dots,U_n)$などと書くべきだろうが，記号を分けないほうが一般的であるように思う．}．ここでは更に$\lambda^k$たちが$U_k$に関して微分可能であると仮定してしまうことにする．すると\ref{実用的な方の合成則} によって
 \begin{equation}
 \partial_i S(U) = \sum_{k=1}^m \left[ \partial_k \log Z(\lambda(U)) \cdot \partial_i \lambda^k (U) \right] + \sum_{k=1}^m \left[U_k \partial_i \lambda^k(U) \right] + \lambda^k(U) = \lambda^k(U)
 \end{equation}を得る．したがって未定乗数は熱力学的エントロピーの導関数として現れることがわかった．いくつかの物理学的設定のもとでは，$\lambda^k$は「示量変数$U_k$に共役な示強変数」と呼ばれる．また物理学においては熱力学的エントロピー$S$の引数に「エネルギー」と呼ばれる引数$U$を含むように要請することが多い．この$U$に共役な示強変数には「逆温度」という名前がついている；もちろん，適切な設定ならびに考察のもとで，この量と我々が見知っている温度との間に深い関わりを見いだせるだろうが，このノートで書くのはここまでにしておく．

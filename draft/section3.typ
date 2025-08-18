@@ -639,7 +639,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 #proof[
   証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$integral f_n "" #h(-1em) d mu$は$n$に関して非減少なので，$c colon.eq lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$が$\[ 0 \, oo \]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c lt.eq integral f "" #h(-1em) d mu$が成り立つ．$g : X arrow.r \[ 0 \, oo \]$を，$g lt.eq f$を充たすような任意の非負単関数とするとき，$integral g "" #h(-1em) d mu lt.eq c$を示せばよい．$g = sum_(i = 1)^m a_i 1_(A_i)$と表示する．非負単関数に対する積分の線型性より，各$1 lt.eq i lt.eq m$に対して$a_i mu \( A_i \) lt.eq lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu$を示せば充分なのでそうする．$epsilon in \( 0 \, 1 \)$を任意に固定し，\$B\_{n,i} \\coloneqq \\set{x \\in X | f\_n(x) 1\_{A\_i} \> (1-\\varepsilon) a\_i }\$と置くと，$B_(n \, i) arrow.t A_i$．更に$integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq integral f_n 1_(B_(n \, i)) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) mu \( B_(n \, i) \)$であるから，$n arrow.r oo$の極限をとって$lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) a_i mu \( A_i \)$であり，$epsilon arrow.r 0$の極限を取ることで結論を得る．
 
-  次に$f_n$が非負可測関数の列であった場合を考える．補題 @非負単関数の列
+  次に$f_n$が非負可測関数の列であった場合を考える．補題@非負単関数の列
   より非負単関数の列\$\\set{g\_{n,i}}\_{i=1}^\\infty\$であって$g_(n \, i) arrow.t f_n$であるようなものがある．\$h\_m \\coloneqq \\max\\set{ g\_{m,1}, g\_{m,2},\\dots, g\_{m,m} }\$と置けば\$\\set{h\_m}\_{m=1}^\\infty\$は単関数であって，$h_m lt.eq f_m$ならびに$h_m arrow.t f$を充たす．積分の単調性より$integral h_m "" #h(-1em) d mu lt.eq integral f_m "" #h(-1em) d mu lt.eq integral f "" #h(-1em) d mu$であり，前段の結果より$lim_(m arrow.r oo) integral h_m "" #h(-1em) d mu = integral f "" #h(-1em) d mu$なので，はさみうちの原理より$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$である．
 
 ]
@@ -730,14 +730,15 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #proof[
-  + $partial_1 F = f$は微積分学の基本定理である．$f$は#link(<微分と積分の交換>)[\[微分と積分の交換\]];の前件をすべて充たすので，積分と微分を入れ替えてよいから後半も従う．
+  + $partial_1 F = f$は微積分学の基本定理である．$f$は@微分と積分の交換
+    の前件をすべて充たすので，積分と微分を入れ替えてよいから後半も従う．
 
   + 合成関数$x mapsto \( g \( x \) \, x \) mapsto F \( g \( x \) \, x \)$に合成則と
     (i) の結果を使え．
 
 ]
 #que[
-  #link(<微分と積分の交換>)[\[微分と積分の交換\]];の前件を検討すれば，Leibniz
+  @微分と積分の交換 の前件を検討すれば，Leibniz
   の積分公式において$f$に課した条件はより弱められることがわかる．ところでこの公式は名前がついているくらいだし，いろいろなところで使われると思うのだが，私は使いみちをよく知りません．
 
 ]
@@ -786,7 +787,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 ]
 == 拡張定理の証明
 <拡張定理の証明>
-後回しにしていた，拡張定理（#link(<拡張定理>)[\[拡張定理\]];）の証明を与える．存在と一意性のそれぞれに証明を分割する．
+後回しにしていた，拡張定理（@拡張定理）の証明を与える．存在と一意性のそれぞれに証明を分割する．
 
 #proof[
   $mu^(\*) : 2^X arrow.r \[ 0 \, oo \]$を，

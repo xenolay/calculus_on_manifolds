@@ -11,3 +11,9 @@
 #let exm = thmbox("theorem", "例", base_level: 1, fill: rgb("#e8e8f8"))
 #let rem = thmbox("theorem", "注意", base_level: 1, fill: rgb("#e8e8f8"))
 #let proof = thmproof("proof", "証明", base_level: 1)
+#let restate(lbl) = context {
+  let el = query(lbl).at(0) // ラベルで要素を1つ取得
+  thm(numbering: none)[
+    #strong[@lbl.] #el.body
+  ]
+}

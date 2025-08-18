@@ -14,7 +14,7 @@
 ところで，このノートにおいて積分を定義し，その性質について調べてきた．積分の定義を思い出してみる；単関数$f = \sum a_i 1_{A_i}$の積分は$\int f \dif \mu = \sum a_i \mu(A_i)$で与えられていた．非負可測関数$f \colon X \to [0,\infty]$に対しては，
 \begin{equation}
 \int f \dif \mu \coloneqq \sup \left\{ \int g \dif \mu \ \middle|  \ 0 \leq g \leq f, g {は単関数} \right\}
-\end{equation}によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合$\set{A_i}$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に\cref{非負単関数の列}の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」$\set{A_i}$が与えられているとき，$a_i \in A_i$を任意に取れば
+\end{equation}によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合$\set{A_i}$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に\ref{非負単関数の列} の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」$\set{A_i}$が与えられているとき，$a_i \in A_i$を任意に取れば
 \begin{equation}
 \int f \dif \mu \approx \sum_{A_i} f(a_i) \mu(A_i)
 \end{equation}という近似式が成り立つ，ということができよう．
@@ -291,7 +291,7 @@ $\omega \in \GrassAlg^k(V^*)$，$\eta \in \GrassAlg^\ell(V^*)$に対して，$\o
     1 & 2 & \cdots & \ell & \ell+1 & \cdots & \ell + k \\
     k+1 & k+2 & \cdots & k + \ell & 1 & \cdots & k
     \end{pmatrix}
-\end{equation}で定めると，$\sgn \tau = (-1)^{k \ell}$である\footnote{いわゆる「あみだくじ」を書いて符号を計算するのが一番簡単だと思う．}．\cref{交代化作用素の基本性質} (i) を繰り返し使うと，
+\end{equation}で定めると，$\sgn \tau = (-1)^{k \ell}$である\footnote{いわゆる「あみだくじ」を書いて符号を計算するのが一番簡単だと思う．}．\ref{交代化作用素の基本性質} (i) を繰り返し使うと，
 \begin{align}
 (\omega \wedge \eta)(v_1,\dots, v_{k+\ell}) &= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma) \omega(v_{\sigma(1)}, \dots, v_{\sigma(k)}) \eta (v_{\sigma(k+1)}, \dots, v_{\sigma(k+\ell)})\\
 &= \frac{1}{(k+\ell)!} \sum_{\sigma \in \Sym_{k+ \ell}} (\sgn \sigma)^3 \omega(v_{1}, \dots, v_{k}) \eta (v_{k+1}, \dots, v_{k+\ell})\\
@@ -502,7 +502,7 @@ $y=(y^1, \dots, y^n)$を$U \subset M$上の座標系とする．このとき，$
 \end{prop}
 
 \begin{proof}
-$y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と定めればよい．それ以外の場合は，$F = f \circ x^{-1}$，$G = x \circ y^{-1}$と置いて$\left(\partial_i (f \circ y^{-1}) \right) (y (p)) = \left(\partial_i (f \circ x^{-1} \circ x \circ y^{-1}) \right) (y (p)) = \left(\partial_i (F \circ G) \right) (y (p))$に対して\cref{実用的な方の合成則}を適用すると，
+$y$が標準座標系$x$の場合は$\partial / \partial x^i \coloneqq E_i$と定めればよい．それ以外の場合は，$F = f \circ x^{-1}$，$G = x \circ y^{-1}$と置いて$\left(\partial_i (f \circ y^{-1}) \right) (y (p)) = \left(\partial_i (f \circ x^{-1} \circ x \circ y^{-1}) \right) (y (p)) = \left(\partial_i (F \circ G) \right) (y (p))$に対して\ref{実用的な方の合成則} を適用すると，
 \begin{align}
 \left(\partial_i (F \circ G) \right) (y (p)) &= \sum_{j} (\partial_j F)(G(y(p))) \cdot (\partial_i G^j)(y(p))\\
 &= \sum_{j} (\partial_j (f \circ x^{-1}))(p) \cdot (\partial_i G^j)(y(p))\\
@@ -572,7 +572,7 @@ X_p = \sum_{i} {f_z}^i(p) \left( \frac{\partial}{\partial z^i} \right)_p
 $M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置く．$U \subset M$を開集合，$f \colon U \to N$を関数とする．更に，$p \in U$を取り，$X_p \in T_pM$とする．このとき，$df_p X_p = df_p (X_p) \in T_{f(p)}N$を，任意の関数$g \colon N \to \Real$に対して$(df_pX_p)(g) = X_p(g \circ f)$を充たすようなものとして定める．この対応によって定まる線型写像$df_p \colon T_pM \to T_{f(p)}N$を，$f$の$p$における微分といい，$p \mapsto df_p$を$df$と書いて$f$の微分という．
 \end{defi}
 
-第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$\partial / \partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．\cref{実用的な方の合成則}の主張は，$f \colon M \to N$ならびに$g \colon N \to \Real$に対して
+第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$\partial / \partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M \coloneqq \Real^m$，$N \coloneqq \Real^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．\ref{実用的な方の合成則} の主張は，$f \colon M \to N$ならびに$g \colon N \to \Real$に対して
 \begin{equation}
 \partial_i (g \circ f \circ x_M^{-1}) (a) = \sum_{j} \left( \partial_i (x_N \circ f^j \circ x_M^{-1}) \right) (a) \cdot \partial_j (g \circ x_N^{-1}) (f(a))
 \end{equation}が成り立つ，と言い換えることができる（$x_M$ならびに$x_N$が写像としては$\id$であることに注意）．これをいま用意した記号を用いて書き換えると，
@@ -692,7 +692,7 @@ $y=(y^1, \dots, y^n)$ならびに$z = (z^1,\dots, z^n)$を$U \subset M$上の座
 \end{prop}
 
 \begin{proof}
-$(j_1, \dots, j_k) \in \Natu^k$を，$1 \leq j_1 < \dots < j_k \leq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$_p$や関数の引数に入る$(p)$を省く．$\set{dz^{j_1} \wedge \dots \wedge dz^{j_k} | 1 \leq j_1< \dots < j_k \leq n }$は$\bigwedge^k(T_p^*M)$の基底をなすので，$dy^{i_1} \wedge \dots \wedge dy^{i_k} = \sum_{1 \leq j_1 < \dots < j_k \leq n} a_{j_1, j_2, \dots, j_k} dz^{j_1} \wedge \dots \wedge dz^{j_k}$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と\cref{最高次交代テンソルの変換則}より
+$(j_1, \dots, j_k) \in \Natu^k$を，$1 \leq j_1 < \dots < j_k \leq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$_p$や関数の引数に入る$(p)$を省く．$\set{dz^{j_1} \wedge \dots \wedge dz^{j_k} | 1 \leq j_1< \dots < j_k \leq n }$は$\bigwedge^k(T_p^*M)$の基底をなすので，$dy^{i_1} \wedge \dots \wedge dy^{i_k} = \sum_{1 \leq j_1 < \dots < j_k \leq n} a_{j_1, j_2, \dots, j_k} dz^{j_1} \wedge \dots \wedge dz^{j_k}$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と\ref{最高次交代テンソルの変換則} より
 \begin{align}
 & dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \frac{\partial}{\partial z^{j_1}}, \dots, \frac{\partial}{\partial z^{j_k}} \right) \\
 {}=& dy^{i_1} \wedge \dots \wedge dy^{i_k} \left( \frac{\partial}{\partial z^{j_1}}, \dots, \frac{\partial}{\partial z^{j_k}} \right) \\

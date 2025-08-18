@@ -19,7 +19,8 @@ Stokes
 の定理を理解するということは，曲線や曲面の上で微積分をどう展開するかを理解することと不可分であると言ってよいだろう．
 
 ところで，このノートにおいて積分を定義し，その性質について調べてきた．積分の定義を思い出してみる；単関数$f = sum a_i 1_(A_i)$の積分は$integral f "" #h(-1em) d mu = sum a_i mu \( A_i \)$で与えられていた．非負可測関数$f : X arrow.r \[ 0 \, oo \]$に対しては，
-$ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合\$\\set{A\_i}\$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に#link(<非負単関数の列>)[\[非負単関数の列\]];の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」\$\\set{A\_i}\$が与えられているとき，$a_i in A_i$を任意に取れば
+$ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合\$\\set{A\_i}\$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に@非負単関数の列
+の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」\$\\set{A\_i}\$が与えられているとき，$a_i in A_i$を任意に取れば
 $ integral f "" #h(-1em) d mu approx sum_(A_i) f \( a_i \) mu \( A_i \) $という近似式が成り立つ，ということができよう．
 
 さて，このような積分の概念を，一般の「曲面」に一般化することを考えよう．一般的な「曲面」の定義を考えるのも骨が折れそうなので，いったん具体的に，$bb(R)^3$内の単位球面
@@ -301,7 +302,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
     よりも簡単に証明できるはず．
 
   + $tau in frak(S)_(k + ell)$を，
-    $ tau colon.eq mat(delim: "(", 1, 2, dots.h.c, ell, ell + 1, dots.h.c, ell + k; k + 1, k + 2, dots.h.c, k + ell, 1, dots.h.c, k) $で定めると，$"sgn" tau = \( - 1 \)^(k ell)$である#footnote[いわゆる「あみだくじ」を書いて符号を計算するのが一番簡単だと思う．];．#link(<交代化作用素の基本性質>)[\[交代化作用素の基本性質\]]
+    $ tau colon.eq mat(delim: "(", 1, 2, dots.h.c, ell, ell + 1, dots.h.c, ell + k; k + 1, k + 2, dots.h.c, k + ell, 1, dots.h.c, k) $で定めると，$"sgn" tau = \( - 1 \)^(k ell)$である#footnote[いわゆる「あみだくじ」を書いて符号を計算するのが一番簡単だと思う．];．@交代化作用素の基本性質
     (i) を繰り返し使うと，
     $
       \( omega and eta \) \( v_1 \, dots.h \, v_(k + ell) \) & = frac(1, \( k + ell \) !) sum_(sigma in frak(S)_(k + ell)) \( "sgn" sigma \) omega \( v_(sigma \( 1 \)) \, dots.h \, v_(sigma \( k \)) \) eta \( v_(sigma \( k + 1 \)) \, dots.h \, v_(sigma \( k + ell \)) \)\
@@ -505,7 +506,8 @@ Euclid
 ]
 <Euclid空間での座標系から定まるベクトル場>
 #proof[
-  $y$が標準座標系$x$の場合は$partial \/ partial x^i colon.eq E_i$と定めればよい．それ以外の場合は，$F = f compose x^(- 1)$，$G = x compose y^(- 1)$と置いて$(partial_i \( f compose y^(- 1) \)) \( y \( p \) \) = (partial_i \( f compose x^(- 1) compose x compose y^(- 1) \)) \( y \( p \) \) = (partial_i \( F compose G \)) \( y \( p \) \)$に対して#link(<実用的な方の合成則>)[\[実用的な方の合成則\]];を適用すると，
+  $y$が標準座標系$x$の場合は$partial \/ partial x^i colon.eq E_i$と定めればよい．それ以外の場合は，$F = f compose x^(- 1)$，$G = x compose y^(- 1)$と置いて$(partial_i \( f compose y^(- 1) \)) \( y \( p \) \) = (partial_i \( f compose x^(- 1) compose x compose y^(- 1) \)) \( y \( p \) \) = (partial_i \( F compose G \)) \( y \( p \) \)$に対して@実用的な方の合成則
+  を適用すると，
   $ (partial_i \( F compose G \)) \( y \( p \) \) & = sum_j \( partial_j F \) \( G \( y \( p \) \) \) dot.op \( partial_i G^j \) \( y \( p \) \)\
   & = sum_j \( partial_j \( f compose x^(- 1) \) \) \( p \) dot.op \( partial_i G^j \) \( y \( p \) \)\
   & = sum_j \( partial_i G^j \) \( y \( p \) \) dot.op (frac(partial, partial x^i) f) \( p \)\ $が成り立つので，
@@ -565,7 +567,8 @@ Euclid
   $M colon.eq bb(R)^m$，$N colon.eq bb(R)^n$と置く．$U subset M$を開集合，$f : U arrow.r N$を関数とする．更に，$p in U$を取り，$X_p in T_p M$とする．このとき，$d f_p X_p = d f_p \( X_p \) in T_(f \( p \)) N$を，任意の関数$g : N arrow.r bb(R)$に対して$\( d f_p X_p \) \( g \) = X_p \( g compose f \)$を充たすようなものとして定める．この対応によって定まる線型写像$d f_p : T_p M arrow.r T_(f \( p \)) N$を，$f$の$p$における微分といい，$p mapsto d f_p$を$d f$と書いて$f$の微分という．
 
 ]
-第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$partial \/ partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M colon.eq bb(R)^m$，$N colon.eq bb(R)^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．#link(<実用的な方の合成則>)[\[実用的な方の合成則\]];の主張は，$f : M arrow.r N$ならびに$g : N arrow.r bb(R)$に対して
+第2節で定義した多変数関数の微分を覚えていれば，それと記号や命名の衝突をしていることに気づかれよう．これは意図的である．先ほどは定義域と終域の次元が揃っている場合を考えて，座標系$y$に沿ったベクトル場$partial \/ partial y^i$を定義した．その定義の際に行った議論を，定義域と終域の次元が揃わないケースも含むような形で反芻してみる．$M colon.eq bb(R)^m$，$N colon.eq bb(R)^n$と置き，$M$の標準座標を$x_M$で，$N$の標準座標を$x_N$で表すことにする．@実用的な方の合成則
+の主張は，$f : M arrow.r N$ならびに$g : N arrow.r bb(R)$に対して
 $ partial_i \( g compose f compose x_M^(- 1) \) \( a \) = sum_j (partial_i \( x_N compose f^j compose x_M^(- 1) \)) \( a \) dot.op partial_j \( g compose x_N^(- 1) \) \( f \( a \) \) $が成り立つ，と言い換えることができる（$x_M$ならびに$x_N$が写像としては$"id"$であることに注意）．これをいま用意した記号を用いて書き換えると，
 $
   (frac(partial, partial x_M^i) \( g compose f \)) \( a \) = sum_j (partial_i \( x_N compose f^j compose x_M^(- 1) \)) \( a \) dot.op (frac(partial, partial x_N^j) g) \( f \( a \) \)
@@ -663,7 +666,8 @@ $ d y^j_p (frac(partial, partial y^i))_p = (frac(partial, partial y^i) y^j) \( p
 
 ]
 #proof[
-  $\( j_1 \, dots.h \, j_k \) in bb(N)^k$を，$1 lt.eq j_1 < dots.h < j_k lt.eq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$""_p$や関数の引数に入る$\( p \)$を省く．\$\\set{dz^{j\_1} \\wedge \\dots \\wedge dz^{j\_k} | 1 \\leq j\_1\< \\dots \< j\_k \\leq n }\$は$and.big^k \( T_p^(\*) M \)$の基底をなすので，$d y^(i_1) and dots.h and d y^(i_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) a_(j_1 \, j_2 \, dots.h \, j_k) d z^(j_1) and dots.h and d z^(j_k)$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と#link(<最高次交代テンソルの変換則>)[\[最高次交代テンソルの変換則\]];より
+  $\( j_1 \, dots.h \, j_k \) in bb(N)^k$を，$1 lt.eq j_1 < dots.h < j_k lt.eq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$""_p$や関数の引数に入る$\( p \)$を省く．\$\\set{dz^{j\_1} \\wedge \\dots \\wedge dz^{j\_k} | 1 \\leq j\_1\< \\dots \< j\_k \\leq n }\$は$and.big^k \( T_p^(\*) M \)$の基底をなすので，$d y^(i_1) and dots.h and d y^(i_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) a_(j_1 \, j_2 \, dots.h \, j_k) d z^(j_1) and dots.h and d z^(j_k)$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と@最高次交代テンソルの変換則
+  より
   $
     & d y^(i_1) and dots.h and d y^(i_k) (frac(partial, partial z^(j_1)) \, dots.h \, frac(partial, partial z^(j_k)))\
     = & d y^(i_1) and dots.h and d y^(i_k) (frac(partial, partial z^(j_1)) \, dots.h \, frac(partial, partial z^(j_k)))\

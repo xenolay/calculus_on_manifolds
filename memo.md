@@ -131,7 +131,7 @@ TeX 側で
 ## pandoc 任せだとちっともうまく行ってる様子がないもの
 
 - 章の番号付けや定理番号
-- フォント
+- フォントなどのスタイル調整
 
 がかなりうまく行ってない様子。
 
@@ -568,3 +568,39 @@ Evaluates the file at the path bar.typ, extracts the values of the variables a a
 
 動いた時の様子がこちら。なんかグチャグチャだけど、番号はついているのでとりあえず良しとする。
 ![image](./theorem_number_works.png)
+
+### スタイル調整
+
+#### フォント
+
+ここに書いてある。やるだけ。
+
+[] font str or array or dictionary Settable Question mark Settable parameters can be customized for all following uses of the function with a set rule. | Text Function – Typst Documentation
+https://typst.app/docs/reference/text/text/#parameters-font
+```
+font
+str or array or dictionary
+Settable
+A font family descriptor or priority list of font family descriptor.
+
+A font family descriptor can be a plain string representing the family name or a dictionary with the following keys:
+
+name (required): The font family name.
+covers (optional): Defines the Unicode codepoints for which the family shall be used. This can be:
+A predefined coverage set:
+"latin-in-cjk" covers all codepoints except for those which exist in Latin fonts, but should preferrably be taken from CJK fonts.
+A regular expression that defines exactly which codepoints shall be covered. Accepts only the subset of regular expressions which consist of exactly one dot, letter, or character class.
+When processing text, Typst tries all specified font families in order until it finds a font that has the necessary glyphs. In the example below, the font Inria Serif is preferred, but since it does not contain Arabic glyphs, the arabic text uses Noto Sans Arabic instead.
+
+The collection of available fonts differs by platform:
+
+In the web app, you can see the list of available fonts by clicking on the "Ag" button. You can provide additional fonts by uploading .ttf or .otf files into your project. They will be discovered automatically. The priority is: project fonts > server fonts.
+
+Locally, Typst uses your installed system fonts or embedded fonts in the CLI, which are Libertinus Serif, New Computer Modern, New Computer Modern Math, and DejaVu Sans Mono. In addition, you can use the --font-path argument or TYPST_FONT_PATHS environment variable to add directories that should be scanned for fonts. The priority is: --font-paths > system fonts > embedded fonts. Run typst fonts to see the fonts that Typst has discovered on your system. Note that you can pass the --ignore-system-fonts parameter to the CLI to ensure Typst won't search for system fonts.
+
+Default: "libertinus serif"
+```
+
+```
+  font: ((name: "New Computer Modern Math", covers: "latin-in-cjk"), "TakaoMincho"),
+```

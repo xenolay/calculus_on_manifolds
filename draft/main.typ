@@ -1702,7 +1702,7 @@ $sigma$-加法族が一般に複雑であるという話をした手前，各可
   の同値性のみ示す．$cal(B) = sigma \( { \( - oo \, a \) \| a in bb(R) } \)$を示せばよい．任意の$a in bb(R)$に対して$\( - oo \, a \) in cal(B)$なので$cal(B) supset sigma \( { \( - oo \, a \) \| a in bb(R) } \)$はよい．任意の$n in bb(N)$ならびに開区間$\( a \, b \)$に対して$\( a \, b \) = sect.big_(n = 1)^oo (\( - oo \, b \) sect \( - oo \, a + 1 \/ n \)^c)$なので$\( a \, b \) in sigma \( { \( - oo \, a \) \| a in bb(R) } \)$となるから$cal(B) subset sigma \( { \( - oo \, a \) \| a in bb(R) } \)$である．
 
 ]
-実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族${ f_n }_(n = 1)^oo$があるときに$sup_n f_n \( x \)$が有限であるとは限らないし，$f : bb(R)^2 arrow.r bb(R)$に対して$y mapsto integral f \( x \, y \) med "" #h(-1em) d x$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
+実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族${ f_n }_(n = 1)^oo$があるときに$sup_n f_n \( x \)$が有限であるとは限らないし，$f : bb(R)^2 arrow.r bb(R)$に対して$y mapsto integral f \( x \, y \) med d x$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
 
 #dig[
   このノートの範囲に限れば，前者が問題になることはないと思う．なので拡張実数値関数のことを（測度の定義を除いて）陽に取り扱う必要はなさそうに見えていた．のだが，後者の問題を捨て置くわけにはいかないことに後で気づいた．というのも，この形の関数が
@@ -1856,23 +1856,23 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
 
 ]
 #defi[
-  - （非負単関数の場合）非負単関数$f = sum_(i = 1)^n a_i 1_(A_i)$に対して$integral f "" #h(-1em) d mu colon.eq sum_(i = 1)^n a_i mu \( A_i \)$と定める．well-defined
+  - （非負単関数の場合）非負単関数$f = sum_(i = 1)^n a_i 1_(A_i)$に対して$integral f d mu colon.eq sum_(i = 1)^n a_i mu \( A_i \)$と定める．well-defined
     であることは非自明だが，後で証明する．
 
   - （非負可測関数の場合）可測関数$f : X arrow.r \[ 0 \, oo \]$に対して，
-    $ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $で定める．
+    $ integral f d mu colon.eq sup {integral g d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $で定める．
 
-  - （一般の場合）可測関数$f : X arrow.r overline(bb(R))$に対して，$f^(+) colon.eq max { f \, 0 }$，$f^(-) colon.eq - min { f \, 0 }$と定めると，この2つは非負可測関数であって，$f = f^(+) - f^(-)$である．$integral f^(+) "" #h(-1em) d mu$ならびに$integral f^(-) "" #h(-1em) d mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
-    $ integral f "" #h(-1em) d mu colon.eq integral f^(+) "" #h(-1em) d mu - integral f^(-) "" #h(-1em) d mu $で定める．両方が無限大になった場合の積分は定義しない．
+  - （一般の場合）可測関数$f : X arrow.r overline(bb(R))$に対して，$f^(+) colon.eq max { f \, 0 }$，$f^(-) colon.eq - min { f \, 0 }$と定めると，この2つは非負可測関数であって，$f = f^(+) - f^(-)$である．$integral f^(+) d mu$ならびに$integral f^(-) d mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
+    $ integral f d mu colon.eq integral f^(+) d mu - integral f^(-) d mu $で定める．両方が無限大になった場合の積分は定義しない．
 
   - 積分が定義できる関数$f : X arrow.r bb(R)$ならびに$A in cal(A)$に対して，$f$の$A$上での積分を
-    $ integral_A f "" #h(-1em) d mu colon.eq integral f 1_A "" #h(-1em) d mu $で定める．$f$の積分が定義できるならば$integral_A f "" #h(-1em) d mu$も定まるが，このことは後で示す．
+    $ integral_A f d mu colon.eq integral f 1_A d mu $で定める．$f$の積分が定義できるならば$integral_A f d mu$も定まるが，このことは後で示す．
 
-  関数$f : X in.rev x mapsto f \( x \) in overline(bb(R))$の積分について取り扱う際，$f$の引数の記号として$x$を用いていることを明示したい場合は，$integral f "" #h(-1em) d mu$のことを$integral f \( x \) "" #h(-1em) d mu \( x \)$や$integral f \( x \) thin mu \( d x \)$のように書く．
+  関数$f : X in.rev x mapsto f \( x \) in overline(bb(R))$の積分について取り扱う際，$f$の引数の記号として$x$を用いていることを明示したい場合は，$integral f d mu$のことを$integral f \( x \) d mu \( x \)$や$integral f \( x \) thin mu \( d x \)$のように書く．
 
 ]
 #defi[
-  可測関数$f : X arrow.r bb(R)$は，$\| f \|$の積分が有限の値を取るとき，すなわち$integral f^(+) "" #h(-1em) d mu + integral f^(-) "" #h(-1em) d mu < oo$のとき，（絶対）可積分であるという．絶対可積分ならば$f$の積分が定義でき，それは有限の値になる．自然数$p$に対し$\| f \|^p$の積分が有限の値を取るような関数は$p$乗可積分であると言われる．
+  可測関数$f : X arrow.r bb(R)$は，$\| f \|$の積分が有限の値を取るとき，すなわち$integral f^(+) d mu + integral f^(-) d mu < oo$のとき，（絶対）可積分であるという．絶対可積分ならば$f$の積分が定義でき，それは有限の値になる．自然数$p$に対し$\| f \|^p$の積分が有限の値を取るような関数は$p$乗可積分であると言われる．
 
   $\( X \, cal(A) \, mu \)$上の$p$乗可積分関数全体の集合を$L^p \( X \, cal(A) \, mu \)$と書く．前後の文脈から明らかな場合や誤解の恐れがない場合は$L^p \( mu \)$あるいは$L^p$と書く場合もある．
 
@@ -1881,16 +1881,16 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
   具体的な測度に関する積分をいくつか述べる．
 
   - $mu = delta_x$（$x in X$上の Dirac
-    測度）の場合，$integral f "" #h(-1em) d mu = f \( x \)$．
+    測度）の場合，$integral f d mu = f \( x \)$．
 
-  - $mu = sum_(n = 1)^oo delta_(x_n)$（計数測度）の場合，$integral "" #h(-1em) d mu = sum_(n = 1)^oo f \( x_n \)$．特に無限級数$sum_(n = 1)^oo a_n$とは，数列$a : bb(N) arrow.r bb(R)$を自然数上の数え上げ測度$sum_(n in bb(N)) delta_n$に関して積分したものにほかならない．
+  - $mu = sum_(n = 1)^oo delta_(x_n)$（計数測度）の場合，$integral d mu = sum_(n = 1)^oo f \( x_n \)$．特に無限級数$sum_(n = 1)^oo a_n$とは，数列$a : bb(N) arrow.r bb(R)$を自然数上の数え上げ測度$sum_(n in bb(N)) delta_n$に関して積分したものにほかならない．
 
   - $cal(B) \/ cal(B)^(\*)$-可測関数$f : bb(R) arrow.r overline(bb(R))$が閉区間$\[ a \, b \]$上で
     Riemann
-    積分可能であるならば，$integral_(\[ a \, b \]) f "" #h(-1em) d lambda = integral_a^b f \( x \) "" #h(-1em) d x$が成り立つ（左辺は
+    積分可能であるならば，$integral_(\[ a \, b \]) f d lambda = integral_a^b f \( x \) d x$が成り立つ（左辺は
     Lebesgue 測度に関する積分，右辺は Riemann 積分）．それを踏まえて今後は
     Riemann 積分可能な関数の Lebesgue
-    測度に関する積分$integral f \( x \) "" #h(-1em) d lambda \( x \)$のことも$integral f \( x \) "" #h(-1em) d x$と書いてよいとわかる．なお，実際にはもっと強いことが言えるので，（積分が定義できる前提で）$integral f \( x \) "" #h(-1em) d lambda \( x \)$のことを$integral f \( x \) "" #h(-1em) d x$と書いてよいからそうする；次の問を参照せよ#footnote[TODO:
+    測度に関する積分$integral f \( x \) d lambda \( x \)$のことも$integral f \( x \) d x$と書いてよいとわかる．なお，実際にはもっと強いことが言えるので，（積分が定義できる前提で）$integral f \( x \) d lambda \( x \)$のことを$integral f \( x \) d x$と書いてよいからそうする；次の問を参照せよ#footnote[TODO:
       この問は特に，できればちゃんと証明をつけて本文に組み込んでしまいたい．];．
 
 ]
@@ -1905,17 +1905,17 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
     Lebesgue 測度の完備化を単に Lebesgue 測度と呼ぶものもある．
 
   + Riemann
-    積分可能な関数$f : \[ a \, b \] arrow.r bb(R)$は，一般には$cal(B) \/ cal(B)^(\*)$-可測であるとは限らない．が，$cal(L) \/ cal(B)^(\*)$-可測にはなる．更に$integral_(\[ a \, b \]) f "" #h(-1em) d lambda = integral_a^b f \( x \) "" #h(-1em) d x$が成り立つ（左辺は
+    積分可能な関数$f : \[ a \, b \] arrow.r bb(R)$は，一般には$cal(B) \/ cal(B)^(\*)$-可測であるとは限らない．が，$cal(L) \/ cal(B)^(\*)$-可測にはなる．更に$integral_(\[ a \, b \]) f d lambda = integral_a^b f \( x \) d x$が成り立つ（左辺は
     Lebesgue 測度の完備化に関する積分，右辺は Riemann
     積分）．完備化まで考えれば，Lebesgue 測度に関する積分は Riemann
     積分を包括していると言える．
 
   + 他方，広義 Riemann
-    積分まで含めて考えると事情はやや複雑である．$f : \[ 0 \, oo \) arrow.r overline(bb(R))$が非負であるか$f in L^1$であるならば，$integral_(\( 0 \, oo \)) f "" #h(-1em) d lambda = integral_0^oo f "" #h(-1em) d x$が成り立つ（右辺は広義
+    積分まで含めて考えると事情はやや複雑である．$f : \[ 0 \, oo \) arrow.r overline(bb(R))$が非負であるか$f in L^1$であるならば，$integral_(\( 0 \, oo \)) f d lambda = integral_0^oo f d x$が成り立つ（右辺は広義
     Riemann
-    積分として$integral_0^oo f "" #h(-1em) d x colon.eq lim_(R arrow.r oo) integral_0^R f "" #h(-1em) d x$を考えているが，他の形の極限であったとしても本質的には同様に議論できると思う）．一方，$f \( x \) = frac(sin x, x)$は広義
+    積分として$integral_0^oo f d x colon.eq lim_(R arrow.r oo) integral_0^R f d x$を考えているが，他の形の極限であったとしても本質的には同様に議論できると思う）．一方，$f \( x \) = frac(sin x, x)$は広義
     Riemann
-    積分としては有限確定値$integral_0^oo f "" #h(-1em) d x = pi / 2$を持つが，$f$は絶対可積分ではないので$integral_(\( 0 \, oo \)) f "" #h(-1em) d lambda = oo$である．この例は優収束定理が使えない例としても捉えることができると思う．
+    積分としては有限確定値$integral_0^oo f d x = pi / 2$を持つが，$f$は絶対可積分ではないので$integral_(\( 0 \, oo \)) f d lambda = oo$である．この例は優収束定理が使えない例としても捉えることができると思う．
 
 ]
 #dig[
@@ -1949,7 +1949,7 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
   $ sum_(i = 1)^n a_i mu \( A_i \) = sum_(i = 1)^n sum_(j = 1)^m a_i mu \( C_(i j) \) = sum_(i = 1)^n sum_(j = 1)^m b_j mu \( C_(i j) \) = sum_(j = 1)^m b_j mu \( B_j \) $となる．
 
 ]
-さて，実際の積分の計算では，積分の評価しやすい関数列$f_n$であって被積分関数$f$に何らかの意味で収束するものを取ってきて，$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$を計算する戦略を取ることが多々ある．が，これが$integral f "" #h(-1em) d mu$に一致するには，言い換えれば積分と極限の順序交換ができるには一定の条件が必要である．この問題に対する（個人的には
+さて，実際の積分の計算では，積分の評価しやすい関数列$f_n$であって被積分関数$f$に何らかの意味で収束するものを取ってきて，$lim_(n arrow.r oo) integral f_n d mu$を計算する戦略を取ることが多々ある．が，これが$integral f d mu$に一致するには，言い換えれば積分と極限の順序交換ができるには一定の条件が必要である．この問題に対する（個人的には
 Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以下に述べていく．
 
 #defi[
@@ -1959,21 +1959,21 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 #lem[
   単関数に対する積分は単調性ならびに線型性を充たす．すなわち，$f \, g : X arrow.r \[ 0 \, oo \]$を非負単関数，$a \, b in bb(R)$とするとき，
 
-  - $f lt.eq g$を充たすならば$integral f "" #h(-1em) d mu lt.eq integral g "" #h(-1em) d mu$．
+  - $f lt.eq g$を充たすならば$integral f d mu lt.eq integral g d mu$．
 
-  - $integral \( a f + b g \) "" #h(-1em) d mu = a integral f "" #h(-1em) d mu + b integral g "" #h(-1em) d mu$．
+  - $integral \( a f + b g \) d mu = a integral f d mu + b integral g d mu$．
 
-  したがって特に$A in cal(A)$とするとき，$f^plus.minus 1_A lt.eq f^plus.minus$なので，$f$の積分が定義できるならば$integral_A f "" #h(-1em) d mu$も定義される．
+  したがって特に$A in cal(A)$とするとき，$f^plus.minus 1_A lt.eq f^plus.minus$なので，$f$の積分が定義できるならば$integral_A f d mu$も定義される．
 
 ]
 #proof[
   $f = sum_(i = 1)^m a_i 1_(A_i)$，$g = sum_(j = 1)^n b_j 1_(B_j)$と表示し，更に$C_(i j) colon.eq A_i sect B_j$と置く．このとき$f + g = sum_(i = 1)^m sum_(j = 1)^n \( a_i + b_j \) 1_(C_(i j))$が成り立つので，
-  $ integral \( f + g \) "" #h(-1em) d mu & = sum_(i = 1)^m sum_(j = 1)^n \( a_i + b_j \) mu \( C_(i j) \)\
+  $ integral \( f + g \) d mu & = sum_(i = 1)^m sum_(j = 1)^n \( a_i + b_j \) mu \( C_(i j) \)\
   & = sum_(i = 1)^m sum_(j = 1)^n a_i mu \( C_(i j) \) + sum_(i = 1)^m sum_(j = 1)^n b_j mu \( C_(i j) \)\
   & = sum_(i = 1)^m a_i mu \( A_i \) + sum_(j = 1)^n b_j mu \( B_j \)\
-  & = integral f "" #h(-1em) d mu + integral g "" #h(-1em) d mu $を得る．定数倍が積分記号と交換できることは積分の定義から直ちに従う．
+  & = integral f d mu + integral g d mu $を得る．定数倍が積分記号と交換できることは積分の定義から直ちに従う．
 
-  $f \, g$が$f lt.eq g$を充たす非負単関数ならば$g - f gt.eq 0$すなわち$integral \( g - f \) "" #h(-1em) d mu gt.eq 0$なので，積分の線型性より$integral g "" #h(-1em) d mu gt.eq integral f "" #h(-1em) d mu$である（単関数は決して$plus.minus oo$を取らないので，この議論の過程で$oo - oo$は起こらない）．
+  $f \, g$が$f lt.eq g$を充たす非負単関数ならば$g - f gt.eq 0$すなわち$integral \( g - f \) d mu gt.eq 0$なので，積分の線型性より$integral g d mu gt.eq integral f d mu$である（単関数は決して$plus.minus oo$を取らないので，この議論の過程で$oo - oo$は起こらない）．
 
 ]
 #dig[
@@ -2002,52 +2002,52 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #thm[
-  $f : X arrow.r \[ 0 \, oo \]$ならびに$f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）を可測関数とする．$f_n arrow.t f$ならば$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$．
+  $f : X arrow.r \[ 0 \, oo \]$ならびに$f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）を可測関数とする．$f_n arrow.t f$ならば$lim_(n arrow.r oo) integral f_n d mu = integral f d mu$．
 
 ]
 #proof[
-  証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$integral f_n "" #h(-1em) d mu$は$n$に関して非減少なので，$c colon.eq lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$が$\[ 0 \, oo \]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c lt.eq integral f "" #h(-1em) d mu$が成り立つ．$g : X arrow.r \[ 0 \, oo \]$を，$g lt.eq f$を充たすような任意の非負単関数とするとき，$integral g "" #h(-1em) d mu lt.eq c$を示せばよい．$g = sum_(i = 1)^m a_i 1_(A_i)$と表示する．非負単関数に対する積分の線型性より，各$1 lt.eq i lt.eq m$に対して$a_i mu \( A_i \) lt.eq lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu$を示せば充分なのでそうする．$epsilon in \( 0 \, 1 \)$を任意に固定し，$B_(n \, i) colon.eq { x in X \| f_n \( x \) 1_(A_i) > \( 1 - epsilon \) a_i }$と置くと，$B_(n \, i) arrow.t A_i$．更に$integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq integral f_n 1_(B_(n \, i)) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) mu \( B_(n \, i) \)$であるから，$n arrow.r oo$の極限をとって$lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) a_i mu \( A_i \)$であり，$epsilon arrow.r 0$の極限を取ることで結論を得る．
+  証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$integral f_n d mu$は$n$に関して非減少なので，$c colon.eq lim_(n arrow.r oo) integral f_n d mu$が$\[ 0 \, oo \]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c lt.eq integral f d mu$が成り立つ．$g : X arrow.r \[ 0 \, oo \]$を，$g lt.eq f$を充たすような任意の非負単関数とするとき，$integral g d mu lt.eq c$を示せばよい．$g = sum_(i = 1)^m a_i 1_(A_i)$と表示する．非負単関数に対する積分の線型性より，各$1 lt.eq i lt.eq m$に対して$a_i mu \( A_i \) lt.eq lim_(n arrow.r oo) integral f_n 1_(A_i) d mu$を示せば充分なのでそうする．$epsilon in \( 0 \, 1 \)$を任意に固定し，$B_(n \, i) colon.eq { x in X \| f_n \( x \) 1_(A_i) > \( 1 - epsilon \) a_i }$と置くと，$B_(n \, i) arrow.t A_i$．更に$integral f_n 1_(A_i) d mu gt.eq integral f_n 1_(B_(n \, i)) d mu gt.eq \( 1 - epsilon \) mu \( B_(n \, i) \)$であるから，$n arrow.r oo$の極限をとって$lim_(n arrow.r oo) integral f_n 1_(A_i) d mu gt.eq \( 1 - epsilon \) a_i mu \( A_i \)$であり，$epsilon arrow.r 0$の極限を取ることで結論を得る．
 
   次に$f_n$が非負可測関数の列であった場合を考える．補題@非負単関数の列
-  より非負単関数の列${ g_(n \, i) }_(i = 1)^oo$であって$g_(n \, i) arrow.t f_n$であるようなものがある．$h_m colon.eq max { g_(m \, 1) \, g_(m \, 2) \, dots.h \, g_(m \, m) }$と置けば${ h_m }_(m = 1)^oo$は単関数であって，$h_m lt.eq f_m$ならびに$h_m arrow.t f$を充たす．積分の単調性より$integral h_m "" #h(-1em) d mu lt.eq integral f_m "" #h(-1em) d mu lt.eq integral f "" #h(-1em) d mu$であり，前段の結果より$lim_(m arrow.r oo) integral h_m "" #h(-1em) d mu = integral f "" #h(-1em) d mu$なので，はさみうちの原理より$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$である．
+  より非負単関数の列${ g_(n \, i) }_(i = 1)^oo$であって$g_(n \, i) arrow.t f_n$であるようなものがある．$h_m colon.eq max { g_(m \, 1) \, g_(m \, 2) \, dots.h \, g_(m \, m) }$と置けば${ h_m }_(m = 1)^oo$は単関数であって，$h_m lt.eq f_m$ならびに$h_m arrow.t f$を充たす．積分の単調性より$integral h_m d mu lt.eq integral f_m d mu lt.eq integral f d mu$であり，前段の結果より$lim_(m arrow.r oo) integral h_m d mu = integral f d mu$なので，はさみうちの原理より$lim_(n arrow.r oo) integral f_n d mu = integral f d mu$である．
 
 ]
 #thm[
-  $f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）を可測関数の族とする．このとき$integral liminf_(n arrow.r oo) f_n "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral f_n "" #h(-1em) d mu$．
+  $f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）を可測関数の族とする．このとき$integral liminf_(n arrow.r oo) f_n d mu lt.eq liminf_(n arrow.r oo) integral f_n d mu$．
 
 ]
 #proof[
-  $g_n colon.eq inf_(m gt.eq n) f_m$と置くと，$g_n arrow.t sup_n g_n = liminf_(n arrow.r oo) f_n$なので，単調収束定理より$lim_(n arrow.r oo) integral g_n "" #h(-1em) d mu = integral liminf_(n arrow.r oo) f_n "" #h(-1em) d mu$．また$g_n lt.eq f_n$なので$integral g_n "" #h(-1em) d mu lt.eq integral f_n "" #h(-1em) d mu$すなわち$liminf_(n arrow.r oo) integral g_n "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral f_n "" #h(-1em) d mu$である．以上より$integral liminf_(n arrow.r oo) f_n "" #h(-1em) d mu = lim_(n arrow.r oo) integral g_n "" #h(-1em) d mu = liminf_(n arrow.r oo) integral g_n "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral f_n "" #h(-1em) d mu$を得る．
+  $g_n colon.eq inf_(m gt.eq n) f_m$と置くと，$g_n arrow.t sup_n g_n = liminf_(n arrow.r oo) f_n$なので，単調収束定理より$lim_(n arrow.r oo) integral g_n d mu = integral liminf_(n arrow.r oo) f_n d mu$．また$g_n lt.eq f_n$なので$integral g_n d mu lt.eq integral f_n d mu$すなわち$liminf_(n arrow.r oo) integral g_n d mu lt.eq liminf_(n arrow.r oo) integral f_n d mu$である．以上より$integral liminf_(n arrow.r oo) f_n d mu = lim_(n arrow.r oo) integral g_n d mu = liminf_(n arrow.r oo) integral g_n d mu lt.eq liminf_(n arrow.r oo) integral f_n d mu$を得る．
 
 ]
 #thm[
-  $f_n in L^1$（$n in bb(N)$）がある関数$f : X arrow.r bb(R)$に各点収束していた，すなわち任意の$x in X$に対して$lim_(n arrow.r oo) f_n \( x \) = f \( x \)$であったと仮定する．このとき，ある$g in L^1$に対して$\| f_n \| lt.eq g$であるならば，$f in L^1$であり，$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$．
+  $f_n in L^1$（$n in bb(N)$）がある関数$f : X arrow.r bb(R)$に各点収束していた，すなわち任意の$x in X$に対して$lim_(n arrow.r oo) f_n \( x \) = f \( x \)$であったと仮定する．このとき，ある$g in L^1$に対して$\| f_n \| lt.eq g$であるならば，$f in L^1$であり，$lim_(n arrow.r oo) integral f_n d mu = integral f d mu$．
 
 ]
 #proof[
   $\| f \| lt.eq \| g \|$なので$f in L^1$はよい．$g + f_n gt.eq 0$なので
   Fatou
-  の補題が使えて，$integral lim_(n arrow.r oo) \( g + f_n \) "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral \( g + f_n \) "" #h(-1em) d mu$すなわち$integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral f_n "" #h(-1em) d mu$である．同様に$g - f_n gt.eq 0$なので再び
+  の補題が使えて，$integral lim_(n arrow.r oo) \( g + f_n \) d mu lt.eq liminf_(n arrow.r oo) integral \( g + f_n \) d mu$すなわち$integral lim_(n arrow.r oo) f_n d mu lt.eq liminf_(n arrow.r oo) integral f_n d mu$である．同様に$g - f_n gt.eq 0$なので再び
   Fatou
-  の補題により$integral lim_(n arrow.r oo) \( g - f_n \) "" #h(-1em) d mu lt.eq liminf_(n arrow.r oo) integral \( g - f_n \) "" #h(-1em) d mu$つまり$limsup_(n arrow.r oo) integral f_n "" #h(-1em) d mu lt.eq integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu$である．あとははさみうちの原理によればよい．
+  の補題により$integral lim_(n arrow.r oo) \( g - f_n \) d mu lt.eq liminf_(n arrow.r oo) integral \( g - f_n \) d mu$つまり$limsup_(n arrow.r oo) integral f_n d mu lt.eq integral lim_(n arrow.r oo) f_n d mu$である．あとははさみうちの原理によればよい．
 
 ]
 収束定理たちの応用や，積分にまつわる具体例たちを見ていくことにしよう．
 
 #cor[
-  可測関数$f \, g : X arrow.r overline(bb(R))$が非負であるか，または$f \, g in L^1$であるならば，任意の$a \, b in bb(R)$に対して$integral \( a f + b g \) "" #h(-1em) d mu = a integral f "" #h(-1em) d mu + b integral g "" #h(-1em) d mu$．
+  可測関数$f \, g : X arrow.r overline(bb(R))$が非負であるか，または$f \, g in L^1$であるならば，任意の$a \, b in bb(R)$に対して$integral \( a f + b g \) d mu = a integral f d mu + b integral g d mu$．
 
 ]
 #proof[
-  $f \, g$が非負ならば，非負単関数の列${ f_n }$ならびに${ g_n }$であって$f_n arrow.t f$，$g_n arrow.t g$を充たすものをとった上で単調収束定理を繰り返し使うと$a integral f "" #h(-1em) d mu + b integral g "" #h(-1em) d mu = a integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu + b integral lim_(n arrow.r oo) g_n "" #h(-1em) d mu = lim_(n arrow.r oo) a integral f_n "" #h(-1em) d mu + b integral g_n "" #h(-1em) d mu = lim_(n arrow.r oo) integral \( a f_n + b g_n \) "" #h(-1em) d mu = integral \( f + g \) "" #h(-1em) d mu$．$f \, g in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
+  $f \, g$が非負ならば，非負単関数の列${ f_n }$ならびに${ g_n }$であって$f_n arrow.t f$，$g_n arrow.t g$を充たすものをとった上で単調収束定理を繰り返し使うと$a integral f d mu + b integral g d mu = a integral lim_(n arrow.r oo) f_n d mu + b integral lim_(n arrow.r oo) g_n d mu = lim_(n arrow.r oo) a integral f_n d mu + b integral g_n d mu = lim_(n arrow.r oo) integral \( a f_n + b g_n \) d mu = integral \( f + g \) d mu$．$f \, g in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
 
 ]
 #thm[
-  非負可測関数$f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）に対して，$sum_(n = 1)^oo (integral f_n "" #h(-1em) d mu) = integral (sum_(n = 1)^oo f_n) "" #h(-1em) d mu$．すなわち非負可測関数に関する限り，積分と級数は自由に交換できる．
+  非負可測関数$f_n : X arrow.r \[ 0 \, oo \]$（$n in bb(N)$）に対して，$sum_(n = 1)^oo (integral f_n d mu) = integral (sum_(n = 1)^oo f_n) d mu$．すなわち非負可測関数に関する限り，積分と級数は自由に交換できる．
 
 ]
 #proof[
-  $g_N colon.eq sum_(n = 1)^N f_n$と置けば$g_N arrow.t sum_(n = 1)^oo f_n$なので，積分の線型性と単調収束定理より$lim_(N arrow.r oo) sum_(n = 1)^N (integral f_n "" #h(-1em) d mu) = lim_(N arrow.r oo) integral g_N "" #h(-1em) d mu = integral lim_(N arrow.r oo) g_N "" #h(-1em) d mu = integral (sum_(n = 1)^oo f_n) "" #h(-1em) d mu$．
+  $g_N colon.eq sum_(n = 1)^N f_n$と置けば$g_N arrow.t sum_(n = 1)^oo f_n$なので，積分の線型性と単調収束定理より$lim_(N arrow.r oo) sum_(n = 1)^N (integral f_n d mu) = lim_(N arrow.r oo) integral g_N d mu = integral lim_(N arrow.r oo) g_N d mu = integral (sum_(n = 1)^oo f_n) d mu$．
 
 ]
 #dig[
@@ -2056,7 +2056,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #exm[
-  $n in bb(N)$に対して$f_n colon.eq 1_(\[ n \, n + 1 \))$と置くと，任意の$n in bb(N)$に対して$integral f_n "" #h(-1em) d mu = 1$であるが，$f_n arrow.r 0$なので$integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu = 0$．従って特に$integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu < lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$である．
+  $n in bb(N)$に対して$f_n colon.eq 1_(\[ n \, n + 1 \))$と置くと，任意の$n in bb(N)$に対して$integral f_n d mu = 1$であるが，$f_n arrow.r 0$なので$integral lim_(n arrow.r oo) f_n d mu = 0$．従って特に$integral lim_(n arrow.r oo) f_n d mu < lim_(n arrow.r oo) integral f_n d mu$である．
 
 ]
 #thm[
@@ -2068,16 +2068,16 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
   - ある$h in L^1$が存在して，任意の$x in X$ならびに$t_0 in \( a \, b \)$に対して$lr(|d g_x \/ d t \( t_0 \)|) lt.eq h \( x \)$．
 
-  このとき，$g : \( a \, b \) in.rev t mapsto integral f \( x \, t \) "" #h(-1em) d mu \( x \) in bb(R)$は$\( a \, b \)$において微分可能であって，任意の$t_0 in \( a \, b \)$に対して
-  $ frac(d g, d t) \( t_0 \) = integral frac(d g_x, d t) \( t_0 \) "" #h(-1em) d mu \( x \) $が成り立つ．人口に膾炙した記号を用いてより象徴的に書けば，
-  $ frac(d, d t) #scale(x: 240%, y: 240%)[\|] _(t = t_0) integral f \( x \, t \) "" #h(-1em) d mu \( x \) = integral frac(partial f, partial t) \( t_0 \, x \) "" #h(-1em) d mu \( x \) $が任意の$t_0 in \( a \, b \)$に対して成り立つ．
+  このとき，$g : \( a \, b \) in.rev t mapsto integral f \( x \, t \) d mu \( x \) in bb(R)$は$\( a \, b \)$において微分可能であって，任意の$t_0 in \( a \, b \)$に対して
+  $ frac(d g, d t) \( t_0 \) = integral frac(d g_x, d t) \( t_0 \) d mu \( x \) $が成り立つ．人口に膾炙した記号を用いてより象徴的に書けば，
+  $ frac(d, d t) #scale(x: 240%, y: 240%)[\|] _(t = t_0) integral f \( x \, t \) d mu \( x \) = integral frac(partial f, partial t) \( t_0 \, x \) d mu \( x \) $が任意の$t_0 in \( a \, b \)$に対して成り立つ．
 
 ]
 <微分と積分の交換>
 #proof[
   $t_0 in \( a \, b \)$を任意にひとつ固定する．$bb(R)$の点列${ delta_n }_(n = 1)^oo$を，$delta_1 < b - t_0$ならびに$delta_n arrow.b 0$を充たすように取る．平均値の定理より，任意の$x in X$ならびに$n in bb(N)$に対してある$theta_(t_0 \, x \, n) in \[ 0 \, 1 \]$が存在して
   $ frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n) = frac(d g_x, d t) \( x \, t_0 + theta_(t_0 \, x \, n) delta_n \) $が成り立つ．従って任意の$t_0 in \( a \, b \)$，$x in X$ならびに$n in bb(N)$に対して$lr(|frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n)|) lt.eq h \( x \)$が成り立つから，優収束定理より
-  $ lim_(n arrow.r oo) frac(integral f \( x \, t_0 + delta_n \) "" #h(-1em) d mu \( x \) - integral f \( x \, t_0 \) "" #h(-1em) d mu \( x \), delta_n) = integral lim_(n arrow.r oo) frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n) "" #h(-1em) d mu \( x \) $を得るので結論が従う．
+  $ lim_(n arrow.r oo) frac(integral f \( x \, t_0 + delta_n \) d mu \( x \) - integral f \( x \, t_0 \) d mu \( x \), delta_n) = integral lim_(n arrow.r oo) frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n) d mu \( x \) $を得るので結論が従う．
 
 ]
 #cor[
@@ -2093,9 +2093,9 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 #prop[
   以下，$f : \[ a \, b \] times \[ c \, d \] arrow.r bb(R)$を連続関数とし，更に$partial_2 f$が存在して連続であるとする．
 
-  + $F \( x \, y \) colon.eq integral_a^x f \( t \, y \) "" #h(-1em) d t$と定めると，$partial_1 F = f$および$partial_2 F \( x \, y \) = integral_a^x partial_2 f \( t \, y \) "" #h(-1em) d t$が成り立つ．
+  + $F \( x \, y \) colon.eq integral_a^x f \( t \, y \) d t$と定めると，$partial_1 F = f$および$partial_2 F \( x \, y \) = integral_a^x partial_2 f \( t \, y \) d t$が成り立つ．
 
-  + $g : bb(R) arrow.r \( a \, b \)$を微分可能な関数とし，$G \( x \) colon.eq integral_a^(g \( x \)) f \( t \, x \) "" #h(-1em) d t$と置くと，$G' \( x \) = f \( g \( x \) \, x \) dot.op g' \( x \) + integral_a^(g \( x \)) partial_2 f \( t \, x \) "" #h(-1em) d t$が成り立つ．特に$g \( x \) = x$のとき，$G' \( x \) = f \( x \, x \) + integral_a^x partial_2 f \( t \, x \) "" #h(-1em) d t$である．
+  + $g : bb(R) arrow.r \( a \, b \)$を微分可能な関数とし，$G \( x \) colon.eq integral_a^(g \( x \)) f \( t \, x \) d t$と置くと，$G' \( x \) = f \( g \( x \) \, x \) dot.op g' \( x \) + integral_a^(g \( x \)) partial_2 f \( t \, x \) d t$が成り立つ．特に$g \( x \) = x$のとき，$G' \( x \) = f \( x \, x \) + integral_a^x partial_2 f \( t \, x \) d t$である．
 
 ]
 #proof[
@@ -2111,10 +2111,10 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
   の積分公式において$f$に課した条件はより弱められることがわかる．ところでこの公式は名前がついているくらいだし，いろいろなところで使われると思うのだが，私は使いみちをよく知りません．
 
 ]
-以下，やや寄り道となるが，$L^p$たちの包含関係について議論する．$parallel f parallel_p colon.eq (integral \| f \|^p "" #h(-1em) d mu)^(1 \/ p)$と定める．
+以下，やや寄り道となるが，$L^p$たちの包含関係について議論する．$parallel f parallel_p colon.eq (integral \| f \|^p d mu)^(1 \/ p)$と定める．
 
 #que[
-  $f in L^p$と$parallel f parallel_p < oo$は同値である．$parallel f parallel_p$のことを$L^p$ノルムと呼びたいのだが，実際には$f = g med mu$-a.eでさえあれば（$f = g$ではなかったとしても）$integral f "" #h(-1em) d mu = integral g "" #h(-1em) d mu$となるので，ノルムの同一律を充たさない．なので「測度零集合での違いを除いて一致する」事に関する同値関係を入れ，その同値類の集合を考えないとノルムにはならない．文献によっては，同値関係で割る前の集合のことを$cal(L)^p$と書き，割ったあとの集合のことを$L^p$と書いているものもある．
+  $f in L^p$と$parallel f parallel_p < oo$は同値である．$parallel f parallel_p$のことを$L^p$ノルムと呼びたいのだが，実際には$f = g med mu$-a.eでさえあれば（$f = g$ではなかったとしても）$integral f d mu = integral g d mu$となるので，ノルムの同一律を充たさない．なので「測度零集合での違いを除いて一致する」事に関する同値関係を入れ，その同値類の集合を考えないとノルムにはならない．文献によっては，同値関係で割る前の集合のことを$cal(L)^p$と書き，割ったあとの集合のことを$L^p$と書いているものもある．
 
 ]
 #thm[
@@ -2126,12 +2126,12 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #thm[
-  可測関数$f \, g : X arrow.r overline(bb(R))$および$1 \/ p + 1 \/ q = 1$を充たす自然数$p \, q$に対して$integral \| f g \| "" #h(-1em) d mu lt.eq parallel f parallel_p parallel g parallel_q$が成り立つ．$p = q = 2$の場合を
+  可測関数$f \, g : X arrow.r overline(bb(R))$および$1 \/ p + 1 \/ q = 1$を充たす自然数$p \, q$に対して$integral \| f g \| d mu lt.eq parallel f parallel_p parallel g parallel_q$が成り立つ．$p = q = 2$の場合を
   Cauchy-Schwarz の不等式という．
 
 ]
 #proof[
-  $parallel f parallel_p = 0$ないしは$parallel g parallel_q = 0$であるならば$mu$-a.eに$f = 0$または$mu$-a.eに$g = 0$なので，不等式の両辺とも0である．従って$parallel f parallel_p > 0$かつ$parallel g parallel_q > 0$と仮定してよい．更に積分の線型性より$f$を$f \/ parallel f parallel_p$に，$g$を$g \/ parallel g parallel_q$に置き換えて証明すれば良いことがわかるので，最初から$parallel f parallel_p = 1$かつ$parallel g parallel_q = 1$であるとして示して良い．Youngの不等式より各$x in X$に対して$\| f \( x \) g \( x \) \| lt.eq \( \| f \( x \) \|^p \/ p \) + \( \| f \( x \) \|^q \/ q \)$を得るので，両辺を積分して$integral \| f g \| "" #h(-1em) d mu lt.eq \( parallel f parallel_p \/ p \) + \( parallel f \( x \) parallel^q \/ q \) = \( 1 \/ p \) + \( 1 \/ q \) = 1$となる．
+  $parallel f parallel_p = 0$ないしは$parallel g parallel_q = 0$であるならば$mu$-a.eに$f = 0$または$mu$-a.eに$g = 0$なので，不等式の両辺とも0である．従って$parallel f parallel_p > 0$かつ$parallel g parallel_q > 0$と仮定してよい．更に積分の線型性より$f$を$f \/ parallel f parallel_p$に，$g$を$g \/ parallel g parallel_q$に置き換えて証明すれば良いことがわかるので，最初から$parallel f parallel_p = 1$かつ$parallel g parallel_q = 1$であるとして示して良い．Youngの不等式より各$x in X$に対して$\| f \( x \) g \( x \) \| lt.eq \( \| f \( x \) \|^p \/ p \) + \( \| f \( x \) \|^q \/ q \)$を得るので，両辺を積分して$integral \| f g \| d mu lt.eq \( parallel f parallel_p \/ p \) + \( parallel f \( x \) parallel^q \/ q \) = \( 1 \/ p \) + \( 1 \/ q \) = 1$となる．
 
 ]
 #prop[
@@ -2141,13 +2141,13 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 #proof[
   $f in L^p$を任意に取る．$r colon.eq p \/ q$，$s = p \/ \( p - q \)$として
   Hölder の不等式を使えば
-  $ integral \| f \|^q "" #h(-1em) d mu lt.eq parallel \| f \|^q parallel_r parallel 1 parallel_s = mu \( X \)^(\( p - q \) \/ p) (integral \| f \|^p "" #h(-1em) d mu)^(q \/ p) $を得る．$integral \| f \|^p "" #h(-1em) d mu < oo$ならびに$mu \( X \) < oo$なので$parallel f parallel_q < oo$，すなわち$f in L^q$である．
+  $ integral \| f \|^q d mu lt.eq parallel \| f \|^q parallel_r parallel 1 parallel_s = mu \( X \)^(\( p - q \) \/ p) (integral \| f \|^p d mu)^(q \/ p) $を得る．$integral \| f \|^p d mu < oo$ならびに$mu \( X \) < oo$なので$parallel f parallel_q < oo$，すなわち$f in L^q$である．
 
 ]
 上記の包含関係が成り立つ上で$mu$の有限性は本質的である．
 
 #exm[
-  $f : bb(R) arrow.r bb(R)$を，$f \( x \) colon.eq 1 / x 1_(\[ 1 \, oo \)) \( x \)$で定める．$f$のLebesgue測度に関する積分を考えると，$integral f "" #h(-1em) d lambda = integral_1^oo frac("" #h(-1em) d x, x) = [log x]_(x = 1)^(x = oo) = oo$なので$f in.not L^1$．ところが任意の$p gt.eq 2$に対して$integral f^p "" #h(-1em) d lambda = integral_1^oo frac("" #h(-1em) d x, x^p) = [frac(1, - p + 1) x^(- p + 1)]_(x = 1)^(x = oo) = frac(1, - p + 1) < oo$なので$f in L^p$である．他方$g : bb(R) arrow.r bb(R)$を$g \( x \) colon.eq 1_(\( 0 \, 1 \]) \( x \) 1 / sqrt(x)$で定めると，$integral g "" #h(-1em) d lambda = integral_0^1 frac("" #h(-1em) d x, sqrt(x)) = [2 sqrt(x)]_(x = 0)^(x = 1) = 2$なので$g in L^1$である．他方，$integral g^2 "" #h(-1em) d lambda = integral_0^1 frac("" #h(-1em) d x, x) = [log x]_(x = 0)^(x = 1) = - oo$なので$g in.not L^2$．したがって，この場合は$L^1 subset L^2$でも$L^2 subset L^1$でもない．
+  $f : bb(R) arrow.r bb(R)$を，$f \( x \) colon.eq 1 / x 1_(\[ 1 \, oo \)) \( x \)$で定める．$f$のLebesgue測度に関する積分を考えると，$integral f d lambda = integral_1^oo frac(d x, x) = [log x]_(x = 1)^(x = oo) = oo$なので$f in.not L^1$．ところが任意の$p gt.eq 2$に対して$integral f^p d lambda = integral_1^oo frac(d x, x^p) = [frac(1, - p + 1) x^(- p + 1)]_(x = 1)^(x = oo) = frac(1, - p + 1) < oo$なので$f in L^p$である．他方$g : bb(R) arrow.r bb(R)$を$g \( x \) colon.eq 1_(\( 0 \, 1 \]) \( x \) 1 / sqrt(x)$で定めると，$integral g d lambda = integral_0^1 frac(d x, sqrt(x)) = [2 sqrt(x)]_(x = 0)^(x = 1) = 2$なので$g in L^1$である．他方，$integral g^2 d lambda = integral_0^1 frac(d x, x) = [log x]_(x = 0)^(x = 1) = - oo$なので$g in.not L^2$．したがって，この場合は$L^1 subset L^2$でも$L^2 subset L^1$でもない．
 
 ]
 #exm[
@@ -2280,7 +2280,7 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
 
   $mu$-a.e.
   に定義された可測関数$f : X \\ N arrow.r overline(bb(R))$に対して，関数$tilde(f) : X arrow.r overline(bb(R))$を
-  $ tilde(f) \( x \) colon.eq cases(delim: "{", f \( x \) & upright("if") x in X \\ N, 0 & upright("if") x in N) $と定めれば，$tilde(f) : X arrow.r bb(R)$は可測である．このもとで，$integral f "" #h(-1em) d mu colon.eq integral tilde(f) "" #h(-1em) d mu$と定める．
+  $ tilde(f) \( x \) colon.eq cases(delim: "{", f \( x \) & upright("if") x in X \\ N, 0 & upright("if") x in N) $と定めれば，$tilde(f) : X arrow.r bb(R)$は可測である．このもとで，$integral f d mu colon.eq integral tilde(f) d mu$と定める．
 
 ]
 #thm[
@@ -2288,18 +2288,18 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
 
     + 任意の$x^2 in X_2$に対し$x^1 mapsto f \( x^1 \, x^2 \)$は$cal(A)_1 \/ cal(B)$可測であり，
 
-    + $x^2 mapsto integral f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \)$は$cal(A)_2 \/ cal(B)$可測である．従って$integral.double f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) "" #h(-1em) d mu_2 \( x^2 \)$が定義でき，
+    + $x^2 mapsto integral f \( x^1 \, x^2 \) d mu_1 \( x^1 \)$は$cal(A)_2 \/ cal(B)$可測である．従って$integral.double f \( x^1 \, x^2 \) d mu_1 \( x^1 \) d mu_2 \( x^2 \)$が定義でき，
 
-    + $integral f "" #h(-1em) d \( mu_1 times mu_2 \) = integral.double f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) "" #h(-1em) d mu_2 \( x^2 \)$．
+    + $integral f d \( mu_1 times mu_2 \) = integral.double f \( x^1 \, x^2 \) d mu_1 \( x^1 \) d mu_2 \( x^2 \)$．
 
   + $f in L^1 \( X_1 times X_2 \, cal(A)_1 times.circle cal(A)_2 \, mu_1 times mu_2 \)$に対して，以下が成り立つ．
 
     + 任意の$x^2 in X_2$に対し$x^1 mapsto f \( x^1 \, x^2 \)$は$cal(A)_1 \/ cal(B)$可測であり，
 
-    + $x^2 mapsto integral f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \)$は$mu_2$-a.e.
-      に定義された$cal(A)_2 \/ cal(B)$可測関数である．従って$integral.double f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) "" #h(-1em) d mu_2 \( x^2 \)$が定義でき，
+    + $x^2 mapsto integral f \( x^1 \, x^2 \) d mu_1 \( x^1 \)$は$mu_2$-a.e.
+      に定義された$cal(A)_2 \/ cal(B)$可測関数である．従って$integral.double f \( x^1 \, x^2 \) d mu_1 \( x^1 \) d mu_2 \( x^2 \)$が定義でき，
 
-    + $integral f "" #h(-1em) d \( mu_1 times mu_2 \) = integral.double f \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) "" #h(-1em) d mu_2 \( x^2 \)$．
+    + $integral f d \( mu_1 times mu_2 \) = integral.double f \( x^1 \, x^2 \) d mu_1 \( x^1 \) d mu_2 \( x^2 \)$．
 
 ]
 #proof[
@@ -2316,25 +2316,25 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
 
     - $E \, F in cal(C)$かつ$E subset F$ならば$F \\ E in cal(C)$となることを確認する．まず$mu \( X \) \, mu \( Y \) < oo$となる場合を見よう．$1_(F \\ E) = 1_F - 1_E$なので
       (i-a)
-      はよい．任意の$x^2 in X_2$に対して$integral 1_(F \\ E) \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) = integral 1_F \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) - integral 1_E \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \)$なので
+      はよい．任意の$x^2 in X_2$に対して$integral 1_(F \\ E) \( x^1 \, x^2 \) d mu_1 \( x^1 \) = integral 1_F \( x^1 \, x^2 \) d mu_1 \( x^1 \) - integral 1_E \( x^1 \, x^2 \) d mu_1 \( x^1 \)$なので
       (ii-b)
-      もよい（ここで$mu \( X \) < oo$なので右辺は必ず定義される）．最後に$integral 1_(F \\ E) "" #h(-1em) d \( mu_1 times mu_2 \) = integral 1_F "" #h(-1em) d \( mu_1 times mu_2 \) - integral 1_E "" #h(-1em) d \( mu_1 times mu_2 \) = integral 1_F "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 - integral 1_E "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 = integral 1_(F \\ E) "" #h(-1em) d mu_1 "" #h(-1em) d mu_2$なので
+      もよい（ここで$mu \( X \) < oo$なので右辺は必ず定義される）．最後に$integral 1_(F \\ E) d \( mu_1 times mu_2 \) = integral 1_F d \( mu_1 times mu_2 \) - integral 1_E d \( mu_1 times mu_2 \) = integral 1_F d mu_1 d mu_2 - integral 1_E d mu_1 d mu_2 = integral 1_(F \\ E) d mu_1 d mu_2$なので
       (i-c)
       も従う（ここで$mu \( Y \) < oo$なのでやはりこの過程で未定義な値は現れない）．$mu \( X \) = oo$ないしは$mu \( Y \) = oo$の場合は，$X$と$Y$の$sigma$-有限性より$A_i arrow.t X$および$B_i arrow.t Y$となる測度有限な集合の可算列${ A_i }$および${ B_i }$がとれる．$E$，$F$をそれぞれ$E sect A_i times B_i$，$F sect A_i times B_i$に置き換えれば上記の考察がそのまま適用できるので，適用した上で単調収束定理を用いればよい．
 
     - $E_n in cal(C)$かつ$E_n arrow.t E$のときに$E in cal(C)$を示す．$lim_(n arrow.r oo) 1_(E_n) = 1_E$なので
       (i-a)
-      はよい．また単調収束定理より任意の$x^2 in X_2$に対して$integral 1_(E_n) \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \) arrow.t integral 1_E \( x^1 \, x^2 \) "" #h(-1em) d mu_1 \( x^1 \)$なので
+      はよい．また単調収束定理より任意の$x^2 in X_2$に対して$integral 1_(E_n) \( x^1 \, x^2 \) d mu_1 \( x^1 \) arrow.t integral 1_E \( x^1 \, x^2 \) d mu_1 \( x^1 \)$なので
       (i-b)
-      もよい．$integral 1_(E_n) "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 = integral 1_(E_n) "" #h(-1em) d \( mu_1 times mu_2 \)$の両辺に単調収束定理を適用することで$integral 1_E "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 = integral 1_E "" #h(-1em) d \( mu_1 times mu_2 \)$すなわち
+      もよい．$integral 1_(E_n) d mu_1 d mu_2 = integral 1_(E_n) d \( mu_1 times mu_2 \)$の両辺に単調収束定理を適用することで$integral 1_E d mu_1 d mu_2 = integral 1_E d \( mu_1 times mu_2 \)$すなわち
       (i-c) を得る．
 
   + $f = f^(+) - f^(-)$と分解すれば，$f^(+)$および$f^(-)$は非負可測なので
     (i-a), (i-b), (i-c) が成り立つ．従って (ii-a)
-    はよい．続いて，$x^2 mapsto integral f^(+) "" #h(-1em) d mu_1 \( x^1 \)$は$mu_2$-a.e.
-    に有限な関数である（そうでないとすると，$f in L^1$，とくに$f^(+) in L^1$であることに矛盾する）．同様に$x^2 mapsto integral f^(-) "" #h(-1em) d mu_1 \( x^1 \)$も$mu_2$-a.e.
-    に有限である．従って$x^2 mapsto integral f "" #h(-1em) d mu_1 = integral f^(+) - f^(-) "" #h(-1em) d mu_1$は$mu_2$-a.e.
-    に定義された$cal(A)_2 \/ cal(B)$-可測関数である#footnote[主に私自身の備忘のため，この部分についてもう少し述べておこう．$x^2 mapsto integral f^(+) "" #h(-1em) d mu_1 \( x^1 \)$が有限値を取らない$x^2$の集合を$N_(+)$，$x^2 mapsto integral f^(-) "" #h(-1em) d mu_1 \( x^1 \)$が有限値を取らない$x^2$の集合を$N_(-)$と置く．$x^2 in N_(+) sect N_(-)$である場合$x^2 mapsto integral f \( x^1 \, x^2 \) "" #h(-1em) d mu \( x^1 \)$は定義できないが，$mu_1 \( N_(+) \) = mu_1 \( N_(-) \) = 0$であるので，特に$mu \( N_(+) sect N_(-) \) = 0$である．従って$x mapsto integral f \( x^1 \, x^2 \) "" #h(-1em) d mu \( x^1 \)$は$mu_2$-a.e.
+    はよい．続いて，$x^2 mapsto integral f^(+) d mu_1 \( x^1 \)$は$mu_2$-a.e.
+    に有限な関数である（そうでないとすると，$f in L^1$，とくに$f^(+) in L^1$であることに矛盾する）．同様に$x^2 mapsto integral f^(-) d mu_1 \( x^1 \)$も$mu_2$-a.e.
+    に有限である．従って$x^2 mapsto integral f d mu_1 = integral f^(+) - f^(-) d mu_1$は$mu_2$-a.e.
+    に定義された$cal(A)_2 \/ cal(B)$-可測関数である#footnote[主に私自身の備忘のため，この部分についてもう少し述べておこう．$x^2 mapsto integral f^(+) d mu_1 \( x^1 \)$が有限値を取らない$x^2$の集合を$N_(+)$，$x^2 mapsto integral f^(-) d mu_1 \( x^1 \)$が有限値を取らない$x^2$の集合を$N_(-)$と置く．$x^2 in N_(+) sect N_(-)$である場合$x^2 mapsto integral f \( x^1 \, x^2 \) d mu \( x^1 \)$は定義できないが，$mu_1 \( N_(+) \) = mu_1 \( N_(-) \) = 0$であるので，特に$mu \( N_(+) sect N_(-) \) = 0$である．従って$x mapsto integral f \( x^1 \, x^2 \) d mu \( x^1 \)$は$mu_2$-a.e.
       に定義されている．];．なので (ii-c) もよい．
 
 ]
@@ -2353,9 +2353,9 @@ Fubini
 Clairaut の定理（@clairaut）に証明をつけることにする．
 
 #proof[
-  必要ならば変数を並べ替え，更に他の変数をすべて止めて考えることで，最初から$f : bb(R)^2 arrow.r bb(R)$，$i = 1$，$j = 2$であるとして証明して構わないのでそうする．対称性より，ある点$p in bb(R)^2$において$partial_(1 \, 2) f \( p \) - partial_(2 \, 1) f \( p \) > 0$であると仮定して矛盾を導けばよい．$f$が$C^2$級なので，$partial_(1 \, 2) f$ならびに$partial_(2 \, 1) f$はいずれも連続関数である．従って$p$を含む適当な閉方体$A = \[ a \, b \] times \[ c \, d \]$が存在して，$q in A$ならば$partial_(1 \, 2) f \( q \) - partial_(2 \, 1) f \( q \) > 0$である．このことより$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) "" #h(-1em) d lambda^2 > 0$を得る．$partial_(1 \, 2) f - partial_(2 \, 1) f$は連続関数なので，コンパクト集合$A$上で最大値と最小値を持つから特に絶対可積分である．従って
+  必要ならば変数を並べ替え，更に他の変数をすべて止めて考えることで，最初から$f : bb(R)^2 arrow.r bb(R)$，$i = 1$，$j = 2$であるとして証明して構わないのでそうする．対称性より，ある点$p in bb(R)^2$において$partial_(1 \, 2) f \( p \) - partial_(2 \, 1) f \( p \) > 0$であると仮定して矛盾を導けばよい．$f$が$C^2$級なので，$partial_(1 \, 2) f$ならびに$partial_(2 \, 1) f$はいずれも連続関数である．従って$p$を含む適当な閉方体$A = \[ a \, b \] times \[ c \, d \]$が存在して，$q in A$ならば$partial_(1 \, 2) f \( q \) - partial_(2 \, 1) f \( q \) > 0$である．このことより$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) d lambda^2 > 0$を得る．$partial_(1 \, 2) f - partial_(2 \, 1) f$は連続関数なので，コンパクト集合$A$上で最大値と最小値を持つから特に絶対可積分である．従って
   Fubini
-  の定理より$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) "" #h(-1em) d lambda^2 = integral_(\[ c \, d \]) integral_(\[ a \, b \]) \( partial_(1 \, 2) f \( x \, y \) - partial_(2 \, 1) f \( x \, y \) \) "" #h(-1em) d lambda \( x \) "" #h(-1em) d lambda \( y \) = integral_(\[ c \, d \]) integral_(\[ a \, b \]) partial_(1 \, 2) f \( x \, y \) "" #h(-1em) d lambda \( x \) "" #h(-1em) d lambda \( y \) - integral_(\[ a \, b \]) integral_(\[ c \, d \]) partial_(2 \, 1) f \( x \, y \) "" #h(-1em) d lambda \( y \) "" #h(-1em) d lambda \( x \)$である．微積分学の基本定理を2回使うと$integral_(\[ c \, d \]) integral_(\[ a \, b \]) partial_(1 \, 2) f \( x \, y \) "" #h(-1em) d lambda \( x \) "" #h(-1em) d lambda \( y \) = integral_(\[ a \, b \]) integral_(\[ c \, d \]) partial_(2 \, 1) f \( x \, y \) "" #h(-1em) d lambda \( y \) "" #h(-1em) d lambda \( x \)$を得るが，これは$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) "" #h(-1em) d lambda^2 = 0$を含意するので矛盾である．
+  の定理より$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) d lambda^2 = integral_(\[ c \, d \]) integral_(\[ a \, b \]) \( partial_(1 \, 2) f \( x \, y \) - partial_(2 \, 1) f \( x \, y \) \) d lambda \( x \) d lambda \( y \) = integral_(\[ c \, d \]) integral_(\[ a \, b \]) partial_(1 \, 2) f \( x \, y \) d lambda \( x \) d lambda \( y \) - integral_(\[ a \, b \]) integral_(\[ c \, d \]) partial_(2 \, 1) f \( x \, y \) d lambda \( y \) d lambda \( x \)$である．微積分学の基本定理を2回使うと$integral_(\[ c \, d \]) integral_(\[ a \, b \]) partial_(1 \, 2) f \( x \, y \) d lambda \( x \) d lambda \( y \) = integral_(\[ a \, b \]) integral_(\[ c \, d \]) partial_(2 \, 1) f \( x \, y \) d lambda \( y \) d lambda \( x \)$を得るが，これは$integral_A \( partial_(1 \, 2) f - partial_(2 \, 1) f \) d lambda^2 = 0$を含意するので矛盾である．
 
 ]
 #prop[
@@ -2364,7 +2364,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 ]
 #proof[
   指示関数の非負性と Fubini より
-  $integral 1_A "" #h(-1em) d lambda^3 = integral (integral 1_(A_c) "" #h(-1em) d lambda^2) "" #h(-1em) d lambda \( c \) = integral (integral 1_(B_c) "" #h(-1em) d lambda^2) "" #h(-1em) d lambda \( c \) = integral 1_B "" #h(-1em) d lambda^3$．
+  $integral 1_A d lambda^3 = integral (integral 1_(A_c) d lambda^2) d lambda \( c \) = integral (integral 1_(B_c) d lambda^2) d lambda \( c \) = integral 1_B d lambda^3$．
 
 ]
 == 1の分割
@@ -2421,7 +2421,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
   Riesz-Markov-Kakutani の表現定理がある．$S$を局所コンパクト Hausdorff
   空間とし，$C \( S \)$を$S$上の実数値連続関数からなる線型空間とする．線型形式$L : C \( S \) arrow.r bb(R)$が次の意味で非負であったとする；$f gt.eq 0$ならば$L \( f \) gt.eq 0$．このとき，$S$上の有限
   Borel
-  測度$mu$が一意的に存在して$L \( f \) = integral f "" #h(-1em) d mu$が成り立つ．この表現定理は
+  測度$mu$が一意的に存在して$L \( f \) = integral f d mu$が成り立つ．この表現定理は
   Prohorov
   の定理の証明に用いる；完備可分距離空間$S$上の確率測度の集合を$P \( S \)$とするとき，$Pi subset P \( S \)$が一様緊密であることと（弱位相，即ち分布収束を距離化する位相に関して）相対コンパクトであることは同値である．
 
@@ -2438,11 +2438,11 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 
 ]
 #thm[
-  $phi : X_1 arrow.r X_2$ならびに$f : X_2 arrow.r bb(R)$を可測関数とする．$integral f "" #h(-1em) d (phi_(\*) mu)$と$integral f compose phi med "" #h(-1em) d mu$のどちらかが定義されるならば，もう片方も定義され，両者は同じ値を取る．
+  $phi : X_1 arrow.r X_2$ならびに$f : X_2 arrow.r bb(R)$を可測関数とする．$integral f d (phi_(\*) mu)$と$integral f compose phi med d mu$のどちらかが定義されるならば，もう片方も定義され，両者は同じ値を取る．
 
 ]
 #proof[
-  まず$A in cal(A)_2$に対して$f = 1_A$である場合を考える．このときは$integral f "" #h(-1em) d \( phi_(\*) mu \) = phi_(\*) mu \( A \) = mu \( phi^(- 1) \( A \) \) = integral 1_(phi^(- 1) \( A \)) "" #h(-1em) d mu = integral 1_A compose phi "" #h(-1em) d mu$なのでよい．積分の線型性より任意の単関数に対しても主張が成り立つから，非負可測関数についても正しい．一般の可積分関数に対しては正部分と負部分に分けてここまでの議論を適用すればよい．
+  まず$A in cal(A)_2$に対して$f = 1_A$である場合を考える．このときは$integral f d \( phi_(\*) mu \) = phi_(\*) mu \( A \) = mu \( phi^(- 1) \( A \) \) = integral 1_(phi^(- 1) \( A \)) d mu = integral 1_A compose phi d mu$なのでよい．積分の線型性より任意の単関数に対しても主張が成り立つから，非負可測関数についても正しい．一般の可積分関数に対しては正部分と負部分に分けてここまでの議論を適用すればよい．
 
 ]
 #dig[
@@ -2452,37 +2452,37 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 #thm[
   $A subset bb(R)^n$を開集合，$f : bb(R)^n arrow.r overline(bb(R))$を非負可測または$f in L^1 \( bb(R)^n \, cal(B)^n \, lambda^n \)$とし，$phi : A arrow.r phi \( A \)$を$C^1$級微分同相とする．このとき，
   $
-    integral_(phi \( A \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_A f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) .
+    integral_(phi \( A \)) f \( y \) d lambda^n \( y \) = integral_A f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) .
   $
 
 ]
 <変数変換公式の弱い形>
 #proof[
   $A$全体ではなく，各$a in A$に対して$a$を含む開集合$U_a subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_a$上で証明できたとして，$phi \( A \)$の開被覆$cal(O) colon.eq { phi \( U_a \) \| x in A }$に従属した$phi \( A \)$上の1の分割$Psi$を取る．1の分割の定義より$psi in Psi$はある$phi \( U \) subset phi \( A \)$の外で0なので，
-  $ integral_(phi \( A \)) \( psi dot.op f \) \( y \) "" #h(-1em) d lambda^n \( y \) & = integral_(phi \( U \)) \( psi dot.op f \) \( y \) "" #h(-1em) d lambda^n \( y \)\
-  & = integral_U \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \)\
-  & = integral_A \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $が成り立つ．双方を$psi$に関して和をとれば
-  $ sum_(psi in Psi) integral_(phi \( A \)) \( psi dot.op f \) \( y \) "" #h(-1em) d lambda^n \( y \) & = sum_(psi in Psi) integral_A \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $となり，単調収束定理より総和と極限を入れ替えて定理の結論を得る．
+  $ integral_(phi \( A \)) \( psi dot.op f \) \( y \) d lambda^n \( y \) & = integral_(phi \( U \)) \( psi dot.op f \) \( y \) d lambda^n \( y \)\
+  & = integral_U \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \)\
+  & = integral_A \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) $が成り立つ．双方を$psi$に関して和をとれば
+  $ sum_(psi in Psi) integral_(phi \( A \)) \( psi dot.op f \) \( y \) d lambda^n \( y \) & = sum_(psi in Psi) integral_A \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) $となり，単調収束定理より総和と極限を入れ替えて定理の結論を得る．
 
-  また，写像$x mapsto \| det J_phi \( x \) \|$は可測なので，$mu_phi \( U \) colon.eq integral_U \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \)$は$A$上の測度を定め，更に
+  また，写像$x mapsto \| det J_phi \( x \) \|$は可測なので，$mu_phi \( U \) colon.eq integral_U \| det J_phi \( x \) \| d lambda^n \( x \)$は$A$上の測度を定め，更に
   $
-    integral_U f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) = integral_U f compose phi \( x \) "" #h(-1em) d mu_phi \( x \)
+    integral_U f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) = integral_U f compose phi \( x \) d mu_phi \( x \)
   $
   が成り立つ．測度の変数変換公式より
   $
-    integral_U f compose phi \( x \) "" #h(-1em) d mu_phi \( x \) = integral_(phi \( U \)) f \( y \) "" #h(-1em) d \( phi_(\*) mu_phi \) \( y \)
+    integral_U f compose phi \( x \) d mu_phi \( x \) = integral_(phi \( U \)) f \( y \) d \( phi_(\*) mu_phi \) \( y \)
   $
-  であるから，定理の主張は$integral_(phi \( U \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_(phi \( U \)) f \( y \) "" #h(-1em) d \( phi_(\*) mu_phi \) \( y \)$と同値である（すなわち，この等式を示せばよい）．積分の構成より，$f = 1$の場合を証明すればよく，更に$integral_(phi \( U \)) "" #h(-1em) d \( phi_(\*) mu_phi \) = mu_phi \( phi^(- 1) \( phi \( U \) \) \) = mu_phi \( U \) = integral_U \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \)$である．
+  であるから，定理の主張は$integral_(phi \( U \)) f \( y \) d lambda^n \( y \) = integral_(phi \( U \)) f \( y \) d \( phi_(\*) mu_phi \) \( y \)$と同値である（すなわち，この等式を示せばよい）．積分の構成より，$f = 1$の場合を証明すればよく，更に$integral_(phi \( U \)) d \( phi_(\*) mu_phi \) = mu_phi \( phi^(- 1) \( phi \( U \) \) \) = mu_phi \( U \) = integral_U \| det J_phi \( x \) \| d lambda^n \( x \)$である．
 
-  結局，各$x in A$に対して$x$を含む開集合$U subset A$が存在し，$integral_U \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) = integral_(phi \( U \)) "" #h(-1em) d lambda^n$が成り立つことをいえばよいとわかった．証明をいくつかのステップに分割する．
+  結局，各$x in A$に対して$x$を含む開集合$U subset A$が存在し，$integral_U \| det J_phi \( x \) \| d lambda^n \( x \) = integral_(phi \( U \)) d lambda^n$が成り立つことをいえばよいとわかった．証明をいくつかのステップに分割する．
 
   - 主張が合成に関して閉じていることを言う．即ち，ふたつの微分同相$phi_1 : A_1 arrow.r phi_1 \( A_1 \)$，$phi_2 : A_2 arrow.r phi_2 \( A_2 \)$が$phi_1 \( A_1 \) subset A_2$を充たしており，更に$\( phi_1 \)_(\*) mu_(phi_1) = lambda^n$かつ$\( phi_2 \)_(\*) mu_(phi_2) = lambda^n$であるならば，$\( phi_2 compose phi_1 \)_(\*) mu_(phi_2 compose phi_1) = lambda^n$が成り立つことを示す．
     $ \( phi_2 compose phi_1 \)_(\*) mu_(phi_2 compose phi_1) \( U \) & = mu_(phi_2 compose phi_1) \( phi_1^(- 1) \( phi_2^(- 1) \( U \) \) \)\
-    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2 compose phi_1) \( x \) \| "" #h(-1em) d lambda^n \( x \)\
-    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2) \( phi_1 \( x \) \) \| dot.op \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^n \( x \)\
-    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2) \( phi_1 \( x \) \) \| "" #h(-1em) d mu_(phi_1) \( x \)\
-    & = integral_(phi_2^(- 1) \( U \)) \| det J_(phi_2) \( y \) \| "" #h(-1em) d \( phi_1 \)_(\*) mu_(phi_1) \( y \)\
-    & = integral_(phi_2^(- 1) \( U \)) \| det J_(phi_2) \( y \) \| "" #h(-1em) d lambda^n \( y \) = lambda^n \( U \) $なのでよい．
+    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2 compose phi_1) \( x \) \| d lambda^n \( x \)\
+    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2) \( phi_1 \( x \) \) \| dot.op \| det J_(phi_1) \( x \) \| d lambda^n \( x \)\
+    & = integral_(phi_1^(- 1) phi_2^(- 1) \( U \)) \| det J_(phi_2) \( phi_1 \( x \) \) \| d mu_(phi_1) \( x \)\
+    & = integral_(phi_2^(- 1) \( U \)) \| det J_(phi_2) \( y \) \| d \( phi_1 \)_(\*) mu_(phi_1) \( y \)\
+    & = integral_(phi_2^(- 1) \( U \)) \| det J_(phi_2) \( y \) \| d lambda^n \( y \) = lambda^n \( U \) $なのでよい．
 
   - $phi$が正則な線型変換の場合．
 
@@ -2499,14 +2499,14 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 
   - 一般の$phi$の場合．$J_phi \( a \)^(- 1) compose phi$に対して主張を示せば$phi$に対しても結果が従うので，最初から$J_phi \( a \) = I_n$（単位行列）だと仮定して証明してよい．次元$n$に関する帰納法に依る．$phi_1 \( x \) colon.eq \( phi^1 \( x \) \, phi^2 \( x \) \, dots.h \, phi^(n - 1) \( x \) \, x^n \)$と定めれば$J_(phi_1) \( a \) = I_n$なので，逆関数定理より$phi_1$は$a$の近傍$V'$で定義された微分同相である．したがって$phi_2 \( x \) colon.eq \( x^1 \, x^2 \, dots.h \, x^(n - 1) \, phi^n \( phi_1^(- 1) \( x \) \) \)$が定義でき，$phi = phi_2 compose phi_1$が成り立つ．したがって$phi_2$は$phi_1 \( a \)$の近傍で定義された微分同相である．主張が合成に関して閉じていることから，$phi_1$および$phi_2$の双方に対して主張を示せばよい．議論は同様なので$phi_1$に対してのみ示す．$a$を含む開方体$V subset V'$を取る．$V$は$W subset bb(R)^(n - 1)$並びに$a^n \, b^n in bb(R)$を用いて$V = W times \( a^n \, b^n \)$と書ける．Fubini
     の定理より
-    $ integral_V \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^n \( x \) = integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n $である．関数$xi_(x^n) : W arrow.r bb(R)^(n - 1)$を$xi_(x^n) \( x^1 \, dots.h \, x^(n - 1) \) colon.eq \( \( phi_1 \)^1 \( x \) \, \( phi_1 \)^2 \( x \) \, dots.h \, \( phi_1 \)^(n - 1) \( x \) \)$で定めれば，$det J_(phi_1) \( x \) = det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \)$が成り立つ．したがって
-    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n = integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n $である．$xi_(x^n) \( W \) = phi_1 \( W times { x^n } \)$および帰納法の仮定と併せて
-    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n & = integral_(\( a^n \, b^n \)) integral_(phi_1 \( W times { x^n } \)) "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n\
-    & = integral_V "" #h(-1em) d lambda^n \( x \) $を得る．
+    $ integral_V \| det J_(phi_1) \( x \) \| d lambda^n \( x \) = integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) d x^n $である．関数$xi_(x^n) : W arrow.r bb(R)^(n - 1)$を$xi_(x^n) \( x^1 \, dots.h \, x^(n - 1) \) colon.eq \( \( phi_1 \)^1 \( x \) \, \( phi_1 \)^2 \( x \) \, dots.h \, \( phi_1 \)^(n - 1) \( x \) \)$で定めれば，$det J_(phi_1) \( x \) = det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \)$が成り立つ．したがって
+    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) d x^n = integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) d x^n $である．$xi_(x^n) \( W \) = phi_1 \( W times { x^n } \)$および帰納法の仮定と併せて
+    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) d x^n & = integral_(\( a^n \, b^n \)) integral_(phi_1 \( W times { x^n } \)) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) d x^n\
+    & = integral_V d lambda^n \( x \) $を得る．
 
 ]
 #que[
-  $\( X \, cal(A) \, mu \)$を測度空間，$f : X arrow.r bb(R)$を可測写像とするとき，$nu \( A \) colon.eq integral_A f "" #h(-1em) d mu$は$X$上の測度を定める．更に可測写像$g : X arrow.r bb(R)$に対して，$integral g f "" #h(-1em) d mu$または$integral g "" #h(-1em) d nu$の片方が定義されるならば，もう片方も定義され，両者は同じ値を取る．
+  $\( X \, cal(A) \, mu \)$を測度空間，$f : X arrow.r bb(R)$を可測写像とするとき，$nu \( A \) colon.eq integral_A f d mu$は$X$上の測度を定める．更に可測写像$g : X arrow.r bb(R)$に対して，$integral g f d mu$または$integral g d nu$の片方が定義されるならば，もう片方も定義され，両者は同じ値を取る．
 
 ]
 #que[
@@ -2521,17 +2521,17 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
   $P colon.eq \( 0 \, oo \) times \( 0 \, 2 pi \)$と置いて，関数$phi : P arrow.r bb(R)^2$を$phi \( r \, theta \) = \( r cos theta \, r sin theta \)$によって定める．$phi$は単射であり，Jacobi
   行列は$J_phi \( r \, theta \) = mat(delim: "(", cos theta, - r sin theta; sin theta, r cos theta)$なので，特に$det J_phi \( r \, theta \) = r$がわかるから，逆関数定理より$phi$を$phi \( P \)$への写像とみなすと$C^1$級微分同相である．ところで$A colon.eq { \( x \, 0 \) in bb(R)^2 \| x gt.eq 0 }$と置くとこれは閉集合で，$phi \( P \) = bb(R)^2 \\ A$なので，@変数変換公式の弱い形
   より，$f : bb(R)^2 arrow.r overline(bb(R))$が非負可測であるか$f in L^1 \( bb(R)^2 \)$であるならば
-  $ integral_(phi \( P \)) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) dot.op \| det J_phi \( r \, theta \) \| "" #h(-1em) d lambda^2 \( r \, theta \) $すなわち
-  $ integral_(bb(R)^2 \\ A) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) med r "" #h(-1em) d lambda^2 \( r \, theta \) $を得る．$A$が測度0なので，左辺は$bb(R)^2$全域での積分に置き換えることができる．また右辺に対して
+  $ integral_(phi \( P \)) f \( x \, y \) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) dot.op \| det J_phi \( r \, theta \) \| d lambda^2 \( r \, theta \) $すなわち
+  $ integral_(bb(R)^2 \\ A) f \( x \, y \) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) med r d lambda^2 \( r \, theta \) $を得る．$A$が測度0なので，左辺は$bb(R)^2$全域での積分に置き換えることができる．また右辺に対して
   Fubini の定理を適用することで，
-  $ integral f \( x \, y \) "" #h(-1em) d x "" #h(-1em) d y = integral_0^oo integral_0^(2 pi) \( f compose phi \) \( r \, theta \) med r "" #h(-1em) d theta "" #h(-1em) d r $を得る．
+  $ integral f \( x \, y \) d x d y = integral_0^oo integral_0^(2 pi) \( f compose phi \) \( r \, theta \) med r d theta d r $を得る．
 
 ]
 #exm[
-  $integral_(bb(R)) e^(- x^2) "" #h(-1em) d x = sqrt(pi)$を証明してみよう．そのためには，$integral_(bb(R)^2) e^(- x^2 - y^2) "" #h(-1em) d x "" #h(-1em) d y = pi$を示せばよい．これが示せれば
+  $integral_(bb(R)) e^(- x^2) d x = sqrt(pi)$を証明してみよう．そのためには，$integral_(bb(R)^2) e^(- x^2 - y^2) d x d y = pi$を示せばよい．これが示せれば
   Fubini
-  の定理より$(integral e^(- x^2) "" #h(-1em) d x) (integral e^(- y^2) "" #h(-1em) d y) = pi$となって結論が得られるからである．極座標変換をすると，求める積分は
-  $ integral_0^oo integral_0^(2 pi) e^(- r^2) med r "" #h(-1em) d theta "" #h(-1em) d r = 2 pi integral_0^oo r e^(- r^2) "" #h(-1em) d r $となる．$r e^(- r^2)$は$\( 0 \, oo \)$上非負なので，広義
+  の定理より$(integral e^(- x^2) d x) (integral e^(- y^2) d y) = pi$となって結論が得られるからである．極座標変換をすると，求める積分は
+  $ integral_0^oo integral_0^(2 pi) e^(- r^2) med r d theta d r = 2 pi integral_0^oo r e^(- r^2) d r $となる．$r e^(- r^2)$は$\( 0 \, oo \)$上非負なので，広義
   Riemann 積分として計算してよいから，値は$pi$である．
 
 ]
@@ -2561,15 +2561,15 @@ Sard の定理である．
 #thm[
   $A subset bb(R)^n$を開集合，$f in L^1 \( bb(R)^n \, cal(B)^n \, lambda^n \)$とし，$phi : A arrow.r phi \( A \)$を単射な$C^1$級写像とする．このとき，
   $
-    integral_(phi \( A \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_A f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) .
+    integral_(phi \( A \)) f \( y \) d lambda^n \( y \) = integral_A f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) .
   $
 
 ]
 #proof[
   $B colon.eq { x in A \| det J_phi \( x \) = 0 }$と置き，連続写像$x mapsto det J_phi \( x \)$を$h$と書くことにすると，$h^(- 1) \( { 0 } \) = B$なので$B$は閉集合である．したがって$A \\ B$は開集合であるから，$bb(R)^n$における変数変換公式より
-  $ integral_(phi \( A \\ B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $を得る．Sard
-  の定理より$phi \( B \)$は零集合であるから，$integral_(phi \( B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = 0$である．また仮定より$integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) = 0$である．以上より
-  $ integral_(phi \( A \\ B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) + integral_(phi \( B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) + integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $となって定理が得られる．
+  $ integral_(phi \( A \\ B \)) f \( y \) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) $を得る．Sard
+  の定理より$phi \( B \)$は零集合であるから，$integral_(phi \( B \)) f \( y \) d lambda^n \( y \) = 0$である．また仮定より$integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) = 0$である．以上より
+  $ integral_(phi \( A \\ B \)) f \( y \) d lambda^n \( y \) + integral_(phi \( B \)) f \( y \) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) + integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| d lambda^n \( x \) $となって定理が得られる．
 
 ]
 #que[
@@ -2601,10 +2601,10 @@ Stokes
 Stokes
 の定理を理解するということは，曲線や曲面の上で微積分をどう展開するかを理解することと不可分であると言ってよいだろう．
 
-ところで，このノートにおいて積分を定義し，その性質について調べてきた．積分の定義を思い出してみる；単関数$f = sum a_i 1_(A_i)$の積分は$integral f "" #h(-1em) d mu = sum a_i mu \( A_i \)$で与えられていた．非負可測関数$f : X arrow.r \[ 0 \, oo \]$に対しては，
-$ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合${ A_i }$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に@非負単関数の列
+ところで，このノートにおいて積分を定義し，その性質について調べてきた．積分の定義を思い出してみる；単関数$f = sum a_i 1_(A_i)$の積分は$integral f d mu = sum a_i mu \( A_i \)$で与えられていた．非負可測関数$f : X arrow.r \[ 0 \, oo \]$に対しては，
+$ integral f d mu colon.eq sup {integral g d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合${ A_i }$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に@非負単関数の列
 の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」${ A_i }$が与えられているとき，$a_i in A_i$を任意に取れば
-$ integral f "" #h(-1em) d mu approx sum_(A_i) f \( a_i \) mu \( A_i \) $という近似式が成り立つ，ということができよう．
+$ integral f d mu approx sum_(A_i) f \( a_i \) mu \( A_i \) $という近似式が成り立つ，ということができよう．
 
 さて，このような積分の概念を，一般の「曲面」に一般化することを考えよう．一般的な「曲面」の定義を考えるのも骨が折れそうなので，いったん具体的に，$bb(R)^3$内の単位球面
 $ bb(S)^2 colon.eq { \( x^1 \, x^2 \, x^3 \) in bb(R)^3 \| \( x^1 \)^2 + \( x^2 \)^2 + \( x^3 \)^2 = 1 } $を例にして考えることにしたい．もっと即物的に言えば$bb(S)^2$を宇宙$bb(R)^3$の中にある地球表面のモデルだと思ってもよい#footnote[ある時刻での宇宙が$bb(R)^3$でモデリングできるかどうかはここでは問題にしない．];．$f : bb(S)^2 arrow.r bb(R)$の「積分」を定義するための道筋を考えることがここでの目標である．$f$に具体的なイメージがほしければ，地表における何かしらの物質の密度分布が与えられていると思って，その「地球での全質量」を求めようとしていると思えばよい．
@@ -3289,25 +3289,25 @@ Jacobi
 
 #proof[
   $omega$が0-形式の場合は示すべきことはない．微分の線型性より，ある一つの$\( i_1 \, dots.h \, i_k \)$，$1 lt.eq i_1 < dots.h < i_k lt.eq n$を用いて$omega_p = f_(i_1 \, i_2 \, dots.h \, i_k) \( p \) dot.op (d y^(i_1))_p and dots.h and (d y^(i_k))_p$と書ける場合に証明すれば充分である．$k$-形式に対する座標変換則より，
-  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) g_(j_1 \, j_2 \, dots.h \, j_k) "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) f_(i_1 \, i_2 \, dots.h \, i_k) det (frac(partial y^(i_a), partial z^(j_b))) "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) $がわかるので，微分の
+  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) g_(j_1 \, j_2 \, dots.h \, j_k) d z^(j_1) and dots.h and d z^(j_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) f_(i_1 \, i_2 \, dots.h \, i_k) det (frac(partial y^(i_a), partial z^(j_b))) d z^(j_1) and dots.h and d z^(j_k) $がわかるので，微分の
   Leibniz 則より
-  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) "" #h(-1em) d g_(j_1 \, j_2 \, dots.h \, j_k) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = & sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) ("" #h(-1em) d f_(i_1 \, i_2 \, dots.h \, i_k) det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k)\
-  & + sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (f_(i_1 \, i_2 \, dots.h \, i_k) "" #h(-1em) d det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k)\
-  = & "" #h(-1em) d f_(i_1 \, i_2 \, dots.h \, i_k) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k)\
-  & + sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (f_(i_1 \, i_2 \, dots.h \, i_k) "" #h(-1em) d det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) $を得る．したがって示すべきことは
-  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) ("" #h(-1em) d det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (sum_(j = 1)^n frac(partial, partial z^j) det (frac(partial y^(i_a), partial z^(j_b))) "" #h(-1em) d z^j) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = 0 $に帰着する．以下，ある程度きちんと証明をつけるが，総じて直接計算による力技なので，多分自分で証明をつけたほうが理解はしやすいです．
+  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) d g_(j_1 \, j_2 \, dots.h \, j_k) and d z^(j_1) and dots.h and d z^(j_k) = & sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (d f_(i_1 \, i_2 \, dots.h \, i_k) det (frac(partial y^(i_a), partial z^(j_b)))) and d z^(j_1) and dots.h and d z^(j_k)\
+  & + sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (f_(i_1 \, i_2 \, dots.h \, i_k) d det (frac(partial y^(i_a), partial z^(j_b)))) and d z^(j_1) and dots.h and d z^(j_k)\
+  = & d f_(i_1 \, i_2 \, dots.h \, i_k) and d y^(i_1) and dots.h and d y^(i_k)\
+  & + sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (f_(i_1 \, i_2 \, dots.h \, i_k) d det (frac(partial y^(i_a), partial z^(j_b)))) and d z^(j_1) and dots.h and d z^(j_k) $を得る．したがって示すべきことは
+  $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (d det (frac(partial y^(i_a), partial z^(j_b)))) and d z^(j_1) and dots.h and d z^(j_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (sum_(j = 1)^n frac(partial, partial z^j) det (frac(partial y^(i_a), partial z^(j_b))) d z^j) and d z^(j_1) and dots.h and d z^(j_k) = 0 $に帰着する．以下，ある程度きちんと証明をつけるが，総じて直接計算による力技なので，多分自分で証明をつけたほうが理解はしやすいです．
 
   以下，$\( j_(1') \, dots.h \, j_(k') \)$，$1 lt.eq j_(1') < dots.h < j_(k') lt.eq n$を任意にとって一つ固定する（総和のいちばん外側のループ変数を固定して考えようとしている）．このとき，$j' in { j_(1') \, dots.h \, j_(k') }$であるならば明らかに
-  $ frac(partial, partial z^(j')) det (frac(partial y^(i_a), partial z^(j_(b')))) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(k')) = 0 $である．なので，$j' in.not { j_(1') \, dots.h \, j_(k') }$の場合だけを考察すればよいから，そのように$j'$を取って固定する（内側のループ変数を固定して考えようとしている）．微分の
+  $ frac(partial, partial z^(j')) det (frac(partial y^(i_a), partial z^(j_(b')))) d z^(j') and d z^(j_(1')) and dots.h and d z^(j_(k')) = 0 $である．なので，$j' in.not { j_(1') \, dots.h \, j_(k') }$の場合だけを考察すればよいから，そのように$j'$を取って固定する（内側のループ変数を固定して考えようとしている）．微分の
   Leibniz 則を使うと
-  $ & frac(partial, partial z^(j')) det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial y^(i_1), partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial y^(i_k), partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(p')) and dots.h and "" #h(-1em) d z^(j_(k'))\
-  = & sum_(p = 1)^k det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(p')) and dots.h and "" #h(-1em) d z^(j_(k')) $と展開できる．この第$r$項を取り出してくると，
+  $ & frac(partial, partial z^(j')) det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial y^(i_1), partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial y^(i_k), partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) d z^(j') and d z^(j_(1')) and dots.h and d z^(j_(p')) and dots.h and d z^(j_(k'))\
+  = & sum_(p = 1)^k det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) d z^(j') and d z^(j_(1')) and dots.h and d z^(j_(p')) and dots.h and d z^(j_(k')) $と展開できる．この第$r$項を取り出してくると，
   $
-    det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j') partial z^(j_(r'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j') partial z^(j_(r'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(r')) and dots.h and "" #h(-1em) d z^(j_(k')) .
+    det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j') partial z^(j_(r'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j') partial z^(j_(r'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) d z^(j') and d z^(j_(1')) and dots.h and d z^(j_(r')) and dots.h and d z^(j_(k')) .
   $
   この項に対して，符号が逆になってちょうど打ち消し合うような項が総和の中に一意的に存在することを示す．$j'$に対する仮定より，$j_q < j' < j_(q + 1)$を充たすような整数$q gt.eq 0$がある（但し，形式的に$j_(0') = - oo$，$j_(k + 1') = oo$と解釈する）．更に$j' < j_r$と仮定して一般性を失わないのでそうする．2階微分の形から，打ち消し合う項が存在するならば，それは総和に現れるループ変数を$\( j_1 \, dots.h \, j_k \) = \( j_(1') \, dots.h \, j_(q') \, j' \, j_(q + 1') \, dots.h \, j_(r - 1') \, j_(r + 1') \, dots.h \, j_(k') \) \, j = j_(r') \, p = q + 1$とした項，すなわち
   $
-    det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j_(r')) partial z^(j')), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j_(r')) partial z^(j')), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j_(r')) and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(q')) and "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(q + 1')) and dots.h and "" #h(-1em) d z^(j_(r - 1')) and "" #h(-1em) d z^(j_(r + 1')) and dots.h and "" #h(-1em) d z^(j_(k')) .
+    det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j_(r')) partial z^(j')), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j_(r')) partial z^(j')), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) d z^(j_(r')) and d z^(j_(1')) and dots.h and d z^(j_(q')) and d z^(j') and d z^(j_(q + 1')) and dots.h and d z^(j_(r - 1')) and d z^(j_(r + 1')) and dots.h and d z^(j_(k')) .
   $
   のほかにはありえない（この時点で一意性は従う）．実際に符号が逆転することは行列式と外積の交代性を用いた直接計算より従う．
 
@@ -3332,66 +3332,66 @@ Jacobi
 #prop[
   $omega in Omega^k \( U \)$，$eta in Omega^ell \( U \)$とする．
 
-  + $k = ell$のとき，$"" #h(-1em) d \( omega + eta \) = "" #h(-1em) d omega + "" #h(-1em) d eta$．
+  + $k = ell$のとき，$d \( omega + eta \) = d omega + d eta$．
 
-  + $"" #h(-1em) d \( omega and eta \) = \( "" #h(-1em) d omega \) and eta + \( - 1 \)^k omega and "" #h(-1em) d eta$．
+  + $d \( omega and eta \) = \( d omega \) and eta + \( - 1 \)^k omega and d eta$．
 
-  + $"" #h(-1em) d \( "" #h(-1em) d omega \) = 0$．$"" #h(-1em) d^2 = 0$と書く場合も多い．
+  + $d \( d omega \) = 0$．$d^2 = 0$と書く場合も多い．
 
 ]
 #proof[
   + 0-形式の場合は微分の線型性にほかならず，一般の場合は0-形式の場合の線型性から直ちに出る．
 
-  + $k = 0$の場合は外微分の定義そのままである．一般の場合に対しては，外微分の線型性より$omega = f_(i_1 \, dots.h \, i_k) "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k)$，$eta = g_(j_1 \, dots.h \, j_ell) "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)$と書ける場合に証明すれば充分である．このときは
-    $ "" #h(-1em) d \( omega and eta \) = & "" #h(-1em) d \( f_(i_1 \, dots.h \, i_k) g_(j_1 \, dots.h \, j_ell) \) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    = & \( g_(j_1 \, dots.h \, j_ell) "" #h(-1em) d f_(i_1 \, dots.h \, i_k) + f_(i_1 \, dots.h \, i_k) "" #h(-1em) d g_(j_1 \, dots.h \, j_ell) \) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    = & g_(j_1 \, dots.h \, j_ell) "" #h(-1em) d f_(i_1 \, dots.h \, i_k) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    & + f_(i_1 \, dots.h \, i_k) "" #h(-1em) d g_(j_1 \, dots.h \, j_ell) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    = & "" #h(-1em) d f_(i_1 \, dots.h \, i_k) and "" #h(-1em) d y^(i_1) and dots.h and g_(j_1 \, dots.h \, j_ell) "" #h(-1em) d y^(i_k) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    & + \( - 1 \)^k f_(i_1 \, dots.h \, i_k) and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) and "" #h(-1em) d g_(j_1 \, dots.h \, j_ell) and "" #h(-1em) d y^(j_1) and dots.h and "" #h(-1em) d y^(j_ell)\
-    = & \( "" #h(-1em) d omega \) and eta + \( - 1 \)^k omega and "" #h(-1em) d eta $である．
+  + $k = 0$の場合は外微分の定義そのままである．一般の場合に対しては，外微分の線型性より$omega = f_(i_1 \, dots.h \, i_k) d y^(i_1) and dots.h and d y^(i_k)$，$eta = g_(j_1 \, dots.h \, j_ell) d y^(j_1) and dots.h and d y^(j_ell)$と書ける場合に証明すれば充分である．このときは
+    $ d \( omega and eta \) = & d \( f_(i_1 \, dots.h \, i_k) g_(j_1 \, dots.h \, j_ell) \) and d y^(i_1) and dots.h and d y^(i_k) and d y^(j_1) and dots.h and d y^(j_ell)\
+    = & \( g_(j_1 \, dots.h \, j_ell) d f_(i_1 \, dots.h \, i_k) + f_(i_1 \, dots.h \, i_k) d g_(j_1 \, dots.h \, j_ell) \) and d y^(i_1) and dots.h and d y^(i_k) and d y^(j_1) and dots.h and d y^(j_ell)\
+    = & g_(j_1 \, dots.h \, j_ell) d f_(i_1 \, dots.h \, i_k) and d y^(i_1) and dots.h and d y^(i_k) and d y^(j_1) and dots.h and d y^(j_ell)\
+    & + f_(i_1 \, dots.h \, i_k) d g_(j_1 \, dots.h \, j_ell) and d y^(i_1) and dots.h and d y^(i_k) and d y^(j_1) and dots.h and d y^(j_ell)\
+    = & d f_(i_1 \, dots.h \, i_k) and d y^(i_1) and dots.h and g_(j_1 \, dots.h \, j_ell) d y^(i_k) and d y^(j_1) and dots.h and d y^(j_ell)\
+    & + \( - 1 \)^k f_(i_1 \, dots.h \, i_k) and d y^(i_1) and dots.h and d y^(i_k) and d g_(j_1 \, dots.h \, j_ell) and d y^(j_1) and dots.h and d y^(j_ell)\
+    = & \( d omega \) and eta + \( - 1 \)^k omega and d eta $である．
 
-  + やはり外微分の線型性より，$omega = f_(i_1 \, dots.h \, i_k) "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k)$と書ける場合に示せば充分である．
-    $ "" #h(-1em) d omega = sum_(s = 1)^n frac(partial f_(i_1 \, dots.h \, i_k), partial y^s) "" #h(-1em) d y^s and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) $であるから，
-    $ "" #h(-1em) d "" #h(-1em) d omega = sum_(t = 1)^n sum_(s = 1)^n frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^t partial y^s) "" #h(-1em) d y^t and "" #h(-1em) d y^s and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k) $となり，$frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^t partial y^s) "" #h(-1em) d y^t and "" #h(-1em) d y^s and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k)$と$frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^s partial y^t) "" #h(-1em) d y^s and "" #h(-1em) d y^t and "" #h(-1em) d y^(i_1) and dots.h and "" #h(-1em) d y^(i_k)$は符号が逆転して打ち消し合うので総和は0である．
+  + やはり外微分の線型性より，$omega = f_(i_1 \, dots.h \, i_k) d y^(i_1) and dots.h and d y^(i_k)$と書ける場合に示せば充分である．
+    $ d omega = sum_(s = 1)^n frac(partial f_(i_1 \, dots.h \, i_k), partial y^s) d y^s and d y^(i_1) and dots.h and d y^(i_k) $であるから，
+    $ d d omega = sum_(t = 1)^n sum_(s = 1)^n frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^t partial y^s) d y^t and d y^s and d y^(i_1) and dots.h and d y^(i_k) $となり，$frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^t partial y^s) d y^t and d y^s and d y^(i_1) and dots.h and d y^(i_k)$と$frac(partial^2 f_(i_1 \, dots.h \, i_k), partial y^s partial y^t) d y^s and d y^t and d y^(i_1) and dots.h and d y^(i_k)$は符号が逆転して打ち消し合うので総和は0である．
 
 ]
 ベクトル場や接ベクトルをうつす写像として「写像の微分」が定義できたように，微分形式に対しては「引き戻し」が定義できる．
 
 #defi[
   $M colon.eq bb(R)^m$，$N colon.eq bb(R)^n$とし，$U subset N$を開集合とする．このとき，$omega in Omega^k \( U \)$の$f : M arrow.r N$による引き戻し$f^(\*) omega in Omega^k \( f^(- 1) \( U \) \)$を，$v_1 \, dots.h \, v_k in T_p M$に対して
-  $ \( f^(\*) omega \)_p \( v_1 \, dots.h \, v_k \) colon.eq omega_(f \( p \)) \( "" #h(-1em) d f_p v_1 \, dots.h \, "" #h(-1em) d f_p v_k \) $とすることで定める．
+  $ \( f^(\*) omega \)_p \( v_1 \, dots.h \, v_k \) colon.eq omega_(f \( p \)) \( d f_p v_1 \, dots.h \, d f_p v_k \) $とすることで定める．
 
 ]
 #prop[
   $omega in Omega^k \( U \)$，$eta in Omega^ell \( U \)$，$U subset N$を開集合とし，$f : M arrow.r N$とする．
 
-  + $y$を$M$の，$z$を$N$の標準座標系とするとき，$f^(\*) \( "" #h(-1em) d z^k \) = sum_i frac(partial \( z^k compose f \), partial y^i) d y^i$．
+  + $y$を$M$の，$z$を$N$の標準座標系とするとき，$f^(\*) \( d z^k \) = sum_i frac(partial \( z^k compose f \), partial y^i) d y^i$．
 
   + $k = ell$のとき，$f^(\*) \( omega + eta \) = f^(\*) omega + f^(\*) eta$．
 
   + $f^(\*) \( omega and eta \) = f^(\*) omega and f^(\*) eta$．
 
-  + $f^(\*) \( "" #h(-1em) d omega \) = "" #h(-1em) d \( f^(\*) \( omega \) \)$．
+  + $f^(\*) \( d omega \) = d \( f^(\*) \( omega \) \)$．
 
 ]
 #proof[
   (i)-(iii) については総じて直接計算なので，(i)
   のみ示す．$Y = sum_i Y^i frac(partial, partial y^i)$を$M$上のベクトル場とするとき，
-  $ f^(\*) \( "" #h(-1em) d z^k \) \( Y \) = "" #h(-1em) d z^k \( d f \( Y \) \) & = "" #h(-1em) d z^k (sum_i Y^i d f frac(partial, partial y^i))\
-  & = "" #h(-1em) d z^k (sum_i Y^i sum_j partial_i \( z^j compose f compose y^(- 1) \) frac(partial, partial z^j))\
-  & = "" #h(-1em) d z^k (sum_i Y^i sum_j frac(partial \( z^j compose f \), partial y^j) frac(partial, partial z^j))\
+  $ f^(\*) \( d z^k \) \( Y \) = d z^k \( d f \( Y \) \) & = d z^k (sum_i Y^i d f frac(partial, partial y^i))\
+  & = d z^k (sum_i Y^i sum_j partial_i \( z^j compose f compose y^(- 1) \) frac(partial, partial z^j))\
+  & = d z^k (sum_i Y^i sum_j frac(partial \( z^j compose f \), partial y^j) frac(partial, partial z^j))\
   & = sum_i Y^i frac(partial \( z^k compose f \), partial y^j) $であることから
   (i) は従う．(ii), (iii) も同様に証明できて，(i) よりかんたんである．
 
   (iv)
   を示そう．$omega$の次数に関する帰納法による．$omega$が0-形式の場合は，$Y$を$U$上のベクトル場とすれば合成則より
-  $ f^(\*) \( "" #h(-1em) d omega \) \( Y \) = "" #h(-1em) d omega \( "" #h(-1em) d f \( Y \) \) = "" #h(-1em) d \( omega compose f \) \( Y \) = "" #h(-1em) d \( f^(\*) omega \) \( Y \) $となるからよい．$k$-形式の場合に示せているとして，外積の線型性より$omega and "" #h(-1em) d y^i$の形の$k + 1$-形式に対して示せば充分である．
-  $ f^(\*) \( "" #h(-1em) d \( omega and "" #h(-1em) d y^i \) \) & = f^(\*) \( "" #h(-1em) d omega and "" #h(-1em) d y^i \)\
-  & = \( f^(\*) "" #h(-1em) d omega \) and \( f^(\*) "" #h(-1em) d y^i \)\
-  & = \( "" #h(-1em) d f^(\*) omega \) and \( "" #h(-1em) d f^(\*) y^i \)\
-  & = "" #h(-1em) d \( f^(\*) omega and f^(\*) y^i \)\
-  & = "" #h(-1em) d \( f^(\*) \( omega and y^i \) \)\ $である．
+  $ f^(\*) \( d omega \) \( Y \) = d omega \( d f \( Y \) \) = d \( omega compose f \) \( Y \) = d \( f^(\*) omega \) \( Y \) $となるからよい．$k$-形式の場合に示せているとして，外積の線型性より$omega and d y^i$の形の$k + 1$-形式に対して示せば充分である．
+  $ f^(\*) \( d \( omega and d y^i \) \) & = f^(\*) \( d omega and d y^i \) \
+                                       & = \( f^(\*) d omega \) and \( f^(\*) d y^i \) \
+                                       & = \( d f^(\*) omega \) and \( d f^(\*) y^i \) \
+                                       & = d \( f^(\*) omega and f^(\*) y^i \) \
+                                       & = d \( f^(\*) \( omega and y^i \) \) \ $である．
 
 ]
 #dig[
@@ -3411,24 +3411,24 @@ Jacobi
 
 #defi[
   $M = bb(R)^n$とし，$U subset M$を開集合または閉集合とする．更に$y : U arrow.r y \( U \)$を$U$上の座標系であって，$p in U$に対して$det J_y \( p \) > 0$であるようなものとする．$omega in Omega^n \( U \)$の座標表示を
-  $ omega = f^y "" #h(-1em) d y^1 and dots.h and "" #h(-1em) d y^n $とするとき，$omega$の$U$上の積分を，
-  $ integral_U omega colon.eq integral_(y \( U \)) f^y compose y^(- 1) \( x \) "" #h(-1em) d lambda^n \( x \) $で定める（右辺は
+  $ omega = f^y d y^1 and dots.h and d y^n $とするとき，$omega$の$U$上の積分を，
+  $ integral_U omega colon.eq integral_(y \( U \)) f^y compose y^(- 1) \( x \) d lambda^n \( x \) $で定める（右辺は
   Lebesgue 測度に関する積分）．
 
 ]
 #prop[
   上記の微分形式の積分の定義は well-defined
   である．すなわち，$y$ならびに$z$をそれぞれ$det J_y \( p \) > 0$および$det J_z \( p \) > 0$を充たすような$U$上の座標系とし，$omega$の2通りの座標表示を
-  $ omega = f^y "" #h(-1em) d y^1 and dots.h and "" #h(-1em) d y^n = f^z "" #h(-1em) d z^1 and dots.h and "" #h(-1em) d z^n $とするとき，
-  $ integral_(y \( U \)) f^y compose y^(- 1) \( x \) "" #h(-1em) d lambda^n \( x \) = integral_(z \( U \)) f^z compose z^(- 1) \( x \) "" #h(-1em) d lambda^n \( x \) $が成り立つ．
+  $ omega = f^y d y^1 and dots.h and d y^n = f^z d z^1 and dots.h and d z^n $とするとき，
+  $ integral_(y \( U \)) f^y compose y^(- 1) \( x \) d lambda^n \( x \) = integral_(z \( U \)) f^z compose z^(- 1) \( x \) d lambda^n \( x \) $が成り立つ．
 
 ]
 <微分形式の積分はwell-defined>
 #proof[
   微分$n$-形式に対する座標変換則より$f^y \( p \) = f^z \( p \) dot.op det J_(z compose y^(- 1)) \( y \( p \) \)$である．したがって重積分の変数変換公式より
-  $ integral_(y \( U \)) f^y \( y^(- 1) \( x \) \) "" #h(-1em) d lambda^n \( x \) & = integral_(y \( U \)) f^z compose y^(- 1) \( x \) det J_(z compose y^(- 1)) \( x \) "" #h(-1em) d lambda^n \( x \)\
-  & = integral_(y \( U \)) \( f^z compose z^(- 1) \) compose \( z compose y^(- 1) \) \( x \) det J_(z compose y^(- 1)) \( x \) "" #h(-1em) d lambda^n \( x \)\
-  & = integral_(\( z compose y^(- 1) \) compose y \( U \)) \( f^z compose z^(- 1) \) \( x \) "" #h(-1em) d lambda^n \( x \) = integral_(z \( U \)) \( f^z compose z^(- 1) \) \( x \) "" #h(-1em) d lambda^n \( x \) $を得る．但し，ここで$det J_y > 0$および$det J_z > 0$であることから$det J_(z compose y^(- 1)) > 0$であることを用いた．
+  $ integral_(y \( U \)) f^y \( y^(- 1) \( x \) \) d lambda^n \( x \) & = integral_(y \( U \)) f^z compose y^(- 1) \( x \) det J_(z compose y^(- 1)) \( x \) d lambda^n \( x \)\
+  & = integral_(y \( U \)) \( f^z compose z^(- 1) \) compose \( z compose y^(- 1) \) \( x \) det J_(z compose y^(- 1)) \( x \) d lambda^n \( x \)\
+  & = integral_(\( z compose y^(- 1) \) compose y \( U \)) \( f^z compose z^(- 1) \) \( x \) d lambda^n \( x \) = integral_(z \( U \)) \( f^z compose z^(- 1) \) \( x \) d lambda^n \( x \) $を得る．但し，ここで$det J_y > 0$および$det J_z > 0$であることから$det J_(z compose y^(- 1)) > 0$であることを用いた．
 
 ]
 #dig[
@@ -3466,29 +3466,29 @@ Jacobi
 古典ベクトル解析で線積分や面積分を見知っている方を念頭に置いて，この定義がそれら古典的な定義の一般化になっていることを見るために，次の命題を証明しておくことにする；
 
 #prop[
-  $M = bb(R)^2$とし，$M$の標準座標を$\( x \, y \)$で表す．$M$上の2-形式$P "" #h(-1em) d x + Q "" #h(-1em) d y$に対して，
-  $ integral_c P "" #h(-1em) d x + Q "" #h(-1em) d y = lim sum_(i = 0)^n \( P compose c \( t^i \) \) (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( t^i \) \) (c^2 \( t_(i + 1) \) - c^2 \( t_i \)) $が成り立つ．ただし，$t_0 \, t_1 \, dots.h \, t_n$は$\[ 0 \, 1 \]$の分割，$t^i$は$t^i in \[ t_i \, t_(i + 1) \]$を充たすような任意の点，極限は$max \| t_(i + 1) - t_i \| arrow.r 0$を充たすようなあらゆる分割にわたる．
+  $M = bb(R)^2$とし，$M$の標準座標を$\( x \, y \)$で表す．$M$上の2-形式$P d x + Q d y$に対して，
+  $ integral_c P d x + Q d y = lim sum_(i = 0)^n \( P compose c \( t^i \) \) (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( t^i \) \) (c^2 \( t_(i + 1) \) - c^2 \( t_i \)) $が成り立つ．ただし，$t_0 \, t_1 \, dots.h \, t_n$は$\[ 0 \, 1 \]$の分割，$t^i$は$t^i in \[ t_i \, t_(i + 1) \]$を充たすような任意の点，極限は$max \| t_(i + 1) - t_i \| arrow.r 0$を充たすようなあらゆる分割にわたる．
 
 ]
 #proof[
   左辺を定義に従って計算する．
-  $ integral_c P "" #h(-1em) d x + Q "" #h(-1em) d y & = integral_(\[ 0 \, 1 \]) c^(\*) \( P "" #h(-1em) d x + Q "" #h(-1em) d y \)\
-  & = integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op c^(\*) \( "" #h(-1em) d x \) + \( Q compose c \) dot.op c^(\*) \( "" #h(-1em) d y \)\
-  & = integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac("" #h(-1em) d \( x compose c \), "" #h(-1em) d t) "" #h(-1em) d t + \( Q compose c \) dot.op frac("" #h(-1em) d \( y compose c \), "" #h(-1em) d t) "" #h(-1em) d t\ $ 右辺の被積分関数は$\[ 0 \, 1 \]$上で連続かつ有界，したがって特に
+  $ integral_c P d x + Q d y & = integral_(\[ 0 \, 1 \]) c^(\*) \( P d x + Q d y \)\
+  & = integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op c^(\*) \( d x \) + \( Q compose c \) dot.op c^(\*) \( d y \)\
+  & = integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac(d \( x compose c \), d t) d t + \( Q compose c \) dot.op frac(d \( y compose c \), d t) d t\ $ 右辺の被積分関数は$\[ 0 \, 1 \]$上で連続かつ有界，したがって特に
   Riemann 可積分であるから，Riemann
   和の極限としても書ける．すなわち，$t_0 \, t_1 \, dots.h \, t_n$を$\[ 0 \, 1 \]$の分割，$t^i$を$t^i in \[ t_i \, t_(i + 1) \]$を充たすような任意の点としたとき，
-  $ integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac("" #h(-1em) d \( x compose c \), "" #h(-1em) d t) "" #h(-1em) d t + \( Q compose c \) dot.op frac("" #h(-1em) d \( y compose c \), "" #h(-1em) d t) "" #h(-1em) d t = & integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac("" #h(-1em) d c^1, "" #h(-1em) d t) "" #h(-1em) d t + \( Q compose c \) dot.op frac("" #h(-1em) d c^2, "" #h(-1em) d t) "" #h(-1em) d t\
-  = & lim sum_(i = 0)^n \( P compose c \( t^i \) \) dot.op frac("" #h(-1em) d c^1, "" #h(-1em) d t) \( t^i \) dot.op (t_(i + 1) - t_i)\
-  & + \( Q compose c \( t^i \) \) dot.op frac("" #h(-1em) d c^2, "" #h(-1em) d t) \( t^i \) dot.op (t_(i + 1) - t_i) $が成り立つ．ただし，極限は$max \| t_(i + 1) - t_i \| arrow.r 0$を充たすようなあらゆる分割にわたる．
+  $ integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac(d \( x compose c \), d t) d t + \( Q compose c \) dot.op frac(d \( y compose c \), d t) d t = & integral_(\[ 0 \, 1 \]) \( P compose c \) dot.op frac(d c^1, d t) d t + \( Q compose c \) dot.op frac(d c^2, d t) d t\
+  = & lim sum_(i = 0)^n \( P compose c \( t^i \) \) dot.op frac(d c^1, d t) \( t^i \) dot.op (t_(i + 1) - t_i)\
+  & + \( Q compose c \( t^i \) \) dot.op frac(d c^2, d t) \( t^i \) dot.op (t_(i + 1) - t_i) $が成り立つ．ただし，極限は$max \| t_(i + 1) - t_i \| arrow.r 0$を充たすようなあらゆる分割にわたる．
 
   ここで，各$i = 0 \, 1 \, dots.h \, n$に対して平均値の定理より，$s^i in \[ t_i \, t_(i + 1) \]$であって$frac(d c^1, d t) \( s^i \) = frac(c^1 \( t_(i + 1) \) - c^1 \( t_i \), t_(i + 1) - t_i)$を充たすようなものがあることに注意する．$c^2$に対しても同様のことが言えること，ならびに上記
   Riemann
   和における$t^i in \[ t_i \, t_(i + 1) \]$は任意だったことを踏まえれば，ある$s^i \, u^i in \[ t_i \, t_(i + 1) \]$が存在して，
   $
-    integral_c P "" #h(-1em) d x + Q "" #h(-1em) d y = lim sum_(i = 0)^n \( P compose c \( s^i \) \) dot.op (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( u^i \) \) dot.op (c^2 \( t_(i + 1) \) - c^2 \( t_i \))
+    integral_c P d x + Q d y = lim sum_(i = 0)^n \( P compose c \( s^i \) \) dot.op (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( u^i \) \) dot.op (c^2 \( t_(i + 1) \) - c^2 \( t_i \))
   $
   と書き直せる．あとは，極限
-  $ integral_c P "" #h(-1em) d x + Q "" #h(-1em) d y = lim sum_(i = 0)^n \( P compose c \( s^i \) \) (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( u^i \) \) (c^2 \( t_(i + 1) \) - c^2 \( t_i \)) $が$s^i \, u^i in \[ t_i \, t_(i + 1) \]$のとり方に依らないことを示せばよい．$P compose c$が$C^oo$級，特に$\[ 0 \, 1 \]$で
+  $ integral_c P d x + Q d y = lim sum_(i = 0)^n \( P compose c \( s^i \) \) (c^1 \( t_(i + 1) \) - c^1 \( t_i \)) + \( Q compose c \( u^i \) \) (c^2 \( t_(i + 1) \) - c^2 \( t_i \)) $が$s^i \, u^i in \[ t_i \, t_(i + 1) \]$のとり方に依らないことを示せばよい．$P compose c$が$C^oo$級，特に$\[ 0 \, 1 \]$で
   Lipschitz
   連続なので，ある定数$L > 0$が存在して，任意の$t^i in \[ t_i \, t_(i + 1) \]$に対して$\| P compose c \( t^i \) - P compose c \( s^i \) \| lt.eq L \( t_(i + 1) - t_i \)$が成り立つ．ところで極限は$max \| t_(i + 1) - t_i \| arrow.r 0$を充たすようなあらゆる分割にわたるのだから，この誤差は極限をとれば0になる．
 
@@ -3527,44 +3527,44 @@ Jacobi
 
 #thm[
   $U subset M$を開集合，$c : \[ 0 \, 1 \]^k arrow.r U$を曲$k$鎖体とし，$omega in Omega^(k - 1) \( U \)$とする．このとき，
-  $ integral_c "" #h(-1em) d omega = integral_(partial c) omega . $
+  $ integral_c d omega = integral_(partial c) omega . $
 
 ]
 #proof[
   総じて，単純計算のみで証明が終わる．まず$c = I^k$，$\[ 0 \, 1 \]^k subset U$となっている場合を証明する．すでに微分形式の積分が座標系に依らないことは証明してあるので，これ以降は$M$に標準座標を入れて計算する．$omega$は次の形の$k - 1$-形式
-  $ f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k $の形式和なので，それぞれに対して命題を証明すれば充分である（$accent("" #h(-1em) d x^i, ̂)$は，$i$番目を飛ばす，という意味）．
+  $ f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k $の形式和なので，それぞれに対して命題を証明すれば充分である（$accent(d x^i, ̂)$は，$i$番目を飛ばす，という意味）．
 
-  $integral_(partial I^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k$を評価する．
-  $ integral_(partial I^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(I_(\( j \, alpha \))^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k\
-  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (I_(\( j \, alpha \))^k)^(\*) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k\
-  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^k)\ $ ところで，
-  $ ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^ell) & = sum_m frac(partial (x^ell compose I_(\( j \, alpha \))^k), partial x^m) "" #h(-1em) d x^m = cases(delim: "{", "" #h(-1em) d x^ell & upright("if") j eq.not ell, 0 & upright("if") j = ell) $なので，結局
+  $integral_(partial I^k) f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k$を評価する．
+  $ integral_(partial I^k) f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(I_(\( j \, alpha \))^k) f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k\
+  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (I_(\( j \, alpha \))^k)^(\*) f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k\
+  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) d x^k)\ $ ところで，
+  $ ((I_(\( j \, alpha \))^k)^(\*) d x^ell) & = sum_m frac(partial (x^ell compose I_(\( j \, alpha \))^k), partial x^m) d x^m = cases(delim: "{", d x^ell & upright("if") j eq.not ell, 0 & upright("if") j = ell) $なので，結局
   $
-    & integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^k)\
-    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
-    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h.c accent("" #h(-1em) d x^i, ̂) dots.h.c "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
-    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h.c "" #h(-1em) d x^i dots.h.c "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)
+    & integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) d x^k)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) d x^1 d x^2 dots.h.c accent(d x^i, ̂) dots.h.c d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) d x^1 d x^2 dots.h.c d x^i dots.h.c d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)
   $
   である．ゆえに
   $
-    integral_(partial I^n) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k = & \( - 1 \)^(i + 1) integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 1 \, dots.h \, x^k \) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k\
-    & + \( - 1 \)^i integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 0 \, dots.h \, x^k \) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k .
+    integral_(partial I^n) f_() d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k = & \( - 1 \)^(i + 1) integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 1 \, dots.h \, x^k \) d x^1 dots.h.c d x^k\
+    & + \( - 1 \)^i integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 0 \, dots.h \, x^k \) d x^1 dots.h.c d x^k .
   $
   一方で，
-  $ integral_(I^n) "" #h(-1em) d (f "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k) & = integral_(I^n) partial_i f "" #h(-1em) d x^i and "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k\
-  & = \( - 1 \)^(i - 1) integral_(I^n) partial_i f "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h and "" #h(-1em) d x^i and dots.h and "" #h(-1em) d x^k\
-  & = \( - 1 \)^(i - 1) integral_(I^n) partial_i f "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k . $更に
+  $ integral_(I^n) d (f d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k) & = integral_(I^n) partial_i f d x^i and d x^1 and d x^2 and dots.h accent(d x^i, ̂) dots.h and d x^k\
+  & = \( - 1 \)^(i - 1) integral_(I^n) partial_i f d x^1 and d x^2 and dots.h and d x^i and dots.h and d x^k\
+  & = \( - 1 \)^(i - 1) integral_(I^n) partial_i f d x^1 dots.h.c d x^k . $更に
   Fubini の定理と微積分学の基本定理から，
   $
-    \( - 1 \)^(i - 1) integral_(I^n) partial_i f "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k = & \( - 1 \)^(i - 1) integral_0^1 dots.h.c integral_0^1 (integral_0^1 partial_i f "" #h(-1em) d x^i) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h accent("" #h(-1em) d x^i, ̂) dots.h "" #h(-1em) d x^k\
-    = & \( - 1 \)^(i - 1) integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 1 \, dots.h \, x^k \) - f \( x^1 \, dots.h \, 0 \, dots.h \, x^k \)) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h accent("" #h(-1em) d x^i, ̂) dots.h "" #h(-1em) d x^k\
-    = & \( - 1 \)^(i + 1) integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 1 \, dots.h \, x^k \)) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k\
-    & + \( - 1 \)^i integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 0 \, dots.h \, x^k \)) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k
+    \( - 1 \)^(i - 1) integral_(I^n) partial_i f d x^1 dots.h.c d x^k = & \( - 1 \)^(i - 1) integral_0^1 dots.h.c integral_0^1 (integral_0^1 partial_i f d x^i) d x^1 d x^2 dots.h accent(d x^i, ̂) dots.h d x^k\
+    = & \( - 1 \)^(i - 1) integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 1 \, dots.h \, x^k \) - f \( x^1 \, dots.h \, 0 \, dots.h \, x^k \)) d x^1 d x^2 dots.h accent(d x^i, ̂) dots.h d x^k\
+    = & \( - 1 \)^(i + 1) integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 1 \, dots.h \, x^k \)) d x^1 dots.h.c d x^k\
+    & + \( - 1 \)^i integral_0^1 dots.h.c integral_0^1 (f \( x^1 \, dots.h \, 0 \, dots.h \, x^k \)) d x^1 dots.h.c d x^k
   $
   となるので，結局$integral_(I^n) d omega = integral_(partial I^n) omega$を得る．
 
   $c$が一般の曲$k$方体のときは，定義より$integral_(partial c) omega = integral_(partial I^k) c^(\*) omega$#footnote[$integral_(partial c) omega = integral_(\[ 0 \, 1 \]^k) \( partial c \)^(\*) omega = integral_(\[ 0 \, 1 \]^k) (sum_(i = 1)^k sum_(alpha = 0)^1 \( - 1 \)^(i + alpha) c compose I_(\( i \, alpha \))^k)^(\*) omega = integral_(\[ 0 \, 1 \]^k) sum_(i = 1)^k sum_(alpha = 0)^1 \( - 1 \)^(i + alpha) (I_(\( i \, alpha \))^k)^(\*) compose c^(\*) omega = integral_(\[ 0 \, 1 \]^k) (partial I^k)^(\*) compose c^(\*) omega = integral_(partial I^k) c^(\*) omega$である．];なので，
-  $ integral_c "" #h(-1em) d omega = integral_(I^k) c^(\*) \( "" #h(-1em) d omega \) = integral_(I^k) "" #h(-1em) d \( c^(\*) omega \) = integral_(partial I^k) c^(\*) omega = integral_(partial c) omega . $$c$が一般の曲$k$鎖体の場合は積分の線型性と曲$k$方体に対する結果よりよい．
+  $ integral_c d omega = integral_(I^k) c^(\*) \( d omega \) = integral_(I^k) d \( c^(\*) omega \) = integral_(partial I^k) c^(\*) omega = integral_(partial c) omega . $$c$が一般の曲$k$鎖体の場合は積分の線型性と曲$k$方体に対する結果よりよい．
 
 ]
 Spivak いわく Stokes の定理は3つの大きな特徴を持っているとされる．
@@ -3764,16 +3764,16 @@ $ (frac(partial, partial y^i))_p f = d z_p (frac(partial, partial x^i))_(y \( p 
 #prop[
   $omega in Omega^k \( U \)$，$eta in Omega^ell \( U \)$とする．
 
-  + $k = ell$のとき，$"" #h(-1em) d \( omega + eta \) = "" #h(-1em) d omega + "" #h(-1em) d eta$．
+  + $k = ell$のとき，$d \( omega + eta \) = d omega + d eta$．
 
-  + $"" #h(-1em) d \( omega and eta \) = \( "" #h(-1em) d omega \) and eta + \( - 1 \)^k omega and "" #h(-1em) d eta$．
+  + $d \( omega and eta \) = \( d omega \) and eta + \( - 1 \)^k omega and d eta$．
 
-  + $"" #h(-1em) d \( "" #h(-1em) d omega \) = 0$．$"" #h(-1em) d^2 = 0$と書く場合も多い．
+  + $d \( d omega \) = 0$．$d^2 = 0$と書く場合も多い．
 
 ]
 #defi[
   $M$，$N$を多様体とし，$y : U arrow.r bb(R)^k$を$N$の座標系とする．このとき，$omega in Omega^k \( U \)$の$f : M arrow.r N$による引き戻し$f^(\*) omega in Omega^k \( f^(- 1) \( U \) \)$を，$v_1 \, dots.h \, v_k in T_p M$に対して
-  $ \( f^(\*) omega \)_p \( v_1 \, dots.h \, v_k \) colon.eq omega_(f \( p \)) \( "" #h(-1em) d f_p v_1 \, dots.h \, "" #h(-1em) d f_p v_k \) $とすることで定める．
+  $ \( f^(\*) omega \)_p \( v_1 \, dots.h \, v_k \) colon.eq omega_(f \( p \)) \( d f_p v_1 \, dots.h \, d f_p v_k \) $とすることで定める．
 
 ]
 #prop[
@@ -3783,7 +3783,7 @@ $ (frac(partial, partial y^i))_p f = d z_p (frac(partial, partial x^i))_(y \( p 
 
   + $f^(\*) \( omega and eta \) = f^(\*) omega and f^(\*) eta$．
 
-  + $f^(\*) \( "" #h(-1em) d omega \) = "" #h(-1em) d \( f^(\*) \( omega \) \)$．
+  + $f^(\*) \( d omega \) = d \( f^(\*) \( omega \) \)$．
 
 ]
 == 多様体の向き
@@ -3905,17 +3905,17 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #thm[
-  $M$をコンパクトふち付き$k$次元多様体，$omega$を$M$上の微分$k - 1$形式とするとき，$integral_M "" #h(-1em) d omega = integral_(partial M) omega$が成り立つ．
+  $M$をコンパクトふち付き$k$次元多様体，$omega$を$M$上の微分$k - 1$形式とするとき，$integral_M d omega = integral_(partial M) omega$が成り立つ．
 
 ]
 #proof[
   証明を3段階に分割する．
 
-  まず，$M \\ partial M$の曲方体$c$であって，$c \( \[ 0 \, 1 \]^k \)$の外部で$omega$が0になるようなものが取れたとする．このとき$integral_M "" #h(-1em) d omega = integral_c "" #h(-1em) d omega = integral_(partial c) omega$であるが，$omega$は$partial c$上で0なので$integral_M "" #h(-1em) d omega = 0$である．同様に$omega$は$partial M$上で0なので$integral_(partial M) omega = 0$である．
+  まず，$M \\ partial M$の曲方体$c$であって，$c \( \[ 0 \, 1 \]^k \)$の外部で$omega$が0になるようなものが取れたとする．このとき$integral_M d omega = integral_c d omega = integral_(partial c) omega$であるが，$omega$は$partial c$上で0なので$integral_M d omega = 0$である．同様に$omega$は$partial M$上で0なので$integral_(partial M) omega = 0$である．
 
-  次いで，向きを保つ曲$k$方体$c : \[ 0 \, 1 \]^k arrow.r M$であって，$c \( \[ 0 \, 1 \]^k \)$の外で$omega$が0であり，$c_(\( k \, 0 \)) subset partial M$が成り立ち，内点が$partial M$に含まれるような境面は$c_(\( k \, 0 \))$に限られるようなものが取れたとする．この場合は$integral_(partial M) omega = integral_(partial c) omega = integral_c "" #h(-1em) d omega = integral_M "" #h(-1em) d omega$となって定理が成り立つ．
+  次いで，向きを保つ曲$k$方体$c : \[ 0 \, 1 \]^k arrow.r M$であって，$c \( \[ 0 \, 1 \]^k \)$の外で$omega$が0であり，$c_(\( k \, 0 \)) subset partial M$が成り立ち，内点が$partial M$に含まれるような境面は$c_(\( k \, 0 \))$に限られるようなものが取れたとする．この場合は$integral_(partial M) omega = integral_(partial c) omega = integral_c d omega = integral_M d omega$となって定理が成り立つ．
 
-  一般の場合は$M$の有限開被覆$cal(O)$ならびに$cal(O)$に従属する1の分割$Phi$を取れば，$phi in Phi$に対して$phi dot.op omega$は上記2つのいずれかに帰着する．$0 = "" #h(-1em) d \( 1 \) = "" #h(-1em) d \( sum_(phi in Phi) phi \) = sum_(phi in Phi) "" #h(-1em) d phi$なので，$sum_(phi in Phi) "" #h(-1em) d phi and omega = 0$である．したがって$integral_M "" #h(-1em) d omega = sum_(phi in Phi) integral_M phi and "" #h(-1em) d omega = integral_M sum_(phi in Phi) (phi and "" #h(-1em) d omega + "" #h(-1em) d phi and omega) = integral_M sum_(phi in Phi) "" #h(-1em) d (phi and omega) = integral_(partial M) sum_(phi in Phi) phi and omega = integral_(partial M) omega$を得る．
+  一般の場合は$M$の有限開被覆$cal(O)$ならびに$cal(O)$に従属する1の分割$Phi$を取れば，$phi in Phi$に対して$phi dot.op omega$は上記2つのいずれかに帰着する．$0 = d \( 1 \) = d \( sum_(phi in Phi) phi \) = sum_(phi in Phi) d phi$なので，$sum_(phi in Phi) d phi and omega = 0$である．したがって$integral_M d omega = sum_(phi in Phi) integral_M phi and d omega = integral_M sum_(phi in Phi) (phi and d omega + d phi and omega) = integral_M sum_(phi in Phi) d (phi and omega) = integral_(partial M) sum_(phi in Phi) phi and omega = integral_(partial M) omega$を得る．
 
 ]
 == Riemann 計量と体積形式
@@ -3994,27 +3994,27 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 ]
 #defi[
   $M$を向きづけられた Riemann 多様体とし，その Riemann
-  計量を$g$，向きを$mu$とする．このとき，各$p in M$に対して，$g_p$ならびに向き$mu_p$が定める$T_p M$の体積要素$omega_p$が存在する．したがって，$omega : p mapsto omega_p$は$M$上の$k$形式となるが，これを$mu$ならびに$g$によって定まる$M$の体積要素といい，しばしば$"" #h(-1em) d V$と書く（が，これは$k - 1$形式$V$の外微分などではない）．$integral_M "" #h(-1em) d V$が存在するならば，その値を$M$の体積という．
+  計量を$g$，向きを$mu$とする．このとき，各$p in M$に対して，$g_p$ならびに向き$mu_p$が定める$T_p M$の体積要素$omega_p$が存在する．したがって，$omega : p mapsto omega_p$は$M$上の$k$形式となるが，これを$mu$ならびに$g$によって定まる$M$の体積要素といい，しばしば$d V$と書く（が，これは$k - 1$形式$V$の外微分などではない）．$integral_M d V$が存在するならば，その値を$M$の体積という．
 
-  特に$M$が1次元のときは$d V$を$d s$とも書いて，線素と呼ぶこともある．$integral_M "" #h(-1em) d s$は「長さ」と呼ぶほうが一般的である．2次元のときは$"" #h(-1em) d V$を$"" #h(-1em) d A$ないし$"" #h(-1em) d S$とも書いて，面素と呼ぶこともある．$integral_M "" #h(-1em) d A$は「面積」と呼ぶほうが一般的である．
+  特に$M$が1次元のときは$d V$を$d s$とも書いて，線素と呼ぶこともある．$integral_M d s$は「長さ」と呼ぶほうが一般的である．2次元のときは$d V$を$d A$ないし$d S$とも書いて，面素と呼ぶこともある．$integral_M d A$は「面積」と呼ぶほうが一般的である．
 
 ]
 #exm[
-  $M subset bb(R)^3$を2次元多様体とし，$omega_p in and.big^2 \( T_p M \)$を$omega_p \( v \, w \) colon.eq det \( v \, w \, n \( p \) \)$によって定める．このとき，$v \, w$が$\[ v \, w \] = mu_p$を充たすような$T_p M$の正規直交基底であるならば，$omega_p \( v \, w \) = 1$である．したがって$omega = "" #h(-1em) d A$である．他方，ベクトル積の定義から$omega \( v \, w \) = angle.l v times w \, n \( p \) angle.r$であり，$v times w$は$n \( p \)$の定数倍なので，$\[ v \, w \] = mu_p$ならば$"" #h(-1em) d A \( v \, w \) = \| v times w \|$である．
+  $M subset bb(R)^3$を2次元多様体とし，$omega_p in and.big^2 \( T_p M \)$を$omega_p \( v \, w \) colon.eq det \( v \, w \, n \( p \) \)$によって定める．このとき，$v \, w$が$\[ v \, w \] = mu_p$を充たすような$T_p M$の正規直交基底であるならば，$omega_p \( v \, w \) = 1$である．したがって$omega = d A$である．他方，ベクトル積の定義から$omega \( v \, w \) = angle.l v times w \, n \( p \) angle.r$であり，$v times w$は$n \( p \)$の定数倍なので，$\[ v \, w \] = mu_p$ならば$d A \( v \, w \) = \| v times w \|$である．
 
 ]
 #thm[
-  $n$を単位外法線ベクトル場とし，$\( x \, y \, z \)$を$bb(R)^3$の座標とする．更に$M subset bb(R)^3$を2次元多様体とし，$"" #h(-1em) d A$を面素とする．このとき，$M$上で
+  $n$を単位外法線ベクトル場とし，$\( x \, y \, z \)$を$bb(R)^3$の座標とする．更に$M subset bb(R)^3$を2次元多様体とし，$d A$を面素とする．このとき，$M$上で
 
-  + $"" #h(-1em) d A = n^1 "" #h(-1em) d y and "" #h(-1em) d z + n^2 "" #h(-1em) d z and "" #h(-1em) d x + n^3 "" #h(-1em) d z and "" #h(-1em) d x$
+  + $d A = n^1 d y and d z + n^2 d z and d x + n^3 d z and d x$
 
-  + $n^1 "" #h(-1em) d A = "" #h(-1em) d y and "" #h(-1em) d z$
+  + $n^1 d A = d y and d z$
 
-  + $n^2 "" #h(-1em) d A = "" #h(-1em) d z and "" #h(-1em) d x$
+  + $n^2 d A = d z and d x$
 
-  + $n^3 "" #h(-1em) d A = "" #h(-1em) d x and "" #h(-1em) d z$
+  + $n^3 d A = d x and d z$
 
-  が成り立つ．ただし，包含写像$iota : M arrow.r bb(R)^3$による引き戻し$iota^(\*) \( "" #h(-1em) d x \)$のことも$"" #h(-1em) d x$と書いていることに注意せよ．
+  が成り立つ．ただし，包含写像$iota : M arrow.r bb(R)^3$による引き戻し$iota^(\*) \( d x \)$のことも$d x$と書いていることに注意せよ．
 
 ]
 == 古典ベクトル解析の諸定理
@@ -4023,34 +4023,32 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 #thm[
   $M$を$bb(R)^2$内のコンパクト2次元ふちつき多様体，$alpha \, beta : M arrow.r bb(R)$を$C^oo$級関数とする．このとき，
-  $ integral_(partial M) alpha "" #h(-1em) d x + beta "" #h(-1em) d y = integral_M (partial_1 beta - partial_2 alpha) "" #h(-1em) d x and "" #h(-1em) d y $が成り立つ．古典的な書き方をすれば，
-  $ integral_(partial M) alpha "" #h(-1em) d x + beta "" #h(-1em) d y = integral_M (frac(partial beta, partial x) - frac(partial alpha, partial y)) "" #h(-1em) d x "" #h(-1em) d y $が成り立つ．
+  $ integral_(partial M) alpha d x + beta d y = integral_M (partial_1 beta - partial_2 alpha) d x and d y $が成り立つ．古典的な書き方をすれば，
+  $ integral_(partial M) alpha d x + beta d y = integral_M (frac(partial beta, partial x) - frac(partial alpha, partial y)) d x d y $が成り立つ．
 
 ]
 #proof[
-  $omega = alpha "" #h(-1em) d x + beta "" #h(-1em) d y$とした際の Stokes
-  の定理である．
+  $omega = alpha d x + beta d y$とした際の Stokes の定理である．
 
 ]
 #thm[
   $M$を$bb(R)^3$内のコンパクト3次元ふちつき多様体，$n$を$M$の単位外法線ベクトル場，$F$を$M$上の$C^oo$級ベクトル場とする．このとき，
-  $ integral_M (partial_1 F^1 + partial_2 F^2 + partial_3 F^3) "" #h(-1em) d V = integral_(partial M) angle.l F \, n angle.r "" #h(-1em) d A $が成り立つ．
+  $ integral_M (partial_1 F^1 + partial_2 F^2 + partial_3 F^3) d V = integral_(partial M) angle.l F \, n angle.r d A $が成り立つ．
 
 ]
 #proof[
-  $omega = F^1 "" #h(-1em) d y and "" #h(-1em) d z + F^2 "" #h(-1em) d z and "" #h(-1em) d x + F^3 "" #h(-1em) d x and "" #h(-1em) d y$としたときの
+  $omega = F^1 d y and d z + F^2 d z and d x + F^3 d x and d y$としたときの
   Stokes
-  の定理である．実際，$n^1 "" #h(-1em) d A = "" #h(-1em) d y and "" #h(-1em) d z$などより$angle.l F \, n angle.r "" #h(-1em) d A = omega$がわかる．
+  の定理である．実際，$n^1 d A = d y and d z$などより$angle.l F \, n angle.r d A = omega$がわかる．
 
 ]
 #thm[
-  $M$を$bb(R)^3$内のコンパクト3次元ふちつき多様体，$n$を$M$の単位外法線ベクトル場，$F$を$M$上の$C^oo$級ベクトル場とする．更に，ベクトル場$nabla times F$を，$(partial_2 F^3 - partial_3 F^2) frac(partial, partial x) + (partial_3 F^1 - partial_1 F^3) frac(partial, partial y) + (partial_1 F^2 - partial_2 F^1) frac(partial, partial z)$によって定める．また，$partial M$上のベクトル場$T$を，$"" #h(-1em) d s \( T \) = 1$を充たすような唯一のものとして定める．このとき，
-  $ integral_M angle.l nabla times F \, n angle.r "" #h(-1em) d A = integral_(partial M) angle.l F \, T angle.r "" #h(-1em) d s $が成り立つ．
+  $M$を$bb(R)^3$内のコンパクト3次元ふちつき多様体，$n$を$M$の単位外法線ベクトル場，$F$を$M$上の$C^oo$級ベクトル場とする．更に，ベクトル場$nabla times F$を，$(partial_2 F^3 - partial_3 F^2) frac(partial, partial x) + (partial_3 F^1 - partial_1 F^3) frac(partial, partial y) + (partial_1 F^2 - partial_2 F^1) frac(partial, partial z)$によって定める．また，$partial M$上のベクトル場$T$を，$d s \( T \) = 1$を充たすような唯一のものとして定める．このとき，
+  $ integral_M angle.l nabla times F \, n angle.r d A = integral_(partial M) angle.l F \, T angle.r d s $が成り立つ．
 
 ]
 #proof[
-  $omega = F_1 "" #h(-1em) d x + F_2 "" #h(-1em) d y + F_3 "" #h(-1em) d z$としたときの
-  Stokes
-  の定理である．実際，$n^1 "" #h(-1em) d A = "" #h(-1em) d y and "" #h(-1em) d z$などより$angle.l nabla times F \, n angle.r "" #h(-1em) d A = "" #h(-1em) d omega$がわかり，$"" #h(-1em) d s \( T \) = 1$より$T^1 "" #h(-1em) d s = "" #h(-1em) d x$などがわかるので，$omega = angle.l F \, T angle.r "" #h(-1em) d s$が従う．
+  $omega = F_1 d x + F_2 d y + F_3 d z$としたときの Stokes
+  の定理である．実際，$n^1 d A = d y and d z$などより$angle.l nabla times F \, n angle.r d A = d omega$がわかり，$d s \( T \) = 1$より$T^1 d s = d x$などがわかるので，$omega = angle.l F \, T angle.r d s$が従う．
 
 ]

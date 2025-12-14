@@ -533,7 +533,7 @@ Heine-Borel の定理のみである．
 
 ]
 #que[
-  \$C(K) \\coloneqq \\{ f \\colon K \\to \\mathbb{R}| f {\\rm は連続関数} \\}\$と置く．$f \, g in C \( K \)$に対し，$d \( f \, g \) colon.eq sup_(x in K) \| f \( x \) - g \( x \) \|$と置くと，$d$に関して$C \( K \)$は完備距離空間になる．更に，任意の$f in C \( K \)$と$epsilon > 0$に対して，$d \( p \, f \) < epsilon$を充たすような多項式$p$が存在する（Weierstrass
+  $C \( K \) colon.eq { f : K arrow.r bb(R) \| f upright(" は連続関数") }$と置く．$f \, g in C \( K \)$に対し，$d \( f \, g \) colon.eq sup_(x in K) \| f \( x \) - g \( x \) \|$と置くと，$d$に関して$C \( K \)$は完備距離空間になる．更に，任意の$f in C \( K \)$と$epsilon > 0$に対して，$d \( p \, f \) < epsilon$を充たすような多項式$p$が存在する（Weierstrass
   の多項式近似定理）．これを使えば，連続な周期関数が三角関数の有限和でいくらでも精度良く近似できることが示せる．もう少し議論すれば連続関数に
   Fourier
   変換ができることを数学的に厳密に示せる気がするが，やったことがないし，もしかすると牛刀割鶏かもしれない．
@@ -601,10 +601,8 @@ Heine-Borel の定理のみである．
 ]
 #que[
   $M_n \( bb(R) \)$を$n times n$実行列の全体とする．$M_n \( bb(R) \)$は「成分を縦一列に並び替えることで」$bb(R)^(n^2)$と同一視できるので，これを用いて$M_n \( bb(R) \)$に対しても開集合および連続関数の概念が定義できる．
-  \$\$\\begin{aligned}
-  {\\rm GL}\_n(\\mathbb{R}) &\\coloneqq \\{ A \\in M\_n(\\mathbb{R}) | \\det A \\neq 0 \\}\\\\
-  {\\rm SL}\_n(\\mathbb{R}) &\\coloneqq \\{ A \\in M\_n(\\mathbb{R}) | \\det A = 1 \\}
-  \\end{aligned}\$\$をそれぞれ実一般線型群，実特殊線型群と呼ぶ．\${\\rm GL}\_n(\\mathbb{R})\$および\${\\rm SL}\_n(\\mathbb{R})\$は$M_n \( bb(R) \)$においてそれぞれ開集合，閉集合である．
+  $ upright(G L)_n \( bb(R) \) & colon.eq { A in M_n \( bb(R) \) \| det A eq.not 0 } \
+  upright(S L)_n \( bb(R) \) & colon.eq { A in M_n \( bb(R) \) \| det A = 1 } $をそれぞれ実一般線型群，実特殊線型群と呼ぶ．$upright(G L)_n \( bb(R) \)$および$upright(S L)_n \( bb(R) \)$は$M_n \( bb(R) \)$においてそれぞれ開集合，閉集合である．
 
 ]
 #dig[

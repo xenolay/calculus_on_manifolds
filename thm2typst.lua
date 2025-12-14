@@ -11,7 +11,8 @@ local map = {
   exm="exm",
   rem="rem",
   proof="proof",
-  myproof="proof"
+  myproof="proof",
+  restatable="thm"
 }
 
 local function env_of(classes)

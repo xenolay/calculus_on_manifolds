@@ -1,6 +1,5 @@
 #import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
 #show: thmrules
-
 #let horizontalrule = line(start: (25%, 0%), end: (75%, 0%))
 
 #show terms: it => {
@@ -49,9 +48,9 @@
   paper: "us-letter",
   lang: "en",
   region: "US",
-  font: (),
+  font: ((name: "New Computer Modern Math", covers: "latin-in-cjk"), "TakaoMincho"),
   fontsize: 11pt,
-  sectionnumbering: none,
+  sectionnumbering: "1.1.",
   pagenumbering: "1",
   doc,
 ) = {
@@ -860,11 +859,11 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
 一般には$partial_(i \, j) f = partial_(j \, i) f$であるとは限らないが，この等式を保証する充分条件としては次のものが有名である．あとで
 Fubini の定理を使って証明するので，ここでは証明しない．
 
-#block[
-  thmclairaut<clairaut>
+#thm[
   $f : bb(R)^n arrow.r bb(R)$が$C^2$級関数であるならば，$partial_(i \, j) f = partial_(j \, i) f$である．
 
 ]
+<clairaut>
 #dig[
   この定理はいろいろな呼ばれ方をしているらしい．Wikipedia しらべでは Young
   の定理とも Clairaut の定理とも Schwarz の定理ともいうとのこと．
@@ -964,11 +963,11 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 ]
 この項の目的は，$C^oo$であるが解析的でない関数を構成することである．この関数はこの時点では「変な例」以上の感想が湧かないと思われるが，実際にはこの関数を1の分割の構成で使う（らしい）．
 
-#block[
-  thmadjustedbump<隆起関数の存在>
+#thm[
   $bb(R)$のコンパクト集合$K$と開集合$A$を，$K subset A subset bb(R)$を充たすように取る．このとき，$C^oo$級関数$phi : bb(R) arrow.r \[ 0 \, 1 \]$であって，$K$上では$phi \( x \) = 1$，$A$に含まれるあるコンパクト集合の外では$phi \( x \) = 0$を充たすようなものが存在する．
 
 ]
+<隆起関数の存在>
 #que[
   この項では隆起関数を具体的に構成する．構成された関数が解析的でないことも見るが，では作り方を工夫すれば解析的になり得るだろうか，という疑問が生じる．実はどのように作ったとしても$phi$は解析的にはなり得ない．それは大まかには次のようにしてわかる；$phi$が解析的であったとして，$K$を含むような$bb(C)$上の適当な開集合まで$phi$を解析接続する．すると一致の定理から$phi$は定数関数1になって矛盾する．
 
@@ -1081,11 +1080,11 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
   において，$K$のコンパクト性は本質的である．すなわち$C sect K = nothing$を充たす閉集合$C \, K subset bb(R)^n$であって$d \( C \, K \) = 0$となるようなものがある．
 
 ]
-#block[
-  propnonadjustedbump<未調整な隆起関数>
+#thm[
   $K subset A subset bb(R)^n$とし，更に$K$をコンパクト，$A$を開集合とする．このとき，$K subset L subset A$を充たすコンパクト集合$L$であって，$L$の内部に$K$を含むようなものがある．更に$C^oo$級関数$h : bb(R)^n arrow.r bb(R)$であって，$K$上では正，$L$の外部では0であるようなものがある．
 
 ]
+<未調整な隆起関数>
 #proof[
   この証明において，$a in bb(R)^n$を中心とする幅$2 epsilon$の開方体$product_(i = 1)^n \( a^i - epsilon \, a^i + epsilon \)$のことを$R \( a ; epsilon \)$と書くことにする．
 
@@ -1558,11 +1557,11 @@ Lebesgue 測度を含む測度の定式化には必要となる．
   ちゃんと確かめていないが，$cal(C)$を含む$sigma$-加法族全体はおそらく集合になるので上記の証明で問題ないと思う．たぶん濃度を$lr(|2^(2^X)|)$で抑えられる気がする．「この性質を充たすものぜんぶとってきて！」という無邪気なことをするとたまに集合でないものができあがるので気をつけないといけない．
 
 ]
-#block[
-  thmcaratheodory<拡張定理>
+#thm[
   $cal(A)$を有限加法族，$mu : cal(A) arrow.r \[ 0 \, oo \]$を有限加法的測度とする．更に$mu$は次の意味で$cal(A)$上可算加法的であると仮定する；高々可算個の$cal(A)$の元からなる族\$\\set{A\_i}\_{i=1}^\\infty\$が互いに排反であり，かつ$union.big_(i = 1)^oo A_i in cal(A)$であるならば，$mu (union.big_(i = 1)^oo A_i) = sum_(i = 1)^oo mu \( A_i \)$．このとき，$mu$は$sigma \( cal(A) \)$上の測度に拡張できる．更に，$mu$が$cal(A)$上で$sigma$-有限ならば，この拡張は一意的である．
 
 ]
+<拡張定理>
 拡張定理の証明はこの時点でできるのだが，Lebesgue
 測度をできるだけはやく定義したいので，証明は後回しにする．ただし，拡張の一意性の証明に用いる$pi$-$lambda$定理については，拡張定理以外にも使い所があるので，この時点でステートメントだけは紹介しておくことにする．
 
@@ -1583,11 +1582,12 @@ Lebesgue 測度を含む測度の定式化には必要となる．
   有限加法族は$pi$-システムである．$sigma$-加法族は$pi$-システムであり$lambda$-システムでもある．
 
 ]
-#block[
-  thmpilambda<Dynkin族定理> $cal(P) subset 2^X$を
+#thm[
+  $cal(P) subset 2^X$を
   $pi$-システム，$cal(L) subset 2^X$を$lambda$-システムとし，更に$cal(P) subset cal(L)$であると仮定する．このとき$sigma \( cal(P) \) subset cal(L)$．すなわち$sigma \( cal(P) \)$は$cal(P)$を含む$lambda$-システムの中で最小のものである．
 
 ]
+<Dynkin族定理>
 #prop[
   $bb(R)$の左半開区間をすべて集めた集合\$\\mathcal{H} \\coloneqq \\set{ (a,b\] | - \\infty \\leq a \< b \< \\infty } \\cup \\set{ (a, \\infty) | - \\infty \\leq a \< \\infty } \\cup \\set{\\emptyset}\$は有限加法族ではないが，
   $ overline(cal(H)) colon.eq {union.big_(i = 1)^N A_i med mid(bar.v) med A_i in cal(H) \, A_i upright("は排反")} $は有限加法族である．更に$sigma \( cal(H) \) = sigma (overline(cal(H)))$である．

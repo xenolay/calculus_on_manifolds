@@ -127,6 +127,7 @@
 )
 
 
+
 #heading(level: 1, numbering: none)[まえがき]
 <まえがき>
 これは Michael Spivak "Calculus on Manifolds: A Modern Approach to
@@ -1731,7 +1732,7 @@ $sigma$-加法族について考えることになるのだが，そもそも$ov
 
 ]
 #que[
-  すでに白状したとおり，このように位相を指定するのは一般的ではないとも思う（その位相の定め方は恣意的ではないか？という疑問に答えられない）．実際には次のようにしたほうが多少は行儀がよいだろう；逆正接関数$upright(a r c t a n) : bb(R) arrow.r \( - 1 \, 1 \)$を，$upright(a r c t a n) \( - oo \) = - pi \/ 2$および$upright(a r c t a n) \( oo \) = pi \/ 2$と定めることで$upright(a r c t a n) : overline(bb(R)) arrow.r \[ - pi \/ 2 \, pi \/ 2 \]$に拡張し，この写像による誘導位相を\$\\overline \\mathbb{R}\$に入れる．ということで\$\\overline \\mathbb{R}\$は$\[ - pi \/ 2 \, pi \/ 2 \]$と同相なので，距離化可能なコンパクト位相空間である．
+  すでに白状したとおり，このように位相を指定するのは一般的ではないとも思う（その位相の定め方は恣意的ではないか？という疑問に答えられない）．実際には次のようにしたほうが多少は行儀がよいだろう；逆正接関数$upright(a r c t a n) : bb(R) arrow.r \( - 1 \, 1 \)$を，$upright(a r c t a n) \( - oo \) = - pi \/ 2$および$upright(a r c t a n) \( oo \) = pi \/ 2$と定めることで$upright(a r c t a n) : overline(bb(R)) arrow.r \[ - pi \/ 2 \, pi \/ 2 \]$に拡張し，この写像による誘導位相を$overline(bb(R))$に入れる．ということで$overline(bb(R))$は$\[ - pi \/ 2 \, pi \/ 2 \]$と同相なので，距離化可能なコンパクト位相空間である．
 
 ]
 #que[
@@ -2151,7 +2152,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #exm[
-  ここでは$\( bb(N) \, 2^(bb(N)) \)$上の計数測度を考える．この測度に関する$L^p$空間のことを$ell^p$と書くことにする；すなわち，\$\\ell^p \\coloneqq \\{  \\set{x\_i} \\in \\mathbb{R}^\\mathbb{N}| \\sum\_{i=1}^\\infty |x\_i|^p \< \\infty  \\}\$．この設定のもとでは，$p lt.eq q$ならば$ell^p subset.neq ell^q$が成り立つ．それを見るために$x in ell^p$を取ると，ある適当な$N in bb(N)$が存在して，$i gt.eq N$ならば$x_i < 1$である．従って$sum_(i = N)^oo \| x_i \|^q lt.eq sum_(i = N)^oo \| x_i \|^p < oo$だから$f in ell^q$．また，$y_i colon.eq 1 \/ i$によって数列${ y_i }$を定めると，例えば$sum_(i = 1)^oo \( y_i \)^2 = pi^2 \/ 6 < oo$であるが，$sum_(i = 1)^oo y_i = oo$なので$ell^1 subset.neq ell^2$である．
+  ここでは$\( bb(N) \, 2^(bb(N)) \)$上の計数測度を考える．この測度に関する$L^p$空間のことを$ell^p$と書くことにする；すなわち，$ell^p colon.eq { { x_i } in bb(R)^(bb(N)) \| sum_(i = 1)^oo \| x_i \|^p < oo }$．この設定のもとでは，$p lt.eq q$ならば$ell^p subset.neq ell^q$が成り立つ．それを見るために$x in ell^p$を取ると，ある適当な$N in bb(N)$が存在して，$i gt.eq N$ならば$x_i < 1$である．従って$sum_(i = N)^oo \| x_i \|^q lt.eq sum_(i = N)^oo \| x_i \|^p < oo$だから$f in ell^q$．また，$y_i colon.eq 1 \/ i$によって数列${ y_i }$を定めると，例えば$sum_(i = 1)^oo \( y_i \)^2 = pi^2 \/ 6 < oo$であるが，$sum_(i = 1)^oo y_i = oo$なので$ell^1 subset.neq ell^2$である．
 
 ]
 == 拡張定理の証明
@@ -3629,7 +3630,7 @@ $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R
 
 ]
 #proof[
-  $M$が$k$次元多様体であったとする．$p in M$を任意に取れば，定義にあるような微分同相$h_p : U_p arrow.r V_p$が存在する．このとき，\$W\_p \\coloneqq \\{ (b^1, \\dots, b^k) | b \\in V\_p \\cap (\\mathbb{R}^k \\times \\set{0}) \\}\$として，$f : W_p arrow.r bb(R)^n$を$f \( a \) colon.eq h_p^(- 1) \( a \, 0 \)$で定める．$h_p$が$C^oo$級微分同相であることから$f$の単射性と$C^oo$級であることがわかる．$W_p subset bb(R)^k$が開集合であることはよく，$\( a \, 0 \) in V_p sect \( bb(R)^k times { 0 } \)$なので$f \( a \) = h_p^(- 1) \( a \, 0 \) in U_p sect M$である．更に$f^(- 1) = h_p \|_(f \( W_p \))$なので（連続関数の制限は常に連続なのだから）$f^(- 1)$は連続である．最後に，関数$H_p : bb(R)^n arrow.r bb(R)^k$を$H_p \( a \) colon.eq \( h_p^1 \( a \) \, dots.h \, h_p^k \( a \) \)$によって定めれば，$H_p$は微分可能であり，更に$H_p \( f \( q \) \) = q$を充たす．したがって
+  $M$が$k$次元多様体であったとする．$p in M$を任意に取れば，定義にあるような微分同相$h_p : U_p arrow.r V_p$が存在する．このとき，$W_p colon.eq { \( b^1 \, dots.h \, b^k \) \| b in V_p sect \( bb(R)^k times { 0 } \) }$として，$f : W_p arrow.r bb(R)^n$を$f \( a \) colon.eq h_p^(- 1) \( a \, 0 \)$で定める．$h_p$が$C^oo$級微分同相であることから$f$の単射性と$C^oo$級であることがわかる．$W_p subset bb(R)^k$が開集合であることはよく，$\( a \, 0 \) in V_p sect \( bb(R)^k times { 0 } \)$なので$f \( a \) = h_p^(- 1) \( a \, 0 \) in U_p sect M$である．更に$f^(- 1) = h_p \|_(f \( W_p \))$なので（連続関数の制限は常に連続なのだから）$f^(- 1)$は連続である．最後に，関数$H_p : bb(R)^n arrow.r bb(R)^k$を$H_p \( a \) colon.eq \( h_p^1 \( a \) \, dots.h \, h_p^k \( a \) \)$によって定めれば，$H_p$は微分可能であり，更に$H_p \( f \( q \) \) = q$を充たす．したがって
   Jacobi
   行列を考えることで$J_(H_p) \( f \( q \) \) dot.op J_f \( q \) = I_k$がわかるので，特に$J_f \( q \)$の階数は$k$である．
 

@@ -1,4 +1,4 @@
-#import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない。
+#import "preamble.typ": * // なお import の代わりに include だと同じエラーで動かない
 #show: thmrules
 #let horizontalrule = line(start: (25%, 0%), end: (75%, 0%))
 
@@ -260,7 +260,7 @@ $bb(R)^n$は線型空間の例である．実際には他にもいろいろな�
 ]
 <線型写像と行列の対応>
 #defi[
-  $V$を線型空間とする．有限集合\$S = \\set{v\_1, \\dots, v\_n}\$が$V$の基底であるとは，
+  $V$を線型空間とする．有限集合$S = { v_1 \, dots.h \, v_n }$が$V$の基底であるとは，
 
   - $a^1 \, a^2 \, dots.h \, a^n in bb(R)$に対して$sum_i a^i v_i = 0$ならば$a^1 = a^2 = dots.h = a^n = 0$
 
@@ -279,19 +279,19 @@ $bb(R)^n$は線型空間の例である．実際には他にもいろいろな�
 
 ]
 #que[
-  $e_i in bb(R)^n$を，第$i$成分が1，それ以外が0という元とすると，\$\\set{e\_1, \\dots, e\_n}\$は$bb(R)^n$の基底になる．これを$bb(R)^n$の標準基底という．
+  $e_i in bb(R)^n$を，第$i$成分が1，それ以外が0という元とすると，${ e_1 \, dots.h \, e_n }$は$bb(R)^n$の基底になる．これを$bb(R)^n$の標準基底という．
 
 ]
 #prop[
-  $V \, W$を線型空間とし，\$\\set{v\_1, \\dots, v\_n}\$を$V$の基底とする．$T : V arrow.r W$を線型写像とするとき，$T$は基底での値$T \( v_1 \) \, dots.h \, T \( v_n \)$で特徴づけられる．すなわち，$w_1 \, dots.h \, w_n in W$とする時，$T \( v_i \) = w_i$（$1 lt.eq i lt.eq n$）を充たす線型写像はひとつしかない．
+  $V \, W$を線型空間とし，${ v_1 \, dots.h \, v_n }$を$V$の基底とする．$T : V arrow.r W$を線型写像とするとき，$T$は基底での値$T \( v_1 \) \, dots.h \, T \( v_n \)$で特徴づけられる．すなわち，$w_1 \, dots.h \, w_n in W$とする時，$T \( v_i \) = w_i$（$1 lt.eq i lt.eq n$）を充たす線型写像はひとつしかない．
 
 ]
 #proof[
-  任意の$v in V$は\$\\set{v\_1, \\dots, v\_n}\$を用いて$v = sum a^i v_i$とただ一通りに表せる．したがって$T \( v \) = T \( sum a^i v_i \) = sum a_i T \( v_i \) = sum a^i w_i$となる．#footnote[本当はこの証明は少しいい加減ではあると思う．「$T_1$および$T_2$を，命題にあるような条件を充たす線型写像とする．すると写像として$T_1 = T_2$である」のようにやるほうが議論によどみがないと感じる．]
+  任意の$v in V$は${ v_1 \, dots.h \, v_n }$を用いて$v = sum a^i v_i$とただ一通りに表せる．したがって$T \( v \) = T \( sum a^i v_i \) = sum a_i T \( v_i \) = sum a^i w_i$となる．#footnote[本当はこの証明は少しいい加減ではあると思う．「$T_1$および$T_2$を，命題にあるような条件を充たす線型写像とする．すると写像として$T_1 = T_2$である」のようにやるほうが議論によどみがないと感じる．]
 
 ]
 #defi[
-  $T : bb(R)^m arrow.r bb(R)^n$を線型写像とする．このとき，前命題より$T$は$bb(R)^m$の標準基底での値で特徴づけられる．$T \( e_i \)$は$bb(R)^n$の元なので，これを$bb(R)^n$の標準基底で展開することができる．すなわち$m n$個の実数\$\\set{a\_i^j}\$があって，
+  $T : bb(R)^m arrow.r bb(R)^n$を線型写像とする．このとき，前命題より$T$は$bb(R)^m$の標準基底での値で特徴づけられる．$T \( e_i \)$は$bb(R)^n$の元なので，これを$bb(R)^n$の標準基底で展開することができる．すなわち$m n$個の実数${ a_i^j }$があって，
   $ T \( e_i \) = sum a_i^j e_j $
   と表せる．$\( j \, i \)$成分に$a_i^j$を並べて得られる行列$(a_i^j)$のことを，$T$の標準基底に関する行列表示と呼ぶ．
 
@@ -333,14 +333,14 @@ $bb(R)^n$は線型空間の例である．実際には他にもいろいろな�
 == $bb(R)^n$の位相とコンパクト性
 <mathbbrnの位相とコンパクト性>
 $bb(R)$の閉区間
-\$\$\[a,b\] \\coloneqq \\set{x \\in \\mathbb{R}| a \\leq x \\leq b}\$\$ならびに開区間
-\$\$(a,b) \\coloneqq \\set{x \\in \\mathbb{R}| a \< x \< b}\$\$
+$ \[ a \, b \] colon.eq { x in bb(R) \| a lt.eq x lt.eq b } $ならびに開区間
+$ \( a \, b \) colon.eq { x in bb(R) \| a < x < b } $
 は容易に高次元に拡張できる．
 
 #defi[
   $bb(R)^n$の閉方体とは，
-  \$\$\[a^1,b^1\] \\times \[a^2, b^2\] \\times \\dots \\times \[a^n, b^n\] \\coloneqq \\set{(x^1, x^2, \\dots, x^n) \\in \\mathbb{R}^n | a^i \\leq x^i \\leq b^i }\$\$なる形の集合のこととする．同様に，$bb(R)^n$の開方体とは
-  \$\$(a^1,b^1) \\times (a^2, b^2) \\times \\dots \\times (a^n, b^n) \\coloneqq \\set{(x^1, x^2, \\dots, x^n) \\in \\mathbb{R}^n | a^i \< x^i \< b^i }\$\$なる形の集合のこととする．
+  $ \[ a^1 \, b^1 \] times \[ a^2 \, b^2 \] times dots.h times \[ a^n \, b^n \] colon.eq { \( x^1 \, x^2 \, dots.h \, x^n \) in bb(R)^n \| a^i lt.eq x^i lt.eq b^i } $なる形の集合のこととする．同様に，$bb(R)^n$の開方体とは
+  $ \( a^1 \, b^1 \) times \( a^2 \, b^2 \) times dots.h times \( a^n \, b^n \) colon.eq { \( x^1 \, x^2 \, dots.h \, x^n \) in bb(R)^n \| a^i < x^i < b^i } $なる形の集合のこととする．
 
 ]
 この定義を使って，より一般に$bb(R)^n$の開集合・閉集合という概念が定義できる；
@@ -393,7 +393,7 @@ $bb(R)$の閉区間
 
 ]
 #que[
-  $x in bb(R)^n$，$r in bb(R)$に対し，\$B(x;r) \\coloneqq \\set{y \\in \\mathbb{R}^n | \\|x-y\\| \< r}\$と置いて，$x$を中心とする半径$r$の開球という．開球は開集合であるが，これを示すのはこのタイミングでは相当めんどくさい．関数の連続性を開集合の言葉で言い換える方法を学んだあとの方が圧倒的に早く示せると思う．
+  $x in bb(R)^n$，$r in bb(R)$に対し，$B \( x ; r \) colon.eq { y in bb(R)^n \| parallel x - y parallel < r }$と置いて，$x$を中心とする半径$r$の開球という．開球は開集合であるが，これを示すのはこのタイミングでは相当めんどくさい．関数の連続性を開集合の言葉で言い換える方法を学んだあとの方が圧倒的に早く示せると思う．
 
 ]
 閉集合の定義は「開集合でないこと」ではない．したがって論理的には「開かつ閉」な集合が存在し得ることになるし，実際存在する．
@@ -409,15 +409,15 @@ $bb(R)$の閉区間
 コンパクト性の定義に入る．
 
 #defi[
-  $A subset bb(R)^n$を部分集合とする．$bb(R)^n$の部分集合の族\$\\mathscr{O} \\coloneqq \\set{U\_\\lambda}\_{\\lambda \\in \\Lambda}\$が$A$を被覆する，あるいは$A$の被覆であるとは，$A subset union.big_(lambda in Lambda) U_lambda$となることをいう．特に$cal(O)$の元がすべて開集合のとき，$cal(O)$は$A$の開被覆であるという．
+  $A subset bb(R)^n$を部分集合とする．$bb(R)^n$の部分集合の族$cal(O) colon.eq { U_lambda }_(lambda in Lambda)$が$A$を被覆する，あるいは$A$の被覆であるとは，$A subset union.big_(lambda in Lambda) U_lambda$となることをいう．特に$cal(O)$の元がすべて開集合のとき，$cal(O)$は$A$の開被覆であるという．
 
 ]
 #defi[
-  $A subset bb(R)^n$を部分集合とする．$A$がコンパクトであるとは，任意の$A$の開被覆\$\\set{U\_\\lambda}\_{\\lambda \\in \\Lambda}\$に対し，そこから適切な有限個$U_1 \, U_2 \, dots.h \, U_n$を選ぶことで$A$の被覆にできることをいう．
+  $A subset bb(R)^n$を部分集合とする．$A$がコンパクトであるとは，任意の$A$の開被覆${ U_lambda }_(lambda in Lambda)$に対し，そこから適切な有限個$U_1 \, U_2 \, dots.h \, U_n$を選ぶことで$A$の被覆にできることをいう．
 
 ]
 #que[
-  上記の定義で「任意の」がついていることは重要である．上記の定義を「#strong[ある];$A$の開被覆\$\\set{U\_\\lambda}\_{\\lambda \\in \\Lambda}\$に対し，〜」とした場合，全く意味のない定義になる．
+  上記の定義で「任意の」がついていることは重要である．上記の定義を「#strong[ある];$A$の開被覆${ U_lambda }_(lambda in Lambda)$に対し，〜」とした場合，全く意味のない定義になる．
 
 ]
 #que[
@@ -446,11 +446,11 @@ Heine-Borel の定理のみである．
 この定理を高次元に拡張していくことにする．
 
 #lem[
-  $B subset bb(R)^n$がコンパクトであるとする．$x in bb(R)^m$に対し，\$\\set{x} \\times B \\subset \\mathbb{R}^{m+n}\$はコンパクトである．
+  $B subset bb(R)^n$がコンパクトであるとする．$x in bb(R)^m$に対し，${ x } times B subset bb(R)^(m + n)$はコンパクトである．
 
 ]
 #proof[
-  まず\$\\set{x} \\times B \\subset \\mathbb{R}^{m+n}\$の開被覆は開方体のみからなっているとして一般性を失わないのでそうする#footnote[TODO:この議論はおかしいので手書きメモをもとにして直す！！！\$A \\coloneqq \\set{x}\$と置く．$A times B$の開被覆\$\\set{X\_\\lambda}\$を取る．各$X_lambda$は開集合なので，開方体の和集合で書ける．各開集合を開方体の和集合で表したとき，その表示に現れる開方体を（すべての開集合にわたって）あつめて得られる開被覆を\$\\set{Y\_\\mu}\$とする．\$\\set{Y\_\\mu}\$の有限部分被覆があれば，それは\$\\set{X\_\\lambda}\$の有限部分被覆にもなっている．この証明を検討すればわかるが，この議論は$A$が1点集合でなくても同様に通る．];；\$\\set{U\_a \\times V\_a }\$を\$\\set{x} \\times B\$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$B$がコンパクトなので，\$\\set{V\_a}\$の中から有限個を選べばそれが$B$の被覆になるから，有限部分被覆を選んで\$\\set{V\_{x\_i}}\$とする．\$\\set{U\_{x\_i} \\times V\_{x\_i}}\$は\$\\set{x} \\times B\$の有限部分被覆である．
+  まず${ x } times B subset bb(R)^(m + n)$の開被覆は開方体のみからなっているとして一般性を失わないのでそうする#footnote[TODO:この議論はおかしいので手書きメモをもとにして直す！！！$A colon.eq { x }$と置く．$A times B$の開被覆${ X_lambda }$を取る．各$X_lambda$は開集合なので，開方体の和集合で書ける．各開集合を開方体の和集合で表したとき，その表示に現れる開方体を（すべての開集合にわたって）あつめて得られる開被覆を${ Y_mu }$とする．${ Y_mu }$の有限部分被覆があれば，それは${ X_lambda }$の有限部分被覆にもなっている．この証明を検討すればわかるが，この議論は$A$が1点集合でなくても同様に通る．];；${ U_a times V_a }$を${ x } times B$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$B$がコンパクトなので，${ V_a }$の中から有限個を選べばそれが$B$の被覆になるから，有限部分被覆を選んで${ V_(x_i) }$とする．${ U_(x_i) times V_(x_i) }$は${ x } times B$の有限部分被覆である．
 
 ]
 #thm[
@@ -458,11 +458,11 @@ Heine-Borel の定理のみである．
 
 ]
 #proof[
-  やはり開被覆は開方体のみからなっているとして一般性を失わないのでそうする；\$\\mathscr{O} \\coloneqq \\set{U\_a \\times V\_a }\$を$A times B$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$x in A$をひとつとって固定する．このとき\$\\set{x} \\times B\$はコンパクトで，$cal(O)$によって被覆されているので，この中から有限個\$\\set{U\_{x\_i} \\times V\_{x\_i} }\$を取り出すことで\$\\set{x} \\times B\$を被覆できる．ところで$U_x colon.eq sect.big U_(x_i)$は$x$を含む開集合になるので，\$\\set{U\_x \\times V\_{x\_i} }\$は\$\\set{x} \\times B\$の開被覆になっている．この操作を各$x in A$に対し繰り返すことで，$x in A$に対して開集合$U_x subset A$とそれに付随する有限個の開集合$V_(x_i) subset B$を作ることができた．ところで$A$はコンパクトで，\$\\set{U\_x}\$は$A$の開被覆なので，有限部分被覆\$\\set{U\_j}\$が存在する．\$\\set{U\_j \\times V\_{j\_i}}\$は$A times B$の有限部分被覆である．
+  やはり開被覆は開方体のみからなっているとして一般性を失わないのでそうする；$cal(O) colon.eq { U_a times V_a }$を$A times B$の開被覆であって，$U_a$が$bb(R)^m$の開方体，$V_a$が$bb(R)^n$の開方体であるようなものとする．$x in A$をひとつとって固定する．このとき${ x } times B$はコンパクトで，$cal(O)$によって被覆されているので，この中から有限個${ U_(x_i) times V_(x_i) }$を取り出すことで${ x } times B$を被覆できる．ところで$U_x colon.eq sect.big U_(x_i)$は$x$を含む開集合になるので，${ U_x times V_(x_i) }$は${ x } times B$の開被覆になっている．この操作を各$x in A$に対し繰り返すことで，$x in A$に対して開集合$U_x subset A$とそれに付随する有限個の開集合$V_(x_i) subset B$を作ることができた．ところで$A$はコンパクトで，${ U_x }$は$A$の開被覆なので，有限部分被覆${ U_j }$が存在する．${ U_j times V_(j_i) }$は$A times B$の有限部分被覆である．
 
 ]
 #que[
-  上記の定理は任意個数の直積まで拡張できる；\$\\set{A\_\\lambda}\$がすべてコンパクトの時，積空間$product A_lambda$もまたコンパクトである（こちらも
+  上記の定理は任意個数の直積まで拡張できる；${ A_lambda }$がすべてコンパクトの時，積空間$product A_lambda$もまたコンパクトである（こちらも
   Tychonoff の定理という）．証明には選択公理が必要．
 
 ]
@@ -479,7 +479,7 @@ Heine-Borel の定理のみである．
 
 ]
 #proof[
-  $A$は有界なので，$A$を含む閉方体$B$がある．$A$の開被覆$cal(O)$を任意にひとつ取る．$A$は閉集合なので，その補集合$A^C colon.eq bb(R)^m \\ A$は開集合である．したがって\$\\mathscr{O} \\cup \\set{A^C}\$は開集合の族であり，更に$bb(R)^m$を被覆しているので，特に$B$の開被覆にもなっている．ゆえに\$\\mathscr{O} \\cup \\set{A^C}\$から有限被覆$cal(O)_2$を選んで$B$を被覆できる．$A subset B$なのだから，これは$A$の開被覆にもなっている．したがって\$\\mathscr{O}\_2 \\setminus \\set{A^C}\$
+  $A$は有界なので，$A$を含む閉方体$B$がある．$A$の開被覆$cal(O)$を任意にひとつ取る．$A$は閉集合なので，その補集合$A^C colon.eq bb(R)^m \\ A$は開集合である．したがって$cal(O) union { A^C }$は開集合の族であり，更に$bb(R)^m$を被覆しているので，特に$B$の開被覆にもなっている．ゆえに$cal(O) union { A^C }$から有限被覆$cal(O)_2$を選んで$B$を被覆できる．$A subset B$なのだから，これは$A$の開被覆にもなっている．したがって$cal(O)_2 \\ { A^C }$
   が$cal(O)$から選んだ$A$の有限部分被覆である．
 
 ]
@@ -495,7 +495,7 @@ Heine-Borel の定理のみである．
 
 ]
 #proof[
-  この証明では「開球が開集合である」ことは認めて使う#footnote[開球が開集合であることの証明は直接やってもよいし，連続関数を用いた証明をする場合でもこの定理は使わないので，循環論法にはならない．];．$A subset bb(R)^m$をコンパクトとする．このとき，$A$の被覆であって開方体からなるものを取ると，$A$は有限個の開方体で被覆されるので，とくに有界である．$A$が閉であること，すなわち$A^C colon.eq bb(R)^m \\ A$が開であることを示す．$x in A^C$を任意にひとつ取って固定する．$a in A$に対して$epsilon_a colon.eq parallel x - a parallel \/ 4$と定めると，$a eq.not x$なので$epsilon_a > 0$である．\$\\set{B(a; \\varepsilon\_a)}\$は$A$の開被覆なので，$A$のコンパクト性より有限部分被覆\$\\set{B(i; \\varepsilon\_i)}\$が取れる．ところで\$V \\coloneqq B(x; \\min\_i \\set{\\varepsilon\_i})\$は$x$をふくむ開集合であって，$V sect A = nothing$すなわち$V subset A^C$である．$x$は任意だったので，$A^C$は開集合である．
+  この証明では「開球が開集合である」ことは認めて使う#footnote[開球が開集合であることの証明は直接やってもよいし，連続関数を用いた証明をする場合でもこの定理は使わないので，循環論法にはならない．];．$A subset bb(R)^m$をコンパクトとする．このとき，$A$の被覆であって開方体からなるものを取ると，$A$は有限個の開方体で被覆されるので，とくに有界である．$A$が閉であること，すなわち$A^C colon.eq bb(R)^m \\ A$が開であることを示す．$x in A^C$を任意にひとつ取って固定する．$a in A$に対して$epsilon_a colon.eq parallel x - a parallel \/ 4$と定めると，$a eq.not x$なので$epsilon_a > 0$である．${ B \( a ; epsilon_a \) }$は$A$の開被覆なので，$A$のコンパクト性より有限部分被覆${ B \( i ; epsilon_i \) }$が取れる．ところで$V colon.eq B \( x ; min_i { epsilon_i } \)$は$x$をふくむ開集合であって，$V sect A = nothing$すなわち$V subset A^C$である．$x$は任意だったので，$A^C$は開集合である．
 
 ]
 #que[
@@ -533,7 +533,7 @@ Heine-Borel の定理のみである．
 
 ]
 #que[
-  \$C(K) \\coloneqq \\set{f \\colon K \\to \\mathbb{R}| f {\\rm は連続関数}}\$と置く．$f \, g in C \( K \)$に対し，$d \( f \, g \) colon.eq sup_(x in K) \| f \( x \) - g \( x \) \|$と置くと，$d$に関して$C \( K \)$は完備距離空間になる．更に，任意の$f in C \( K \)$と$epsilon > 0$に対して，$d \( p \, f \) < epsilon$を充たすような多項式$p$が存在する（Weierstrass
+  \$C(K) \\coloneqq \\{ f \\colon K \\to \\mathbb{R}| f {\\rm は連続関数} \\}\$と置く．$f \, g in C \( K \)$に対し，$d \( f \, g \) colon.eq sup_(x in K) \| f \( x \) - g \( x \) \|$と置くと，$d$に関して$C \( K \)$は完備距離空間になる．更に，任意の$f in C \( K \)$と$epsilon > 0$に対して，$d \( p \, f \) < epsilon$を充たすような多項式$p$が存在する（Weierstrass
   の多項式近似定理）．これを使えば，連続な周期関数が三角関数の有限和でいくらでも精度良く近似できることが示せる．もう少し議論すれば連続関数に
   Fourier
   変換ができることを数学的に厳密に示せる気がするが，やったことがないし，もしかすると牛刀割鶏かもしれない．
@@ -602,8 +602,8 @@ Heine-Borel の定理のみである．
 #que[
   $M_n \( bb(R) \)$を$n times n$実行列の全体とする．$M_n \( bb(R) \)$は「成分を縦一列に並び替えることで」$bb(R)^(n^2)$と同一視できるので，これを用いて$M_n \( bb(R) \)$に対しても開集合および連続関数の概念が定義できる．
   \$\$\\begin{aligned}
-  {\\rm GL}\_n(\\mathbb{R}) &\\coloneqq \\set{A \\in M\_n(\\mathbb{R}) | \\det A \\neq 0}\\\\
-  {\\rm SL}\_n(\\mathbb{R}) &\\coloneqq \\set{A \\in M\_n(\\mathbb{R}) | \\det A = 1}
+  {\\rm GL}\_n(\\mathbb{R}) &\\coloneqq \\{ A \\in M\_n(\\mathbb{R}) | \\det A \\neq 0 \\}\\\\
+  {\\rm SL}\_n(\\mathbb{R}) &\\coloneqq \\{ A \\in M\_n(\\mathbb{R}) | \\det A = 1 \\}
   \\end{aligned}\$\$をそれぞれ実一般線型群，実特殊線型群と呼ぶ．\${\\rm GL}\_n(\\mathbb{R})\$および\${\\rm SL}\_n(\\mathbb{R})\$は$M_n \( bb(R) \)$においてそれぞれ開集合，閉集合である．
 
 ]
@@ -625,7 +625,7 @@ Heine-Borel の定理のみである．
 
 ]
 #proof[
-  $f \( A \)$の開被覆\$\\set{U\_\\lambda}\$をとる．$f$は連続なので，各$f^(- 1) \( U_lambda \)$は$bb(R)^m$の開集合である．\$\\set{f^{-1}(U\_\\lambda)}\$は$A$を被覆するから，$A$のコンパクト性よりその中の有限個\$\\set{f^{-1}(U\_i)}\$が$A$を覆う．この有限集合に現れた\$\\set{U\_i}\$が$f \( A \)$の有限被覆になっている．
+  $f \( A \)$の開被覆${ U_lambda }$をとる．$f$は連続なので，各$f^(- 1) \( U_lambda \)$は$bb(R)^m$の開集合である．${ f^(- 1) \( U_lambda \) }$は$A$を被覆するから，$A$のコンパクト性よりその中の有限個${ f^(- 1) \( U_i \) }$が$A$を覆う．この有限集合に現れた${ U_i }$が$f \( A \)$の有限被覆になっている．
 
 ]
 ~
@@ -701,7 +701,7 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
 #que[
   これは偏微分を見慣れた読者に向けての，やや先回り気味の注意である#footnote[TODO:ここで方向微分の定義を導入して，「微分の高次元化」の可能性は複数あり得るという話をしてもよいと思う．Gâteaux
     微分と Fréchet
-    微分に関する余談を入れることも検討する．また，$f : bb(R)^2 arrow.r bb(R)$に対しては微分を考えるのと接平面を考えるのはだいたい一緒という話も（できれば微分の定義の前後に）差し込んでおきたい．もちろん，その「だいたい一緒」という話をより一般的な状況で述べていくのがこの節の主たる話題のひとつなのだが．];；微分可能ならば偏微分可能であることは後で見るが，しかしながらあらゆる変数に関して偏微分可能であったとしても（もっと強く，あらゆる方向に対する方向微分が存在したとしても），ここで定義した意味で微分可能であるとは限らない．次のような例がある；\$\\mathbb{S}^1 \\coloneqq \\set{x \\in \\mathbb{R}^2 | \\|x\\|=1}\$を単位円周とし，$g : bb(S)^1 arrow.r bb(R)$を，$g \( 0 \, 1 \) = g \( 1 \, 0 \) = 0$および$g \( - x \) = - g \( x \)$を充たすような連続関数とする．関数$f : bb(R)^2 arrow.r bb(R)$を，
+    微分に関する余談を入れることも検討する．また，$f : bb(R)^2 arrow.r bb(R)$に対しては微分を考えるのと接平面を考えるのはだいたい一緒という話も（できれば微分の定義の前後に）差し込んでおきたい．もちろん，その「だいたい一緒」という話をより一般的な状況で述べていくのがこの節の主たる話題のひとつなのだが．];；微分可能ならば偏微分可能であることは後で見るが，しかしながらあらゆる変数に関して偏微分可能であったとしても（もっと強く，あらゆる方向に対する方向微分が存在したとしても），ここで定義した意味で微分可能であるとは限らない．次のような例がある；$bb(S)^1 colon.eq { x in bb(R)^2 \| parallel x parallel = 1 }$を単位円周とし，$g : bb(S)^1 arrow.r bb(R)$を，$g \( 0 \, 1 \) = g \( 1 \, 0 \) = 0$および$g \( - x \) = - g \( x \)$を充たすような連続関数とする．関数$f : bb(R)^2 arrow.r bb(R)$を，
   \$\$f(x) =   \\begin{dcases\*}
   \\|x\\| \\cdot g\\left( \\frac{x}{\\|x\\|} \\right) & if \$x \\neq 0\$ \\\\
   0 & if \$x=0\$
@@ -747,7 +747,7 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
     $ lim_(h arrow.r 0) frac(∥f \( a + h \) - f \( a \) - d f_a \( h \)∥, parallel h parallel) = 0 $すなわちある$gamma_2 > 0$が存在して$parallel h parallel < gamma_2$ならば
     $ ∥f \( a + h \) - f \( a \) - d f_a \( h \)∥ < N parallel h parallel . $
 
-  \$\\gamma \\coloneqq \\min \\set{\\gamma\_1, \\gamma\_2}\$とすると，$parallel h parallel < gamma$ならば$parallel f \( a + h \) - f \( a \) parallel < delta$なので，
+  $gamma colon.eq min { gamma_1 \, gamma_2 }$とすると，$parallel h parallel < gamma$ならば$parallel f \( a + h \) - f \( a \) parallel < delta$なので，
   $
     ∥g \( f \( a + h \) \) - g \( f \( a \) \) - d g_(f \( a \)) \( f \( a + h \) - f \( a \) \)∥ & < frac(epsilon, 2 N) ∥f \( a + h \) - f \( a \)∥\
     & = frac(epsilon, 2 N) ∥f \( a + h \) - f \( a \) - d f_a \( h \) + d f_a \( h \)∥\
@@ -799,7 +799,7 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
 
   + $\( h^1 \, h^2 \) mapsto h^1 a^2 + h^2 a^1$が$p$の微分の定義を充たすことをしめせばよい#footnote[上付き添字と冪乗の記号の相性が最悪なことがよくわかる証明だと思う．Spivak
       では$h^1 \, h^2$ではなく$h \, k$を使っていた．];．
-    $ frac(∥p \( a + h \) - p \( a \) - h^1 a^2 - h^2 a^1∥, parallel h parallel) = lr(|h^1 h^2|) / sqrt(\( h^1 \)^2 + \( h^2 \)^2) $であるが，\$\\left|h^1h^2\\right| \\leq (\\max\\set{h^1, h^2})^2 \\leq (h^1)^2 + (h^2)^2\$なので，$lr(|h^1 h^2|) \/ sqrt(\( h^1 \)^2 + \( h^2 \)^2) lt.eq sqrt(\( h^1 \)^2 + \( h^2 \)^2) arrow.r 0$となるからよい．
+    $ frac(∥p \( a + h \) - p \( a \) - h^1 a^2 - h^2 a^1∥, parallel h parallel) = lr(|h^1 h^2|) / sqrt(\( h^1 \)^2 + \( h^2 \)^2) $であるが，$lr(|h^1 h^2|) lt.eq \( max { h^1 \, h^2 } \)^2 lt.eq \( h^1 \)^2 + \( h^2 \)^2$なので，$lr(|h^1 h^2|) \/ sqrt(\( h^1 \)^2 + \( h^2 \)^2) lt.eq sqrt(\( h^1 \)^2 + \( h^2 \)^2) arrow.r 0$となるからよい．
 
 ]
 #que[
@@ -1063,7 +1063,7 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 
 ]
 #defi[
-  部分集合$A \, B subset bb(R)^n$に対し，\$d(A,B) \\coloneqq \\inf\\set{\\|x-y\\||x \\in A, y \\in B}\$と定める．ただし\$A = \\set{x}\$（1点集合）の場合は（いちいち波括弧を書くのが煩雑なので）$d \( A \, B \)$のことを$d \( x \, B \)$とも書く．$B$が1点集合の場合も同様の記法を用いる．
+  部分集合$A \, B subset bb(R)^n$に対し，$d \( A \, B \) colon.eq inf { parallel x - y parallel \| x in A \, y in B }$と定める．ただし$A = { x }$（1点集合）の場合は（いちいち波括弧を書くのが煩雑なので）$d \( A \, B \)$のことを$d \( x \, B \)$とも書く．$B$が1点集合の場合も同様の記法を用いる．
 
 ]
 #prop[
@@ -1072,7 +1072,7 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 ]
 <閉集合とコンパクト集合は充分離れる>
 #proof[
-  $C sect K = nothing$なので，$K$の各点$x$に対して$d \( x \, C \) eq.colon epsilon_x > 0$である．\$\\set{B(x;\\varepsilon\_x/2)}\_{x \\in K}\$は$K$の開被覆であるから，$K$のコンパクト性によりこの開被覆から有限個を選んだ\$\\set{B(x\_i;\\varepsilon\_{x\_i} /2)}\_{i=1}^n\$がすでに$K$を被覆する．$epsilon_x$の定め方より，$y in B \( x_i ; epsilon_(x_i) \/ 2 \)$であるならば，$d \( y \, C \) gt.eq epsilon_(x_i) \/ 2 > 0$である．従って，任意の$y in K$に対して\$d(y,C) \\geq \\min\_i \\set{\\varepsilon\_{x\_i}/2} \>0\$となる．
+  $C sect K = nothing$なので，$K$の各点$x$に対して$d \( x \, C \) eq.colon epsilon_x > 0$である．${ B \( x ; epsilon_x \/ 2 \) }_(x in K)$は$K$の開被覆であるから，$K$のコンパクト性によりこの開被覆から有限個を選んだ${ B \( x_i ; epsilon_(x_i) \/ 2 \) }_(i = 1)^n$がすでに$K$を被覆する．$epsilon_x$の定め方より，$y in B \( x_i ; epsilon_(x_i) \/ 2 \)$であるならば，$d \( y \, C \) gt.eq epsilon_(x_i) \/ 2 > 0$である．従って，任意の$y in K$に対して$d \( y \, C \) gt.eq min_i { epsilon_(x_i) \/ 2 } > 0$となる．
 
 ]
 #que[
@@ -1088,8 +1088,8 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 #proof[
   この証明において，$a in bb(R)^n$を中心とする幅$2 epsilon$の開方体$product_(i = 1)^n \( a^i - epsilon \, a^i + epsilon \)$のことを$R \( a ; epsilon \)$と書くことにする．
 
-  $x in K$を任意に取ると，\$\\set{x}\$はコンパクトで，$A^C colon.eq bb(R)^n \\ A$は閉集合なので，@閉集合とコンパクト集合は充分離れる
-  によって$epsilon_x > 0$があり$d (x \, A^C) = 2 epsilon_x$となる．このとき$R \( x ; epsilon_x \) subset A$であり，特に$d (R \( x ; epsilon_x \) \, A^C) = epsilon_x$である．これをすべての$x in K$に対して考えることで，$K$の開被覆\$\\set{ R(x,\\varepsilon\_x) }\_{x \\in K}\$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆\$\\set{ R(x\_i, \\varepsilon\_i) }\_{i=1}^n\$を取ることができるから取る．$M colon.eq union.big_(i = 1)^n R \( x_i ; epsilon_i \)$と置き，$L colon.eq overline(M)$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L subset A$である．
+  $x in K$を任意に取ると，${ x }$はコンパクトで，$A^C colon.eq bb(R)^n \\ A$は閉集合なので，@閉集合とコンパクト集合は充分離れる
+  によって$epsilon_x > 0$があり$d (x \, A^C) = 2 epsilon_x$となる．このとき$R \( x ; epsilon_x \) subset A$であり，特に$d (R \( x ; epsilon_x \) \, A^C) = epsilon_x$である．これをすべての$x in K$に対して考えることで，$K$の開被覆${ R \( x \, epsilon_x \) }_(x in K)$を得る．$K$のコンパクト性により，ここから$K$の有限部分被覆${ R \( x_i \, epsilon_i \) }_(i = 1)^n$を取ることができるから取る．$M colon.eq union.big_(i = 1)^n R \( x_i ; epsilon_i \)$と置き，$L colon.eq overline(M)$とする．$L$は有界閉集合なのでコンパクトで，明らかにその内部$M$が$K$を含み，かつ$L subset A$である．
 
   @開方体上の隆起関数
   に即して関数$g_(x_i \, epsilon_i)$を作り，$h colon.eq sum_(i = 1)^n g_(x_i \, epsilon_i)$と定めると，これは$M$上で正なので$K$上でも正であり，$L$の外部で0である．
@@ -1159,11 +1159,11 @@ Banach の縮小写像の原理を述べる．
 #proof[
   $f$は縮小的なので，ある$0 lt.eq mu < 1$が存在して，任意の$x \, y in bb(R)^n$に対して$parallel f \( x \) - f \( y \) parallel lt.eq mu parallel x - y parallel$が成り立つ．
 
-  $y_0 in D$を任意に取り，点列\$\\set{y\_i}\_{i=1}^\\infty\$を$y_i colon.eq f^i \( y_0 \)$によって定める．すると任意の$k in bb(N)$に対して$parallel y_(k + 1) - y_k parallel lt.eq mu^k parallel y_1 - y_0 parallel$が成り立つから，$m > n$を充たすような$m \, n in bb(N)$に対して
+  $y_0 in D$を任意に取り，点列${ y_i }_(i = 1)^oo$を$y_i colon.eq f^i \( y_0 \)$によって定める．すると任意の$k in bb(N)$に対して$parallel y_(k + 1) - y_k parallel lt.eq mu^k parallel y_1 - y_0 parallel$が成り立つから，$m > n$を充たすような$m \, n in bb(N)$に対して
   $ parallel y_m - y_n parallel & lt.eq parallel y_m - y_(m - 1) parallel + parallel y_(m - 1) - y_(m - 2) parallel + dots.h + parallel y_(n + 1) - y_n parallel\
-  & lt.eq \( mu^(m - 1) + mu^(m - 2) + dots.h mu^n \) parallel y_1 - y_0 parallel = mu^n frac(1 - mu^(m - n), 1 - mu) parallel y_1 - y_0 parallel . $最右辺は$m \, n arrow.r oo$で0に収束するので，\$\\set{y\_i}\$は$bb(R)^n$の
+  & lt.eq \( mu^(m - 1) + mu^(m - 2) + dots.h mu^n \) parallel y_1 - y_0 parallel = mu^n frac(1 - mu^(m - n), 1 - mu) parallel y_1 - y_0 parallel . $最右辺は$m \, n arrow.r oo$で0に収束するので，${ y_i }$は$bb(R)^n$の
   Cauchy
-  列である．したがって収束先$y colon.eq lim_(i arrow.r oo) y_i$が$bb(R)^n$に存在するが，$D$は閉であって\$\\set{y\_i}\$は$D$の点列なので，$y in D$である．更に$f$の連続性より$y = lim_(i arrow.r oo) y_i = lim_(i arrow.r oo) f \( y_(i - 1) \) = f \( lim_(i arrow.r oo) y_i \) = f \( y \)$であるから$y$は$f$の不動点になっている．更に$z$も$f$の不動点であったとすると，$parallel y - z parallel = parallel f \( y \) - f \( z \) parallel lt.eq mu parallel y - z parallel$を得るが，$mu < 1$なので$parallel y - z parallel = 0$すなわち$y = z$である．
+  列である．したがって収束先$y colon.eq lim_(i arrow.r oo) y_i$が$bb(R)^n$に存在するが，$D$は閉であって${ y_i }$は$D$の点列なので，$y in D$である．更に$f$の連続性より$y = lim_(i arrow.r oo) y_i = lim_(i arrow.r oo) f \( y_(i - 1) \) = f \( lim_(i arrow.r oo) y_i \) = f \( y \)$であるから$y$は$f$の不動点になっている．更に$z$も$f$の不動点であったとすると，$parallel y - z parallel = parallel f \( y \) - f \( z \) parallel lt.eq mu parallel y - z parallel$を得るが，$mu < 1$なので$parallel y - z parallel = 0$すなわち$y = z$である．
 
 ]
 #que[
@@ -1174,7 +1174,7 @@ Banach の縮小写像の原理を述べる．
 
 ]
 #que[
-  $D subset bb(R)^n$が閉で，$D$内の点列\$\\set{y\_i}\$が収束するならばその収束先は$D$に属する．
+  $D subset bb(R)^n$が閉で，$D$内の点列${ y_i }$が収束するならばその収束先は$D$に属する．
 
 ]
 次いで証明に入る前にひとつ補題を用意しておく．微分は関数の線型近似であることはすでに述べたが，その近似についてより定量的な評価を与えておく必要がある．
@@ -1264,7 +1264,7 @@ Banach の縮小写像の原理を述べる．
 逆関数定理の兄弟分とでも言うべき定理が陰関数定理である．言葉による大雑把な説明をすると，いくつかの変数によって陰的に表される束縛条件があるときに，その束縛条件を書き表す陽的な方程式ないしは関数の存在を主張する定理である．
 
 #exm[
-  $f : bb(R)^2 arrow.r bb(R)$を$f \( x \, y \) colon.eq x^2 + y^2$で定め，単位円周\$S^1 \\coloneqq \\set{(x,y) \\in \\mathbb{R}^2 | f(x,y) = 1}\$を考える．このとき，任意の$\( x \, y \) in S^1$に対して$y = g \( x \)$を充たすような関数$g : bb(R) arrow.r bb(R)$は存在しない．しかしながら「ある点の充分近くで考えれば」このような関数を見つけることができる場合がある．例えば$y > 0$を充たすような$\( x \, y \) in S^1$に対しては$y = sqrt(1 - x^2)$と書ける．
+  $f : bb(R)^2 arrow.r bb(R)$を$f \( x \, y \) colon.eq x^2 + y^2$で定め，単位円周$S^1 colon.eq { \( x \, y \) in bb(R)^2 \| f \( x \, y \) = 1 }$を考える．このとき，任意の$\( x \, y \) in S^1$に対して$y = g \( x \)$を充たすような関数$g : bb(R) arrow.r bb(R)$は存在しない．しかしながら「ある点の充分近くで考えれば」このような関数を見つけることができる場合がある．例えば$y > 0$を充たすような$\( x \, y \) in S^1$に対しては$y = sqrt(1 - x^2)$と書ける．
 
 ]
 この現象を高次元の場合も含めて記述することが，本項の目的である．
@@ -1325,12 +1325,12 @@ Banach の縮小写像の原理を述べる．
 
 #exm[
   ここでは$bb(R)^n$の座標として$p^1 \, p^2 \, dots.h \, p^n$を使うことにする．
-  \$\$\\Delta\_n \\coloneqq \\set{ p \\in \\mathbb{R}^n | \\sum\_{i=1}^n p^i = 1, p^1, p^2, \\dots, p^n \\geq 0 }\$\$
+  $ Delta_n colon.eq { p in bb(R)^n \| sum_(i = 1)^n p^i = 1 \, p^1 \, p^2 \, dots.h \, p^n gt.eq 0 } $
   を標準$n$-単体という．$p in Delta_n$に対して$H \( p \) colon.eq - sum_(i = 1)^n p^i log p^i$を$p$のエントロピーと呼ぶ．ただし$0 log 0 = 0$と定める．いくつかの状況について，エントロピーを最大化する$p in bb(R)^n$を求めてみよう．エントロピーは凹関数なので，極値を達成する点があればその点で最大値を達成することに注意しておく．
 
   - $p in Delta_n$以外に特に制約のない場合．$L \( p \, lambda \) colon.eq H \( p \) - lambda \( sum_(i = 1)^n p^i - 1 \)$を$p^i$で微分して0と置いた式$partial_i L \( p \, lambda \) = 0$を考えることで，$p^i = exp \( - lambda + 1 \)$を得る．すなわち$p^1 = p^2 = dots.h = p^n = 1 \/ n$である．
 
-  - $k = 1 \, 2 \, dots.h \, m$に対し，\$f\_k \\colon \\set{1,\\dots,n} \\to \\mathbb{R}\$を関数とする．$sum_(i = 1)^n f_k \( i \) p^i$を，$f_k$の$p in Delta_n$における期待値という．ここでは，$f_k$たちの期待値に制約がついている状況を考える．すなわち，$U_1 \, U_2 \, dots.h \, U_m$を実数として，$sum_(i = 1)^n f_k \( i \) p^i = U_k$という制約のもとでエントロピーを最大化する$p in Delta_n$を求めることを考える．もちろん$f_k$たちの具体的な形がわからないので，解析解の計算はできないが，$f_k$たちの具体形に依らないところまでは計算を進めてみることにしよう．
+  - $k = 1 \, 2 \, dots.h \, m$に対し，$f_k : { 1 \, dots.h \, n } arrow.r bb(R)$を関数とする．$sum_(i = 1)^n f_k \( i \) p^i$を，$f_k$の$p in Delta_n$における期待値という．ここでは，$f_k$たちの期待値に制約がついている状況を考える．すなわち，$U_1 \, U_2 \, dots.h \, U_m$を実数として，$sum_(i = 1)^n f_k \( i \) p^i = U_k$という制約のもとでエントロピーを最大化する$p in Delta_n$を求めることを考える．もちろん$f_k$たちの具体的な形がわからないので，解析解の計算はできないが，$f_k$たちの具体形に依らないところまでは計算を進めてみることにしよう．
     $ L \( p \, lambda^0 \, lambda^1 \, dots.h \, lambda^m \) colon.eq H \( p \) - \( lambda^0 - 1 \) (sum_(i = 1)^n p^i - 1) - sum_(k = 1)^m lambda^k (sum_(i = 1)^n f_k \( i \) p^i - U_k) $と置く（$lambda^0$を定数シフトして定義しているのは，後のノーテーションをきれいにするためだけの便宜である）．これを$p^i$で微分して0と置いた式は
     $ partial_i L \( p \, lambda \) = - log p_i - 1 - \( lambda^0 - 1 \) - sum_(k = 1)^m lambda^k f_k \( i \) = 0 $すなわち
     $ p_i = exp (- lambda^0 - sum_(k = 1)^m lambda^k f_k \( i \)) $を得る．他の制約式にこの表式を代入してみる#footnote[未定乗数法でなにか問題を解く時に一番難しい，ないし時間がかかるのはここから先ではないだろうか？未定乗数ならびにもともとの引数に関する何本かの方程式を具体的に与えられて，それに対してどのように変形すればよいかがよくわからない，ということが私はよくある．このような状況に対して一般論ができることは殆どなく，ここから先で物を言うのは高校数学や算数の計算をちゃんと遂行できる腕力だと思う．「理論は落ち着いて考えればわかることしか書いてない」という言葉を聞いたことがあるが，言い得て妙だと思う（と同時に，学部生のときの私にこの言葉を聞かせても聞く耳を持たなかっただろう）．];．まず
@@ -1421,7 +1421,7 @@ Banach の縮小写像の原理を述べる．
 大雑把にはこれだけなのだが，実際には注意を必要とする点がある．
 
 #que[
-  たとえば，「長さ」に関するわれわれの素朴な直感を定式化して$bb(R)$上の測度$mu$を作ることを考えよう．\$\\set{x} \\subset \\mathbb{R}\$を1点集合とするとき，\$\\mu(\\set{x}) = 0\$と定めるのが自然に思える．他方で，$mu \( \[ 0 \, 1 \] \) = 1$と定めたいとも思える．ところで，先程の「排反な集合の測度は，それらの和集合の測度にひとしい」という言明を何も考えずに数式に落とし込むと，\$\\mu(\[0,1\]) = \\sum\_{x \\in \[0,1\]} \\mu(\\set{x}) = \\sum\_{x \\in \[0,1\]} \\mu(\\set{x}) = \\sum\_{x \\in \[0,1\]} 0\$を得る．最右辺の値が定義されるならば，それは0であろうが，そうすると結局は矛盾$1 = 0$を得てしまうので嬉しくない．細かいことを言えば，非可算個の項に対する総和の定義はそんなに自明ではない．可算個の総和というのはいわゆる無限級数なのでがんばれば扱えるのだが，非可算個の項からなる総和を考えることはあまりない．原因はおそらく次の命題にある；\$\\set{a\_\\lambda}\_{\\lambda \\in \\Lambda}\$を添字付けられた正の実数の集合とする．このとき，適切な定義のもとでその総和$sum a_lambda$が定義できるが，その総和が有限の値を取るならば，$Lambda$の濃度は高々可算である．
+  たとえば，「長さ」に関するわれわれの素朴な直感を定式化して$bb(R)$上の測度$mu$を作ることを考えよう．${ x } subset bb(R)$を1点集合とするとき，$mu \( { x } \) = 0$と定めるのが自然に思える．他方で，$mu \( \[ 0 \, 1 \] \) = 1$と定めたいとも思える．ところで，先程の「排反な集合の測度は，それらの和集合の測度にひとしい」という言明を何も考えずに数式に落とし込むと，$mu \( \[ 0 \, 1 \] \) = sum_(x in \[ 0 \, 1 \]) mu \( { x } \) = sum_(x in \[ 0 \, 1 \]) mu \( { x } \) = sum_(x in \[ 0 \, 1 \]) 0$を得る．最右辺の値が定義されるならば，それは0であろうが，そうすると結局は矛盾$1 = 0$を得てしまうので嬉しくない．細かいことを言えば，非可算個の項に対する総和の定義はそんなに自明ではない．可算個の総和というのはいわゆる無限級数なのでがんばれば扱えるのだが，非可算個の項からなる総和を考えることはあまりない．原因はおそらく次の命題にある；${ a_lambda }_(lambda in Lambda)$を添字付けられた正の実数の集合とする．このとき，適切な定義のもとでその総和$sum a_lambda$が定義できるが，その総和が有限の値を取るならば，$Lambda$の濃度は高々可算である．
 
 ]
 上記の観察を踏まえると，種々の操作ができるだけ可算無限程度で閉じていることを求めたくなる．その結果，ある集合$X$が与えられた時，$X$の任意の部分集合に対して（要求したい性質と両立するように）測度の値を定めることは難しくなる．のだが，殆どの状況において「任意の」部分集合に対する測度の値が欲しくなることはなく，例えば開集合や閉集合といった「ある程度常識的な」集合の測度を測れれば充分であることも多い．このような実用上・理論上の要請をすり合わせることが
@@ -1442,7 +1442,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
 ]
 #defi[
-  あまり無限大や拡張実数について構成を厳密にやっても得るものがなさそうなのでここはいい加減にやる；\$\[0,\\infty\] \\coloneqq \\set{x \\in \\mathbb{R}| x \\geq 0} \\cup \\set{\\infty}\$を片側拡張実数，\$\\overline{\\mathbb{R}} \\coloneqq \[-\\infty, \\infty\] \\coloneqq \\mathbb{R}\\cup \\set{\\infty} \\cup \\set{-\\infty}\$を（両側）拡張実数という．任意の実数$a in bb(R)$に対して$- oo lt.eq a lt.eq oo$が成り立つものとする．$overline(bb(R))$上の演算は，
+  あまり無限大や拡張実数について構成を厳密にやっても得るものがなさそうなのでここはいい加減にやる；$\[ 0 \, oo \] colon.eq { x in bb(R) \| x gt.eq 0 } union { oo }$を片側拡張実数，$overline(bb(R)) colon.eq \[ - oo \, oo \] colon.eq bb(R) union { oo } union { - oo }$を（両側）拡張実数という．任意の実数$a in bb(R)$に対して$- oo lt.eq a lt.eq oo$が成り立つものとする．$overline(bb(R))$上の演算は，
 
   - 任意の$x in bb(R)$に対して$x plus.minus oo = plus.minus oo + x = plus.minus oo$
 
@@ -1464,9 +1464,9 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
   - $mu \( nothing \) = 0$．
 
-  - （可算加法性）高々可算個の$cal(A)$の元からなる族\$\\set{A\_i}\_{i=1}^\\infty\$が互いに排反であるならば，$mu (union.big_(i = 1)^oo A_i) = sum_(i = 1)^oo mu \( A_i \)$．
+  - （可算加法性）高々可算個の$cal(A)$の元からなる族${ A_i }_(i = 1)^oo$が互いに排反であるならば，$mu (union.big_(i = 1)^oo A_i) = sum_(i = 1)^oo mu \( A_i \)$．
 
-  3つ組$\( X \, cal(A) \, mu \)$を測度空間という．$mu \( X \) < oo$のとき，$mu$は有限測度であるといわれる．$mu \( A_i \) < oo$ならびに$A_i arrow.t X$を充たす集合列\$\\set{A\_i}\$が存在する時，$mu$は$sigma$-有限測度であるといわれる．
+  3つ組$\( X \, cal(A) \, mu \)$を測度空間という．$mu \( X \) < oo$のとき，$mu$は有限測度であるといわれる．$mu \( A_i \) < oo$ならびに$A_i arrow.t X$を充たす集合列${ A_i }$が存在する時，$mu$は$sigma$-有限測度であるといわれる．
 
 ]
 #prop[
@@ -1474,19 +1474,19 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
   + （単調性）$A \, B in cal(A)$が$A subset B$を充たすならば，$mu \( A \) lt.eq mu \( B \)$．
 
-  + （可算劣加法性）\$\\set{A\_i}\_{i=1}^\\infty \\subset \\mathcal{A}\$に対して，$mu (union.big_(i = 1)^oo A_n) lt.eq sum_(i = 1)^oo mu \( A_i \)$．
+  + （可算劣加法性）${ A_i }_(i = 1)^oo subset cal(A)$に対して，$mu (union.big_(i = 1)^oo A_n) lt.eq sum_(i = 1)^oo mu \( A_i \)$．
 
-  + （連続性）\$\\set{A\_i}\_{i=1}^\\infty \\subset \\mathcal{A}\$に対して$A_i arrow.t A$ならば$lim_(i arrow.r oo) mu \( A_i \) = mu \( A \)$．
+  + （連続性）${ A_i }_(i = 1)^oo subset cal(A)$に対して$A_i arrow.t A$ならば$lim_(i arrow.r oo) mu \( A_i \) = mu \( A \)$．
 
-  + （連続性）\$\\set{A\_i}\_{i=1}^\\infty \\subset \\mathcal{A}\$に対して$A_i arrow.b A$かつ$mu \( A_1 \) < oo$ならば$lim_(i arrow.r oo) mu \( A_i \) = mu \( A \)$．
+  + （連続性）${ A_i }_(i = 1)^oo subset cal(A)$に対して$A_i arrow.b A$かつ$mu \( A_1 \) < oo$ならば$lim_(i arrow.r oo) mu \( A_i \) = mu \( A \)$．
 
 ]
 #proof[
   + $B \\ A in cal(A)$なので測度の可算加法性より$mu \( B \) = mu \( A \) + mu \( B \\ A \) gt.eq mu \( A \)$．
 
-  + $B_1 colon.eq A_1$，$B_i colon.eq (union.big_(k = 1)^i A_k) \\ B_(i - 1) = A_i \\ B_(i - 1)$によって帰納的に$B_i$を定めれば，\$\\set{B\_i}\_{i=1}^n\$は互いに排反で，$union.big_(i = 1)^oo B_i = union.big_(i = 1)^oo A_i$ならびに$B_i subset A_i$を充たす．したがって$mu (union.big_(i = 1)^oo A_i) = mu (union.big_(i = 1)^oo B_i) = sum_(i = 1)^oo mu \( B_i \) lt.eq sum_(i = 1)^oo mu \( A_i \)$．
+  + $B_1 colon.eq A_1$，$B_i colon.eq (union.big_(k = 1)^i A_k) \\ B_(i - 1) = A_i \\ B_(i - 1)$によって帰納的に$B_i$を定めれば，${ B_i }_(i = 1)^n$は互いに排反で，$union.big_(i = 1)^oo B_i = union.big_(i = 1)^oo A_i$ならびに$B_i subset A_i$を充たす．したがって$mu (union.big_(i = 1)^oo A_i) = mu (union.big_(i = 1)^oo B_i) = sum_(i = 1)^oo mu \( B_i \) lt.eq sum_(i = 1)^oo mu \( A_i \)$．
 
-  + $B_1 colon.eq A_1$，$B_i colon.eq A_i \\ A_(i - 1)$によって帰納的に$B_i$を定めれば，\$\\set{B\_i}\_{i=1}^n\$は互いに排反で，$A_i = union.big_(k = 1)^i B_k$ならびに$A = union.big_(k = 1)^oo B_k$を充たす．従って$mu \( A_i \) = mu (union.big_(k = 1)^i B_k) = sum_(k = 1)^i mu \( B_k \)$であるから，$mu \( A \) = mu (union.big_(k = 1)^oo B_k) = sum_(k = 1)^oo mu \( B_k \) = lim_(i arrow.r oo) mu \( A_i \)$．
+  + $B_1 colon.eq A_1$，$B_i colon.eq A_i \\ A_(i - 1)$によって帰納的に$B_i$を定めれば，${ B_i }_(i = 1)^n$は互いに排反で，$A_i = union.big_(k = 1)^i B_k$ならびに$A = union.big_(k = 1)^oo B_k$を充たす．従って$mu \( A_i \) = mu (union.big_(k = 1)^i B_k) = sum_(k = 1)^i mu \( B_k \)$であるから，$mu \( A \) = mu (union.big_(k = 1)^oo B_k) = sum_(k = 1)^oo mu \( B_k \) = lim_(i arrow.r oo) mu \( A_i \)$．
 
   + $A_1 \\ A_i arrow.t A_1 \\ A$なので，(iii)
     の結果より$lim_(i arrow.r oo) mu \( A_1 \\ A_i \) = mu \( A_1 \\ A \)$．$mu \( A_1 \) < oo$なので$mu \( A_1 \) - lim_(i arrow.r oo) mu \( A_i \) = mu \( A_1 \) - mu \( A \)$すなわち$lim_(i arrow.r oo) mu \( A_i \) = mu \( A \)$．
@@ -1502,7 +1502,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
     \\end{dcases\*}\$\$と定めると，$mu$は$cal(A)$上の測度になる．このような測度を
     Dirac 測度という．
 
-  - $X$の点列\$\\set{x\_n}\_{n=1}^\\infty\$に対して$mu colon.eq sum_(n = 1)^oo delta_(x_n)$で定めると，$mu$は$2^X$上の測度になる．この測度を\$\\set{x\_n}\$上の数え上げ測度，あるいは計数測度という．特に$X = bb(N)$として，$mu \( A \) colon.eq sum_(i = n)^oo delta_n \( A \)$というのは「$A$に含まれる元の数」を返す写像のことである．
+  - $X$の点列${ x_n }_(n = 1)^oo$に対して$mu colon.eq sum_(n = 1)^oo delta_(x_n)$で定めると，$mu$は$2^X$上の測度になる．この測度を${ x_n }$上の数え上げ測度，あるいは計数測度という．特に$X = bb(N)$として，$mu \( A \) colon.eq sum_(i = n)^oo delta_n \( A \)$というのは「$A$に含まれる元の数」を返す写像のことである．
 
   - $cal(A) = 2^X$として，$mu : cal(A) arrow.r \[ 0 \, oo \]$を
     \$\$\\mu(A) \\coloneqq \\begin{dcases\*}
@@ -1529,9 +1529,9 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
   - $mu \( nothing \) = 0$．
 
-  - 高々有限個の$cal(A)$の元からなる族\$\\set{A\_i}\_{i=1}^N\$が互いに排反であるならば，$mu (union.big_(i = 1)^N A_i) = sum_(i = 1)^N mu \( A_i \)$．
+  - 高々有限個の$cal(A)$の元からなる族${ A_i }_(i = 1)^N$が互いに排反であるならば，$mu (union.big_(i = 1)^N A_i) = sum_(i = 1)^N mu \( A_i \)$．
 
-  $mu \( A_i \) < oo$ならびに$A_i arrow.t X$を充たす集合列\$\\set{A\_i}\$が存在する時，$mu$は$cal(A)$上で$sigma$-有限であるといわれる．
+  $mu \( A_i \) < oo$ならびに$A_i arrow.t X$を充たす集合列${ A_i }$が存在する時，$mu$は$cal(A)$上で$sigma$-有限であるといわれる．
 
 ]
 #que[
@@ -1550,7 +1550,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
 ]
 #proof[
-  $sigma$-加法族は集合の共通部分を取る操作について閉じている；すなわち\$\\set{\\mathcal{A}\_\\lambda }\_{\\lambda \\in \\Lambda}\$が$sigma$-加法族からなる族であるならば，$sect.big_(lambda in Lambda) cal(A)_lambda$もまた$sigma$-加法族である．したがって$cal(C)$を含む$sigma$-加法族全体の集合を\$D \\coloneqq \\set{\\mathcal{A} | \\text{\$\\mathcal{A}\$ は \$\\mathcal{C}\$ を含む \$\\sigma\$-加法族}}\$として，$sigma \( cal(C) \) colon.eq sect.big_(cal(A) in D) cal(A)$とおけばよい．
+  $sigma$-加法族は集合の共通部分を取る操作について閉じている；すなわち${ cal(A)_lambda }_(lambda in Lambda)$が$sigma$-加法族からなる族であるならば，$sect.big_(lambda in Lambda) cal(A)_lambda$もまた$sigma$-加法族である．したがって$cal(C)$を含む$sigma$-加法族全体の集合を$D colon.eq { cal(A) \| cal(A) upright(" は ") cal(C) upright(" を含む ") sigma upright("-加法族") }$として，$sigma \( cal(C) \) colon.eq sect.big_(cal(A) in D) cal(A)$とおけばよい．
 
 ]
 #que[
@@ -1558,7 +1558,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
 ]
 #thm[
-  $cal(A)$を有限加法族，$mu : cal(A) arrow.r \[ 0 \, oo \]$を有限加法的測度とする．更に$mu$は次の意味で$cal(A)$上可算加法的であると仮定する；高々可算個の$cal(A)$の元からなる族\$\\set{A\_i}\_{i=1}^\\infty\$が互いに排反であり，かつ$union.big_(i = 1)^oo A_i in cal(A)$であるならば，$mu (union.big_(i = 1)^oo A_i) = sum_(i = 1)^oo mu \( A_i \)$．このとき，$mu$は$sigma \( cal(A) \)$上の測度に拡張できる．更に，$mu$が$cal(A)$上で$sigma$-有限ならば，この拡張は一意的である．
+  $cal(A)$を有限加法族，$mu : cal(A) arrow.r \[ 0 \, oo \]$を有限加法的測度とする．更に$mu$は次の意味で$cal(A)$上可算加法的であると仮定する；高々可算個の$cal(A)$の元からなる族${ A_i }_(i = 1)^oo$が互いに排反であり，かつ$union.big_(i = 1)^oo A_i in cal(A)$であるならば，$mu (union.big_(i = 1)^oo A_i) = sum_(i = 1)^oo mu \( A_i \)$．このとき，$mu$は$sigma \( cal(A) \)$上の測度に拡張できる．更に，$mu$が$cal(A)$上で$sigma$-有限ならば，この拡張は一意的である．
 
 ]
 <拡張定理>
@@ -1589,7 +1589,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 ]
 <Dynkin族定理>
 #prop[
-  $bb(R)$の左半開区間をすべて集めた集合\$\\mathcal{H} \\coloneqq \\set{ (a,b\] | - \\infty \\leq a \< b \< \\infty } \\cup \\set{ (a, \\infty) | - \\infty \\leq a \< \\infty } \\cup \\set{\\emptyset}\$は有限加法族ではないが，
+  $bb(R)$の左半開区間をすべて集めた集合$cal(H) colon.eq { \( a \, b \] \| - oo lt.eq a < b < oo } union { \( a \, oo \) \| - oo lt.eq a < oo } union { nothing }$は有限加法族ではないが，
   $ overline(cal(H)) colon.eq {union.big_(i = 1)^N A_i med mid(bar.v) med A_i in cal(H) \, A_i upright("は排反")} $は有限加法族である．更に$sigma \( cal(H) \) = sigma (overline(cal(H)))$である．
 
 ]
@@ -1615,12 +1615,12 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
   まず$mu$が$overline(cal(H))$上の有限加法的測度に拡張できること，すなわち上記の拡張が
   well-defined
-  であることを示す．$A in overline(cal(H))$をとると，$A$は排反な集合族$A_1 \, A_2 \, dots.h \, A_m in cal(H)$を用いて$A = union.big_(i = 1)^m A_i$と表されている．ここで，別の排反な集合族$B_1 \, B_2 \, dots.h \, B_n in cal(H)$を用いて$A = union.big_(j = 1)^n B_j$とも表されていたとする．このとき$1 lt.eq i lt.eq m$ならびに$1 lt.eq j lt.eq n$に対して$C_(i j) colon.eq A_i sect B_j$と置くと，\$\\set{C\_{ij}}\$は排反な$overline(cal(H))$の集合族であって，$union.big_(i = 1)^m C_(i j) = B_j$および$union.big_(j = 1)^n C_(i j) = A_i$を充たす．したがって$mu (union.big_(i = 1)^n A_i) = mu (union.big_(i = 1)^n union.big_(j = 1)^m C_(i j)) = mu (union.big_(j = 1)^m B_j)$を得るから$mu$は
+  であることを示す．$A in overline(cal(H))$をとると，$A$は排反な集合族$A_1 \, A_2 \, dots.h \, A_m in cal(H)$を用いて$A = union.big_(i = 1)^m A_i$と表されている．ここで，別の排反な集合族$B_1 \, B_2 \, dots.h \, B_n in cal(H)$を用いて$A = union.big_(j = 1)^n B_j$とも表されていたとする．このとき$1 lt.eq i lt.eq m$ならびに$1 lt.eq j lt.eq n$に対して$C_(i j) colon.eq A_i sect B_j$と置くと，${ C_(i j) }$は排反な$overline(cal(H))$の集合族であって，$union.big_(i = 1)^m C_(i j) = B_j$および$union.big_(j = 1)^n C_(i j) = A_i$を充たす．したがって$mu (union.big_(i = 1)^n A_i) = mu (union.big_(i = 1)^n union.big_(j = 1)^m C_(i j)) = mu (union.big_(j = 1)^m B_j)$を得るから$mu$は
   well-defined である．
 
-  続いて$mu$の$cal(H)$上での可算加法性，すなわち$A in cal(H)$が排反な区間の族\$\\set{(a\_i,b\_i\]}\_{i=1}^\\infty\$を用いて$A = union.big_(i = 1)^oo \( a_i \, b_i \]$と表されていたときに$mu \( A \) = sum_(i = 1)^oo mu \( \( a_i \, b_i \] \)$となることを示す．
+  続いて$mu$の$cal(H)$上での可算加法性，すなわち$A in cal(H)$が排反な区間の族${ \( a_i \, b_i \] }_(i = 1)^oo$を用いて$A = union.big_(i = 1)^oo \( a_i \, b_i \]$と表されていたときに$mu \( A \) = sum_(i = 1)^oo mu \( \( a_i \, b_i \] \)$となることを示す．
 
-  - $- oo < a < b < oo$を用いて$A = \( a \, b \]$と表せる場合．まず任意の$n > 0$に対して$union.big_(i = 1)^n \( a_i \, b_i \] subset \( a \, b \]$なので$mu (union.big_(i = 1)^n \( a_i \, b_i \]) lt.eq mu \( \( a \, b \] \)$である．更に$\( a_i \, b_i \]$たちの排反性より$mu (union.big_(i = 1)^n \( a_i \, b_i \]) = sum_(i = 1)^n mu \( \( a_i \, b_i \] \)$である．結局$sum_(i = 1)^n mu \( \( a_i \, b_i \] \) lt.eq mu \( \( a \, b \] \)$を得るので，$n arrow.r oo$として$sum_(i = 1)^oo mu \( \( a_i \, b_i \] \) lt.eq mu \( \( a \, b \] \)$である．逆向きの不等式を示す．$epsilon > 0$を任意に固定し，$eta_m colon.eq epsilon \/ 2^m$と置く．このとき\$\\set{(a\_i,b\_i+\\eta\_i)}\$は$\[ a + epsilon \, b \]$の開被覆なので，Heine-Borel
+  - $- oo < a < b < oo$を用いて$A = \( a \, b \]$と表せる場合．まず任意の$n > 0$に対して$union.big_(i = 1)^n \( a_i \, b_i \] subset \( a \, b \]$なので$mu (union.big_(i = 1)^n \( a_i \, b_i \]) lt.eq mu \( \( a \, b \] \)$である．更に$\( a_i \, b_i \]$たちの排反性より$mu (union.big_(i = 1)^n \( a_i \, b_i \]) = sum_(i = 1)^n mu \( \( a_i \, b_i \] \)$である．結局$sum_(i = 1)^n mu \( \( a_i \, b_i \] \) lt.eq mu \( \( a \, b \] \)$を得るので，$n arrow.r oo$として$sum_(i = 1)^oo mu \( \( a_i \, b_i \] \) lt.eq mu \( \( a \, b \] \)$である．逆向きの不等式を示す．$epsilon > 0$を任意に固定し，$eta_m colon.eq epsilon \/ 2^m$と置く．このとき${ \( a_i \, b_i + eta_i \) }$は$\[ a + epsilon \, b \]$の開被覆なので，Heine-Borel
     の定理よりある$n in bb(N)$が存在して，$\( a + epsilon \, b \] subset \[ a + epsilon \, b \] subset union.big_(i = 1)^n \( a_i \, b_i + eta_i \) subset union.big_(i = 1)^n \( a_i \, b_i + eta_i \]$である．以上の結果より，
     $ mu \( \( a \, b \] \) & lt.eq mu (\( a \, a + epsilon \] union union.big_(i = 1)^n \( a_i \, b_i + eta_i \]) \
                           & lt.eq epsilon + mu (union.big_(i = 1)^n \( a_i \, b_i + eta_i \]) \
@@ -1630,7 +1630,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
   - $b in bb(R)$を用いて$A = \( - oo \, b \]$と書ける場合．$mu \( A \) = oo$なので$mu \( A \) gt.eq sum_(i = 1)^oo mu \( \( a_i \, b_i \] \)$はよい．$c in bb(R)$に対して$\( c \, b \] = union.big_(i = 1)^oo \( \( c \, b \] sect \( a_i \, b_i \] \)$なので，前段の結果と併せて$mu \( \( c \, b \] \) = union.big_(i = 1)^oo mu \( \( c \, b \] sect \( a_i \, b_i \] \) lt.eq union.big_(i = 1)^oo mu \( \( a_i \, b_i \] \)$を得るから$c arrow.r oo$として$mu \( A \) lt.eq sum_(i = 1)^oo mu \( \( a_i \, b_i \] \)$を得る．$A = \( a \, oo \)$ならびに$A = bb(R)$の場合も同様である．
 
-  最後に，$mu$が$overline(cal(H))$上で可算加法的であることを示す．排反な$overline(cal(H))$の元の族\$\\set{A\_i}\_{i=1}^\\infty\$に対して$A colon.eq union.big_(i = 1)^oo A_i in overline(cal(H))$であったと仮定する．$A in overline(cal(H))$なので，$A = union.big_(j = 1)^m B_j$を充たす排反な$B_1 \, B_2 \, dots.h \, B_m in cal(H)$がある．同様に$A_i in overline(cal(H))$なので，$A_i = union.big_(k = 1)^(n_i) C_(i k)$を充たす排反な$C_(i 1) \, C_(i 2) \, dots.h \, C_(i n_i) in cal(H)$がある．$B_j sect C_(i k)$が互いに排反であることに気をつけて，
+  最後に，$mu$が$overline(cal(H))$上で可算加法的であることを示す．排反な$overline(cal(H))$の元の族${ A_i }_(i = 1)^oo$に対して$A colon.eq union.big_(i = 1)^oo A_i in overline(cal(H))$であったと仮定する．$A in overline(cal(H))$なので，$A = union.big_(j = 1)^m B_j$を充たす排反な$B_1 \, B_2 \, dots.h \, B_m in cal(H)$がある．同様に$A_i in overline(cal(H))$なので，$A_i = union.big_(k = 1)^(n_i) C_(i k)$を充たす排反な$C_(i 1) \, C_(i 2) \, dots.h \, C_(i n_i) in cal(H)$がある．$B_j sect C_(i k)$が互いに排反であることに気をつけて，
   $ mu \( A \) & = sum_(j = 1)^m mu \( B_j \) \
              & = sum_(j = 1)^m mu (union.big_(i = 1)^oo union.big_(k = 1)^(n_i) B_j sect C_(i k)) \
              & = sum_(j = 1)^m sum_(i = 1)^oo sum_(k = 1)^(n_i) mu (B_j sect C_(i k)) \
@@ -1651,7 +1651,7 @@ Lebesgue 測度を含む測度の定式化には必要となる．
 
 ]
 #que[
-  $bb(R)$の開集合は$bb(R)$の開区間の可算合併で書けるので，実際には\$\\mathcal{B} = \\sigma(\\set{(a,b) | -\\infty \< a \< b \< \\infty })\$である．
+  $bb(R)$の開集合は$bb(R)$の開区間の可算合併で書けるので，実際には$cal(B) = sigma \( { \( a \, b \) \| - oo < a < b < oo } \)$である．
 
 ]
 #dig[
@@ -1693,7 +1693,7 @@ $sigma$-加法族が一般に複雑であるという話をした手前，各可
 
 ]
 #proof[
-  充分性は明らか．\$\\mathcal{D} \\coloneqq \\set{ A \\in \\mathcal{A}\_2 | f^{-1}(A) \\in \\mathcal{A}\_1}\$と置くと，逆像は補集合・共通部分・和集合を取る操作を保存することから$cal(D)$は$sigma$-加法族であり，かつ$cal(C) subset cal(D)$．したがって$sigma \( cal(C) \) subset cal(D)$なのでよい．
+  充分性は明らか．$cal(D) colon.eq { A in cal(A)_2 \| f^(- 1) \( A \) in cal(A)_1 }$と置くと，逆像は補集合・共通部分・和集合を取る操作を保存することから$cal(D)$は$sigma$-加法族であり，かつ$cal(C) subset cal(D)$．したがって$sigma \( cal(C) \) subset cal(D)$なのでよい．
 
 ]
 #lem[
@@ -1712,10 +1712,10 @@ $sigma$-加法族が一般に複雑であるという話をした手前，各可
 ]
 #proof[
   議論はほぼ同様なので，(i) と (ii)
-  の同値性のみ示す．\$\\mathcal{B} = \\sigma(\\set{(-\\infty,a) | a \\in \\mathbb{R}})\$を示せばよい．任意の$a in bb(R)$に対して$\( - oo \, a \) in cal(B)$なので\$\\mathcal{B} \\supset \\sigma(\\set{(-\\infty,a) | a \\in \\mathbb{R}})\$はよい．任意の$n in bb(N)$ならびに開区間$\( a \, b \)$に対して$\( a \, b \) = sect.big_(n = 1)^oo (\( - oo \, b \) sect \( - oo \, a + 1 \/ n \)^c)$なので\$(a,b) \\in \\sigma(\\set{(-\\infty,a) | a \\in \\mathbb{R}})\$となるから\$\\mathcal{B} \\subset \\sigma(\\set{(-\\infty,a) | a \\in \\mathbb{R}})\$である．
+  の同値性のみ示す．$cal(B) = sigma \( { \( - oo \, a \) \| a in bb(R) } \)$を示せばよい．任意の$a in bb(R)$に対して$\( - oo \, a \) in cal(B)$なので$cal(B) supset sigma \( { \( - oo \, a \) \| a in bb(R) } \)$はよい．任意の$n in bb(N)$ならびに開区間$\( a \, b \)$に対して$\( a \, b \) = sect.big_(n = 1)^oo (\( - oo \, b \) sect \( - oo \, a + 1 \/ n \)^c)$なので$\( a \, b \) in sigma \( { \( - oo \, a \) \| a in bb(R) } \)$となるから$cal(B) subset sigma \( { \( - oo \, a \) \| a in bb(R) } \)$である．
 
 ]
-実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族\$\\set{f\_n}\_{n=1}^\\infty\$があるときに$sup_n f_n \( x \)$が有限であるとは限らないし，$f : bb(R)^2 arrow.r bb(R)$に対して$y mapsto integral f \( x \, y \) med "" #h(-1em) d x$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
+実数に値を持つ関数が主たる関心である場合でも，積分や極限に関する種々の操作をする中で拡張実数値関数を考えたほうがいい場合がある．たとえば実数値関数の族${ f_n }_(n = 1)^oo$があるときに$sup_n f_n \( x \)$が有限であるとは限らないし，$f : bb(R)^2 arrow.r bb(R)$に対して$y mapsto integral f \( x \, y \) med "" #h(-1em) d x$という関数は（適当な意味で積分が定義できるとはして）$f$の形状いかんでは有限にならないことがある．
 
 #dig[
   このノートの範囲に限れば，前者が問題になることはないと思う．なので拡張実数値関数のことを（測度の定義を除いて）陽に取り扱う必要はなさそうに見えていた．のだが，後者の問題を捨て置くわけにはいかないことに後で気づいた．というのも，この形の関数が
@@ -1734,7 +1734,7 @@ $sigma$-加法族について考えることになるのだが，そもそも$ov
 
   - $U \, V$が$overline(bb(R))$において開集合であるならば，$U sect V$も$overline(bb(R))$において開集合である．
 
-  - \$\\set{U\_\\lambda}\_{\\lambda \\in \\Lambda}\$が$overline(bb(R))$における開集合の族であるならば，$union.big_(lambda in Lambda) U_lambda$は$overline(bb(R))$において開集合である．
+  - ${ U_lambda }_(lambda in Lambda)$が$overline(bb(R))$における開集合の族であるならば，$union.big_(lambda in Lambda) U_lambda$は$overline(bb(R))$において開集合である．
 
   - $overline(bb(R))$の開集合は上記で定まるものに限る．
 
@@ -1775,7 +1775,7 @@ $sigma$-加法族を与えることも勿論できる．が，一般的に，ふ
 
 #defi[
   $\( X_1 \, cal(A)_1 \)$ならびに$\( X_2 \, cal(A)_2 \)$を可測空間とする．$X_1 times X_2$上の$sigma$-加法族
-  \$\$\\mathcal{A}\_1 \\otimes \\mathcal{A}\_2 \\coloneqq \\sigma\\left( \\set{A\_1 \\times A\_2 | A\_1 \\in \\mathcal{A}\_1, A\_2 \\in \\mathcal{A}\_2} \\right)\$\$を$cal(A)_1$と$cal(A)_2$の直積$sigma$-加法族という．$n$個の可測空間に対する直積$sigma$-加法族$cal(A)_1 times.circle dots.h times.circle cal(A)_n$も同様に定める．特に$cal(A)_1 = cal(A)_2 = dots.h = cal(A)_n eq.colon cal(A)$のとき，$cal(A)_1 times.circle dots.h times.circle cal(A)_n$を$cal(A)^n$と書く．
+  $ cal(A)_1 times.circle cal(A)_2 colon.eq sigma ({ A_1 times A_2 \| A_1 in cal(A)_1 \, A_2 in cal(A)_2 }) $を$cal(A)_1$と$cal(A)_2$の直積$sigma$-加法族という．$n$個の可測空間に対する直積$sigma$-加法族$cal(A)_1 times.circle dots.h times.circle cal(A)_n$も同様に定める．特に$cal(A)_1 = cal(A)_2 = dots.h = cal(A)_n eq.colon cal(A)$のとき，$cal(A)_1 times.circle dots.h times.circle cal(A)_n$を$cal(A)^n$と書く．
 
 ]
 #dig[
@@ -1790,7 +1790,7 @@ $sigma$-加法族を与えることも勿論できる．が，一般的に，ふ
 ]
 #proof[
   $n = 2$の場合を示す．
-  \$\\set{A | A \\times \\mathbb{R}\\in \\mathcal{B}(\\mathbb{R}^2)}\$は$bb(R)$の開集合をすべて含む$sigma$-加法族なので，$cal(B)$を含む．従って任意の$A in cal(B)$に対して$A times bb(R) in cal(B) \( bb(R)^2 \)$が成り立つ．同様に任意の$B in cal(B)$に対して$bb(R) times B in cal(B) \( bb(R)^2 \)$が成り立つ．ゆえに任意の$A \, B in cal(B)$に対して$A times B = \( A times bb(R) \) sect \( bb(R) times B \) in cal(B) \( bb(R)^2 \)$を得るので，$cal(B)^2 subset cal(B) \( bb(R)^2 \)$．逆の包含を示すには\$\\mathcal{B} = \\sigma(\\set{(a\_1, b\_1) \\times (a\_2,b\_2)| -\\infty\<a\_i \< b\_i \< \\infty, i=1,2})\$を示せばよいが，これは$bb(R)^2$の開集合が開方体の可算和で書けることから従う．$n > 2$の場合の証明もほぼ同様である．
+  ${ A \| A times bb(R) in cal(B) \( bb(R)^2 \) }$は$bb(R)$の開集合をすべて含む$sigma$-加法族なので，$cal(B)$を含む．従って任意の$A in cal(B)$に対して$A times bb(R) in cal(B) \( bb(R)^2 \)$が成り立つ．同様に任意の$B in cal(B)$に対して$bb(R) times B in cal(B) \( bb(R)^2 \)$が成り立つ．ゆえに任意の$A \, B in cal(B)$に対して$A times B = \( A times bb(R) \) sect \( bb(R) times B \) in cal(B) \( bb(R)^2 \)$を得るので，$cal(B)^2 subset cal(B) \( bb(R)^2 \)$．逆の包含を示すには$cal(B) = sigma \( { \( a_1 \, b_1 \) times \( a_2 \, b_2 \) \| - oo < a_i < b_i < oo \, i = 1 \, 2 } \)$を示せばよいが，これは$bb(R)^2$の開集合が開方体の可算和で書けることから従う．$n > 2$の場合の証明もほぼ同様である．
 
 ]
 #que[
@@ -1835,7 +1835,7 @@ $sigma$-加法族を与えることも勿論できる．が，一般的に，ふ
     Vitali
     集合という．$V in.not cal(B)$である．したがって，その指示関数$1_V : bb(R) arrow.r bb(R)$は$cal(B) \/ cal(B)$-可測ではない．
 
-  + \$\\set{f\_\\lambda \\colon X \\to \\mathbb{R}}\_{\\lambda \\in \\Lambda}\$を$bb(R)$-値可測関数の族とするとき，$Lambda$が非可算であるならば，$sup_(lambda in Lambda) f_lambda \( x \)$は可測とは限らない．例えば$Lambda$として$V$を取り，\$\\set{1\_x}\_{x \\in V}\$を考えればよい．
+  + ${ f_lambda : X arrow.r bb(R) }_(lambda in Lambda)$を$bb(R)$-値可測関数の族とするとき，$Lambda$が非可算であるならば，$sup_(lambda in Lambda) f_lambda \( x \)$は可測とは限らない．例えば$Lambda$として$V$を取り，${ 1_x }_(x in V)$を考えればよい．
 
 ]
 ところで，ここまでで$bb(R)^n$上の$sigma$-加法族に関する理解は深まった気がする一方，それ以外の$sigma$-加法族については相変わらずわからないままである．そもそも可測構造というのはどれくらいいろいろなものがあるのだろうか，というのは自然な疑問の一つだと思う．このノートでは証明まで踏み込むことはしないものの，かなり面白い（と個人的には思っている）一般論があるので述べておくことにしよう．ちなみにこの話は私は聞きかじっただけでちゃんと勉強したことがあるわけではない．
@@ -1849,7 +1849,7 @@ $sigma$-加法族を与えることも勿論できる．が，一般的に，ふ
 #que[
   $\( X \, cal(A) \)$を標準 Borel 空間とする．
 
-  - $\| X \| = n$であれば$\( X \, cal(A) \)$は\$(\\set{1, 2, \\dots, n}, 2^{\\set{1, 2, \\dots, n}})\$と同型である．
+  - $\| X \| = n$であれば$\( X \, cal(A) \)$は$\( { 1 \, 2 \, dots.h \, n } \, 2^({ 1 \, 2 \, dots.h \, n }) \)$と同型である．
 
   - $X$が可算無限であれば$\( X \, cal(A) \)$は$\( bb(N) \, 2^(bb(N)) \)$と同型である．
 
@@ -1877,7 +1877,7 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
   - （非負可測関数の場合）可測関数$f : X arrow.r \[ 0 \, oo \]$に対して，
     $ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $で定める．
 
-  - （一般の場合）可測関数$f : X arrow.r overline(bb(R))$に対して，\$f^+ \\coloneqq \\max\\set{f,0}\$，\$f^- \\coloneqq - \\min\\set{f,0}\$と定めると，この2つは非負可測関数であって，$f = f^(+) - f^(-)$である．$integral f^(+) "" #h(-1em) d mu$ならびに$integral f^(-) "" #h(-1em) d mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
+  - （一般の場合）可測関数$f : X arrow.r overline(bb(R))$に対して，$f^(+) colon.eq max { f \, 0 }$，$f^(-) colon.eq - min { f \, 0 }$と定めると，この2つは非負可測関数であって，$f = f^(+) - f^(-)$である．$integral f^(+) "" #h(-1em) d mu$ならびに$integral f^(-) "" #h(-1em) d mu$の少なくとも片方が有限であるとき，$f$の積分が定義できるといい，
     $ integral f "" #h(-1em) d mu colon.eq integral f^(+) "" #h(-1em) d mu - integral f^(-) "" #h(-1em) d mu $で定める．両方が無限大になった場合の積分は定義しない．
 
   - 積分が定義できる関数$f : X arrow.r bb(R)$ならびに$A in cal(A)$に対して，$f$の$A$上での積分を
@@ -1968,7 +1968,7 @@ $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r o
 Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以下に述べていく．
 
 #defi[
-  関数$f : X arrow.r bb(R)$と$g : X arrow.r bb(R)$が任意の$x in X$に対して$f \( x \) lt.eq g \( x \)$を充たすとき，$f lt.eq g$と書く．$f_1 lt.eq f_2 lt.eq dots.h.c$を充たす関数の族\$\\set{f\_n}\_{n=1}^\\infty\$が，任意の$x in X$に対して$lim_(n arrow.r oo) f_n \( x \) = f \( x \)$を充たすとき$f_n arrow.t f$と書く．
+  関数$f : X arrow.r bb(R)$と$g : X arrow.r bb(R)$が任意の$x in X$に対して$f \( x \) lt.eq g \( x \)$を充たすとき，$f lt.eq g$と書く．$f_1 lt.eq f_2 lt.eq dots.h.c$を充たす関数の族${ f_n }_(n = 1)^oo$が，任意の$x in X$に対して$lim_(n arrow.r oo) f_n \( x \) = f \( x \)$を充たすとき$f_n arrow.t f$と書く．
 
 ]
 #lem[
@@ -1997,7 +1997,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #lem[
-  $f : X arrow.r bb(R)$を非負可測関数とするとき，非負単関数からなる列\$\\set{f\_n}\_{n=1}^\\infty\$であって，$f_n arrow.t f$を充たすようなものがある．
+  $f : X arrow.r bb(R)$を非負可測関数とするとき，非負単関数からなる列${ f_n }_(n = 1)^oo$であって，$f_n arrow.t f$を充たすようなものがある．
 
 ]
 <非負単関数の列>
@@ -2021,10 +2021,10 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #proof[
-  証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$integral f_n "" #h(-1em) d mu$は$n$に関して非減少なので，$c colon.eq lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$が$\[ 0 \, oo \]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c lt.eq integral f "" #h(-1em) d mu$が成り立つ．$g : X arrow.r \[ 0 \, oo \]$を，$g lt.eq f$を充たすような任意の非負単関数とするとき，$integral g "" #h(-1em) d mu lt.eq c$を示せばよい．$g = sum_(i = 1)^m a_i 1_(A_i)$と表示する．非負単関数に対する積分の線型性より，各$1 lt.eq i lt.eq m$に対して$a_i mu \( A_i \) lt.eq lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu$を示せば充分なのでそうする．$epsilon in \( 0 \, 1 \)$を任意に固定し，\$B\_{n,i} \\coloneqq \\set{x \\in X | f\_n(x) 1\_{A\_i} \> (1-\\varepsilon) a\_i }\$と置くと，$B_(n \, i) arrow.t A_i$．更に$integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq integral f_n 1_(B_(n \, i)) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) mu \( B_(n \, i) \)$であるから，$n arrow.r oo$の極限をとって$lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) a_i mu \( A_i \)$であり，$epsilon arrow.r 0$の極限を取ることで結論を得る．
+  証明を二段階に分割する．まず$f_n$が非負単関数の列であった場合を考えると，$integral f_n "" #h(-1em) d mu$は$n$に関して非減少なので，$c colon.eq lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu$が$\[ 0 \, oo \]$の範囲に存在する．更に非負可測関数に対する積分の定義より，$c lt.eq integral f "" #h(-1em) d mu$が成り立つ．$g : X arrow.r \[ 0 \, oo \]$を，$g lt.eq f$を充たすような任意の非負単関数とするとき，$integral g "" #h(-1em) d mu lt.eq c$を示せばよい．$g = sum_(i = 1)^m a_i 1_(A_i)$と表示する．非負単関数に対する積分の線型性より，各$1 lt.eq i lt.eq m$に対して$a_i mu \( A_i \) lt.eq lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu$を示せば充分なのでそうする．$epsilon in \( 0 \, 1 \)$を任意に固定し，$B_(n \, i) colon.eq { x in X \| f_n \( x \) 1_(A_i) > \( 1 - epsilon \) a_i }$と置くと，$B_(n \, i) arrow.t A_i$．更に$integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq integral f_n 1_(B_(n \, i)) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) mu \( B_(n \, i) \)$であるから，$n arrow.r oo$の極限をとって$lim_(n arrow.r oo) integral f_n 1_(A_i) "" #h(-1em) d mu gt.eq \( 1 - epsilon \) a_i mu \( A_i \)$であり，$epsilon arrow.r 0$の極限を取ることで結論を得る．
 
   次に$f_n$が非負可測関数の列であった場合を考える．補題@非負単関数の列
-  より非負単関数の列\$\\set{g\_{n,i}}\_{i=1}^\\infty\$であって$g_(n \, i) arrow.t f_n$であるようなものがある．\$h\_m \\coloneqq \\max\\set{ g\_{m,1}, g\_{m,2},\\dots, g\_{m,m} }\$と置けば\$\\set{h\_m}\_{m=1}^\\infty\$は単関数であって，$h_m lt.eq f_m$ならびに$h_m arrow.t f$を充たす．積分の単調性より$integral h_m "" #h(-1em) d mu lt.eq integral f_m "" #h(-1em) d mu lt.eq integral f "" #h(-1em) d mu$であり，前段の結果より$lim_(m arrow.r oo) integral h_m "" #h(-1em) d mu = integral f "" #h(-1em) d mu$なので，はさみうちの原理より$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$である．
+  より非負単関数の列${ g_(n \, i) }_(i = 1)^oo$であって$g_(n \, i) arrow.t f_n$であるようなものがある．$h_m colon.eq max { g_(m \, 1) \, g_(m \, 2) \, dots.h \, g_(m \, m) }$と置けば${ h_m }_(m = 1)^oo$は単関数であって，$h_m lt.eq f_m$ならびに$h_m arrow.t f$を充たす．積分の単調性より$integral h_m "" #h(-1em) d mu lt.eq integral f_m "" #h(-1em) d mu lt.eq integral f "" #h(-1em) d mu$であり，前段の結果より$lim_(m arrow.r oo) integral h_m "" #h(-1em) d mu = integral f "" #h(-1em) d mu$なので，はさみうちの原理より$lim_(n arrow.r oo) integral f_n "" #h(-1em) d mu = integral f "" #h(-1em) d mu$である．
 
 ]
 #thm[
@@ -2054,7 +2054,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #proof[
-  $f \, g$が非負ならば，非負単関数の列\$\\set{f\_n}\$ならびに\$\\set{g\_n}\$であって$f_n arrow.t f$，$g_n arrow.t g$を充たすものをとった上で単調収束定理を繰り返し使うと$a integral f "" #h(-1em) d mu + b integral g "" #h(-1em) d mu = a integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu + b integral lim_(n arrow.r oo) g_n "" #h(-1em) d mu = lim_(n arrow.r oo) a integral f_n "" #h(-1em) d mu + b integral g_n "" #h(-1em) d mu = lim_(n arrow.r oo) integral \( a f_n + b g_n \) "" #h(-1em) d mu = integral \( f + g \) "" #h(-1em) d mu$．$f \, g in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
+  $f \, g$が非負ならば，非負単関数の列${ f_n }$ならびに${ g_n }$であって$f_n arrow.t f$，$g_n arrow.t g$を充たすものをとった上で単調収束定理を繰り返し使うと$a integral f "" #h(-1em) d mu + b integral g "" #h(-1em) d mu = a integral lim_(n arrow.r oo) f_n "" #h(-1em) d mu + b integral lim_(n arrow.r oo) g_n "" #h(-1em) d mu = lim_(n arrow.r oo) a integral f_n "" #h(-1em) d mu + b integral g_n "" #h(-1em) d mu = lim_(n arrow.r oo) integral \( a f_n + b g_n \) "" #h(-1em) d mu = integral \( f + g \) "" #h(-1em) d mu$．$f \, g in L^1$の場合は正部分と負部分に分けて非負可測関数に対する積分の線型性を適用すればよい．
 
 ]
 #thm[
@@ -2090,7 +2090,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 ]
 <微分と積分の交換>
 #proof[
-  $t_0 in \( a \, b \)$を任意にひとつ固定する．$bb(R)$の点列\$\\set{\\delta\_n}\_{n=1}^\\infty\$を，$delta_1 < b - t_0$ならびに$delta_n arrow.b 0$を充たすように取る．平均値の定理より，任意の$x in X$ならびに$n in bb(N)$に対してある$theta_(t_0 \, x \, n) in \[ 0 \, 1 \]$が存在して
+  $t_0 in \( a \, b \)$を任意にひとつ固定する．$bb(R)$の点列${ delta_n }_(n = 1)^oo$を，$delta_1 < b - t_0$ならびに$delta_n arrow.b 0$を充たすように取る．平均値の定理より，任意の$x in X$ならびに$n in bb(N)$に対してある$theta_(t_0 \, x \, n) in \[ 0 \, 1 \]$が存在して
   $ frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n) = frac(d g_x, d t) \( x \, t_0 + theta_(t_0 \, x \, n) delta_n \) $が成り立つ．従って任意の$t_0 in \( a \, b \)$，$x in X$ならびに$n in bb(N)$に対して$lr(|frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n)|) lt.eq h \( x \)$が成り立つから，優収束定理より
   $ lim_(n arrow.r oo) frac(integral f \( x \, t_0 + delta_n \) "" #h(-1em) d mu \( x \) - integral f \( x \, t_0 \) "" #h(-1em) d mu \( x \), delta_n) = integral lim_(n arrow.r oo) frac(f \( x \, t_0 + delta_n \) - f \( x \, t_0 \), delta_n) "" #h(-1em) d mu \( x \) $を得るので結論が従う．
 
@@ -2166,7 +2166,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 
 ]
 #exm[
-  ここでは$\( bb(N) \, 2^(bb(N)) \)$上の計数測度を考える．この測度に関する$L^p$空間のことを$ell^p$と書くことにする；すなわち，\$\\ell^p \\coloneqq \\set{ \\set{x\_i} \\in \\mathbb{R}^\\mathbb{N}| \\sum\_{i=1}^\\infty |x\_i|^p \< \\infty }\$．この設定のもとでは，$p lt.eq q$ならば$ell^p subset.neq ell^q$が成り立つ．それを見るために$x in ell^p$を取ると，ある適当な$N in bb(N)$が存在して，$i gt.eq N$ならば$x_i < 1$である．従って$sum_(i = N)^oo \| x_i \|^q lt.eq sum_(i = N)^oo \| x_i \|^p < oo$だから$f in ell^q$．また，$y_i colon.eq 1 \/ i$によって数列\$\\set{y\_i}\$を定めると，例えば$sum_(i = 1)^oo \( y_i \)^2 = pi^2 \/ 6 < oo$であるが，$sum_(i = 1)^oo y_i = oo$なので$ell^1 subset.neq ell^2$である．
+  ここでは$\( bb(N) \, 2^(bb(N)) \)$上の計数測度を考える．この測度に関する$L^p$空間のことを$ell^p$と書くことにする；すなわち，\$\\ell^p \\coloneqq \\{  \\set{x\_i} \\in \\mathbb{R}^\\mathbb{N}| \\sum\_{i=1}^\\infty |x\_i|^p \< \\infty  \\}\$．この設定のもとでは，$p lt.eq q$ならば$ell^p subset.neq ell^q$が成り立つ．それを見るために$x in ell^p$を取ると，ある適当な$N in bb(N)$が存在して，$i gt.eq N$ならば$x_i < 1$である．従って$sum_(i = N)^oo \| x_i \|^q lt.eq sum_(i = N)^oo \| x_i \|^p < oo$だから$f in ell^q$．また，$y_i colon.eq 1 \/ i$によって数列${ y_i }$を定めると，例えば$sum_(i = 1)^oo \( y_i \)^2 = pi^2 \/ 6 < oo$であるが，$sum_(i = 1)^oo y_i = oo$なので$ell^1 subset.neq ell^2$である．
 
 ]
 == 拡張定理の証明
@@ -2178,17 +2178,14 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
   $ mu^(\*) \( E \) colon.eq inf {sum_(i = 1)^oo mu \( A_i \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i med upright("and") med A_1 \, A_2 \, dots.h in cal(A)} $によって定める．$E in cal(A)$であるならば，集合列$A_i$を$A_1 = E \, A_2 = nothing \, A_3 = nothing \, dots.h$のように取って考えることで$mu^(\*) \( E \) lt.eq mu \( E \)$がわかる．逆向きの不等式を示せば$mu^(\*)$は写像として$mu$の拡張になっていることがわかるが，このノートではまだサボっている（ここに$mu$の$cal(A)$上での可算加法性を使う）．したがって$mu^(\*)$が$sigma \( cal(A) \)$上の測度であることを示せばよい．以下，一般に実数の部分集合が$A subset B$を充たすならば$inf B lt.eq inf A$であることに注意する．
 
   まず$mu^(\*)$の単調性，すなわち$E \, F in 2^X$が$E subset F$を充たすならば$mu^(\*) \( E \) lt.eq mu^(\*) \( F \)$となることを示す．
-  \$\$\\left\\{ \\set{A\_i} \\subset \\mathcal{A}  \\ \\middle| \\ F \\subset \\bigcup\_{i=1}^\\infty A\_i \\right\\}
-  \\subset
-  \\left\\{ \\set{A\_i}  \\subset \\mathcal{A} \\ \\middle| \\ E \\subset \\bigcup\_{i=1}^\\infty A\_i \\right\\}\$\$であるから，
+  $ {{ A_i } subset cal(A) med mid(bar.v) med F subset union.big_(i = 1)^oo A_i} subset {{ A_i } subset cal(A) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i} $であるから，
   $ {sum_(i = 1)^oo mu \( A_i \) med mid(bar.v) med F subset union.big_(i = 1)^oo A_i med upright("and") med A_1 \, A_2 \, dots.h in cal(A)} subset {sum_(i = 1)^oo mu \( A_i \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i med upright("and") med A_1 \, A_2 \, dots.h in cal(A)} $すなわち$mu^(\*) \( E \) lt.eq mu^(\*) \( F \)$を得る．
 
-  つづいて$mu^(\*)$の可算劣加法性，すなわち$E_1 \, E_2 \, dots.h in 2^X$に対して$mu^(\*) (union.big_(n = 1)^oo E_n) lt.eq sum_(n = 1)^oo mu^(\*) \( E_n \)$となることを示す．$epsilon > 0$を任意にひとつ取って固定する．各$n = 1 \, 2 \, dots.h$に対して，$cal(A)$の元の族\$\\set{A\_{n,i}}\_{i=1}^\\infty\$を$E_n subset union.big_(i = 1)^oo A_(n \, i)$ならびに$sum_(i = 1)^oo mu \( A_(n \, i) \) < mu^(\*) \( E_n \) + epsilon / 2^n$を充たすように取れるので取る．このとき$union.big_(n = 1)^oo E_n subset union.big_(i \, n = 1)^oo A_(n \, i)$なので，
+  つづいて$mu^(\*)$の可算劣加法性，すなわち$E_1 \, E_2 \, dots.h in 2^X$に対して$mu^(\*) (union.big_(n = 1)^oo E_n) lt.eq sum_(n = 1)^oo mu^(\*) \( E_n \)$となることを示す．$epsilon > 0$を任意にひとつ取って固定する．各$n = 1 \, 2 \, dots.h$に対して，$cal(A)$の元の族${ A_(n \, i) }_(i = 1)^oo$を$E_n subset union.big_(i = 1)^oo A_(n \, i)$ならびに$sum_(i = 1)^oo mu \( A_(n \, i) \) < mu^(\*) \( E_n \) + epsilon / 2^n$を充たすように取れるので取る．このとき$union.big_(n = 1)^oo E_n subset union.big_(i \, n = 1)^oo A_(n \, i)$なので，
   $ mu^(\*) (union.big_(n = 1)^oo E_n) lt.eq sum_(i \, n = 1)^oo mu \( A_(n \, i) \) < epsilon + sum_(n = 1)^oo mu^(\*) \( E_n \) $を得る．$epsilon > 0$は任意だったので可算劣加法性が従う．
 
   更に，次の性質を充たすような集合族$cal(C)$が$cal(A)$を含む$sigma$-加法族であることを示す；$A in cal(C)$であるならば，任意の$E in 2^X$に対して，$mu^(\*) \( E \) = mu^(\*) \( E sect A \) + mu^(\*) \( E \\ A \)$．まず$A in cal(A)$を任意に取る．すると$E subset union.big_(i = 1)^oo A_i$ならば$E sect A subset union.big_(i = 1)^oo \( A_i sect A \)$なので，
-  \$\$\\left\\{ \\set{A\_i \\cap A} \\subset \\mathcal{A} \\ \\middle| \\  E \\subset \\bigcup\_{i=1}^\\infty A\_i \\right\\} \\subset
-  \\left\\{ \\set{B\_i} \\subset \\mathcal{A} \\ \\middle| \\  E \\cap A \\subset \\bigcup\_{i=1}^\\infty B\_i \\right\\}\$\$すなわち
+  $ {{ A_i sect A } subset cal(A) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i} subset {{ B_i } subset cal(A) med mid(bar.v) med E sect A subset union.big_(i = 1)^oo B_i} $すなわち
   $ mu^(\*) \( E sect A \) lt.eq inf {sum_(i = 1)^oo mu \( A_i sect A \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i} $を得る．同様にして
   $ mu^(\*) \( E \\ A \) lt.eq inf {sum_(i = 1)^oo mu \( A_i \\ A \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i} $も従う．ゆえに
   $ mu^(\*) \( E sect A \) + mu^(\*) \( E \\ A \) & lt.eq inf {sum_(i = 1)^oo mu \( A_i \\ A \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i} + inf {sum_(i = 1)^oo mu \( A_i sect A \) med mid(bar.v) med E subset union.big_(i = 1)^oo A_i}\
@@ -2201,7 +2198,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
   $ mu^(\*) \( E \) = mu^(\*) (E \\ union.big_(i = 1)^n A_i) + sum_(i = 1)^n mu^(\*) (E sect B_i) $を得る．なので
   $ mu^(\*) \( E \) gt.eq mu^(\*) (E \\ union.big_(i = 1)^oo A_i) + sum_(i = 1)^n mu^(\*) (E sect B_i) $となるから，第二項に対して$n arrow.r oo$とした上で可算劣加法性を使うことで結論が従う．以上より特に任意の$A in sigma \( cal(A) \)$ならびに$E in 2^X$に対して，$mu^(\*) \( E \) = mu^(\*) \( E sect A \) + mu^(\*) \( E \\ A \)$であるとわかった．
 
-  最後に，$mu^(\*)$が$sigma \( cal(A) \)$上で可算加法的であることを示す．\$\\set{A\_i}\_{i=1}^\\infty\$を排反な$sigma \( cal(A) \)$の元の族とする．やはり可算劣加法性により$mu^(\*) (union.big_(i = 1)^oo A_i) gt.eq sum_(i = 1)^oo mu^(\*) \( A_i \)$を示せば充分なので，そうする．$mu^(\*) (union.big_(i = 1)^oo A_i) = oo$ならばやることはないので，以下$mu^(\*) (union.big_(i = 1)^oo A_i) < oo$とする．先程示した性質によって$mu^(\*) (union.big_(i = 1)^oo A_i) = mu^(\*) (union.big_(i = 1)^n A_i) + mu^(\*) (union.big_(i = n + 1)^oo A_i)$を得るので，特に$mu^(\*) (union.big_(i = 1)^oo A_i) - mu^(\*) (union.big_(i = 1)^n A_i) = mu^(\*) (union.big_(i = n + 1)^oo A_i) gt.eq 0$すなわち$mu^(\*) (union.big_(i = 1)^oo A_i) gt.eq sum_(i = 1)^n mu^(\*) (A_i)$となるから，$n arrow.r oo$とすることで定理の主張を得る．
+  最後に，$mu^(\*)$が$sigma \( cal(A) \)$上で可算加法的であることを示す．${ A_i }_(i = 1)^oo$を排反な$sigma \( cal(A) \)$の元の族とする．やはり可算劣加法性により$mu^(\*) (union.big_(i = 1)^oo A_i) gt.eq sum_(i = 1)^oo mu^(\*) \( A_i \)$を示せば充分なので，そうする．$mu^(\*) (union.big_(i = 1)^oo A_i) = oo$ならばやることはないので，以下$mu^(\*) (union.big_(i = 1)^oo A_i) < oo$とする．先程示した性質によって$mu^(\*) (union.big_(i = 1)^oo A_i) = mu^(\*) (union.big_(i = 1)^n A_i) + mu^(\*) (union.big_(i = n + 1)^oo A_i)$を得るので，特に$mu^(\*) (union.big_(i = 1)^oo A_i) - mu^(\*) (union.big_(i = 1)^n A_i) = mu^(\*) (union.big_(i = n + 1)^oo A_i) gt.eq 0$すなわち$mu^(\*) (union.big_(i = 1)^oo A_i) gt.eq sum_(i = 1)^n mu^(\*) (A_i)$となるから，$n arrow.r oo$とすることで定理の主張を得る．
 
 ]
 #dig[
@@ -2222,20 +2219,20 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
 一意性の証明にうつる．$pi$-$lambda$定理の証明もここで行う．
 
 #proof[
-  $lambda$-システムは$sigma$-加法族と同様に共通部分をとる操作について閉じている；\$\\set{\\mathcal{L}\_\\mu}\_{\\mu \\in M}\$が$lambda$-システムの族であるならば，$sect.big_(mu in M) cal(L)_mu$もまた$lambda$-システムである．そこで，\$L \\coloneqq \\set{ \\mathcal{L} | \\mathcal{L} \\text{は} \\mathcal{P} \\text{を含む}\\ \\lambda\\text{-システム} }\$として，$cal(L)^(\*) colon.eq sect.big_(cal(L) in L) cal(L)$が$sigma$-加法族であることを示せば証明が完結するからそうする．
+  $lambda$-システムは$sigma$-加法族と同様に共通部分をとる操作について閉じている；${ cal(L)_mu }_(mu in M)$が$lambda$-システムの族であるならば，$sect.big_(mu in M) cal(L)_mu$もまた$lambda$-システムである．そこで，$L colon.eq { cal(L) \| cal(L) upright("は") cal(P) upright("を含む") med lambda upright("-システム") }$として，$cal(L)^(\*) colon.eq sect.big_(cal(L) in L) cal(L)$が$sigma$-加法族であることを示せば証明が完結するからそうする．
 
-  「$nothing in cal(L)^(\*)$」および「$A in cal(L)^(\*)$ならば$X \\ A in cal(L)^(\*)$」は$cal(L)^(\*)$の定め方からわかる．$cal(L)^(\*)$が$pi$-システムであることを示せば，$A \, B in cal(L)^(\*)$に対して$A union B = X \\ \( A^C sect B^C \) in cal(L)^(\*)$がわかる．このことから$cal(L)^(\*)$の族\$\\set{A\_i}\_{i=1}^\\infty\$に対して$union.big_(i = 1)^n A_i in cal(L)^(\*)$が従うので，$cal(L)^(\*)$が$lambda$-システムであることと併せて$union.big_(i = 1)^n A_i arrow.t union.big_(i = 1)^oo A_i in cal(L)^(\*)$を得る．
+  「$nothing in cal(L)^(\*)$」および「$A in cal(L)^(\*)$ならば$X \\ A in cal(L)^(\*)$」は$cal(L)^(\*)$の定め方からわかる．$cal(L)^(\*)$が$pi$-システムであることを示せば，$A \, B in cal(L)^(\*)$に対して$A union B = X \\ \( A^C sect B^C \) in cal(L)^(\*)$がわかる．このことから$cal(L)^(\*)$の族${ A_i }_(i = 1)^oo$に対して$union.big_(i = 1)^n A_i in cal(L)^(\*)$が従うので，$cal(L)^(\*)$が$lambda$-システムであることと併せて$union.big_(i = 1)^n A_i arrow.t union.big_(i = 1)^oo A_i in cal(L)^(\*)$を得る．
 
-  以下，$cal(L)^(\*)$が$pi$-システムであることを示す．$A in cal(P)$を任意に固定し，\$\\mathcal{D}\_A \\coloneqq \\set{ B \\in \\mathcal{L}^\* | A \\cap B \\in \\mathcal{L}^\* }\$と置く．$cal(D)_A$が$cal(P)$を含む$lambda$-システムであることを示せば，$cal(L)^(\*) = cal(D)_A$がわかるので，$A$の任意性と併せて次のことが言える；任意の$A in cal(P)$および$B in cal(L)^(\*)$に対して$A sect B in cal(L)^(\*)$．その上で今度は$B in cal(L)^(\*)$を任意に固定し，\$\\mathcal{E}\_B \\coloneqq \\set{A \\in \\mathcal{L}^\* | A \\cap B \\in \\mathcal {L}^\*}\$と置いて，$cal(E)_B$が$cal(P)$を含む$lambda$-システムであることを示せば，$cal(L)^(\*) = cal(E)_B$がわかるので，$B$の任意性と併せて$cal(L)^(\*)$が$pi$-システムであることが従う．
+  以下，$cal(L)^(\*)$が$pi$-システムであることを示す．$A in cal(P)$を任意に固定し，$cal(D)_A colon.eq { B in cal(L)^(\*) \| A sect B in cal(L)^(\*) }$と置く．$cal(D)_A$が$cal(P)$を含む$lambda$-システムであることを示せば，$cal(L)^(\*) = cal(D)_A$がわかるので，$A$の任意性と併せて次のことが言える；任意の$A in cal(P)$および$B in cal(L)^(\*)$に対して$A sect B in cal(L)^(\*)$．その上で今度は$B in cal(L)^(\*)$を任意に固定し，$cal(E)_B colon.eq { A in cal(L)^(\*) \| A sect B in cal(L)^(\*) }$と置いて，$cal(E)_B$が$cal(P)$を含む$lambda$-システムであることを示せば，$cal(L)^(\*) = cal(E)_B$がわかるので，$B$の任意性と併せて$cal(L)^(\*)$が$pi$-システムであることが従う．
 
-  議論は同様なので$cal(D)_A$が$cal(P)$を含む$lambda$-システムであることだけを示す．$cal(P)$は$pi$-システムなので$cal(P) subset cal(D)_A$である．$A in cal(L)^(\*)$だから$X in cal(D)_A$もよい．$B \, C in cal(D)_A$を$B subset C$を充たすようにとれば，$A sect \( C \\ B \) = \( A sect C \) \\ \( A sect B \) in cal(L)^(\*)$となるので$C \\ B in cal(D)_A$である．集合の増大列\$\\set{B\_i}\$，$B_i in cal(D)_A$を取ると，$A sect union.big_(i = 1)^n B_i in cal(L)^(\*)$なので$A sect union.big_(i = 1)^n B_i arrow.t A sect union.big_(i = 1)^oo B_i in cal(L)^(\*)$であるから$union.big_(i = 1)^oo B_i in cal(D)_A$である．
+  議論は同様なので$cal(D)_A$が$cal(P)$を含む$lambda$-システムであることだけを示す．$cal(P)$は$pi$-システムなので$cal(P) subset cal(D)_A$である．$A in cal(L)^(\*)$だから$X in cal(D)_A$もよい．$B \, C in cal(D)_A$を$B subset C$を充たすようにとれば，$A sect \( C \\ B \) = \( A sect C \) \\ \( A sect B \) in cal(L)^(\*)$となるので$C \\ B in cal(D)_A$である．集合の増大列${ B_i }$，$B_i in cal(D)_A$を取ると，$A sect union.big_(i = 1)^n B_i in cal(L)^(\*)$なので$A sect union.big_(i = 1)^n B_i arrow.t A sect union.big_(i = 1)^oo B_i in cal(L)^(\*)$であるから$union.big_(i = 1)^oo B_i in cal(D)_A$である．
 
 ]
 #proof[
   $nu_1 \, nu_2$を$mu$の拡張とし，$A in cal(A)$を$mu \( A \) < oo$を充たすように任意に1つ取って固定する．その上で，
-  \$\$\\mathcal{L}\_A \\coloneqq \\set{ B \\in \\sigma(\\mathcal{A}) | \\nu\_1(A \\cap B) = \\nu\_2(A \\cap B)}\$\$と置く．$cal(L)_A$が$cal(A)$を含む$lambda$-システムであることが示せたとすると，$pi$-$lambda$定理によって$sigma \( cal(A) \) = cal(L)_A$を得る．$A$は$mu \( A \) < oo$を満たせば任意だったので，$mu \( A \) < oo$を充たす任意の$A in cal(A)$ならびに任意の$B in sigma \( cal(A) \)$に対して$nu_1 \( A sect B \) = nu_2 \( A sect B \)$を得る．$mu$は$cal(A)$上$sigma$-有限なので，$mu \( A_i \) < oo$を充たす集合の増大列$A_i$があり$union.big_(i = 1)^oo A_i = X$である．したがって任意の$B in sigma \( cal(A) \)$に対して$B sect A_i arrow.t B$であるから，$nu_1 \( B \) = lim_(i arrow.r oo) nu_1 \( B sect A_i \) lim_(i arrow.r oo) nu_2 \( B sect A_i \) = nu_2 \( B \)$すなわち$nu_1 = nu_2$を得る．
+  $ cal(L)_A colon.eq { B in sigma \( cal(A) \) \| nu_1 \( A sect B \) = nu_2 \( A sect B \) } $と置く．$cal(L)_A$が$cal(A)$を含む$lambda$-システムであることが示せたとすると，$pi$-$lambda$定理によって$sigma \( cal(A) \) = cal(L)_A$を得る．$A$は$mu \( A \) < oo$を満たせば任意だったので，$mu \( A \) < oo$を充たす任意の$A in cal(A)$ならびに任意の$B in sigma \( cal(A) \)$に対して$nu_1 \( A sect B \) = nu_2 \( A sect B \)$を得る．$mu$は$cal(A)$上$sigma$-有限なので，$mu \( A_i \) < oo$を充たす集合の増大列$A_i$があり$union.big_(i = 1)^oo A_i = X$である．したがって任意の$B in sigma \( cal(A) \)$に対して$B sect A_i arrow.t B$であるから，$nu_1 \( B \) = lim_(i arrow.r oo) nu_1 \( B sect A_i \) lim_(i arrow.r oo) nu_2 \( B sect A_i \) = nu_2 \( B \)$すなわち$nu_1 = nu_2$を得る．
 
-  あとは$cal(L)_A$が$cal(A)$を含む$lambda$-システムであることを示せば良い．$cal(A)$上$nu_1 = nu_2$で，かつ$cal(A)$は$pi$-システムなので$cal(A) subset cal(L)_A$である．したがって$X in cal(L)_A$もよい．$B_1 \, B_2 in cal(L)_A$が$B_1 subset B_2$を充たすならば，$nu_1 \( A sect \( B_2 \\ B_1 \) \) = nu_1 \( \( A sect B_2 \) \\ \( A sect B_1 \) \) = nu_1 \( A sect B_2 \) - nu_1 \( A sect B_1 \) = nu_2 \( A sect B_2 \) - nu_2 \( A sect B_1 \) = nu_2 \( \( A sect B_2 \) \\ \( A sect B_1 \) \) = nu_2 \( A sect \( B_2 \\ B_1 \) \)$なので$B_2 \\ B_1 in cal(L)_A$である（ここで$nu_1 \( A \) = nu_2 \( A \) < oo$を使っている）．$B_i arrow.t B$なる\$\\set{B\_i} \\subset \\mathcal{L}\_A\$に対して$nu_1 \( A sect B \) = lim_(i arrow.r oo) nu_1 \( A sect B_i \) = lim_(i arrow.r oo) nu_2 \( A sect B_i \) = nu_2 \( A sect B \)$であるので，$B in cal(L)_A$である．
+  あとは$cal(L)_A$が$cal(A)$を含む$lambda$-システムであることを示せば良い．$cal(A)$上$nu_1 = nu_2$で，かつ$cal(A)$は$pi$-システムなので$cal(A) subset cal(L)_A$である．したがって$X in cal(L)_A$もよい．$B_1 \, B_2 in cal(L)_A$が$B_1 subset B_2$を充たすならば，$nu_1 \( A sect \( B_2 \\ B_1 \) \) = nu_1 \( \( A sect B_2 \) \\ \( A sect B_1 \) \) = nu_1 \( A sect B_2 \) - nu_1 \( A sect B_1 \) = nu_2 \( A sect B_2 \) - nu_2 \( A sect B_1 \) = nu_2 \( \( A sect B_2 \) \\ \( A sect B_1 \) \) = nu_2 \( A sect \( B_2 \\ B_1 \) \)$なので$B_2 \\ B_1 in cal(L)_A$である（ここで$nu_1 \( A \) = nu_2 \( A \) < oo$を使っている）．$B_i arrow.t B$なる${ B_i } subset cal(L)_A$に対して$nu_1 \( A sect B \) = lim_(i arrow.r oo) nu_1 \( A sect B_i \) = lim_(i arrow.r oo) nu_2 \( A sect B_i \) = nu_2 \( A sect B \)$であるので，$B in cal(L)_A$である．
 
 ]
 10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
@@ -2256,7 +2253,7 @@ Riemann 計量の存在証明に用いられる．
 測度を$bb(R)^n$に拡張する．より一般に，2つ以上の測度空間が与えられているときに，その可測空間の直積に直積測度と呼ばれる測度をつくることができる．$bb(R)^n$上の
 Lebesgue 測度は直積測度の一例として捉えられる．
 
-以下暫く，$\( X_1 \, cal(A)_1 \, mu_1 \)$および$\( X_2 \, cal(A)_2 \, mu_2 \)$を$sigma$-有限な測度空間とする．\$\\mathcal{A} \\coloneqq \\set{A\_1 \\times A\_2 | A\_1 \\in \\mathcal{A}\_1, A\_2 \\in \\mathcal{A}\_2}\$と置く．すでに定義したように，$cal(A)_1 times.circle cal(A)_2 = sigma \( cal(A) \)$である．
+以下暫く，$\( X_1 \, cal(A)_1 \, mu_1 \)$および$\( X_2 \, cal(A)_2 \, mu_2 \)$を$sigma$-有限な測度空間とする．$cal(A) colon.eq { A_1 times A_2 \| A_1 in cal(A)_1 \, A_2 in cal(A)_2 }$と置く．すでに定義したように，$cal(A)_1 times.circle cal(A)_2 = sigma \( cal(A) \)$である．
 
 #thm[
   $mu : cal(A) arrow.r \[ 0 \, oo \]$を$mu \( A_1 times A_2 \) colon.eq mu_1 \( A_1 \) mu_2 \( A_2 \)$で定める．このとき，$mu$は$cal(A)_1 times.circle cal(A)_2$上の測度に一意的に拡張できる．
@@ -2270,7 +2267,7 @@ Lebesgue 測度は直積測度の一例として捉えられる．
   測度の構成のときと同様にして示せるから，$sigma \( cal(A) \) = sigma (overline(cal(A)))$と併せて
   Carathéodory の拡張定理によって主張が従う．
 
-  以下，$mu$が$cal(A)$上で可算加法的であることを示す．すなわち排反な$cal(A)$の元の族\$\\set{A\_i}\_{i=1}^\\infty\$に対して$union.big_(i = 1)^oo A_i eq.colon A in cal(A)$であったと仮定して$mu \( A \) = sum_(i = 1)^oo mu \( A_i \)$を示す．$A_i in cal(A)$なので，$B_i in cal(A)_1$ならびに$C_i in cal(A)_2$を用いて$A_i = B_i times C_i$と書ける．$A in cal(A)$についても同様に$A = B times C$を充たす$B in cal(A)_1$ならびに$C in cal(A)_2$がある．$A_i$たちの排反性から，$1_B 1_C = 1_(B times C) = sum_(i = 1)^oo 1_(B_i times C_i) = sum_(i = 1)^oo 1_(B_i) 1_(C_i)$である．両辺を$mu_1$に関して積分すると$mu_1 \( B \) 1_C = sum_(i = 1)^oo mu_1 \( B_i \) 1_(C_i)$である（ここで級数と積分が交換できることを使った）．同様に$mu_2$に関しても積分することで$mu_1 \( B \) mu_2 \( C \) = sum_(i = 1)^oo mu_1 \( B_i \) mu_2 \( C_i \)$すなわち$mu \( A \) = sum_(i = 1)^oo mu \( A_i \)$を得る．
+  以下，$mu$が$cal(A)$上で可算加法的であることを示す．すなわち排反な$cal(A)$の元の族${ A_i }_(i = 1)^oo$に対して$union.big_(i = 1)^oo A_i eq.colon A in cal(A)$であったと仮定して$mu \( A \) = sum_(i = 1)^oo mu \( A_i \)$を示す．$A_i in cal(A)$なので，$B_i in cal(A)_1$ならびに$C_i in cal(A)_2$を用いて$A_i = B_i times C_i$と書ける．$A in cal(A)$についても同様に$A = B times C$を充たす$B in cal(A)_1$ならびに$C in cal(A)_2$がある．$A_i$たちの排反性から，$1_B 1_C = 1_(B times C) = sum_(i = 1)^oo 1_(B_i times C_i) = sum_(i = 1)^oo 1_(B_i) 1_(C_i)$である．両辺を$mu_1$に関して積分すると$mu_1 \( B \) 1_C = sum_(i = 1)^oo mu_1 \( B_i \) 1_(C_i)$である（ここで級数と積分が交換できることを使った）．同様に$mu_2$に関しても積分することで$mu_1 \( B \) mu_2 \( C \) = sum_(i = 1)^oo mu_1 \( B_i \) mu_2 \( C_i \)$すなわち$mu \( A \) = sum_(i = 1)^oo mu \( A_i \)$を得る．
 
 ]
 #defi[
@@ -2327,7 +2324,7 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
   + $cal(A)_1 times.circle cal(A)_2$の元の指示関数に対して示せたならば，単調収束定理と補題
     @非負単関数の列
     を用いることで一般の非負可測関数に対しても結論が従うので，以下では$f$が指示関数の場合を示す．
-    \$\$\\mathcal{C} \\coloneqq \\set{ A \\in \\mathcal{A}\_1 \\otimes \\mathcal{A}\_2 | 1\_A \\text{に対して (i-a), (i-b), (i-c) が成り立つ} }\$\$と置いて，$cal(C) supset cal(A)_1 times.circle cal(A)_2$を示す．$pi$-$lambda$定理を踏まえれば，次の3点を示せば充分である．
+    $ cal(C) colon.eq { A in cal(A)_1 times.circle cal(A)_2 \| 1_A upright("に対して (i-a), (i-b), (i-c) が成り立つ") } $と置いて，$cal(C) supset cal(A)_1 times.circle cal(A)_2$を示す．$pi$-$lambda$定理を踏まえれば，次の3点を示せば充分である．
     ($alpha$) $cal(A) subset cal(C)$．($beta$)
     $cal(A)$は$pi$-システムである．($gamma$)
     $cal(C)$は$lambda$-システムである．このうち ($alpha$), ($beta$)
@@ -2341,7 +2338,7 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
       (ii-b)
       もよい（ここで$mu \( X \) < oo$なので右辺は必ず定義される）．最後に$integral 1_(F \\ E) "" #h(-1em) d \( mu_1 times mu_2 \) = integral 1_F "" #h(-1em) d \( mu_1 times mu_2 \) - integral 1_E "" #h(-1em) d \( mu_1 times mu_2 \) = integral 1_F "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 - integral 1_E "" #h(-1em) d mu_1 "" #h(-1em) d mu_2 = integral 1_(F \\ E) "" #h(-1em) d mu_1 "" #h(-1em) d mu_2$なので
       (i-c)
-      も従う（ここで$mu \( Y \) < oo$なのでやはりこの過程で未定義な値は現れない）．$mu \( X \) = oo$ないしは$mu \( Y \) = oo$の場合は，$X$と$Y$の$sigma$-有限性より$A_i arrow.t X$および$B_i arrow.t Y$となる測度有限な集合の可算列\$\\set{A\_i}\$および\$\\set{B\_i}\$がとれる．$E$，$F$をそれぞれ$E sect A_i times B_i$，$F sect A_i times B_i$に置き換えれば上記の考察がそのまま適用できるので，適用した上で単調収束定理を用いればよい．
+      も従う（ここで$mu \( Y \) < oo$なのでやはりこの過程で未定義な値は現れない）．$mu \( X \) = oo$ないしは$mu \( Y \) = oo$の場合は，$X$と$Y$の$sigma$-有限性より$A_i arrow.t X$および$B_i arrow.t Y$となる測度有限な集合の可算列${ A_i }$および${ B_i }$がとれる．$E$，$F$をそれぞれ$E sect A_i times B_i$，$F sect A_i times B_i$に置き換えれば上記の考察がそのまま適用できるので，適用した上で単調収束定理を用いればよい．
 
     - $E_n in cal(C)$かつ$E_n arrow.t E$のときに$E in cal(C)$を示す．$lim_(n arrow.r oo) 1_(E_n) = 1_E$なので
       (i-a)
@@ -2380,7 +2377,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 
 ]
 #prop[
-  $A \, B in cal(B)^3$とする．$c in bb(R)$に対して\$A\_c \\coloneqq \\set{(x,y) \\in \\mathbb{R}^2 | (x,y,c) \\in A }\$，\$B\_c \\coloneqq \\set{(x,y) \\in \\mathbb{R}^2 | (x,y,c) \\in B }\$と定める．任意の$c in bb(R)$に対して$lambda^2 \( A_c \) = lambda^2 \( B_c \)$であるならば，$lambda^3 \( A \) = lambda^3 \( B \)$である．
+  $A \, B in cal(B)^3$とする．$c in bb(R)$に対して$A_c colon.eq { \( x \, y \) in bb(R)^2 \| \( x \, y \, c \) in A }$，$B_c colon.eq { \( x \, y \) in bb(R)^2 \| \( x \, y \, c \) in B }$と定める．任意の$c in bb(R)$に対して$lambda^2 \( A_c \) = lambda^2 \( B_c \)$であるならば，$lambda^3 \( A \) = lambda^3 \( B \)$である．
 
 ]
 #proof[
@@ -2403,7 +2400,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
     (ii)
     より，$x$で非零の値を持つような$phi in Phi$は有限個しかないから，左辺が意味を持つことに注意する．
 
-  + 任意の$phi in Phi$に対し，次の条件を充たす$U_phi in cal(O)$が存在する：$U_phi$に含まれるコンパクト集合$K_phi$があり，$phi$は$K_phi$の外で0である．特に，\$\\mathop{\\mathrm{supp}}\\varphi \\coloneqq \\overline{\\set{ x | \\varphi(x) \\neq 0 }} \\subset U\_{\\varphi}\$が成り立っている．
+  + 任意の$phi in Phi$に対し，次の条件を充たす$U_phi in cal(O)$が存在する：$U_phi$に含まれるコンパクト集合$K_phi$があり，$phi$は$K_phi$の外で0である．特に，$"supp" phi colon.eq overline({ x \| phi \( x \) eq.not 0 }) subset U_phi$が成り立っている．
 
   条件 (i)-(iii)
   を充たすような$Phi$を，$A$上の1の（$C^oo$級）分割という．$A$上の1の分割が更に
@@ -2415,22 +2412,22 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 #proof[
   証明を4段階に分割する．
 
-  + $A$がコンパクトの場合．$cal(O)$から有限個を選んだ\$\\set{U\_1, \\dots, U\_m}\$が$A$の被覆になっている．\$\\set{U\_1 ,\\dots, U\_m}\$に従属する$A$上の1の分割を構成すればよい．以下，$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち\$\\set{{K\_1}^\\circ,\\dots, {K\_m}^\\circ}\$が$A$の被覆になっているようなものが取れたとする．このとき@未調整な隆起関数
+  + $A$がコンパクトの場合．$cal(O)$から有限個を選んだ${ U_1 \, dots.h \, U_m }$が$A$の被覆になっている．${ U_1 \, dots.h \, U_m }$に従属する$A$上の1の分割を構成すればよい．以下，$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち${ K_1^compose \, dots.h \, K_m^compose }$が$A$の被覆になっているようなものが取れたとする．このとき@未調整な隆起関数
     によって，$K_i subset L_i subset U_i$を充たすコンパクト集合$L_i$ならびに$C^oo$級関数$psi_i : bb(R)^n arrow.r bb(R)$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U supset union.big_i K_i^compose$が存在して，$U$上で$sum_(j = 1)^m psi_j > 0$である．
     \$\$\\varphi\_i(x) \\coloneqq
     \\begin{dcases\*}
     \\frac{\\psi\_i(x)}{\\sum\_{j=1}^m \\psi\_j(x)} & if \$x \\in U\$, \\\\
     0 & otherwise,
     \\end{dcases\*}\$\$によって関数$phi_i$を定める．また，@隆起関数の存在
-    より，$C^oo$級関数$f : bb(R)^n arrow.r bb(R)$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．\$\\Phi \\coloneqq \\set{f \\cdot \\varphi\_i}\_{i=1}^m\$とすればよい#footnote[「$f dot.op phi_i : bb(R)^n arrow.r bb(R)$が$C^oo$級である」ことは非自明だと思うので，この点について補っておく；$f dot.op phi_i$が$U$において$C^oo$級であることはよい．$f dot.op phi_i$は$U$に含まれるコンパクト集合の外で0なので，$partial U$の近傍および$U$の外部において$f dot.op phi_i$は恒等的に0である．];．
+    より，$C^oo$級関数$f : bb(R)^n arrow.r bb(R)$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$Phi colon.eq { f dot.op phi_i }_(i = 1)^m$とすればよい#footnote[「$f dot.op phi_i : bb(R)^n arrow.r bb(R)$が$C^oo$級である」ことは非自明だと思うので，この点について補っておく；$f dot.op phi_i$が$U$において$C^oo$級であることはよい．$f dot.op phi_i$は$U$に含まれるコンパクト集合の外で0なので，$partial U$の近傍および$U$の外部において$f dot.op phi_i$は恒等的に0である．];．
 
-    あとは$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，\$\\set{{K\_1}^\\circ,\\dots, {K\_i}^\\circ, U\_{i+1}, \\dots, {U\_m}}\$が$A$の被覆になっていたとする．$M_(i + 1) colon.eq A \\ \( K_1^compose union K_2^compose union dots.h union K_i^compose union U_(i + 2) union dots.h U_m \)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_(i + 1) subset U_(i + 1)$を充たす．したがって@未調整な隆起関数
-    によって$M_(i + 1) subset K_(i + 1) subset U_(i + 1)$を充たすコンパクト集合$K_(i + 1)$があり，$M_(i + 1) subset K_(i + 1)^compose$を充たす．従って\$\\set{{K\_1}^\\circ,\\dots, {K\_{i+1}}^\\circ, U\_{i+2}, \\dots, {U\_m}}\$が$A$の被覆になるから帰納法が進む．
+    あとは$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，${ K_1^compose \, dots.h \, K_i^compose \, U_(i + 1) \, dots.h \, U_m }$が$A$の被覆になっていたとする．$M_(i + 1) colon.eq A \\ \( K_1^compose union K_2^compose union dots.h union K_i^compose union U_(i + 2) union dots.h U_m \)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_(i + 1) subset U_(i + 1)$を充たす．したがって@未調整な隆起関数
+    によって$M_(i + 1) subset K_(i + 1) subset U_(i + 1)$を充たすコンパクト集合$K_(i + 1)$があり，$M_(i + 1) subset K_(i + 1)^compose$を充たす．従って${ K_1^compose \, dots.h \, K_(i + 1)^compose \, U_(i + 2) \, dots.h \, U_m }$が$A$の被覆になるから帰納法が進む．
 
-  + $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 subset K_2 subset dots.h$であって，$K_i subset K_(i + 1)^compose$ならびに$K_i arrow.t A$を充たすようなものがある場合．$L_i colon.eq K_i \\ K_(i - 1)^compose$と置くと，$L_i$はコンパクトで，\$\\mathscr{O}\_i \\coloneqq \\set{ O \\cap (K\_{i+1}^\\circ \\setminus K\_{i-2} ) |  O \\in \\mathscr{O}}\$は$L_i$の開被覆である．従って$cal(O)_i$に従属した（すなわち$cal(O)$にも従属した）$L_i$上の1の分割$Phi_i$が取れる．$sigma \( x \) colon.eq sum_(i = 1)^oo sum_(phi in Phi_i) phi \( x \)$と定めると，$sigma$は各点で有限和なので実数値$C^oo$級関数になり，$overline(A)$を含む開集合$U$上で正である．@隆起関数の存在
-    を用いて$f : bb(R)^n arrow.r bb(R)$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，\$\\Phi \\coloneqq \\set{ f \\cdot  (\\varphi / \\sigma) | \\varphi \\in \\bigcup\_i \\Phi\_i }\$と置けば，これが求める1の分割である．
+  + $A$がコンパクト集合による充填をもつ，即ちコンパクト集合の列$K_1 subset K_2 subset dots.h$であって，$K_i subset K_(i + 1)^compose$ならびに$K_i arrow.t A$を充たすようなものがある場合．$L_i colon.eq K_i \\ K_(i - 1)^compose$と置くと，$L_i$はコンパクトで，$cal(O)_i colon.eq { O sect \( K_(i + 1)^compose \\ K_(i - 2) \) \| O in cal(O) }$は$L_i$の開被覆である．従って$cal(O)_i$に従属した（すなわち$cal(O)$にも従属した）$L_i$上の1の分割$Phi_i$が取れる．$sigma \( x \) colon.eq sum_(i = 1)^oo sum_(phi in Phi_i) phi \( x \)$と定めると，$sigma$は各点で有限和なので実数値$C^oo$級関数になり，$overline(A)$を含む開集合$U$上で正である．@隆起関数の存在
+    を用いて$f : bb(R)^n arrow.r bb(R)$であって$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものを取った上で，$Phi colon.eq { f dot.op \( phi \/ sigma \) \| phi in union.big_i Phi_i }$と置けば，これが求める1の分割である．
 
-  + $A$が開集合の場合．\$K\_i \\coloneqq \\set{ x \\in A | \\|x\\| \\leq i, d(x, \\partial A) \\leq 1/i }\$とすれば\$\\set{K\_i}\$が$A$のコンパクト集合による充填になるので，前段に帰着する．
+  + $A$が開集合の場合．$K_i colon.eq { x in A \| parallel x parallel lt.eq i \, d \( x \, partial A \) lt.eq 1 \/ i }$とすれば${ K_i }$が$A$のコンパクト集合による充填になるので，前段に帰着する．
 
   + $A$が一般の集合の場合．$cal(O)$に属する開集合すべての和集合を$U$とすると，$U$は開集合なので，前段により$U$上の1の分割$Phi$であって$cal(O)$に従属するものが取れる．$Phi$は$A$上の1の分割でもある．
 
@@ -2483,7 +2480,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 ]
 <変数変換公式の弱い形>
 #proof[
-  $A$全体ではなく，各$a in A$に対して$a$を含む開集合$U_a subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_a$上で証明できたとして，$phi \( A \)$の開被覆\$\\mathscr{O}\\coloneqq \\set{\\varphi(U\_a) | x \\in A}\$に従属した$phi \( A \)$上の1の分割$Psi$を取る．1の分割の定義より$psi in Psi$はある$phi \( U \) subset phi \( A \)$の外で0なので，
+  $A$全体ではなく，各$a in A$に対して$a$を含む開集合$U_a subset A$上で定理が成り立つことを証明すればよいことが次のようにわかる；各$U_a$上で証明できたとして，$phi \( A \)$の開被覆$cal(O) colon.eq { phi \( U_a \) \| x in A }$に従属した$phi \( A \)$上の1の分割$Psi$を取る．1の分割の定義より$psi in Psi$はある$phi \( U \) subset phi \( A \)$の外で0なので，
   $ integral_(phi \( A \)) \( psi dot.op f \) \( y \) "" #h(-1em) d lambda^n \( y \) & = integral_(phi \( U \)) \( psi dot.op f \) \( y \) "" #h(-1em) d lambda^n \( y \)\
   & = integral_U \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \)\
   & = integral_A \( psi dot.op f \) compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $が成り立つ．双方を$psi$に関して和をとれば
@@ -2525,11 +2522,9 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
   - 一般の$phi$の場合．$J_phi \( a \)^(- 1) compose phi$に対して主張を示せば$phi$に対しても結果が従うので，最初から$J_phi \( a \) = I_n$（単位行列）だと仮定して証明してよい．次元$n$に関する帰納法に依る．$phi_1 \( x \) colon.eq \( phi^1 \( x \) \, phi^2 \( x \) \, dots.h \, phi^(n - 1) \( x \) \, x^n \)$と定めれば$J_(phi_1) \( a \) = I_n$なので，逆関数定理より$phi_1$は$a$の近傍$V'$で定義された微分同相である．したがって$phi_2 \( x \) colon.eq \( x^1 \, x^2 \, dots.h \, x^(n - 1) \, phi^n \( phi_1^(- 1) \( x \) \) \)$が定義でき，$phi = phi_2 compose phi_1$が成り立つ．したがって$phi_2$は$phi_1 \( a \)$の近傍で定義された微分同相である．主張が合成に関して閉じていることから，$phi_1$および$phi_2$の双方に対して主張を示せばよい．議論は同様なので$phi_1$に対してのみ示す．$a$を含む開方体$V subset V'$を取る．$V$は$W subset bb(R)^(n - 1)$並びに$a^n \, b^n in bb(R)$を用いて$V = W times \( a^n \, b^n \)$と書ける．Fubini
     の定理より
     $ integral_V \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^n \( x \) = integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n $である．関数$xi_(x^n) : W arrow.r bb(R)^(n - 1)$を$xi_(x^n) \( x^1 \, dots.h \, x^(n - 1) \) colon.eq \( \( phi_1 \)^1 \( x \) \, \( phi_1 \)^2 \( x \) \, dots.h \, \( phi_1 \)^(n - 1) \( x \) \)$で定めれば，$det J_(phi_1) \( x \) = det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \)$が成り立つ．したがって
-    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n = integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n $である．\$\\xi\_{x^n}(W) = \\varphi\_1(W \\times \\set{x^n})\$および帰納法の仮定と併せて
-    \$\$\\begin{aligned}
-    \\int\_{(a^n,b^n)} \\int\_W  |\\det J\_{\\xi\_{x^n}}(x^1,\\dots,x^{n-1})| \\mathop{}\\!d\\lambda^{n-1}(x^1, \\dots, x^{n-1}) \\mathop{}\\!dx^n &= \\int\_{(a^n,b^n)} \\int\_{\\varphi\_1(W\\times \\set{x^n})} \\mathop{}\\!d\\lambda^{n-1}(x^1, \\dots, x^{n-1}) \\mathop{}\\!dx^n \\\\
-    &= \\int\_V \\mathop{}\\!d\\lambda^n(x)
-    \\end{aligned}\$\$を得る．
+    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(phi_1) \( x \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n = integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n $である．$xi_(x^n) \( W \) = phi_1 \( W times { x^n } \)$および帰納法の仮定と併せて
+    $ integral_(\( a^n \, b^n \)) integral_W \| det J_(xi_(x^n)) \( x^1 \, dots.h \, x^(n - 1) \) \| "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n & = integral_(\( a^n \, b^n \)) integral_(phi_1 \( W times { x^n } \)) "" #h(-1em) d lambda^(n - 1) \( x^1 \, dots.h \, x^(n - 1) \) "" #h(-1em) d x^n\
+    & = integral_V "" #h(-1em) d lambda^n \( x \) $を得る．
 
 ]
 #que[
@@ -2546,7 +2541,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 
 #exm[
   $P colon.eq \( 0 \, oo \) times \( 0 \, 2 pi \)$と置いて，関数$phi : P arrow.r bb(R)^2$を$phi \( r \, theta \) = \( r cos theta \, r sin theta \)$によって定める．$phi$は単射であり，Jacobi
-  行列は$J_phi \( r \, theta \) = mat(delim: "(", cos theta, - r sin theta; sin theta, r cos theta)$なので，特に$det J_phi \( r \, theta \) = r$がわかるから，逆関数定理より$phi$を$phi \( P \)$への写像とみなすと$C^1$級微分同相である．ところで\$A \\coloneqq \\set{(x,0) \\in \\mathbb{R}^2 | x \\geq 0}\$と置くとこれは閉集合で，$phi \( P \) = bb(R)^2 \\ A$なので，@変数変換公式の弱い形
+  行列は$J_phi \( r \, theta \) = mat(delim: "(", cos theta, - r sin theta; sin theta, r cos theta)$なので，特に$det J_phi \( r \, theta \) = r$がわかるから，逆関数定理より$phi$を$phi \( P \)$への写像とみなすと$C^1$級微分同相である．ところで$A colon.eq { \( x \, 0 \) in bb(R)^2 \| x gt.eq 0 }$と置くとこれは閉集合で，$phi \( P \) = bb(R)^2 \\ A$なので，@変数変換公式の弱い形
   より，$f : bb(R)^2 arrow.r overline(bb(R))$が非負可測であるか$f in L^1 \( bb(R)^2 \)$であるならば
   $ integral_(phi \( P \)) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) dot.op \| det J_phi \( r \, theta \) \| "" #h(-1em) d lambda^2 \( r \, theta \) $すなわち
   $ integral_(bb(R)^2 \\ A) f \( x \, y \) "" #h(-1em) d lambda^2 \( x \, y \) = integral_P \( f compose phi \) \( r \, theta \) med r "" #h(-1em) d lambda^2 \( r \, theta \) $を得る．$A$が測度0なので，左辺は$bb(R)^2$全域での積分に置き換えることができる．また右辺に対して
@@ -2566,16 +2561,16 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 Sard の定理である．
 
 #thm[
-  $A subset bb(R)^n$を開集合，$phi : A arrow.r bb(R)^n$を$C^1$級写像とする．このとき，\$B \\coloneqq \\set{x \\in A | \\det J\_\\varphi(x) = 0}\$と置くと，$lambda^n \( phi \( B \) \) = 0$が成り立つ．
+  $A subset bb(R)^n$を開集合，$phi : A arrow.r bb(R)^n$を$C^1$級写像とする．このとき，$B colon.eq { x in A \| det J_phi \( x \) = 0 }$と置くと，$lambda^n \( phi \( B \) \) = 0$が成り立つ．
 
 ]
 #proof[
-  有理点$q in A$を任意に取ると，各辺の長さがすべて等しい有界閉方体$U_q$であって，$q in U_q subset A$を充たすものがある．\$\\set{U\_q}\_{q \\in A}\$は$A$の可算被覆であるから，各$U_q$に対して$lambda^n \( phi \( U_q sect B \) \) = 0$を示せば，$union.big_(q in A) phi \( U_q sect B \) = phi \( union.big_(q in A) U_q sect B \) = phi \( B \)$と併せて結論を得るのでそうする．以降，$U_q$の添字を省いて単に$U$と書く．
+  有理点$q in A$を任意に取ると，各辺の長さがすべて等しい有界閉方体$U_q$であって，$q in U_q subset A$を充たすものがある．${ U_q }_(q in A)$は$A$の可算被覆であるから，各$U_q$に対して$lambda^n \( phi \( U_q sect B \) \) = 0$を示せば，$union.big_(q in A) phi \( U_q sect B \) = phi \( union.big_(q in A) U_q sect B \) = phi \( B \)$と併せて結論を得るのでそうする．以降，$U_q$の添字を省いて単に$U$と書く．
 
   $U$の各辺の長さを$ell$と置く．$epsilon > 0$を任意に一つ取って固定する．$phi$は$C^1$級なので，$partial_i phi^j$はすべて$U$上で一様連続である．したがって「$parallel x - y parallel < delta$ならば任意の$i \, j$に対して$parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$」となるような$delta > 0$がある．$U$の各辺を$N$等分することで，各辺の長さが$ell \/ N$の閉方体が$N^n$個できるが，その中で$B$と共通部分を持つものを任意にとって$S$とする．$N$を充分大きく取っておくことで，「$x \, y in S$ならば$parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$」が成り立つようにできるので，そのように$N$は取っておく．
 
-  $x in S sect B$を取ると，$det J_phi \( x \) = 0$なので，$d phi_x$は正則ではない．したがって\$\\set{ d\\varphi\_x (y-x) | y \\in S }\$はある$n - 1$次元部分空間$V subset.neq bb(R)^n$に含まれる．更に$y in S$に対して$f \( y \) colon.eq d phi_x \( y \) - phi \( y \)$と定めると，$parallel phi_i f^j \( y \) parallel = parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$なので，@微分の定量評価
-  より$parallel d phi_x \( y - x \) - phi \( y \) + phi \( x \) parallel = parallel f \( y \) - f \( x \) parallel < epsilon parallel y - x parallel lt.eq epsilon ell sqrt(n) \/ N$である．言い換えると，$d \( V + phi \( x \) \, phi \( y \) \) < epsilon ell sqrt(n) \/ N$である．また$phi$の$S$上での一様連続性より$parallel phi \( y \) - phi \( x \) parallel < M parallel y - x parallel lt.eq M ell sqrt(n) \/ N$となるような$M > 0$がある．したがって（$epsilon \, N$の何れにも依存しない）定数$A > 0$があって\$\\lambda^n( \\set{\\varphi(y) | y \\in S}) \< A (M \\ell \\sqrt{n} / N)^{n-1} \\cdot \\varepsilon \\ell \\sqrt{n} / N = AM^{n-1} \\varepsilon (\\ell \\sqrt{n}/N)^n\$が成り立つ．$S$は$S sect B = nothing$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局\$\\lambda^n( \\set{\\varphi(y) | y \\in U \\cap S}) \< AM^{n-1} \\varepsilon (\\ell \\sqrt{n})^n\$が成り立つ．$epsilon$は任意だったので，$lambda^n \( U sect B \) = 0$である．
+  $x in S sect B$を取ると，$det J_phi \( x \) = 0$なので，$d phi_x$は正則ではない．したがって${ d phi_x \( y - x \) \| y in S }$はある$n - 1$次元部分空間$V subset.neq bb(R)^n$に含まれる．更に$y in S$に対して$f \( y \) colon.eq d phi_x \( y \) - phi \( y \)$と定めると，$parallel phi_i f^j \( y \) parallel = parallel partial_i phi^j \( x \) - partial_i phi^j \( y \) parallel < epsilon \/ n^2$なので，@微分の定量評価
+  より$parallel d phi_x \( y - x \) - phi \( y \) + phi \( x \) parallel = parallel f \( y \) - f \( x \) parallel < epsilon parallel y - x parallel lt.eq epsilon ell sqrt(n) \/ N$である．言い換えると，$d \( V + phi \( x \) \, phi \( y \) \) < epsilon ell sqrt(n) \/ N$である．また$phi$の$S$上での一様連続性より$parallel phi \( y \) - phi \( x \) parallel < M parallel y - x parallel lt.eq M ell sqrt(n) \/ N$となるような$M > 0$がある．したがって（$epsilon \, N$の何れにも依存しない）定数$A > 0$があって$lambda^n \( { phi \( y \) \| y in S } \) < A \( M ell sqrt(n) \/ N \)^(n - 1) dot.op epsilon ell sqrt(n) \/ N = A M^(n - 1) epsilon \( ell sqrt(n) \/ N \)^n$が成り立つ．$S$は$S sect B = nothing$を充たすように$N^n$個の小閉方体から任意に選んできたものだったので，結局$lambda^n \( { phi \( y \) \| y in U sect S } \) < A M^(n - 1) epsilon \( ell sqrt(n) \)^n$が成り立つ．$epsilon$は任意だったので，$lambda^n \( U sect B \) = 0$である．
 
 ]
 #dig[
@@ -2593,7 +2588,7 @@ Sard の定理である．
 
 ]
 #proof[
-  \$B \\coloneqq \\set{x \\in A | \\det J\_\\varphi(x) = 0}\$と置き，連続写像$x mapsto det J_phi \( x \)$を$h$と書くことにすると，\$h^{-1}(\\set{0}) = B\$なので$B$は閉集合である．したがって$A \\ B$は開集合であるから，$bb(R)^n$における変数変換公式より
+  $B colon.eq { x in A \| det J_phi \( x \) = 0 }$と置き，連続写像$x mapsto det J_phi \( x \)$を$h$と書くことにすると，$h^(- 1) \( { 0 } \) = B$なので$B$は閉集合である．したがって$A \\ B$は開集合であるから，$bb(R)^n$における変数変換公式より
   $ integral_(phi \( A \\ B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $を得る．Sard
   の定理より$phi \( B \)$は零集合であるから，$integral_(phi \( B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = 0$である．また仮定より$integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) = 0$である．以上より
   $ integral_(phi \( A \\ B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) + integral_(phi \( B \)) f \( y \) "" #h(-1em) d lambda^n \( y \) = integral_(A \\ B) f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) + integral_B f compose phi \( x \) dot.op \| det J_phi \( x \) \| "" #h(-1em) d lambda^n \( x \) $となって定理が得られる．
@@ -2629,12 +2624,12 @@ Stokes
 の定理を理解するということは，曲線や曲面の上で微積分をどう展開するかを理解することと不可分であると言ってよいだろう．
 
 ところで，このノートにおいて積分を定義し，その性質について調べてきた．積分の定義を思い出してみる；単関数$f = sum a_i 1_(A_i)$の積分は$integral f "" #h(-1em) d mu = sum a_i mu \( A_i \)$で与えられていた．非負可測関数$f : X arrow.r \[ 0 \, oo \]$に対しては，
-$ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合\$\\set{A\_i}\$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に@非負単関数の列
-の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」\$\\set{A\_i}\$が与えられているとき，$a_i in A_i$を任意に取れば
+$ integral f "" #h(-1em) d mu colon.eq sup {integral g "" #h(-1em) d mu med mid(bar.v) med 0 lt.eq g lt.eq f \, g は 単 関 数} $によって定義した．即ち，可測関数を単関数によって下から近似することで求めた．単関数によって下から近似するとは，おおらかに言えば，空間$X$をいくつかの可測集合${ A_i }$に分割し，各集合$A_i$における近似値$a_i$を定めることであった．直感的には，$X$の分割$A_i$が何かしらの意味で細かくなればなるほど近似の精度が良くなっていくと思われるし，実際に@非負単関数の列
+の証明では，$X$の分割を細かくしていくことで，所与の可測関数に収束する単関数の列を作った．ということで，大雑把で感覚的な物言いをすると，$X$の「とても細かい分割」${ A_i }$が与えられているとき，$a_i in A_i$を任意に取れば
 $ integral f "" #h(-1em) d mu approx sum_(A_i) f \( a_i \) mu \( A_i \) $という近似式が成り立つ，ということができよう．
 
 さて，このような積分の概念を，一般の「曲面」に一般化することを考えよう．一般的な「曲面」の定義を考えるのも骨が折れそうなので，いったん具体的に，$bb(R)^3$内の単位球面
-\$\$\\mathbb{S}^2 \\coloneqq \\set{ (x^1, x^2, x^3) \\in \\mathbb{R}^3 | (x^1)^2 + (x^2)^2 + (x^3)^2 = 1}\$\$を例にして考えることにしたい．もっと即物的に言えば$bb(S)^2$を宇宙$bb(R)^3$の中にある地球表面のモデルだと思ってもよい#footnote[ある時刻での宇宙が$bb(R)^3$でモデリングできるかどうかはここでは問題にしない．];．$f : bb(S)^2 arrow.r bb(R)$の「積分」を定義するための道筋を考えることがここでの目標である．$f$に具体的なイメージがほしければ，地表における何かしらの物質の密度分布が与えられていると思って，その「地球での全質量」を求めようとしていると思えばよい．
+$ bb(S)^2 colon.eq { \( x^1 \, x^2 \, x^3 \) in bb(R)^3 \| \( x^1 \)^2 + \( x^2 \)^2 + \( x^3 \)^2 = 1 } $を例にして考えることにしたい．もっと即物的に言えば$bb(S)^2$を宇宙$bb(R)^3$の中にある地球表面のモデルだと思ってもよい#footnote[ある時刻での宇宙が$bb(R)^3$でモデリングできるかどうかはここでは問題にしない．];．$f : bb(S)^2 arrow.r bb(R)$の「積分」を定義するための道筋を考えることがここでの目標である．$f$に具体的なイメージがほしければ，地表における何かしらの物質の密度分布が与えられていると思って，その「地球での全質量」を求めようとしていると思えばよい．
 
 #que[
   もちろん積分を定義したいだけであれば$bb(S)^2$上の「Lebesgue
@@ -2678,7 +2673,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 微分形式を定義するのに必要な線型代数の事項として，双対空間とテンソル積，ならびに関連した話題について述べる．以下しばらく，$V$ならびに$W$は線型空間とする．
 
 #defi[
-  \$V^\* \\coloneqq \\set{f \\colon V \\to \\mathbb{R}| f は線型写像 }\$を$V$の双対空間という．
+  $V^(\*) colon.eq { f : V arrow.r bb(R) \| f は 線 型 写 像 }$を$V$の双対空間という．
 
 ]
 #que[
@@ -2686,9 +2681,9 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 
 ]
 #defi[
-  \$\\set{v\_1, \\dots, v\_n}\$を$V$の基底とする．各$v_i$（$1 lt.eq i lt.eq n$）に対し，線型写像$w^i : V arrow.r bb(R)$を，$w^i \( v_j \) = delta_j^i$で定める．但し，右辺は
+  ${ v_1 \, dots.h \, v_n }$を$V$の基底とする．各$v_i$（$1 lt.eq i lt.eq n$）に対し，線型写像$w^i : V arrow.r bb(R)$を，$w^i \( v_j \) = delta_j^i$で定める．但し，右辺は
   Kronecker
-  のデルタ．このとき，\$\\set{w^1, \\dots, w^n}\$は$V^(\*)$の基底となる．この基底を\$\\set{v\_1, \\dots, v\_n}\$の双対基底という．\$\\set{v\_1, \\dots, v\_n}\$の双対基底を\$\\set{v\_1^\*, \\dots, v\_n^\*}\$のように書くことも多い．
+  のデルタ．このとき，${ w^1 \, dots.h \, w^n }$は$V^(\*)$の基底となる．この基底を${ v_1 \, dots.h \, v_n }$の双対基底という．${ v_1 \, dots.h \, v_n }$の双対基底を${ v_1^(\*) \, dots.h \, v_n^(\*) }$のように書くことも多い．
 
 ]
 #que[
@@ -2753,15 +2748,15 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 
 ]
 #prop[
-  \$\\set{v\_1, \\dots, v\_n}\$を$V$の基底，\$\\set{w^1, \\dots, w^n}\$をその双対基底とする．このとき，
-  \$\$\\set{ w^{i\_1} \\otimes \\dots \\otimes w^{i\_k} | 1 \\leq i\_1, \\dots i\_k \\leq n }\$\$は$cal(T)^k \( V^(\*) \)$の基底である．したがって$cal(T)^k \( V^(\*) \)$は$n^k$次元である．
+  ${ v_1 \, dots.h \, v_n }$を$V$の基底，${ w^1 \, dots.h \, w^n }$をその双対基底とする．このとき，
+  $ { w^(i_1) times.circle dots.h times.circle w^(i_k) \| 1 lt.eq i_1 \, dots.h i_k lt.eq n } $は$cal(T)^k \( V^(\*) \)$の基底である．したがって$cal(T)^k \( V^(\*) \)$は$n^k$次元である．
 
 ]
 #proof[
   $w^(i_1) times.circle dots.h times.circle w^(i_k)$たちが一次独立であることと$cal(T)^k \( V^(\*) \)$の生成系であることを示せばよい．まず一次独立性を示す．
   $ sum_(1 lt.eq j_1 \, dots.h \, j_k lt.eq n) a_(j_1 \, dots.h \, j_k) w^(j_1) times.circle dots.h times.circle w^(j_k) = 0 $が成り立っていたと仮定する．このとき左辺の線型写像を$\( v_(i_1) \, dots.h \, v_(i_k) \)$（$1 lt.eq i_1 \, dots.h \, i_k lt.eq n$）に作用させれば$a_(i_1 \, dots.h \, i_k) = 0$が出るので，一次独立性がわかる．
 
-  $cal(T)^k \( V^(\*) \)$の生成系になっていることを示すために，$T in cal(T)^k \( V^(\*) \)$を任意に一つ取る．$u_1 \, dots.h \, u_n in V$を任意に取り，それを基底\$\\set{v\_1, \\dots, v\_n}\$で展開した係数を$a_i^j$のように書く；$u_i eq.colon sum_j a_i^j v_j$．このとき，
+  $cal(T)^k \( V^(\*) \)$の生成系になっていることを示すために，$T in cal(T)^k \( V^(\*) \)$を任意に一つ取る．$u_1 \, dots.h \, u_n in V$を任意に取り，それを基底${ v_1 \, dots.h \, v_n }$で展開した係数を$a_i^j$のように書く；$u_i eq.colon sum_j a_i^j v_j$．このとき，
   $ T \( u_1 \, dots.h \, u_n \) & = T (sum_(j_1) a_1^(j_1) v_(j_1) \, dots.h \, sum_(j_n) a_1^(j_n) v_(j_n))\
   & = sum_(j_1) a_1^(j_1) T (v_(j_1) \, sum_(j_2) a_2^(j_2) v_(j_2) \, dots.h \, sum_(j_n) a_n^(j_n) v_(j_n))\
   & = dots.h.c\
@@ -2809,12 +2804,12 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 
 ]
 #lem[
-  $T in cal(T)^2 \( V^(\*) \)$を$V$の内積とする．このとき，$V$上の基底\$\\set{v\_1, \\dots, v\_n}\$であって，
+  $T in cal(T)^2 \( V^(\*) \)$を$V$の内積とする．このとき，$V$上の基底${ v_1 \, dots.h \, v_n }$であって，
   \$\$T(v\_i, v\_j) = \\begin{dcases\*}
   1 & if \$i=j\$ \\\\
   0 & otherwise
   \\end{dcases\*}\$\$
-  を充たすようなものが存在する．このような\$\\set{v\_1, \\dots, v\_n}\$を$T$に関する正規直交基底という．
+  を充たすようなものが存在する．このような${ v_1 \, dots.h \, v_n }$を$T$に関する正規直交基底という．
 
 ]
 #proof[
@@ -2837,7 +2832,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 
 #defi[
   - $T in cal(T)^k \( V^(\*) \)$に対して，$"Alt" \( T \) in cal(T)^k \( V^(\*) \)$を
-    $ "Alt" \( T \) \( v_1 \, dots.h \, v_k \) colon.eq frac(1, k !) sum_(sigma in frak(S)_k) \( "sgn" sigma \) T \( v_(sigma \( 1 \)) \, dots.h \, v_(sigma \( k \)) \) $で定める．但し，$frak(S)_k$は$k$次対称群#footnote[\$\[k\] \\coloneqq \\set{1, \\cdots, k}\$と置いて，\$\\mathfrak{S}\_k \\coloneqq \\set{ \\sigma \\colon \[k\] \\to \[k\] | \\sigma は全単射}\$を$k$次対称群という．「群」という文字を見たことがあるかどうかはともかくとして，この概念自体は行列式の定義で見かけていると思う．];．$"Alt" : cal(T)^k \( V^(\*) \) arrow.r cal(T)^k \( V^(\*) \)$は線型写像である．すぐ後に見るが，$"Alt" \( T \) in and.big^k \( V^(\*) \)$となることがわかるので，それを踏まえて$"Alt" : cal(T)^k \( V^(\*) \) arrow.r and.big^k \( V^(\*) \)$を交代化作用素という．頭についている係数のいわれは後でわかる．
+    $ "Alt" \( T \) \( v_1 \, dots.h \, v_k \) colon.eq frac(1, k !) sum_(sigma in frak(S)_k) \( "sgn" sigma \) T \( v_(sigma \( 1 \)) \, dots.h \, v_(sigma \( k \)) \) $で定める．但し，$frak(S)_k$は$k$次対称群#footnote[$\[ k \] colon.eq { 1 \, dots.h.c \, k }$と置いて，$frak(S)_k colon.eq { sigma : \[ k \] arrow.r \[ k \] \| sigma は 全 単 射 }$を$k$次対称群という．「群」という文字を見たことがあるかどうかはともかくとして，この概念自体は行列式の定義で見かけていると思う．];．$"Alt" : cal(T)^k \( V^(\*) \) arrow.r cal(T)^k \( V^(\*) \)$は線型写像である．すぐ後に見るが，$"Alt" \( T \) in and.big^k \( V^(\*) \)$となることがわかるので，それを踏まえて$"Alt" : cal(T)^k \( V^(\*) \) arrow.r and.big^k \( V^(\*) \)$を交代化作用素という．頭についている係数のいわれは後でわかる．
 
   - $omega in and.big^k \( V^(\*) \)$，$eta in and.big^ell \( V^(\*) \)$に対して，その外積$omega and eta in and.big^(k + ell) \( V^(\*) \)$を，
     $ omega and eta colon.eq frac(\( k + ell \) !, k ! ell !) "Alt" \( omega times.circle eta \) $で定める．こちらも頭についている係数の所以は後で説明する．
@@ -2932,7 +2927,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
         & = (sum_(sigma in frak(S)_k) S \( v_(sigma \( 1 \)) \, dots.h \, v_(sigma \( k \)) \)) T \( v_(k + 1) \, dots.h \, v_(k + ell) \)\
         & = 0 .
       $
-      次いで，$tau in frak(S)_(k + ell) \\ frak(S)_k$を任意に取る#footnote[ここから先の議論は群の剰余類の考え方を知っていれば見通しがよいと思う．要するに$frak(S)_(k + ell)$を部分群$frak(S)_k$の定める右剰余類に分解し，各剰余類において和が0だから全体の和も0であるということを（群の言葉を一切出さずに）議論しているに過ぎない．];．\$\\mathfrak{S}\_k \\tau \\coloneqq \\set{\\sigma \\tau | \\sigma \\in \\mathfrak{S}\_k}\$と置くと，
+      次いで，$tau in frak(S)_(k + ell) \\ frak(S)_k$を任意に取る#footnote[ここから先の議論は群の剰余類の考え方を知っていれば見通しがよいと思う．要するに$frak(S)_(k + ell)$を部分群$frak(S)_k$の定める右剰余類に分解し，各剰余類において和が0だから全体の和も0であるということを（群の言葉を一切出さずに）議論しているに過ぎない．];．$frak(S)_k tau colon.eq { sigma tau \| sigma in frak(S)_k }$と置くと，
       $ sum_(sigma in frak(S)_k tau) S \( v_(sigma \( 1 \)) \, dots.h \, v_(sigma \( k \)) \) T \( v_(sigma \( k + 1 \)) \, dots.h \, v_(sigma \( k + ell \)) \) & = sum_(sigma' in frak(S)_k) S \( v_(sigma' tau \( 1 \)) \, dots.h \, v_(sigma' tau \( k \)) \) T \( v_(tau \( k + 1 \)) \, dots.h \, v_(tau \( k + ell \)) \)\
       & = (sum_(sigma' in frak(S)_k) S \( v_(sigma' tau \( 1 \)) \, dots.h \, v_(sigma' tau \( k \)) \)) T \( v_(tau \( k + 1 \)) \, dots.h \, v_(tau \( k + ell \)) \)\
       & = (sum_(sigma' in frak(S)_k) S \( v_(sigma' \( 1 \)) \, dots.h \, v_(sigma' \( k \)) \)) T \( v_(tau \( k + 1 \)) \, dots.h \, v_(tau \( k + ell \)) \)\
@@ -2956,7 +2951,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 さて，$and.big^k \( V^(\*) \)$の次元を決定する準備を兼ねて，外積の係数のいわれを解き明かしておくことにする．
 
 #lem[
-  \$\\set{v\_1, \\dots, v\_n}\$を$V$の基底，\$\\set{w^1, \\dots, w^n}\$をその双対基底とする．このとき，$1 lt.eq i_1 < i_2 < dots.h < i_k lt.eq n$ならば
+  ${ v_1 \, dots.h \, v_n }$を$V$の基底，${ w^1 \, dots.h \, w^n }$をその双対基底とする．このとき，$1 lt.eq i_1 < i_2 < dots.h < i_k lt.eq n$ならば
   $ w^(i_1) and dots.h and w^(i_k) \( v_(i_1) \, dots.h \, v_(i_k) \) = 1 $が成り立つ．
 
 ]
@@ -2976,8 +2971,8 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 
 ]
 #thm[
-  \$\\set{v\_1, \\dots, v\_n}\$を$V$の基底，\$\\set{w^1, \\dots, w^n}\$をその双対基底とするとき，
-  \$\$\\set{w^{i\_1} \\wedge \\dots \\wedge w^{i\_k} | 1 \\leq i\_1 \< \\dots \< i\_k \\leq n}\$\$は$and.big^k \( V^(\*) \)$の基底である．したがって$dim and.big^k \( V^(\*) \) = frac(n !, k ! \( n - k \) !)$．
+  ${ v_1 \, dots.h \, v_n }$を$V$の基底，${ w^1 \, dots.h \, w^n }$をその双対基底とするとき，
+  $ { w^(i_1) and dots.h and w^(i_k) \| 1 lt.eq i_1 < dots.h < i_k lt.eq n } $は$and.big^k \( V^(\*) \)$の基底である．したがって$dim and.big^k \( V^(\*) \) = frac(n !, k ! \( n - k \) !)$．
 
 ]
 #proof[
@@ -2995,7 +2990,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 したがって特に，$V$が（$bb(R)^n$でなかったとしても）$n$次元線型空間であるならば，$dim and.big^n \( V^(\*) \) = 1$であるとわかる．
 
 #lem[
-  \$\\set{v\_1, \\dots, v\_n}\$を$V$の基底とし，$omega in and.big^n \( V^(\*) \)$を任意に取る．更に，$w_1 \, dots.h \, w_n in V$を任意にとり$w_i eq.colon sum a_i^j v_j$と置く．このとき，
+  ${ v_1 \, dots.h \, v_n }$を$V$の基底とし，$omega in and.big^n \( V^(\*) \)$を任意に取る．更に，$w_1 \, dots.h \, w_n in V$を任意にとり$w_i eq.colon sum a_i^j v_j$と置く．このとき，
   $ omega \( w_1 \, dots.h \, w_n \) = det (a_i^j) omega \( v_1 \, dots.h \, v_n \) . $
 
 ]
@@ -3017,7 +3012,7 @@ $bb(R)^n$におけるベクトル場，ならびにベクトル場に沿った�
 
 ]
 #defi[
-  $p in bb(R)^n$に対して，\$T\_p \\mathbb{R}^n \\coloneqq \\set{(p,v)| v \\in \\mathbb{R}^n}\$を$p$における接ベクトル空間，あるいは接空間という．$T_p bb(R)^n$は以下のように加法とスカラー倍を入れることで線型空間の構造を持つ；
+  $p in bb(R)^n$に対して，$T_p bb(R)^n colon.eq { \( p \, v \) \| v in bb(R)^n }$を$p$における接ベクトル空間，あるいは接空間という．$T_p bb(R)^n$は以下のように加法とスカラー倍を入れることで線型空間の構造を持つ；
 
   - $\( p \, v \) + \( p \, v' \) = \( p \, v + v' \)$
 
@@ -3230,7 +3225,7 @@ $ d y^j_p (frac(partial, partial y^i))_p = (frac(partial, partial y^i) y^j) \( p
 
 ]
 #defi[
-  $omega$を$U$上の$k$-形式とする．このとき，任意の$p in U$に対して${(d y^(i_1))_p and dots.h and (d y^(i_k))_p med divides med 1 lt.eq i_1 < dots.h < i_k lt.eq n}$は$and.big^k T_p^(\*) M$の基底をなすので，$\( i_1 \, dots.h \, i_k \)$で添字付けられたある関数の族\$\\set{ f^y\_{i\_1,i\_2,\\dots,i\_n} \\colon U \\to \\mathbb{R}| 1 \\leq i\_1 \< \\dots \< i\_k \\leq n }\$が一意的に存在して，
+  $omega$を$U$上の$k$-形式とする．このとき，任意の$p in U$に対して${(d y^(i_1))_p and dots.h and (d y^(i_k))_p med divides med 1 lt.eq i_1 < dots.h < i_k lt.eq n}$は$and.big^k T_p^(\*) M$の基底をなすので，$\( i_1 \, dots.h \, i_k \)$で添字付けられたある関数の族${ f_(i_1 \, i_2 \, dots.h \, i_n)^y : U arrow.r bb(R) \| 1 lt.eq i_1 < dots.h < i_k lt.eq n }$が一意的に存在して，
   $ omega_p = sum_(1 lt.eq i_1 < i_2 < dots.h i_k lt.eq n) f_(i_1 \, i_2 \, dots.h \, i_n)^y \( p \) dot.op (d y^(i_1))_p and dots.h and (d y^(i_k))_p $が成り立つ．このような表示のことを$y$による$omega$の（局所）座標表示と呼ぶ．$omega$が$C^oo$級，あるいは滑らかであるとは，すべての$f_(i_1 \, i_2 \, dots.h \, i_n)^y$が$C^oo$級であることと定める．
 
 ]
@@ -3276,7 +3271,7 @@ $ d y^j_p (frac(partial, partial y^i))_p = (frac(partial, partial y^i) y^j) \( p
 
 ]
 #proof[
-  $\( j_1 \, dots.h \, j_k \) in bb(N)^k$を，$1 lt.eq j_1 < dots.h < j_k lt.eq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$""_p$や関数の引数に入る$\( p \)$を省く．\$\\set{dz^{j\_1} \\wedge \\dots \\wedge dz^{j\_k} | 1 \\leq j\_1\< \\dots \< j\_k \\leq n }\$は$and.big^k \( T_p^(\*) M \)$の基底をなすので，$d y^(i_1) and dots.h and d y^(i_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) a_(j_1 \, j_2 \, dots.h \, j_k) d z^(j_1) and dots.h and d z^(j_k)$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と@最高次交代テンソルの変換則
+  $\( j_1 \, dots.h \, j_k \) in bb(N)^k$を，$1 lt.eq j_1 < dots.h < j_k lt.eq n$を充たすように任意に一つ取る．以下この証明において，記号を軽くするために添字の$""_p$や関数の引数に入る$\( p \)$を省く．${ d z^(j_1) and dots.h and d z^(j_k) \| 1 lt.eq j_1 < dots.h < j_k lt.eq n }$は$and.big^k \( T_p^(\*) M \)$の基底をなすので，$d y^(i_1) and dots.h and d y^(i_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) a_(j_1 \, j_2 \, dots.h \, j_k) d z^(j_1) and dots.h and d z^(j_k)$と展開したときの展開係数を決定すればよい．接ベクトルの座標変換則と@最高次交代テンソルの変換則
   より
   $
     & d y^(i_1) and dots.h and d y^(i_k) (frac(partial, partial z^(j_1)) \, dots.h \, frac(partial, partial z^(j_k)))\
@@ -3327,8 +3322,8 @@ Jacobi
   & + sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (f_(i_1 \, i_2 \, dots.h \, i_k) "" #h(-1em) d det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) $を得る．したがって示すべきことは
   $ sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) ("" #h(-1em) d det (frac(partial y^(i_a), partial z^(j_b)))) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = sum_(1 lt.eq j_1 < dots.h < j_k lt.eq n) (sum_(j = 1)^n frac(partial, partial z^j) det (frac(partial y^(i_a), partial z^(j_b))) "" #h(-1em) d z^j) and "" #h(-1em) d z^(j_1) and dots.h and "" #h(-1em) d z^(j_k) = 0 $に帰着する．以下，ある程度きちんと証明をつけるが，総じて直接計算による力技なので，多分自分で証明をつけたほうが理解はしやすいです．
 
-  以下，$\( j_(1') \, dots.h \, j_(k') \)$，$1 lt.eq j_(1') < dots.h < j_(k') lt.eq n$を任意にとって一つ固定する（総和のいちばん外側のループ変数を固定して考えようとしている）．このとき，\$j\' \\in \\set{j\_1\', \\dots, j\_k\'}\$であるならば明らかに
-  $ frac(partial, partial z^(j')) det (frac(partial y^(i_a), partial z^(j_(b')))) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(k')) = 0 $である．なので，\$j\' \\notin \\set{j\_1\', \\dots, j\_k\'}\$の場合だけを考察すればよいから，そのように$j'$を取って固定する（内側のループ変数を固定して考えようとしている）．微分の
+  以下，$\( j_(1') \, dots.h \, j_(k') \)$，$1 lt.eq j_(1') < dots.h < j_(k') lt.eq n$を任意にとって一つ固定する（総和のいちばん外側のループ変数を固定して考えようとしている）．このとき，$j' in { j_(1') \, dots.h \, j_(k') }$であるならば明らかに
+  $ frac(partial, partial z^(j')) det (frac(partial y^(i_a), partial z^(j_(b')))) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(k')) = 0 $である．なので，$j' in.not { j_(1') \, dots.h \, j_(k') }$の場合だけを考察すればよいから，そのように$j'$を取って固定する（内側のループ変数を固定して考えようとしている）．微分の
   Leibniz 則を使うと
   $ & frac(partial, partial z^(j')) det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial y^(i_1), partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial y^(i_k), partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(p')) and dots.h and "" #h(-1em) d z^(j_(k'))\
   = & sum_(p = 1)^k det mat(delim: "(", frac(partial y^(i_1), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_1), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_1), partial z^(j_(k'))); dots.v, dots.down, dots.v, dots.down, dots.v; frac(partial y^(i_k), partial z^(j_(1'))), dots.h, frac(partial^2 y^(i_k), partial z^(j') partial z^(j_(p'))), dots.h, frac(partial y^(i_k), partial z^(j_(k'))); #none) "" #h(-1em) d z^(j') and "" #h(-1em) d z^(j_(1')) and dots.h and "" #h(-1em) d z^(j_(p')) and dots.h and "" #h(-1em) d z^(j_(k')) $と展開できる．この第$r$項を取り出してくると，
@@ -3632,11 +3627,11 @@ Spivak いわく Stokes の定理は3つの大きな特徴を持っていると�
 $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R)^k$と同一視できる空間」である．それを厳密な形で述べることからはじめる．
 
 #defi[
-  $M subset bb(R)^n$の各点$p$が次の条件を充たすとき，$M$は$k$次元（微分可能）多様体であると言われる；$p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，\$h\_p(U\_p \\cap M) = V\_p \\cap \\left(\\mathbb{R}^k \\times \\set{0}\\right)\$，すなわち\$h\_p(U\_p \\cap M) = \\set{y \\in V\_p | y^{k+1} = \\dots = y^n = 0}\$が成り立つ．
+  $M subset bb(R)^n$の各点$p$が次の条件を充たすとき，$M$は$k$次元（微分可能）多様体であると言われる；$p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，$h_p \( U_p sect M \) = V_p sect (bb(R)^k times { 0 })$，すなわち$h_p \( U_p sect M \) = { y in V_p \| y^(k + 1) = dots.h = y^n = 0 }$が成り立つ．
 
 ]
 #exm[
-  自明な$k$次元微分可能多様体の例は$bb(R)^k$の開集合である．もう少し自明でない例として，$k$次元球面\$\\mathbb{S}^k \\coloneqq \\set{p \\in \\mathbb{R}^{k+1} | \\|p\\|=1}\$がある．これが微分可能多様体であることを見たければ，上記の条件を直接確かめればよい．のだが，面倒なのでまだノートに書き起こしていない．
+  自明な$k$次元微分可能多様体の例は$bb(R)^k$の開集合である．もう少し自明でない例として，$k$次元球面$bb(S)^k colon.eq { p in bb(R)^(k + 1) \| parallel p parallel = 1 }$がある．これが微分可能多様体であることを見たければ，上記の条件を直接確かめればよい．のだが，面倒なのでまだノートに書き起こしていない．
 
 ]
 ここに「面倒」と書いたが，$bb(R)^n$の部分集合が多様体であるかどうか，もっとかんたんに判定できる場合がある；
@@ -3649,11 +3644,11 @@ $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R
 ]
 #proof[
   @陰関数定理の言い換え
-  より，各点$p in g \( M \)$に対して，$g \( p \)$を含む開集合$U_p$上で定義された微分同相$F_p : U_p arrow.r bb(R)^n$であって，$g compose F_p^(- 1) \( p \) = \( p^(n - k + 1) \, dots.h \, p^n \)$を充たすようなものがある．$F_p \( U_p \) colon.eq V_p$と置く．$F_p : U_p arrow.r V_p$が，定義の条件にあるような微分同相写像であること，すなわち\$F\_p(U\_p \\cap M) = V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を示せばよい．
+  より，各点$p in g \( M \)$に対して，$g \( p \)$を含む開集合$U_p$上で定義された微分同相$F_p : U_p arrow.r bb(R)^n$であって，$g compose F_p^(- 1) \( p \) = \( p^(n - k + 1) \, dots.h \, p^n \)$を充たすようなものがある．$F_p \( U_p \) colon.eq V_p$と置く．$F_p : U_p arrow.r V_p$が，定義の条件にあるような微分同相写像であること，すなわち$F_p \( U_p sect M \) = V_p sect (bb(R)^(n - k) times { 0 })$を示せばよい．
 
-  \$F\_p(U\_p \\cap M) \\subset V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を示すために，$q in U_p sect M$を任意に取って$r colon.eq F_p \( q \)$と置く．$r in V_p$はよい．$g compose F_p^(- 1) \( r \) = g \( p \) = 0$なので，$r^(n - p + 1) = dots.h = r^n = 0$，すなわち\$r \\in \\mathbb{R}^{n-k} \\times \\set{0}\$がわかる．
+  $F_p \( U_p sect M \) subset V_p sect (bb(R)^(n - k) times { 0 })$を示すために，$q in U_p sect M$を任意に取って$r colon.eq F_p \( q \)$と置く．$r in V_p$はよい．$g compose F_p^(- 1) \( r \) = g \( p \) = 0$なので，$r^(n - p + 1) = dots.h = r^n = 0$，すなわち$r in bb(R)^(n - k) times { 0 }$がわかる．
 
-  逆の包含を示すために\$r \\in V\_p \\cap \\left( \\mathbb{R}^{n-k} \\times \\set{0} \\right)\$を取る．$F_p^(- 1) \( r \) in U_p$はよい．$g compose F_p^(- 1) \( r \) = 0$なので$F_p^(- 1) \( r \) in M$である．
+  逆の包含を示すために$r in V_p sect (bb(R)^(n - k) times { 0 })$を取る．$F_p^(- 1) \( r \) in U_p$はよい．$g compose F_p^(- 1) \( r \) = 0$なので$F_p^(- 1) \( r \) in M$である．
 
 ]
 この命題によって$bb(S)^n$が$n$次元多様体となることがすぐわかる．というのも，$g : bb(R)^(n + 1) arrow.r bb(R)$を$g \( p \) colon.eq parallel p parallel^2 - 1$によって定めれば，$g$は$p in bb(S)^n$において微分が消えておらず，したがってこの命題の前件を充たすとわかるからである．
@@ -3671,16 +3666,16 @@ $k$次元多様体とは，大雑把に言ってしまえば「局所的に$bb(R
 
 ]
 #proof[
-  $M$が$k$次元多様体であったとする．$p in M$を任意に取れば，定義にあるような微分同相$h_p : U_p arrow.r V_p$が存在する．このとき，\$W\_p \\coloneqq \\set{(b^1, \\dots, b^k) | b \\in V\_p \\cap (\\mathbb{R}^k \\times \\set{0})}\$として，$f : W_p arrow.r bb(R)^n$を$f \( a \) colon.eq h_p^(- 1) \( a \, 0 \)$で定める．$h_p$が$C^oo$級微分同相であることから$f$の単射性と$C^oo$級であることがわかる．$W_p subset bb(R)^k$が開集合であることはよく，\$(a,0) \\in V\_p \\cap (\\mathbb{R}^k \\times \\set{0})\$なので$f \( a \) = h_p^(- 1) \( a \, 0 \) in U_p sect M$である．更に$f^(- 1) = h_p \|_(f \( W_p \))$なので（連続関数の制限は常に連続なのだから）$f^(- 1)$は連続である．最後に，関数$H_p : bb(R)^n arrow.r bb(R)^k$を$H_p \( a \) colon.eq \( h_p^1 \( a \) \, dots.h \, h_p^k \( a \) \)$によって定めれば，$H_p$は微分可能であり，更に$H_p \( f \( q \) \) = q$を充たす．したがって
+  $M$が$k$次元多様体であったとする．$p in M$を任意に取れば，定義にあるような微分同相$h_p : U_p arrow.r V_p$が存在する．このとき，\$W\_p \\coloneqq \\{ (b^1, \\dots, b^k) | b \\in V\_p \\cap (\\mathbb{R}^k \\times \\set{0}) \\}\$として，$f : W_p arrow.r bb(R)^n$を$f \( a \) colon.eq h_p^(- 1) \( a \, 0 \)$で定める．$h_p$が$C^oo$級微分同相であることから$f$の単射性と$C^oo$級であることがわかる．$W_p subset bb(R)^k$が開集合であることはよく，$\( a \, 0 \) in V_p sect \( bb(R)^k times { 0 } \)$なので$f \( a \) = h_p^(- 1) \( a \, 0 \) in U_p sect M$である．更に$f^(- 1) = h_p \|_(f \( W_p \))$なので（連続関数の制限は常に連続なのだから）$f^(- 1)$は連続である．最後に，関数$H_p : bb(R)^n arrow.r bb(R)^k$を$H_p \( a \) colon.eq \( h_p^1 \( a \) \, dots.h \, h_p^k \( a \) \)$によって定めれば，$H_p$は微分可能であり，更に$H_p \( f \( q \) \) = q$を充たす．したがって
   Jacobi
   行列を考えることで$J_(H_p) \( f \( q \) \) dot.op J_f \( q \) = I_k$がわかるので，特に$J_f \( q \)$の階数は$k$である．
 
-  逆に$M$の各点が座標条件を充たすと仮定する．$p in M$を任意に取れば，座標条件にあらわれる関数$f : W_p arrow.r bb(R)^n$が存在する．$p = f \( q \)$によって$q in bb(R)^k$を定める．関数$g : W_p times bb(R)^(n - k) arrow.r bb(R)^n$を，$g \( a \, b \) colon.eq f \( a \) + \( 0 \, b \)$で定めると，$det D_g \( q \, 0 \) = det D_f \( q \) eq.not 0$であることから，逆関数定理より$\( q \, 0 \)$を含む開集合$V'$ならびに$p$を含む開集合$U'$が存在して，$g$は$V'$上で$C^oo$級の逆写像$h_p : U' arrow.r V'$を持つ．また，$f$が座標条件を充たすことから，\$\\set{f(a) | (a,0) \\in V\' } = U\'\' \\cap M\$を充たす開集合$U''$が存在する#footnote[この部分は行間が大きいと思うが，本文に組み込むと議論の見通しが悪くなるので脚注で補う；座標条件の
+  逆に$M$の各点が座標条件を充たすと仮定する．$p in M$を任意に取れば，座標条件にあらわれる関数$f : W_p arrow.r bb(R)^n$が存在する．$p = f \( q \)$によって$q in bb(R)^k$を定める．関数$g : W_p times bb(R)^(n - k) arrow.r bb(R)^n$を，$g \( a \, b \) colon.eq f \( a \) + \( 0 \, b \)$で定めると，$det D_g \( q \, 0 \) = det D_f \( q \) eq.not 0$であることから，逆関数定理より$\( q \, 0 \)$を含む開集合$V'$ならびに$p$を含む開集合$U'$が存在して，$g$は$V'$上で$C^oo$級の逆写像$h_p : U' arrow.r V'$を持つ．また，$f$が座標条件を充たすことから，${ f \( a \) \| \( a \, 0 \) in V' } = U'' sect M$を充たす開集合$U''$が存在する#footnote[この部分は行間が大きいと思うが，本文に組み込むと議論の見通しが悪くなるので脚注で補う；座標条件の
     (i)
     より，$f \( W_p \) = U_1 sect M$となるような開集合$U_1$がある．更に座標条件の
     (iii)
-    より$f^(- 1)$は連続であるから，\$W\' \\coloneqq \\set{ a | (a,0) \\in V\'}\$は開集合であることとあわせれば@開集合の引き戻しは開集合
-    より\$\\set{f(a) | (a,0) \\in V\' } = f(W\') = U\_2 \\cap f(W\_p)\$となるような開集合$U_2$がある．$U'' colon.eq U_1 sect U_2$とすればよい．];．$U_p colon.eq U' sect U''$，$V_p colon.eq g^(- 1) \( U_p \)$とする．このとき，\$U\_p \\cap M = \\set{ f(a) | (a,0) \\in V\_p} = \\set{ g(a,0) | (a,0) \\in V\_p}\$なので#footnote[この部分も行間があるので補う．2つ目の等号はよいと思うので，\$U\_p \\cap M = \\set{ g(a,0) | (a,0) \\in V\_p}\$を示す．$V_p subset V'$なので，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset  \\set{ g(a,0) | (a,0) \\in V\'} = U\'\' \\cap M\$であり，かつ\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset g(V\') = U\'\$であるから，\$\\set{ g(a,0) | (a,0) \\in V\_p} \\subset U\' \\cap U\'\' \\cap M = U\_p \\cap M\$である．逆の包含を示すために$p in U_p sect M$を取る．\$p \\notin \\set{ g(a,0) | (a,0) \\in V\_p}\$であったとすると，\$p \\in \\set{ g(a,0) | (a,0) \\in V\'}\$なので，結局\$p \\in \\set{ g(a,0) | (a,0) \\in V\' \\setminus V\_p}\$であることになるが，これは$p in U_p = g \( V_p \)$に反する．];，\$h\_p(U\_p \\cap M) = g^{-1}(U\_p \\cap M) = g^{-1}(\\set{g(a,0) | (a,0) \\in V\_p}) = \\set{(a,0) | (a,0) \\in V\_p} = V\_p \\cap (\\mathbb{R}^k \\times \\set{0})\$である．
+    より$f^(- 1)$は連続であるから，$W' colon.eq { a \| \( a \, 0 \) in V' }$は開集合であることとあわせれば@開集合の引き戻しは開集合
+    より${ f \( a \) \| \( a \, 0 \) in V' } = f \( W' \) = U_2 sect f \( W_p \)$となるような開集合$U_2$がある．$U'' colon.eq U_1 sect U_2$とすればよい．];．$U_p colon.eq U' sect U''$，$V_p colon.eq g^(- 1) \( U_p \)$とする．このとき，$U_p sect M = { f \( a \) \| \( a \, 0 \) in V_p } = { g \( a \, 0 \) \| \( a \, 0 \) in V_p }$なので#footnote[この部分も行間があるので補う．2つ目の等号はよいと思うので，$U_p sect M = { g \( a \, 0 \) \| \( a \, 0 \) in V_p }$を示す．$V_p subset V'$なので，${ g \( a \, 0 \) \| \( a \, 0 \) in V_p } subset { g \( a \, 0 \) \| \( a \, 0 \) in V' } = U'' sect M$であり，かつ${ g \( a \, 0 \) \| \( a \, 0 \) in V_p } subset g \( V' \) = U'$であるから，${ g \( a \, 0 \) \| \( a \, 0 \) in V_p } subset U' sect U'' sect M = U_p sect M$である．逆の包含を示すために$p in U_p sect M$を取る．$p in.not { g \( a \, 0 \) \| \( a \, 0 \) in V_p }$であったとすると，$p in { g \( a \, 0 \) \| \( a \, 0 \) in V' }$なので，結局$p in { g \( a \, 0 \) \| \( a \, 0 \) in V' \\ V_p }$であることになるが，これは$p in U_p = g \( V_p \)$に反する．];，$h_p \( U_p sect M \) = g^(- 1) \( U_p sect M \) = g^(- 1) \( { g \( a \, 0 \) \| \( a \, 0 \) in V_p } \) = { \( a \, 0 \) \| \( a \, 0 \) in V_p } = V_p sect \( bb(R)^k times { 0 } \)$である．
 
 ]
 ここに現れた$f : W_p arrow.r bb(R)^n$の逆写像$f^(- 1) : f \( W_p \) arrow.r W_p$を，$p$のまわりの座標系という．今後$M$上の座標系を取る場合には，いちいち逆写像を取り直したり定義域を書き下すのが煩雑なので，「$p$のまわりの座標系$f : V_p arrow.r bb(R)^k$」などと，逆写像を持ち出さずに記号を定義し，定義域の宣言も暗黙に済ませることにする．
@@ -3707,11 +3702,11 @@ Stokes
 の定理を多様体に対して拡張するにあたり，ふち付き多様体の概念を導入する必要がある．
 
 #defi[
-  \$\\mathbb{H}^k \\coloneqq \\set{(p^1, \\dots, p^k) \\in \\mathbb{R}^k | p^k \\geq 0}\$を半空間という．$M subset bb(R)^n$の各点$p$が次の条件のいずれかを充たすとき，$M$は$k$次元ふち付き多様体であると言われる．
+  $bb(H)^k colon.eq { \( p^1 \, dots.h \, p^k \) in bb(R)^k \| p^k gt.eq 0 }$を半空間という．$M subset bb(R)^n$の各点$p$が次の条件のいずれかを充たすとき，$M$は$k$次元ふち付き多様体であると言われる．
 
-  + $p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，\$h\_p(U\_p \\cap M) = V\_p \\cap \\left(\\mathbb{R}^k \\times \\set{0}\\right)\$，すなわち\$h\_p(U\_p \\cap M) = \\set{y \\in V\_p | y^{k+1} = \\dots = y^n = 0}\$が成り立つ．
+  + $p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，$h_p \( U_p sect M \) = V_p sect (bb(R)^k times { 0 })$，すなわち$h_p \( U_p sect M \) = { y in V_p \| y^(k + 1) = dots.h = y^n = 0 }$が成り立つ．
 
-  + $p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，\$h\_p(U\_p \\cap M) = V\_p \\cap \\left(\\mathbb{H}^k \\times \\set{0}\\right)\$，すなわち\$h\_p(U\_p \\cap M) = \\set{y \\in V\_p | y^k \\geq 0, y^{k+1} = \\dots = y^n = 0}\$が成り立ち，更に$h_p \( p \)$の第$k$成分は0である．
+  + $p$を含む開集合$U_p subset bb(R)^n$，および開集合$V_p subset bb(R)^n$ならびに微分同相写像$h_p : U_p arrow.r V_p$が存在して，$h_p \( U_p sect M \) = V_p sect (bb(H)^k times { 0 })$，すなわち$h_p \( U_p sect M \) = { y in V_p \| y^k gt.eq 0 \, y^(k + 1) = dots.h = y^n = 0 }$が成り立ち，更に$h_p \( p \)$の第$k$成分は0である．
 
   上の条件のうち (ii)
   を充たすような点全体のことを$partial M$と書いて，$M$のふち，または境界という．定義の
@@ -3778,7 +3773,7 @@ $ (frac(partial, partial y^i))_p f = d z_p (frac(partial, partial x^i))_(y \( p 
 
 ]
 #defi[
-  $omega$を$U$上の$k$-形式とする．このとき，任意の$p in U$に対して${(d y^(i_1))_p and dots.h and (d y^(i_k))_p med divides med 1 lt.eq i_1 < dots.h < i_k lt.eq n}$は$and.big^k T_p^(\*) M$の基底をなすので，$\( i_1 \, dots.h \, i_k \)$で添字付けられたある関数の族\$\\set{ f^y\_{i\_1,i\_2,\\dots,i\_n} \\colon U \\to \\mathbb{R}| 1 \\leq i\_1 \< \\dots \< i\_k \\leq n }\$が一意的に存在して，
+  $omega$を$U$上の$k$-形式とする．このとき，任意の$p in U$に対して${(d y^(i_1))_p and dots.h and (d y^(i_k))_p med divides med 1 lt.eq i_1 < dots.h < i_k lt.eq n}$は$and.big^k T_p^(\*) M$の基底をなすので，$\( i_1 \, dots.h \, i_k \)$で添字付けられたある関数の族${ f_(i_1 \, i_2 \, dots.h \, i_n)^y : U arrow.r bb(R) \| 1 lt.eq i_1 < dots.h < i_k lt.eq n }$が一意的に存在して，
   $ omega_p = sum_(1 lt.eq i_1 < i_2 < dots.h i_k lt.eq n) f_(i_1 \, i_2 \, dots.h \, i_n)^y \( p \) dot.op (d y^(i_1))_p and dots.h and (d y^(i_k))_p $が成り立つ．このような表示のことを$y$による$omega$の（局所）座標表示と呼ぶ．$omega$が$C^oo$級，あるいは滑らかであるとは，すべての$f_(i_1 \, i_2 \, dots.h \, i_n)^y$が$C^oo$級であることと定める．
 
 ]
@@ -3837,7 +3832,7 @@ Jacobi
 行列の行列式が正であることを要求しなければいけなかった．それと同様の要求が微分可能多様体に対しても必要になる．それが「向きを選ぶ」という操作である．
 
 #defi[
-  線型空間$V$の基底上の二項関係$tilde.op$を次のように定める；「\$\\mathcal{V} = \\set{v\_1, \\dots, v\_n}\$ならびに\$\\mathcal{W} = \\set{w\_1, \\dots, w\_n}\$を$V$の基底とし，$w_i eq.colon sum a_i^j v_j$と置く．$cal(V) tilde.op cal(W)$となるのは，$det (a_i^j) > 0$がなりたつとき」．$tilde.op$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．\$\\set{v\_1, \\dots, v\_n}\$が属する向きのことを$\[ v_1 \, dots.h \, v_n \]$と書き，属さない向きのことを$- \[ v_1 \, dots.h \, v_n \]$と書く．特に$V = bb(R)^n$の場合，標準基底\$\\set{e\_1, \\dots, e\_n}\$が属する向き$\[ e_1 \, dots.h \, e_n \]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
+  線型空間$V$の基底上の二項関係$tilde.op$を次のように定める；「$cal(V) = { v_1 \, dots.h \, v_n }$ならびに$cal(W) = { w_1 \, dots.h \, w_n }$を$V$の基底とし，$w_i eq.colon sum a_i^j v_j$と置く．$cal(V) tilde.op cal(W)$となるのは，$det (a_i^j) > 0$がなりたつとき」．$tilde.op$は$V$の基底に対する同値関係を定める．この同値関係に関する同値類のことを$V$の向きという．${ v_1 \, dots.h \, v_n }$が属する向きのことを$\[ v_1 \, dots.h \, v_n \]$と書き，属さない向きのことを$- \[ v_1 \, dots.h \, v_n \]$と書く．特に$V = bb(R)^n$の場合，標準基底${ e_1 \, dots.h \, e_n }$が属する向き$\[ e_1 \, dots.h \, e_n \]$を自然な向き，または右手系といい，右手系でない向きを左手系という．
 
 ]
 #que[
@@ -3849,15 +3844,15 @@ Jacobi
 
 ]
 #defi[
-  $M$を$k$次元多様体とする．各$p in M$ごとに，$T_p M$の向きのひとつ$mu_p$を選んで集めた集合\$\\set{\\mu\_p | p \\in M}\$のことを，$M$の接空間の向きの系という．
+  $M$を$k$次元多様体とする．各$p in M$ごとに，$T_p M$の向きのひとつ$mu_p$を選んで集めた集合${ mu_p \| p in M }$のことを，$M$の接空間の向きの系という．
 
-  \$\\set{\\mu\_p | p \\in M}\$を$M$の接空間の向きの系とする．向きの系\$\\set{\\mu\_p | p \\in M}\$は次の条件を充たすときに一貫しているといわれ，充たさないときに一貫してないといわれる；任意の座標系$f : V_p arrow.r bb(R)^k$をとり，その逆写像を$g : f \( V_p \) arrow.r V_p$とするとき，任意の$a \, b in f \( V_p \)$に対して$\[ d g_a \( "Tan"_a \( e_1 \) \) \, d g_a \( "Tan"_a \( e_2 \) \) \, dots.h \, d g_a \( "Tan"_a \( e_k \) \) \] = mu_(g \( a \))$と$\[ d g_b \( "Tan"_b \( e_1 \) \) \, d g_b \( "Tan"_b \( e_2 \) \) \, dots.h \, d g_b \( "Tan"_b \( e_k \) \) \] = mu_(g \( b \))$が同値である．
+  ${ mu_p \| p in M }$を$M$の接空間の向きの系とする．向きの系${ mu_p \| p in M }$は次の条件を充たすときに一貫しているといわれ，充たさないときに一貫してないといわれる；任意の座標系$f : V_p arrow.r bb(R)^k$をとり，その逆写像を$g : f \( V_p \) arrow.r V_p$とするとき，任意の$a \, b in f \( V_p \)$に対して$\[ d g_a \( "Tan"_a \( e_1 \) \) \, d g_a \( "Tan"_a \( e_2 \) \) \, dots.h \, d g_a \( "Tan"_a \( e_k \) \) \] = mu_(g \( a \))$と$\[ d g_b \( "Tan"_b \( e_1 \) \) \, d g_b \( "Tan"_b \( e_2 \) \) \, dots.h \, d g_b \( "Tan"_b \( e_k \) \) \] = mu_(g \( b \))$が同値である．
 
   一貫した$M$の接空間の向きの系が存在するとき，$M$は向き付け可能であるという．このとき，ふたつ存在する一貫した$M$の接空間の向きの系のおのおのを$M$の向きという．向きの定まった多様体のことを向きづけられた多様体という．
 
 ]
 #defi[
-  $M$を向き付けられた多様体とし，その向きを\$\\mu = \\set{\\mu\_p | p \\in M}\$とする．座標系$f : V_p arrow.r bb(R)^k$をとり，その逆写像を$g : f \( V_p \) arrow.r V_p$とする．$f$が向きを保つとは，ある$a in f \( V_p \)$に対して，すなわち任意の$a in f \( V_p \)$に対して$\[ d g_a \( "Tan"_a \( e_1 \) \) \, dots.h \, d g_a \( "Tan"_a \( e_k \) \) \] = mu_(g \( a \))$が成り立つことをいう．
+  $M$を向き付けられた多様体とし，その向きを$mu = { mu_p \| p in M }$とする．座標系$f : V_p arrow.r bb(R)^k$をとり，その逆写像を$g : f \( V_p \) arrow.r V_p$とする．$f$が向きを保つとは，ある$a in f \( V_p \)$に対して，すなわち任意の$a in f \( V_p \)$に対して$\[ d g_a \( "Tan"_a \( e_1 \) \) \, dots.h \, d g_a \( "Tan"_a \( e_k \) \) \] = mu_(g \( a \))$が成り立つことをいう．
 
 ]
 $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$であって$det T = - 1$であるようなものを取れば$T compose f$は向きを保つ．したがって，各点において向きを保つ座標系が存在する．
@@ -3884,11 +3879,11 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #defi[
-  $M$を$k$次元ふち付き多様体とし，$mu$を$M$の向きとする．$p in partial M$を任意に取る．このとき，$v_1 \, dots.h \, v_(k - 1) in T_p partial M$を，$\[ n \( p \) \, v_1 \, dots.h \, v_(k - 1) \] = mu_p$が成り立つように取る．ここで，$v_1 \, dots.h \, v_(k - 1)$が定める$T_p partial M$の向き$\[ v_1 \, dots.h \, v_(k - 1) \]$を$\( partial M \)_p$と書く．\$\\set{(\\partial M)\_p | p \\in M}\$は$partial M$の向きを定める．この向きを$M$から定まる$partial M$の向きという．
+  $M$を$k$次元ふち付き多様体とし，$mu$を$M$の向きとする．$p in partial M$を任意に取る．このとき，$v_1 \, dots.h \, v_(k - 1) in T_p partial M$を，$\[ n \( p \) \, v_1 \, dots.h \, v_(k - 1) \] = mu_p$が成り立つように取る．ここで，$v_1 \, dots.h \, v_(k - 1)$が定める$T_p partial M$の向き$\[ v_1 \, dots.h \, v_(k - 1) \]$を$\( partial M \)_p$と書く．${ \( partial M \)_p \| p in M }$は$partial M$の向きを定める．この向きを$M$から定まる$partial M$の向きという．
 
 ]
 #exm[
-  ふち付き多様体$bb(H)^k$に通常の向き（$bb(R)^k$と同じ向き）を入れて考える．更に，境界\$\\partial \\mathbb{H}^k = \\set{x \\in \\mathbb{H}^k | x^k=0 }\$を$bb(R)^(k - 1)$と同一視する．この$bb(R)^(k - 1)$に入る向きを考察してみる．$p in partial bb(H)^k$ならびに$T_p bb(H)^k$の基底\$\\set{v\_1, \\dots, v\_{k-1}}\$を任意に取ると，$\[ n \( p \) \, v_1 \, dots.h \, v_(k - 1) \]$が自然な向きと一致するから，$n \( p \) = - "Tan"_p \( e_k \)$と併せれば$\[ - "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = \[ e_1 \, dots.h \, e_k \]$である．また，$\[ - "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = - \[ "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = \[ v_1 \, "Tan"_p \( e_k \) \, dots.h \, v_(k - 1) \] = \( - 1 \)^k \[ v_1 \, dots.h \, v_(k - 1) \, "Tan"_p \( e_k \) \]$である．ゆえに$\[ v_1 \, dots.h \, v_k \] = \( - 1 \)^k \[ e_1 \, dots.h \, e_(k - 1) \]$である．
+  ふち付き多様体$bb(H)^k$に通常の向き（$bb(R)^k$と同じ向き）を入れて考える．更に，境界$partial bb(H)^k = { x in bb(H)^k \| x^k = 0 }$を$bb(R)^(k - 1)$と同一視する．この$bb(R)^(k - 1)$に入る向きを考察してみる．$p in partial bb(H)^k$ならびに$T_p bb(H)^k$の基底${ v_1 \, dots.h \, v_(k - 1) }$を任意に取ると，$\[ n \( p \) \, v_1 \, dots.h \, v_(k - 1) \]$が自然な向きと一致するから，$n \( p \) = - "Tan"_p \( e_k \)$と併せれば$\[ - "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = \[ e_1 \, dots.h \, e_k \]$である．また，$\[ - "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = - \[ "Tan"_p \( e_k \) \, v_1 \, dots.h \, v_(k - 1) \] = \[ v_1 \, "Tan"_p \( e_k \) \, dots.h \, v_(k - 1) \] = \( - 1 \)^k \[ v_1 \, dots.h \, v_(k - 1) \, "Tan"_p \( e_k \) \]$である．ゆえに$\[ v_1 \, dots.h \, v_k \] = \( - 1 \)^k \[ e_1 \, dots.h \, e_(k - 1) \]$である．
 
 ]
 == Stokes の定理
@@ -3935,7 +3930,7 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
 
 ]
 #proof[
-  $M$に与えられた向きを\$\\mu = \\set{\\mu\_p | p \\in M}\$とする．$\[ d c_p \( "Tan"_p \( e_1 \) \) \, dots.h \, d c_p \( "Tan"_p \( e_k \) \) \] = mu_p$であるとして一般性を失わないのでそうする．$I_(\( k \, 0 \))^k \( x \) = \( x \, 0 \)$なので，$i = 1 \, dots.h \, k - 1$に対して$d (I_(\( k \, 0 \))^k)_p \( "Tan"_p \( e_i \) \) = "Tan"_p \( e_i \)$である．更に$c_(\( k \, 0 \)) = c compose I_(\( k \, 0 \))^k$すなわち$d c_(\( k \, 0 \)) = d c compose d I_(\( k \, 0 \))^k$であることから，$i = 1 \, dots.h \, k - 1$に対して$d c_p \( "Tan"_p \( e_i \) \) = d (c_(\( k \, 0 \)))_p \( "Tan"_p \( e_i \) \)$を得る．$d c_p \( "Tan" \( e_k \) \) in.not T_p partial M$であることと単位外法線の定義から$\[ - d c_p \( "Tan"_p \( e_k \) \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \] = \[ n \( x \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \]$を得る．したがって$k$が奇数ならば$\[ - d c_p \( "Tan"_p \( e_k \) \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \] = \[ d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_k \) \) \] = mu_p$を得るので，$partial M$に入る向きは$\[ d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \]$と一致する．したがって$c_(\( k \, 0 \))$は向きを保つ．$k$が偶数の場合も同様に議論して$c_(\( k \, 0 \))$は向きを保たないとわかる．
+  $M$に与えられた向きを$mu = { mu_p \| p in M }$とする．$\[ d c_p \( "Tan"_p \( e_1 \) \) \, dots.h \, d c_p \( "Tan"_p \( e_k \) \) \] = mu_p$であるとして一般性を失わないのでそうする．$I_(\( k \, 0 \))^k \( x \) = \( x \, 0 \)$なので，$i = 1 \, dots.h \, k - 1$に対して$d (I_(\( k \, 0 \))^k)_p \( "Tan"_p \( e_i \) \) = "Tan"_p \( e_i \)$である．更に$c_(\( k \, 0 \)) = c compose I_(\( k \, 0 \))^k$すなわち$d c_(\( k \, 0 \)) = d c compose d I_(\( k \, 0 \))^k$であることから，$i = 1 \, dots.h \, k - 1$に対して$d c_p \( "Tan"_p \( e_i \) \) = d (c_(\( k \, 0 \)))_p \( "Tan"_p \( e_i \) \)$を得る．$d c_p \( "Tan" \( e_k \) \) in.not T_p partial M$であることと単位外法線の定義から$\[ - d c_p \( "Tan"_p \( e_k \) \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \] = \[ n \( x \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \]$を得る．したがって$k$が奇数ならば$\[ - d c_p \( "Tan"_p \( e_k \) \) \, d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \] = \[ d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_k \) \) \] = mu_p$を得るので，$partial M$に入る向きは$\[ d c_p \( "Tan"_p \( e_1 \) \) dots.h \, d c_p \( "Tan"_p \( e_(k - 1) \) \) \]$と一致する．したがって$c_(\( k \, 0 \))$は向きを保つ．$k$が偶数の場合も同様に議論して$c_(\( k \, 0 \))$は向きを保たないとわかる．
 
 ]
 #lem[
@@ -3967,11 +3962,11 @@ $f$が向きを保たないならば，線型変換$T : bb(R)^k arrow.r bb(R)^k$
   の明示公式は学部1年で教わるのだし，やり方を工夫して外積代数の一般論を学部1年生に仕込めたりしないのだろうか？];．この定義は一般の線型空間$V$に対してそのままは通らないが，内積が与えられているもとで一般化した概念を定義することはできる；
 
 #thm[
-  $T$を$V$の内積とし，\$\\set{v\_1, \\dots, v\_n}\$を$T$に関する正規直交基底とする．このとき，ある$omega in and.big^n \( V^(\*) \)$が存在して，$\[ v_1 \, dots.h \, v_n \] = \[ w_1 \, dots.h \, w_n \]$を充たすような任意の正規直交基底\$\\set{w\_1, \\dots, w\_n}\$に対し$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．この$omega$を，内積$T$および向き$\[ v_1 \, dots.h \, v_n \]$の定める$V$の体積要素という．特に，$bb(R)^n$の標準内積および自然な向きの定める体積要素は行列式$det$である．
+  $T$を$V$の内積とし，${ v_1 \, dots.h \, v_n }$を$T$に関する正規直交基底とする．このとき，ある$omega in and.big^n \( V^(\*) \)$が存在して，$\[ v_1 \, dots.h \, v_n \] = \[ w_1 \, dots.h \, w_n \]$を充たすような任意の正規直交基底${ w_1 \, dots.h \, w_n }$に対し$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．この$omega$を，内積$T$および向き$\[ v_1 \, dots.h \, v_n \]$の定める$V$の体積要素という．特に，$bb(R)^n$の標準内積および自然な向きの定める体積要素は行列式$det$である．
 
 ]
 #proof[
-  \$\\set{v\_1^\*, \\dots, v\_n^\*}\$を\$\\set{v\_1, \\dots ,v\_n}\$の双対基底とすれば，$omega colon.eq v_1^(\*) and dots.h and v_n^(\*)$は$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．$w_i eq.colon sum a_i^j v_j$によって行列$A eq.colon (a_i^j)$を定めれば，$bb(R)^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$det A = plus.minus 1$となる．したがって@最高次交代テンソルの変換則
+  ${ v_1^(\*) \, dots.h \, v_n^(\*) }$を${ v_1 \, dots.h \, v_n }$の双対基底とすれば，$omega colon.eq v_1^(\*) and dots.h and v_n^(\*)$は$omega \( v_1 \, dots.h \, v_n \) = 1$を充たす．$w_i eq.colon sum a_i^j v_j$によって行列$A eq.colon (a_i^j)$を定めれば，$bb(R)^n$の場合と同様の議論で$A$は直交行列になることがわかるので，$det A = plus.minus 1$となる．したがって@最高次交代テンソルの変換則
   により，$\[ v_1 \, dots.h \, v_n \] = \[ w_1 \, dots.h \, w_n \]$であるならば$omega \( w_1 \, dots.h \, w_n \) = 1$である．
 
 ]

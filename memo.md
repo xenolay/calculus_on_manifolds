@@ -95,6 +95,10 @@ typst compile draft/main.typ draft/out.pdf
 
 できた。
 
+```
+for f in section{1..6}.tex; do  pandoc -f latex -t typst -s "$f" -L thm2typst.lua -o "draft/${f%.tex}.typ" || true; done
+```
+
 ## pandoc が変換してくれなかったと明示的に申告してきたもの
 
 この時点で pandoc が出した警告も確認しておくと、以下のようなものがたくさんでていた。

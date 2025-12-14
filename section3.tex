@@ -97,18 +97,18 @@ $(X,\mathcal{A},\mu)$を測度空間とする．
 \begin{itemize}
 \item $x\in X$をひとつ固定する．$\mathcal{A}=2^X$として，$\mu \colon \mathcal{A} \to [0,1]$を
 \begin{equation}
-\mu(A) \coloneqq \delta_x(A) \coloneqq \begin{dcases*}
-    1 & if $x \in A$ \\
-    0 & if $x \notin A$
-  \end{dcases*}
+\mu(A) \coloneqq \delta_x(A) \coloneqq \begin{cases}
+    1 & \text{if} x \in A \\
+    0 & \text{if} x \notin A
+  \end{cases}
 \end{equation}と定めると，$\mu$は$\mathcal{A}$上の測度になる．このような測度を Dirac 測度という．
 \item $X$の点列$\set{x_n}_{n=1}^\infty$に対して$\mu \coloneqq \sum_{n=1}^\infty \delta_{x_n}$で定めると，$\mu$は$2^X$上の測度になる．この測度を$\set{x_n}$上の数え上げ測度，あるいは計数測度という．特に$X = \Natu$として，$\mu(A) \coloneqq \sum_{i=n}^\infty \delta_n (A)$というのは「$A$に含まれる元の数」を返す写像のことである．
 \item $\mathcal{A}=2^X$として，$\mu \colon \mathcal{A} \to [0,\infty]$を
 \begin{equation}
-\mu(A) \coloneqq \begin{dcases*}
-    |A| & if $|A| < \infty$ \\
-    \infty & otherwise
-  \end{dcases*}
+\mu(A) \coloneqq \begin{cases}
+    |A| & \text{if} |A| < \infty \\
+    \infty & \text{otherwise}
+  \end{cases}
 \end{equation}と定めると，$\mu$は$\mathcal{A}$上の測度になる．$X$が高々可算である場合を除いて，この測度は$\sigma$-有限ではない．
 \end{itemize}
 \end{exm}
@@ -415,10 +415,10 @@ $(X,\mathcal{A},\mu)$を測度空間とする．可測写像$f \colon X \to \ove
 \begin{defi}
 $A \in \mathcal{A}$に対して，
 \begin{equation}
-1_A(x) \coloneqq \begin{dcases*}
-    1 & if $x \in A$ \\
-    0 & if $x \notin A$
-  \end{dcases*}
+1_A(x) \coloneqq \begin{cases}
+    1 & \text{if} x \in A \\
+    0 & \text{if} x \notin A
+  \end{cases}
 \end{equation}で定まる関数$1_A \colon X \to \Real$を$A$の指示関数という．$f \colon X \to \Real$が単関数であるとは，$a_1, a_2, \dots, a_n \in \Real$ならびに$A_1, A_2 \dots, A_n \in \mathcal{A}$を用いて$f = \sum_{i=1}^n a_i 1_{A_i}$と表せることをいう．
 \end{defi}
 

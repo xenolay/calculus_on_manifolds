@@ -45,10 +45,10 @@ $N$を$\mu$-零集合とし，$f \colon X \setminus N \to \overline{\Real}$を�
 
 $\mu$-a.e. に定義された可測関数$f \colon X \setminus N \to \overline{\Real}$に対して，関数$\tilde f \colon X \to \overline{\Real}$を
 \begin{equation}
-\tilde f(x) \coloneqq \begin{dcases*}
-    f(x) & if $x \in X \setminus N$ \\
-    0 & if $x \in N$
-  \end{dcases*}
+\tilde f(x) \coloneqq \begin{cases}
+    f(x) & \text{if} x \in X \setminus N \\
+    0 & \text{if} x \in N
+  \end{cases}
 \end{equation}と定めれば，$\tilde f \colon X \to \Real$は可測である．このもとで，$\int f \dif\mu \coloneqq \int \tilde f \dif \mu$と定める．
 \end{defi}
 
@@ -137,10 +137,10 @@ $A \subset \Real^n$を部分集合，$\mathscr{O}$を$A$の開被覆とする．
 \begin{enumerate}
 \item $A$がコンパクトの場合．$\mathscr{O}$から有限個を選んだ$\set{U_1, \dots, U_m}$が$A$の被覆になっている．$\set{U_1 ,\dots, U_m}$に従属する$A$上の1の分割を構成すればよい．以下，$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち$\set{{K_1}^\circ,\dots, {K_m}^\circ}$が$A$の被覆になっているようなものが取れたとする．このとき\ref{未調整な隆起関数} によって，$K_i \subset L_i \subset U_i$を充たすコンパクト集合$L_i$ならびに$C^\infty$級関数$\psi_i \colon \Real^n \to \Real$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U \supset \bigcup_i {K_i}^\circ$が存在して，$U$上で$\sum_{j=1}^m \psi_j > 0$である．
 \begin{equation}\varphi_i(x) \coloneqq 
- \begin{dcases*}
-    \frac{\psi_i(x)}{\sum_{j=1}^m \psi_j(x)} & if $x \in U$, \\
-    0 & otherwise,
-  \end{dcases*}
+ \begin{cases}
+    \frac{\psi_i(x)}{\sum_{j=1}^m \psi_j(x)} & \text{if} x \in U, \\
+    0 & \text{otherwise},
+  \end{cases}
 \end{equation}によって関数$\varphi_i$を定める．また，\ref{隆起関数の存在} より，$C^\infty$級関数$f \colon \Real^n \to \Real$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$\Phi \coloneqq \set{f \cdot \varphi_i}_{i=1}^m$とすればよい\footnote{「$f \cdot \varphi_i \colon \Real^n \to \Real$が$C^\infty$級である」ことは非自明だと思うので，この点について補っておく；$f \cdot \varphi_i$が$U$において$C^\infty$級であることはよい．$f \cdot \varphi_i$は$U$に含まれるコンパクト集合の外で0なので，$\partial U$の近傍および$U$の外部において$f \cdot \varphi_i$は恒等的に0である．}．
 
 あとは$K_i \subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，$\set{{K_1}^\circ,\dots, {K_i}^\circ, U_{i+1}, \dots, {U_m}}$が$A$の被覆になっていたとする．$M_{i+1} \coloneqq A \setminus ({K_1}^\circ \cup {K_2}^\circ \cup \dots \cup {K_i}^\circ \cup U_{i+2} \cup \dots U_m)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_{i+1} \subset U_{i+1}$を充たす．したがって\ref{未調整な隆起関数} によって$M_{i+1} \subset K_{i+1} \subset U_{i+1}$を充たすコンパクト集合$K_{i+1}$があり，$M_{i+1} \subset {K_{i+1}}^\circ$を充たす．従って$\set{{K_1}^\circ,\dots, {K_{i+1}}^\circ, U_{i+2}, \dots, {U_m}}$が$A$の被覆になるから帰納法が進む．

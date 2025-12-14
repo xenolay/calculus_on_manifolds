@@ -181,10 +181,10 @@ Spivak だと交代テンソル全体の記号として$\Omega^k(V)$を使って
 \begin{lem}
 $T \in \Tensor^2(V^*)$を$V$の内積とする．このとき，$V$上の基底$\set{v_1, \dots, v_n}$であって，
 \begin{equation}
-T(v_i, v_j) = \begin{dcases*}
-    1 & if $i=j$ \\
-    0 & otherwise
-  \end{dcases*}
+T(v_i, v_j) = \begin{cases}
+    1 & \text{if} i=j \\
+    0 & \text{otherwise}S
+  \end{cases}
 \end{equation}
 を充たすようなものが存在する．このような$\set{v_1, \dots, v_n}$を$T$に関する正規直交基底という．
 \end{lem}
@@ -1036,25 +1036,25 @@ $\int_{\partial I^k} f_{} \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^
 ところで，
 \begin{align}
 \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^\ell \right) &= \sum_m \frac{\partial \left(x^{\ell} \circ I^k_{(j, \alpha)}\right)}{\partial x^m} \dif x^m
-=\begin{dcases*}
-    \dif x^\ell & if $j\neq\ell$ \\
-    0 & if $j = \ell$
-  \end{dcases*}
+=\begin{cases}
+    \dif x^\ell & \text{if} j\neq\ell \\
+    0 & \text{if} j = \ell
+  \end{cases}
 \end{align}なので，結局
 \begin{align}
 &\int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^1\right) \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^2\right) \wedge \dots \wedge \left(\left(I^k_{(j,\alpha)}\right)^*\dif x^k\right) \\
-=& \begin{dcases*}
-    \int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k & if $j = i$ \\
-    0 & if $j \neq i$
-  \end{dcases*} \\
-=& \begin{dcases*}
-    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \widehat{\dif x^i} \cdots \dif x^k & if $j = i$ \\
-    0 & if $j \neq i$
-  \end{dcases*} \\
-=& \begin{dcases*}
-    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \dif x^i \cdots \dif x^k & if $j = i$ \\
-    0 & if $j \neq i$
-  \end{dcases*}
+=& \begin{cases}
+    \int_{[0,1]^{k-1}} \left(f \circ I^k_{(j,\alpha)}\right) \dif x^1 \wedge \dif x^2 \wedge \dots \widehat{\dif x^i} \dots \wedge \dif x^k & \text{if} j = i \\
+    0 & \text{if} j \neq i
+  \end{cases} \\
+=& \begin{cases}
+    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \widehat{\dif x^i} \cdots \dif x^k & \text{if} j = i \\
+    0 & \text{if} j \neq i
+  \end{cases} \\
+=& \begin{cases}
+    \int_{[0,1]^{k-1}} f (x^1, x^2, \dots, \alpha, \dots, x^k)  \dif x^1 \dif x^2 \cdots \dif x^i \cdots \dif x^k & \text{if} j = i \\
+    0 & \text{if} j \neq i
+  \end{cases}
 \end{align}
 である．ゆえに
 \begin{align}

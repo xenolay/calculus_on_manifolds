@@ -702,10 +702,9 @@ $ lim_(h arrow.r 0) frac(f \( a + h \) - f \( a \) - lambda \( h \), h) = 0 $を
   これは偏微分を見慣れた読者に向けての，やや先回り気味の注意である#footnote[TODO:ここで方向微分の定義を導入して，「微分の高次元化」の可能性は複数あり得るという話をしてもよいと思う．Gâteaux
     微分と Fréchet
     微分に関する余談を入れることも検討する．また，$f : bb(R)^2 arrow.r bb(R)$に対しては微分を考えるのと接平面を考えるのはだいたい一緒という話も（できれば微分の定義の前後に）差し込んでおきたい．もちろん，その「だいたい一緒」という話をより一般的な状況で述べていくのがこの節の主たる話題のひとつなのだが．];；微分可能ならば偏微分可能であることは後で見るが，しかしながらあらゆる変数に関して偏微分可能であったとしても（もっと強く，あらゆる方向に対する方向微分が存在したとしても），ここで定義した意味で微分可能であるとは限らない．次のような例がある；$bb(S)^1 colon.eq { x in bb(R)^2 \| parallel x parallel = 1 }$を単位円周とし，$g : bb(S)^1 arrow.r bb(R)$を，$g \( 0 \, 1 \) = g \( 1 \, 0 \) = 0$および$g \( - x \) = - g \( x \)$を充たすような連続関数とする．関数$f : bb(R)^2 arrow.r bb(R)$を，
-  \$\$f(x) =   \\begin{dcases\*}
-  \\|x\\| \\cdot g\\left( \\frac{x}{\\|x\\|} \\right) & if \$x \\neq 0\$ \\\\
-  0 & if \$x=0\$
-  \\end{dcases\*}\$\$
+  $
+    f \( x \) = cases(delim: "{", parallel x parallel dot.op g (frac(x, parallel x parallel)) & upright("if") x eq.not 0, 0 & upright("if") x = 0)
+  $
   で定める．更に$x in bb(R)^2$に対して$phi_x : bb(R) arrow.r bb(R)$を$phi_x \( t \) colon.eq f \( t x \)$で定める．このとき，
 
   - $phi_x$は微分可能である．
@@ -998,10 +997,8 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 
 ]
 #prop[
-  関数$f : bb(R) arrow.r bb(R)$を， \$\$f(x) =   \\begin{dcases\*}
-  \\exp\\left(-\\frac{1}{x^2}\\right) & if \$x \\neq 0\$ \\\\
-  0 & if \$x=0\$
-  \\end{dcases\*}\$\$
+  関数$f : bb(R) arrow.r bb(R)$を，
+  $ f \( x \) = cases(delim: "{", exp (- 1 / x^2) & upright("if") x eq.not 0, 0 & upright("if") x = 0) $
   で定めると，$f$は$C^oo$級である．更に任意の非負整数$i$に対して$f^(\( i \)) \( 0 \) = 0$が成り立つので，$f$は解析的ではない．ただし$f^(\( i \))$は$f$の$i$階導関数であり，$f^(\( 0 \)) = f$と理解する．
 
 ]
@@ -1017,10 +1014,10 @@ $C^oo$級関数の概念はすでに述べたが，これと近しい概念と�
 
 ]
 #prop[
-  関数$psi : bb(R) arrow.r bb(R)$を， \$\$\\psi(x) =   \\begin{dcases\*}
-  \\exp\\left(-\\frac{1}{(x-1)^2}\\right) \\cdot \\exp\\left(-\\frac{1}{(x+1)^2}\\right)  & if \$x \\in (-1,1)\$ \\\\
-  0 & if \$x \\notin (-1,1)\$
-  \\end{dcases\*}\$\$
+  関数$psi : bb(R) arrow.r bb(R)$を，
+  $
+    psi \( x \) = cases(delim: "{", exp (- frac(1, \( x - 1 \)^2)) dot.op exp (- frac(1, \( x + 1 \)^2)) & upright("if") x in \( - 1 \, 1 \), 0 upright("if") x in.not \( - 1 \, 1 \))
+  $
   で定めると，$psi$は$C^oo$級であり，$\( - 1 \, 1 \)$においては正であってそれ以外では0である．$a in bb(R)^n$および$epsilon > 0$に対して関数$g_(a \, epsilon) : bb(R)^n arrow.r bb(R)$を，
   $ g_(a \, epsilon) \( x \) colon.eq product_(i = 1)^n psi (frac(x^i - a^i, epsilon)) $で定めると，$g_(a \, epsilon)$は開方体$\( a^1 - epsilon \, a^1 + epsilon \) times \( a^2 - epsilon \, a^2 + epsilon \) times dots.h times \( a^n - epsilon \, a^n + epsilon \)$においては正であってそれ以外では0である．
 
@@ -1306,10 +1303,8 @@ Banach の縮小写像の原理を述べる．
 ]
 #proof[
   証明を2段階に分割する．まず$g \( x \) = \( x^(n - p + 1) \, dots.h \, x^n \)$のときを考える．このとき，$i \, = 1 \, 2 \, dots.h \, p$および$j = 1 \, 2 \, dots.h \, n$に対して
-  \$\$\\partial\_j g^i(a) = \\begin{dcases\*}
-  1 & if \$j = n-p+i\$ \\\\
-  0 & otherwise
-  \\end{dcases\*}\$\$ である．
+  $ partial_j g^i \( a \) = cases(delim: "{", 1 & upright("if") j = n - p + i, 0 & upright("otherwise")) $
+  である．
   $f$を$g^(- 1) \( 0 \)$に制限するというのは$x^(n - p + 1) = x^(n - p + 2) = x^n = 0$に固定して$n - p$変数の関数だと見なすことと同値である．したがって$f$が$a in bb(R)^n$において極値を取るならば，$partial_1 f \( a \) = partial_2 f \( a \) = dots.h partial_(n - p) f \( a \) = 0$である．したがって$lambda_i = partial_(n - p + i) f \( a \)$とすれば命題の主張が成り立つ．一般の$g$に対しては，陰関数定理によって$a$を含む開集合$U$で定義された$C^1$級微分同相$F$があって$g compose F^(- 1) = \( x^(n - p + 1) \, dots.h \, x^n \)$となるから，$F$の逆写像を$G$と書けば，前段の議論により実数$lambda_1 \, dots.h \, lambda_p$があって
   $ partial_j \( f compose G \) \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g compose G \)^i \( F \( a \) \) = sum_(i = 1)^p lambda_i partial_j \( g^i compose G \) \( F \( a \) \) $となる．@実用的な方の合成則
   より
@@ -1496,19 +1491,13 @@ Lebesgue 測度を含む測度の定式化には必要となる．
   簡単な測度の例をいくつか挙げておくことにしよう；
 
   - $x in X$をひとつ固定する．$cal(A) = 2^X$として，$mu : cal(A) arrow.r \[ 0 \, 1 \]$を
-    \$\$\\mu(A) \\coloneqq \\delta\_x(A) \\coloneqq \\begin{dcases\*}
-    1 & if \$x \\in A\$ \\\\
-    0 & if \$x \\notin A\$
-    \\end{dcases\*}\$\$と定めると，$mu$は$cal(A)$上の測度になる．このような測度を
+    $ mu \( A \) colon.eq delta_x \( A \) colon.eq cases(delim: "{", 1 & upright("if") x in A, 0 & upright("if") x in.not A) $と定めると，$mu$は$cal(A)$上の測度になる．このような測度を
     Dirac 測度という．
 
   - $X$の点列${ x_n }_(n = 1)^oo$に対して$mu colon.eq sum_(n = 1)^oo delta_(x_n)$で定めると，$mu$は$2^X$上の測度になる．この測度を${ x_n }$上の数え上げ測度，あるいは計数測度という．特に$X = bb(N)$として，$mu \( A \) colon.eq sum_(i = n)^oo delta_n \( A \)$というのは「$A$に含まれる元の数」を返す写像のことである．
 
   - $cal(A) = 2^X$として，$mu : cal(A) arrow.r \[ 0 \, oo \]$を
-    \$\$\\mu(A) \\coloneqq \\begin{dcases\*}
-    |A| & if \$|A| \< \\infty\$ \\\\
-    \\infty & otherwise
-    \\end{dcases\*}\$\$と定めると，$mu$は$cal(A)$上の測度になる．$X$が高々可算である場合を除いて，この測度は$sigma$-有限ではない．
+    $ mu \( A \) colon.eq cases(delim: "{", \| A \| & upright("if") \| A \| < oo, oo & upright("otherwise")) $と定めると，$mu$は$cal(A)$上の測度になる．$X$が高々可算である場合を除いて，この測度は$sigma$-有限ではない．
 
 ]
 これらの測度は直接定義を与えることが比較的簡単にできるが，これは例外的な状況である．たいていの場合に$sigma$-加法族は非常に大きな集合となり，それらの各元に対して測度の値を直接割り当てることは非常に困難である．それゆえ，測度を定義する際は，より小さな集合族の上で測度の概形を構成しておいて，「拡張定理」と呼ばれる定理によってそれを測度に拡張する，という戦略を取ることが多い．Lebesgue
@@ -1864,10 +1853,8 @@ $sigma$-加法族を与えることも勿論できる．が，一般的に，ふ
 $\( X \, cal(A) \, mu \)$を測度空間とする．可測写像$f : X arrow.r overline(bb(R))$に対し，その積分を定義する．一旦全て定義を述べてしまい，論理の飛躍は後で埋める．
 
 #defi[
-  $A in cal(A)$に対して， \$\$1\_A(x) \\coloneqq \\begin{dcases\*}
-  1 & if \$x \\in A\$ \\\\
-  0 & if \$x \\notin A\$
-  \\end{dcases\*}\$\$で定まる関数$1_A : X arrow.r bb(R)$を$A$の指示関数という．$f : X arrow.r bb(R)$が単関数であるとは，$a_1 \, a_2 \, dots.h \, a_n in bb(R)$ならびに$A_1 \, A_2 dots.h \, A_n in cal(A)$を用いて$f = sum_(i = 1)^n a_i 1_(A_i)$と表せることをいう．
+  $A in cal(A)$に対して，
+  $ 1_A \( x \) colon.eq cases(delim: "{", 1 & upright("if") x in A, 0 & upright("if") x in.not A) $で定まる関数$1_A : X arrow.r bb(R)$を$A$の指示関数という．$f : X arrow.r bb(R)$が単関数であるとは，$a_1 \, a_2 \, dots.h \, a_n in bb(R)$ならびに$A_1 \, A_2 dots.h \, A_n in cal(A)$を用いて$f = sum_(i = 1)^n a_i 1_(A_i)$と表せることをいう．
 
 ]
 #defi[
@@ -2295,10 +2282,7 @@ Fubini の定理に話題を移そう．Fubini の定理を厳密に述べるに
 
   $mu$-a.e.
   に定義された可測関数$f : X \\ N arrow.r overline(bb(R))$に対して，関数$tilde(f) : X arrow.r overline(bb(R))$を
-  \$\$\\tilde f(x) \\coloneqq \\begin{dcases\*}
-  f(x) & if \$x \\in X \\setminus N\$ \\\\
-  0 & if \$x \\in N\$
-  \\end{dcases\*}\$\$と定めれば，$tilde(f) : X arrow.r bb(R)$は可測である．このもとで，$integral f "" #h(-1em) d mu colon.eq integral tilde(f) "" #h(-1em) d mu$と定める．
+  $ tilde(f) \( x \) colon.eq cases(delim: "{", f \( x \) & upright("if") x in X \\ N, 0 & upright("if") x in N) $と定めれば，$tilde(f) : X arrow.r bb(R)$は可測である．このもとで，$integral f "" #h(-1em) d mu colon.eq integral tilde(f) "" #h(-1em) d mu$と定める．
 
 ]
 #thm[
@@ -2414,11 +2398,7 @@ Clairaut の定理（@clairaut）に証明をつけることにする．
 
   + $A$がコンパクトの場合．$cal(O)$から有限個を選んだ${ U_1 \, dots.h \, U_m }$が$A$の被覆になっている．${ U_1 \, dots.h \, U_m }$に従属する$A$上の1の分割を構成すればよい．以下，$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在した，すなわち${ K_1^compose \, dots.h \, K_m^compose }$が$A$の被覆になっているようなものが取れたとする．このとき@未調整な隆起関数
     によって，$K_i subset L_i subset U_i$を充たすコンパクト集合$L_i$ならびに$C^oo$級関数$psi_i : bb(R)^n arrow.r bb(R)$であって，$K_i$上で正で，$L_i$の外部で0になっているようなものが存在する．このとき，ある開集合$U supset union.big_i K_i^compose$が存在して，$U$上で$sum_(j = 1)^m psi_j > 0$である．
-    \$\$\\varphi\_i(x) \\coloneqq
-    \\begin{dcases\*}
-    \\frac{\\psi\_i(x)}{\\sum\_{j=1}^m \\psi\_j(x)} & if \$x \\in U\$, \\\\
-    0 & otherwise,
-    \\end{dcases\*}\$\$によって関数$phi_i$を定める．また，@隆起関数の存在
+    $ phi_i \( x \) colon.eq cases(delim: "{", frac(psi_i \( x \), sum_(j = 1)^m psi_j \( x \)) & upright("if") x in U \,, 0 & upright("otherwise") \,) $によって関数$phi_i$を定める．また，@隆起関数の存在
     より，$C^oo$級関数$f : bb(R)^n arrow.r bb(R)$であって，$A$上で1，$U$に含まれるコンパクト集合の外で0であるようなものが存在する．$Phi colon.eq { f dot.op phi_i }_(i = 1)^m$とすればよい#footnote[「$f dot.op phi_i : bb(R)^n arrow.r bb(R)$が$C^oo$級である」ことは非自明だと思うので，この点について補っておく；$f dot.op phi_i$が$U$において$C^oo$級であることはよい．$f dot.op phi_i$は$U$に含まれるコンパクト集合の外で0なので，$partial U$の近傍および$U$の外部において$f dot.op phi_i$は恒等的に0である．];．
 
     あとは$K_i subset U_i$を充たすようなコンパクト集合$K_i$であって，$K_i$たちの内部が$A$の被覆になるものが存在することを示せばよい．$m$に関する帰納法により，${ K_1^compose \, dots.h \, K_i^compose \, U_(i + 1) \, dots.h \, U_m }$が$A$の被覆になっていたとする．$M_(i + 1) colon.eq A \\ \( K_1^compose union K_2^compose union dots.h union K_i^compose union U_(i + 2) union dots.h U_m \)$と置くと，これは有界閉集合なのでコンパクトであり，作り方より$M_(i + 1) subset U_(i + 1)$を充たす．したがって@未調整な隆起関数
@@ -2805,10 +2785,7 @@ $ integral f omega approx sum_(M subset bb(S)^2) f \( m \) dot.op omega_m \( v_m
 ]
 #lem[
   $T in cal(T)^2 \( V^(\*) \)$を$V$の内積とする．このとき，$V$上の基底${ v_1 \, dots.h \, v_n }$であって，
-  \$\$T(v\_i, v\_j) = \\begin{dcases\*}
-  1 & if \$i=j\$ \\\\
-  0 & otherwise
-  \\end{dcases\*}\$\$
+  $ T \( v_i \, v_j \) = cases(delim: "{", 1 & upright("if") i = j, 0 & upright("otherwise") S) $
   を充たすようなものが存在する．このような${ v_1 \, dots.h \, v_n }$を$T$に関する正規直交基底という．
 
 ]
@@ -3562,27 +3539,15 @@ Jacobi
   $integral_(partial I^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k$を評価する．
   $ integral_(partial I^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(I_(\( j \, alpha \))^k) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k\
   & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (I_(\( j \, alpha \))^k)^(\*) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k\
-  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^k)\ $ ところで， \$\$\\begin{aligned}
-  \\left(\\left(I^k\_{(j,\\alpha)}\\right)^\*\\mathop{}\\!dx^\\ell \\right) &= \\sum\_m \\frac{\\partial \\left(x^{\\ell} \\circ I^k\_{(j, \\alpha)}\\right)}{\\partial x^m} \\mathop{}\\!dx^m
-  =\\begin{dcases\*}
-  \\mathop{}\\!dx^\\ell & if \$j\\neq\\ell\$ \\\\
-  0 & if \$j = \\ell\$
-  \\end{dcases\*}
-  \\end{aligned}\$\$なので，結局 \$\$\\begin{aligned}
-  &\\int\_{\[0,1\]^{k-1}} \\left(f \\circ I^k\_{(j,\\alpha)}\\right) \\left(\\left(I^k\_{(j,\\alpha)}\\right)^\*\\mathop{}\\!dx^1\\right) \\wedge \\left(\\left(I^k\_{(j,\\alpha)}\\right)^\*\\mathop{}\\!dx^2\\right) \\wedge \\dots \\wedge \\left(\\left(I^k\_{(j,\\alpha)}\\right)^\*\\mathop{}\\!dx^k\\right) \\\\
-  =& \\begin{dcases\*}
-  \\int\_{\[0,1\]^{k-1}} \\left(f \\circ I^k\_{(j,\\alpha)}\\right) \\mathop{}\\!dx^1 \\wedge \\mathop{}\\!dx^2 \\wedge \\dots \\widehat{\\mathop{}\\!dx^i} \\dots \\wedge \\mathop{}\\!dx^k & if \$j = i\$ \\\\
-  0 & if \$j \\neq i\$
-  \\end{dcases\*} \\\\
-  =& \\begin{dcases\*}
-  \\int\_{\[0,1\]^{k-1}} f (x^1, x^2, \\dots, \\alpha, \\dots, x^k)  \\mathop{}\\!dx^1 \\mathop{}\\!dx^2 \\cdots \\widehat{\\mathop{}\\!dx^i} \\cdots \\mathop{}\\!dx^k & if \$j = i\$ \\\\
-  0 & if \$j \\neq i\$
-  \\end{dcases\*} \\\\
-  =& \\begin{dcases\*}
-  \\int\_{\[0,1\]^{k-1}} f (x^1, x^2, \\dots, \\alpha, \\dots, x^k)  \\mathop{}\\!dx^1 \\mathop{}\\!dx^2 \\cdots \\mathop{}\\!dx^i \\cdots \\mathop{}\\!dx^k & if \$j = i\$ \\\\
-  0 & if \$j \\neq i\$
-  \\end{dcases\*}
-  \\end{aligned}\$\$ である．ゆえに
+  & = sum_(j = 1)^k sum_(alpha = 0)^1 integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^k)\ $ ところで，
+  $ ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^ell) & = sum_m frac(partial (x^ell compose I_(\( j \, alpha \))^k), partial x^m) "" #h(-1em) d x^m = cases(delim: "{", "" #h(-1em) d x^ell & upright("if") j eq.not ell, 0 & upright("if") j = ell) $なので，結局
+  $
+    & integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^1) and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^2) and dots.h and ((I_(\( j \, alpha \))^k)^(\*) "" #h(-1em) d x^k)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) (f compose I_(\( j \, alpha \))^k) "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h.c accent("" #h(-1em) d x^i, ̂) dots.h.c "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)\
+    = & cases(delim: "{", integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, alpha \, dots.h \, x^k \) "" #h(-1em) d x^1 "" #h(-1em) d x^2 dots.h.c "" #h(-1em) d x^i dots.h.c "" #h(-1em) d x^k & upright("if") j = i, 0 & upright("if") j eq.not i)
+  $
+  である．ゆえに
   $
     integral_(partial I^n) f_() "" #h(-1em) d x^1 and "" #h(-1em) d x^2 and dots.h accent("" #h(-1em) d x^i, ̂) dots.h and "" #h(-1em) d x^k = & \( - 1 \)^(i + 1) integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 1 \, dots.h \, x^k \) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k\
     & + \( - 1 \)^i integral_(\[ 0 \, 1 \]^(k - 1)) f \( x^1 \, x^2 \, dots.h \, 0 \, dots.h \, x^k \) "" #h(-1em) d x^1 dots.h.c "" #h(-1em) d x^k .

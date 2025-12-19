@@ -72,11 +72,11 @@
   place(top, float: true, scope: "parent", clearance: 4mm)[
     #if title != none {
       align(center)[#block(inset: 2em)[
-        #text(weight: "bold", size: 1.5em)[#title]
+        #text(size: 1.5em)[#title]
         #(
           if subtitle != none {
             parbreak()
-            text(weight: "bold", size: 1.25em)[#subtitle]
+            text(size: 1.25em)[#subtitle]
           }
         )
       ]]
@@ -104,7 +104,7 @@
 
     #if abstract != none {
       block(inset: 2em)[
-        #text(weight: "semibold")[Abstract] #h(1em) #abstract
+        #text()[Abstract] #h(1em) #abstract
       ]
     }
   ]
@@ -170,7 +170,7 @@ Spivak
 GitHub Pages
 で公開されているが，その実装は永山涼雅氏による．厚く感謝申し上げる．なお，本文中に存在する誤りや不適切な記述の全ては，筆者である私の責に帰する．
 
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 準備
 <準備>
@@ -629,7 +629,7 @@ Heine-Borel の定理のみである．
 ]
 ~
 
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 多変数関数の微分
 <多変数関数の微分>
@@ -1376,7 +1376,7 @@ Banach の縮小写像の原理を述べる．
   変換のひとつの一般化として，接触変換というものがあるらしく，これがひとつの答えになっているのではないかと期待しているが，一方この概念はどのような文脈で現れるのだろうか．
 
 ]
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 測度論
 <測度論>
@@ -2221,7 +2221,7 @@ Riemann 積分の場合よりも遥かに単純だと思う）充分条件を以
   あとは$cal(L)_A$が$cal(A)$を含む$lambda$-システムであることを示せば良い．$cal(A)$上$nu_1 = nu_2$で，かつ$cal(A)$は$pi$-システムなので$cal(A) subset cal(L)_A$である．したがって$X in cal(L)_A$もよい．$B_1 \, B_2 in cal(L)_A$が$B_1 subset B_2$を充たすならば，$nu_1 \( A inter \( B_2 \\ B_1 \) \) = nu_1 \( \( A inter B_2 \) \\ \( A inter B_1 \) \) = nu_1 \( A inter B_2 \) - nu_1 \( A inter B_1 \) = nu_2 \( A inter B_2 \) - nu_2 \( A inter B_1 \) = nu_2 \( \( A inter B_2 \) \\ \( A inter B_1 \) \) = nu_2 \( A inter \( B_2 \\ B_1 \) \)$なので$B_2 \\ B_1 in cal(L)_A$である（ここで$nu_1 \( A \) = nu_2 \( A \) < oo$を使っている）．$B_i arrow.t B$なる${ B_i } subset cal(L)_A$に対して$nu_1 \( A inter B \) = lim_(i arrow.r oo) nu_1 \( A inter B_i \) = lim_(i arrow.r oo) nu_2 \( A inter B_i \) = nu_2 \( A inter B \)$であるので，$B in cal(L)_A$である．
 
 ]
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 多変数関数の積分
 <多変数関数の積分>
@@ -2583,7 +2583,7 @@ Sard の定理である．
   実際には変数変換公式の仮定は更に弱めることができるらしい．例えば単射性を落とすといった拡張の仕方があり得るらしい．ところで極座標変換くらいだったら微分同相という仮定のついたバージョンからでも出せた．仮定を弱めたくなる実用的な例はいくらでもあると思うのだが，とりあえず思いついていない．
 
 ]
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 鎖体上の微分形式とその積分
 <鎖体上の微分形式とその積分>
@@ -3578,7 +3578,7 @@ Spivak いわく Stokes の定理は3つの大きな特徴を持っていると�
 
 ここまでの議論ではじめのふたつの特徴が確かに認められること，ならびにここからの議論でもうひとつの特徴が認められることが納得できたなら，このノートの目標は完全に達成されたといえる．
 
-10pt 15pt #strong[] . 5pt plus 1pt minus 1pt
+
 
 = 微分可能多様体
 <微分可能多様体>

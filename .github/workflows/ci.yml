@@ -11,10 +11,11 @@ jobs:
 
       - uses: typst-community/setup-typst@v4
 
-      - name: Install fonts
+      - name: Install Takao fonts
         run: |
           sudo apt-get update
-          sudo apt-get install -y fonts-noto-cjk
+          sudo apt-get install -y fonts-takao-mincho fonts-takao-gothic
+          fc-cache -fv
 
       - run: mkdir -p out
       - run: typst compile main.typ out/main.pdf

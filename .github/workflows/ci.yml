@@ -7,15 +7,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v4
+
+      - uses: typst-community/setup-typst@v4
+
+      - name: Install Takao fonts
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-takao-mincho fonts-takao-gothic
+          fc-cache -fv
 
       - run: mkdir -p out
-      - run: docker run -v"$PWD:/workdir" paperist/alpine-texlive-ja:2020 uplatex -interaction=batchmode Calculus_on_Manifolds.tex
-      - run: docker run -v"$PWD:/workdir" paperist/alpine-texlive-ja:2020 uplatex -interaction=batchmode Calculus_on_Manifolds.tex
-      - run: docker run -v"$PWD:/workdir" paperist/alpine-texlive-ja:2020 dvipdfmx Calculus_on_Manifolds.dvi -o out/Calculus_on_Manifolds.pdf
-
+      - run: typst compile main.typ out/Calculus_on_Manifolds.pdf
       - uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
-        if: github.ref == 'refs/heads/master'
